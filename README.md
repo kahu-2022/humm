@@ -16,6 +16,7 @@ We see ourselves not as an accommodation facility but as a community, offering r
 - (to add more)
 
 
+
 ## Things to keep in mind
 - Needs to be mobile first - it's mostly likely residents will be accessing the site using their phone.
 
@@ -29,7 +30,8 @@ We see ourselves not as an accommodation facility but as a community, offering r
 | Jad    | Back end lead   |
 | John    | Vibes checker |
 
-
+## Wireframes 
+https://unsplash.com/
 
 ## User Stories
 
@@ -41,7 +43,8 @@ We see ourselves not as an accommodation facility but as a community, offering r
 
 ### MVP
 
-1. As a resident I want to book an appointment with a counsellor so that I can recieve help 
+1. As a resident I want to book an appointment with a counsellor so that I can recieve help
+    - Once submitted:  display 
     - Form fields to book the counsellor:
     - Name
     - Pronouns
@@ -49,6 +52,8 @@ We see ourselves not as an accommodation facility but as a community, offering r
     - Urgency - (today, 1-2 days, soon)
     - Preferred date and time
     - Preference for being contacted
+
+    
 
 2. I want to be able to browse available counsellors
     - Information I want to see:
@@ -61,10 +66,8 @@ We see ourselves not as an accommodation facility but as a community, offering r
 3. I want to be able to select my preferred councillor for my appointment 
 
 4. I want to see upcoming activities (things going on at the center)
-    - Like:
-    - Group sessions (addiction recovery), DBT group therapy, art therapy, dance, yoga, workshops
-
-    - Information about the activity 
+    -  Like - Group sessions (addiction recovery), DBT group therapy, art therapy, dance, yoga, workshops
+    - Information about the activity
     - Title
     - Description
     - Date
@@ -80,8 +83,7 @@ We see ourselves not as an accommodation facility but as a community, offering r
     - Name
     - room 
     - Contact details (if available)
-
-    - 
+    
 
 6. I want to add an activity to the site 
     - See fields for number 4
@@ -89,7 +91,7 @@ We see ourselves not as an accommodation facility but as a community, offering r
 
 
 7. I want to browse emergency (digital resources)
- - Lifeline link/number/info
+    - Lifeline link/number/info
 
 8. I want to browse physical resources
     - Library, films, learning platforms, books
@@ -100,22 +102,25 @@ We see ourselves not as an accommodation facility but as a community, offering r
 9. I want to view available food
 
 10. I want to claim food
+    - When claim is clicked, name needs to be entered 
 
 11. I want to add available food
-- Name of person adding 
-- item name
-- quantity 
-- date added
-- use by
+    - Name of person adding 
+    - item name
+    - quantity 
+    - date added
+    - use by
 
 12. I want to see available volunteering
-- Title
-- Description
-- When
-- Where
+    - Title
+    - Description
+    - When
+    - Where
 
 
 13. I want to sign up for volunteering 
+    - 
+
 
 
 
@@ -126,14 +131,7 @@ We see ourselves not as an accommodation facility but as a community, offering r
 
 
 15. I want to be able to read general information about the center
- - e.g meal times, faqs
-
-
-
-know what resources are available 
-    - Types of resources 
-
-
+    - e.g meal times, faqs
 
 
 
@@ -143,12 +141,17 @@ know what resources are available
 
 | name          | purpose                                                                                                                  |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Login         | View for user to enter their login credentials                                                                           |
-| Register      | View for user to sign up for the App                                                                                     |
-| CreateMeeting | View for user to arrange meeting attendees and information before starting the timer                                     |
-| Meeting       | View to display current meeting time, cost and other information while the meeting is in progress                        |
-| History       | Display a list of past meetings the user has attended with select preview information                                    |
-| PastMeeting   | Display a single meeting from the history list, displaying more information and a list of attendees for the past meeting |
+| Home         |    General info                                                                        |
+| Mental health         |  Page to view whats offered for mental health and browse digital/emergency resources                                                                          |
+| View activities      | See upcoming activities and sign up                                                                                 |
+| Add new activity      | See upcoming activities and sign up                                                                                 |
+| Book counselling | View to fill in form for counselling                                     |
+| View counsellors       | View all the counsellors and information about them                      |
+| View food       | View list of available food and claim food                              |
+| Add food       | Add available food                                  |
+| View volunteering       | View volunteering and sign up                              |
+| Submit problem with room       | Submit problem with room                             |
+| FAQs       | Frequently asked questions                            |
 
 ## Reducers (Client Side)
 
