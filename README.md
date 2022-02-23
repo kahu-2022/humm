@@ -33,6 +33,9 @@ We see ourselves not as an accommodation facility but as a community, offering r
 
 ## User Stories
 
+### User Story Map 
+(You can view it here) https://miro.com/app/board/uXjVOKLWmg8=/?invite_link_id=102738140562 
+
 ![Humm map (1)](https://user-images.githubusercontent.com/93626609/155404404-d6b89357-00d6-4b89-b9b9-e5a3fb9ac1c3.jpg)
 
 
