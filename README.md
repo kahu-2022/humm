@@ -1,60 +1,298 @@
-# Fullstack Collection App
+# Humm
 
-This repo is designed to provide space to code a fullstack app. It contains node modules and folders for databases, routes, api requests, react components, and redux actions and creators. Let's get going!
+## Final project
 
-```
+humm is a community-oriented living centre, designed to provide vulnerable members of our society not just food and shelter, but a range of building blocks they need to recover from addiction and trauma and feel safe and included in the world. 
+
+We see ourselves not as an accommodation facility but as a community, offering residents counselling (individual and group), as well as opportunities to foster their hobbies and talents, and bond with other members of our whānau through communal meals, movie nights, yoga classes and more fun stuff.
+
+
+## The Tech
+
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Redux](https://redux.js.org/)
+- [Express](https://expressjs.com/en/api.html)
+- [Knex.js (SQL)](https://knexjs.org/)
+- (to add more)
+
+
+## Things to keep in mind
+- Needs to be mobile first - it's mostly likely residents will be accessing the site using their phone.
+
+## Roles
+| name          | role                                                                                                                  |
+| ------------- | ------------------------------ |
+| Hareton         | Product Owner                                                                            |
+| Hareton / Courtney      | Scrum Master          |
+| Hareton / Courtney      | Git lead    |
+| Rose    | Front end lead   |
+| Jad    | Back end lead   |
+
+
+
+## User Stories
+
+![Humm map (1)](https://user-images.githubusercontent.com/93626609/155404404-d6b89357-00d6-4b89-b9b9-e5a3fb9ac1c3.jpg)
+
+
+### MVP
+
+1. As a resident I want to book an appointment with a counsellor so that I can recieve help 
+    - Form fields to book the counsellor:
+    - Name
+    - Pronouns
+    - Preference for format - (phone, zoom, face to face, text)
+    - Urgency - (today, 1-2 days, soon)
+    - Preferred date and time
+    - Preference for being contacted
+
+2. I want to be able to browse available counsellors
+    - Information I want to see:
+    - Name
+    - Speciality
+    - Photo
+    - Available hours
+    - Bio       
+
+3. I want to be able to select my preferred councillor for my appointment 
+
+4. I want to see upcoming activities (things going on at the center)
+    - Like:
+    - Group sessions (addiction recovery), DBT group therapy, art therapy, dance, yoga, workshops
+
+    - Information about the activity 
+    - Title
+    - Description
+    - Date
+    - Time 
+    - recurring 
+    - frequency
+    - counsellor 
+    - community/center led 
+
+
+5. I want to sign up for activities
+    - Info about what they are signing up for 
+    - Name
+    - room 
+    - Contact details (if available)
+
+    - 
+
+6. I want to add an activity to the site 
+    - See fields for number 4
+
+
+
+7. I want to browse emergency (digital resources)
+ - Lifeline link/number/info
+
+8. I want to browse physical resources
+    - Library, films, learning platforms, books
+    - Title
+    - URL
+    - Description 
+
+9. I want to view available food
+
+10. I want to claim food
+
+11. I want to add available food
+- Name of person adding 
+- item name
+- quantity 
+- date added
+- use by
+
+12. I want to see available volunteering
+- Title
+- Description
+- When
+- Where
+
+
+13. I want to sign up for volunteering 
+
+
+
+14. I want to be able to report an issue with my room 
+    - Name 
+    - Room number 
+    - issue with room 
+
+
+15. I want to be able to read general information about the center
+ - e.g meal times, faqs
+
+
+
+know what resources are available 
+    - Types of resources 
+
+
+
+
+
+---
+
+## Views (Client Side 
+
+| name          | purpose                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Login         | View for user to enter their login credentials                                                                           |
+| Register      | View for user to sign up for the App                                                                                     |
+| CreateMeeting | View for user to arrange meeting attendees and information before starting the timer                                     |
+| Meeting       | View to display current meeting time, cost and other information while the meeting is in progress                        |
+| History       | Display a list of past meetings the user has attended with select preview information                                    |
+| PastMeeting   | Display a single meeting from the history list, displaying more information and a list of attendees for the past meeting |
+
+## Reducers (Client Side)
+
+| name           | purpose                                                              |
+| -------------- | -------------------------------------------------------------------- |
+| auth           | Store information regarding user logins, auth status and auth errors |
+| currentMeeting | Track meeting progress such as current cost and current duration     |
+| meetings       | store the list of meetings the user has attended in the past         |
+| users          | store the list of users who can attend meetings                      |
+
+## Actions
+
+### meetings
+
+| type             | data     | purpose                                                 |
+| ---------------- | -------- | ------------------------------------------------------- |
+| RECEIVE_MEETINGS | meetings | retreive meetings from the db and store in redux        |
+| ADD_MEETING      | meeting  | Add a single meeting to the history after it is created |
+
+### users
+
+| type          | data  | purpose                            |
+| ------------- | ----- | ---------------------------------- |
+| RECEIVE_USERS | users | retreive the users from the server |
+
+### currentMeeting
+
+| type            | data                         | purpose                                          |
+| --------------- | ---------------------------- | ------------------------------------------------ |
+| START_MEETING   | attendees ([]), meeting_name | a meeting has started, set initial meeting state |
+| END_MEETING     | null                         | Set meeting in progress flag to false            |
+| TICK_ONE_SECOND | null                         | Increase running total by 1s worth of $          |
+| RESET_MEETING   | null                         | Revert to initial state                          |
+
+## API (Client - Server)
+
+| Method | Endpoint                | Protected | Usage                          | Response                                          |
+| ------ | ----------------------- | --------- | ------------------------------ | ------------------------------------------------- |
+| Post   | /api/auth/login         | Yes       | Log In a User                  | The Users JWT Token                               |
+| Post   | /api/auth/register      | Yes       | Register a User                | The Users JWT Token                               |
+| Get    | /api/meetings           | Yes       | Get a Users Meeting Histroy    | An Array of Meetings                              |
+| Post   | /api/meetings           | Yes       | Save a completed meeting       | The Meeting that has been saved in db read format |
+| Get    | /api/meetings/:id/users | Yes       | Get the attendees of a Meeting | An Array of User objects                          |
+| Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          |
+
+## DB (Server Side)
+
+There should be three tables for MVP
+
+### Users
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| id          | Integer   |
+| username    | String    |
+| first_name  | String    |
+| last_name   | String    |
+| hash        | text      |
+
+### Meetings
+
+| Column Name  | Data Type |
+| ------------ | --------- |
+| id           | Integer   |
+| meeting_name | String    |
+| time         | Timestamp |
+| attendees    | integer   |
+| cost         | Decimal   |
+
+### Attendees (Join Table M2M)
+
+Many Users attend Many Meetings
+
+| Column Name | Data Type |
+| ----------- | --------- |
+| user_id     | Integer   |
+| meeting_id  | Integer   |
+
+---
+
+## Setup
+
+Run the following commands in your terminal:
+
+```sh
 npm install
-git checkout -b <branchname>
+npm run knex migrate:latest
+npm run knex seed:run
+cp .env.example .env
+```
+
+To run in development:
+
+```sh
 npm run dev
 ```
 
-## Notes
+To run in production:
 
-A few notes to keep you out of trouble:
-- When running knex, run `npm run knex <command>`, e.g. `npm run knex migrate:latest` rather than using `npx`
-- When running webpack, run `npm run webpack <extra commands>`, e.g. `npm run webpack`, rather than using `npx`
-
-## How to start
-
-First, decide what you would like to keep a collection of. This could be a repo for keeping track of movies, books, gifs, cars, rocks, anything you fancy!
-
-**Note:** the aim is to have some simple data. If you think you might need more than one database table, or have lots of details you want to store, how could you simplify the information you're keeping track of? Leave more complex data until later in the project. For example, I want to keep track of books that I want to read, ones that I have read, and ones that I own. To start with though, let's keep track of the books themselves. My data might look like:
-
-|id|title|author|
-|---|---|---|
-| 1 | Ready Player One | Ernest Cline |
-| 2 | Throwing Rocks at the Google Bus | Douglas Rushkoff |
-
-Our first job is getting something showing on the front end from our database. Here's a list of steps in case they are useful. You can build in any order you like though ;)
-
-### Back End
-
-1.  Design a database to store a list of your things (e.g. books)
-1.  Build the migrations and seed data
-1.  Build an API (back end route) to get the information from your database
-1.  Test your API with Postman/Insomnia
-
-### Front End
-
-1.  Build a React Component with static html
-1.  Build Redux Reducer. Start with a hardcoded initial state, for example:
-```js
-const initialState = [{ id: 1, title: 'Ready Player One', author: 'Ernest Cline' }]
+```sh
+npm start
 ```
-3.  Use `useSelector` to display the redux state you hardcoded in the React Component
-1.  Build an API Client in the front end to request the information from your routes
-1.  Build Thunk Actions to use the API and get the information
-1.  Build Redux Actions to save task data from the thunk
-1.  Use `useDispatch` and `useEffect` to dispatch the thunk when your app loads
 
-## Next steps
+## Heroku!!!
 
-At this stage we should be able to view our information. Below are suggested next steps, though you might prioritize these in another order.
+### Creating your app
 
-- Include the ability to add a new record (will need a form in your components)
-- Include the ability to remove/delete records
-- Include the ability to update records (e.g. for correcting typos)
-  - You might have some other information (e.g. unread books vs. read books) that should be included in your database design, but this may require adjusting your database design - start simple!
-- Is there any complex data you chose to not include earlier or any way you could expand this dataset?
-- Could you add an external API (maybe an inspirational quote in the footer?)
-- If you haven't already, CSS!
+Create your app with `heroku create [name]`
+
+You can check that this was successful by running `heroku apps` to view a list of your apps
+
+### Adding postgres
+
+Add postgresql (hobby dev) to your app at `https://dashboard.heroku.com/apps/[APP NAME HERE]/resources`
+
+Check that pg has been added by running `heroku addons` to ensure the postgresql db is on your app
+
+### Deploying!
+
+I have created several npm scripts that will be useful for deploying your app to heroku easily.
+
+To push your local master branch to your heroku app:
+
+```sh
+npm run h:deploy
+```
+
+Run heroku migrations:
+
+```sh
+npm run h:migrate
+```
+
+Run heroku seeds:
+
+```sh
+npm run h:seed
+```
+
+If ever you need to rollback, you can also:
+
+```sh
+npm run h:rollback
+```
+
+### Ta-Da!
+
+Your app should be deployed!
+
+### Group Info
+
