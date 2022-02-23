@@ -154,17 +154,20 @@ https://unsplash.com/
 | FAQs       | Frequently asked questions                            |
 
 ## Reducers (Client Side)
+TODO - add reducers
 
-| name           | purpose                                                              |
+<!-- | name           | purpose                                                              |
 | -------------- | -------------------------------------------------------------------- |
 | auth           | Store information regarding user logins, auth status and auth errors |
 | currentMeeting | Track meeting progress such as current cost and current duration     |
 | meetings       | store the list of meetings the user has attended in the past         |
-| users          | store the list of users who can attend meetings                      |
+| users          | store the list of users who can attend meetings                      | -->
 
 ## Actions
+TODO - add actions
 
-### meetings
+
+<!-- ### meetings
 
 | type             | data     | purpose                                                 |
 | ---------------- | -------- | ------------------------------------------------------- |
@@ -184,51 +187,25 @@ https://unsplash.com/
 | START_MEETING   | attendees ([]), meeting_name | a meeting has started, set initial meeting state |
 | END_MEETING     | null                         | Set meeting in progress flag to false            |
 | TICK_ONE_SECOND | null                         | Increase running total by 1s worth of $          |
-| RESET_MEETING   | null                         | Revert to initial state                          |
+| RESET_MEETING   | null                         | Revert to initial state                          | -->
 
 ## API (Client - Server)
+TODO - add api routes 
 
-| Method | Endpoint                | Protected | Usage                          | Response                                          |
+<!-- | Method | Endpoint                | Protected | Usage                          | Response                                          |
 | ------ | ----------------------- | --------- | ------------------------------ | ------------------------------------------------- |
 | Post   | /api/auth/login         | Yes       | Log In a User                  | The Users JWT Token                               |
 | Post   | /api/auth/register      | Yes       | Register a User                | The Users JWT Token                               |
 | Get    | /api/meetings           | Yes       | Get a Users Meeting Histroy    | An Array of Meetings                              |
 | Post   | /api/meetings           | Yes       | Save a completed meeting       | The Meeting that has been saved in db read format |
 | Get    | /api/meetings/:id/users | Yes       | Get the attendees of a Meeting | An Array of User objects                          |
-| Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          |
+| Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          | -->
 
 ## DB (Server Side)
 
-There should be three tables for MVP
 
-### Users
+- TODO: db diagram
 
-| Column Name | Data Type |
-| ----------- | --------- |
-| id          | Integer   |
-| username    | String    |
-| first_name  | String    |
-| last_name   | String    |
-| hash        | text      |
-
-### Meetings
-
-| Column Name  | Data Type |
-| ------------ | --------- |
-| id           | Integer   |
-| meeting_name | String    |
-| time         | Timestamp |
-| attendees    | integer   |
-| cost         | Decimal   |
-
-### Attendees (Join Table M2M)
-
-Many Users attend Many Meetings
-
-| Column Name | Data Type |
-| ----------- | --------- |
-| user_id     | Integer   |
-| meeting_id  | Integer   |
 
 ---
 
