@@ -23,10 +23,11 @@ We see ourselves not as an accommodation facility but as a community, offering r
 | name          | role                                                                                                                  |
 | ------------- | ------------------------------ |
 | Hareton         | Product Owner                                                                            |
-| Hareton / Courtney      | Scrum Master          |
-| Hareton / Courtney      | Git lead    |
+| Hareton and Courtney      | Scrum Master          |
+| Hareton and Courtney      | Git lead    |
 | Rose    | Front end lead   |
 | Jad    | Back end lead   |
+| John    | Vibes checker |
 
 
 
