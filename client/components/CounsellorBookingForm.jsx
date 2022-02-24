@@ -110,8 +110,18 @@ function CounsellorBookingForm(props) {
         </Form>
     </section>
     </Container>
-    </>
-    
+   
+    {/* <Alert variant="success">
+        <Alert.Heading>You're all booked in</Alert.Heading>
+        <p>
+            Thank you for making a booking with us. We'll send you a confirmation of your booking to your prefered method of contact and please let us know if you need to cancel or rearrange your appointment.
+        </p>
+        <hr />
+        <p className="mb-0">
+            If you're currently in crisis we're here to help you or someone important to you right now. If this is an emergency please phone 111.
+        </p>
+    </Alert>  */}
+</>
   )
 }
 

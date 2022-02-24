@@ -21,4 +21,15 @@ export function fetchActivities () {
     
   }
 
+  // work in progress for booking api
+  // export function confirmCounselling (bookingObj) {
+  //   return request.post('/api/v1/booking').send(bookingObj)
+  //   .then(res => { 
+  //     return res.body
+  //   })
+  //   .catch(err => {
+  //     console.error({error: err.message})
+  //   })
+    
+  // }
   

@@ -13,6 +13,11 @@ function getActivities () {
       .select()
 }
 
+// function confirmBooking () {
+//     return db('counsellors')
+//     .insert()
+// }
+
 module.exports = {
     getAllCounsellors,
     getActivities,
