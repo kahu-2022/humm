@@ -9,7 +9,7 @@ function CounsellorBookingForm(props) {
     <>
     <Container>
     <header className="mt-4 header">
-    <h1>The form</h1>
+    <h1>Book in your session </h1>
     </header>
     <section>
     <Form>
@@ -26,6 +26,11 @@ function CounsellorBookingForm(props) {
             <Form.Control type="text" placeholder="Enter your preferred pronouns" />
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="roomNumber">
+            <Form.Label>Room number</Form.Label>
+            <Form.Control type="text" placeholder="Enter your room number" />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="pronouns">
         <Form.Label>Urgency</Form.Label>
             <Form.Select aria-label="urgency">
@@ -36,13 +41,42 @@ function CounsellorBookingForm(props) {
             </Form.Select>
         </Form.Group>
 
-
         <Form.Group className="mb-3" controlId="preferences">
         <Form.Label>Preferred format of session</Form.Label>
             <Form.Check type="checkbox" label="Phone" />
             <Form.Check type="checkbox" label="Zoom" />
             <Form.Check type="checkbox" label="Face to face" />
         </Form.Group>
+
+        <Form.Group className="mb-3" controlId="appointmentDate" >
+            <Form.Label>Date</Form.Label>
+            <Form.Control type="date" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="time">
+        <Form.Label>Time</Form.Label>
+            <Form.Select aria-label="time">
+                <option>Select time for your session</option>
+                <option value="9am-10am">9 am-10 am</option>
+                <option value="12pm-1pm">12 pm-1 pm</option>
+                <option value="3pm-4pm">3 pm-4 pm</option>
+                <option value="5pm-6pm">5 pm-6 pm</option>
+            </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="preferences">
+        <Form.Label>Preferred form of contact </Form.Label>
+            <Form.Check type="checkbox" label="Text" />
+            <Form.Check type="checkbox" label="Email" />
+            <Form.Check type="checkbox" label="Phone call" />
+            <Form.Check type="checkbox" label="Room visit" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="contactDetails">
+            <Form.Label>Contact Details</Form.Label>
+             <Form.Control as="textarea" rows={3} placeholder="Enter how you'd like to be contacted here"/>
+        </Form.Group>
+
         <Button variant="primary" type="submit">
             Submit
         </Button>
