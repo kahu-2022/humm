@@ -21,4 +21,14 @@ export function fetchActivities () {
     
   }
 
+export function fetchCounsellors () {
+    return request
+    .get('api/v1/counsellors')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error({error: err.message})
+    })
+}
   
