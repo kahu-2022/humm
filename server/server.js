@@ -6,4 +6,10 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
+
+// for browser router (react-router-dom)
+server.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  })
+
 module.exports = server
