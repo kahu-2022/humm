@@ -23,7 +23,9 @@ function Activities () {
             <b>Activity: </b><em>{act.title + ' // ' + act.info}</em>
             <p>{act.date} {act.time} in {act.location}</p>
             <p>ran by: {act.ran_by}</p>
-            <button>i'm keen!</button>
+            {/* <button <Link to='/'>
+      <Home />
+      </Link> >i'm keen!</button> */}
             <br></br>
             <br></br>
             </li>

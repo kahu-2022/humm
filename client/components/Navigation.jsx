@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
+import Activities from "./Activities"
 
 function Navigation(props) {
   return (
@@ -20,6 +21,7 @@ function Navigation(props) {
         <NavDropdown.Divider />
         <NavDropdown.Item href="/">Book counselling</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Link href="/activities" element={<Activities />}>Community</Nav.Link>  
       <Nav.Link href="/">Food</Nav.Link>    
     </Nav>
     <Nav>

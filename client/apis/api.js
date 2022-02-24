@@ -12,7 +12,7 @@ export function fetchActivities () {
     return request
     .get('/api/v1/activities')
     .then(res => {
-        console.log(res.body)
+        // console.log(res.body)
       return res.body
     })
     .catch(err => {
@@ -20,5 +20,3 @@ export function fetchActivities () {
     })
     
   }
-
-  

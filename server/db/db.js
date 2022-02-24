@@ -13,7 +13,13 @@ function getActivities () {
       .select()
 }
 
+function addActivities (activity) {
+    return db('activities')
+    .insert(activity)
+}
+
 module.exports = {
     getAllCounsellors,
     getActivities,
+    addActivities
 }
