@@ -1,18 +1,17 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Home from './Home'
 
 function AppRoutes(props) {
   return (
     <>
-      <Switch>
+      <Routes>
         <Route
           exact
           path="/"
-          render={(routerProps) => <Home {...routerProps} />}
-        />
-       
-      </Switch>
+          element = {<Home />}
+        />  
+      </Routes> 
     </>
   )
 }
