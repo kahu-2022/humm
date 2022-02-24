@@ -20,6 +20,7 @@ function Navigation(props) {
         <NavDropdown.Item href="/">Resources</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="/">Book counselling</NavDropdown.Item>
+        <NavDropdown.Item href="/counsellors">Counsellors</NavDropdown.Item>
       </NavDropdown>
       <Nav.Link href="/activities" element={<Activities />}>Community</Nav.Link>  
       <Nav.Link href="/">Food</Nav.Link>    
