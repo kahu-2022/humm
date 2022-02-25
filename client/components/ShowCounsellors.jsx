@@ -1,34 +1,48 @@
-import React from 'react'
-import { Container, Row, Card } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
+import Counsellor from './Counsellor'
+import PageHeader from './PageHeader'
+
+import { fetchCounsellors } from '../apis/api'
 
 // import Counsellor from './Counsellor'
 
 function ShowCounsellors (props) {
+  const [counsellor, setCounsellor] = useState([])
+
+  useEffect (() => {
+    getCounsellors()
+  }, [])
+
+  const getCounsellors = () => {
+    fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    })
+  }
 
     return (
         <>
-        <Container fluid="md">
-            <Row>
-                <h3>Our Counsellors</h3>
-            </Row>
-            <Row>
-                <p>This should be where the description will be shown</p>
-            </Row>
+        <PageHeader title = 'Our Counsellors' description = 'Meet our team of friendly counselling staff!'/>
+        <Container>
+          <Row className="g-3"> 
+            {counsellor.map((counsellor) => {
+              return (
+                <Col md={6} lg={4}>
+                <Counsellor 
+                  key={counsellor.id}
+                  name={counsellor.name}
+                  pronouns={counsellor.pronouns}
+                  photo={counsellor.photo}
+                  speciality={counsellor.speciality}
+                  hours={counsellor.hours}
+                  biography={counsellor.biography}
+                />
+                 </Col>
+              )
+            })}
+          </Row>
         </Container>
-
-        <Card style={{ width: '18rem' }}>
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
-        </Card>        
-
         </>
     )
 }

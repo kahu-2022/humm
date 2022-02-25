@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from './Home'
 import CounsellorBookingForm from './CounsellorBookingForm'
 import ShowCounsellors from "./ShowCounsellors"
+import Counsellor from './Counsellor'
 
 function AppRoutes(props) {
   return (
