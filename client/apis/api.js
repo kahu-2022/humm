@@ -18,5 +18,16 @@ export function fetchActivities () {
     .catch(err => {
       console.error({error: err.message})
     })
-    
+  }
+
+
+export function fetchSessions () {
+    return request
+    .get('/api/v1/sessions')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error({error: err.message})
+    })
   }

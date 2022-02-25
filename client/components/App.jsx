@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Navigation from './Navigation'
 import AppRoutes from './AppRoutes'
 import Activities from './Activities'
+import Sessions from './Sessions'
 
 
 function App () {
@@ -11,6 +12,10 @@ function App () {
     <>
     <Navigation />
     <AppRoutes />
+
+    {/* <Sessions /> */}
+
+    {/* <Activities /> */}
 
     {/* <Link to='/activities'>
       <Activities />

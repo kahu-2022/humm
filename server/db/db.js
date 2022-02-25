@@ -3,10 +3,21 @@
 // const database = require('knex')(config)
 const db = require('./connection')
 
+// counsellors
+
 function getAllCounsellors () {
     return db('Counsellors')
     .select()
 }
+
+// group therapy
+
+function getSessions () {
+    return db('group-therapy')
+    .select()
+}
+
+// activities
 
 function getActivities () {
   return db('activities')
@@ -18,8 +29,11 @@ function addActivities (activity) {
     .insert(activity)
 }
 
+// exports
+
 module.exports = {
     getAllCounsellors,
     getActivities,
-    addActivities
+    addActivities,
+    getSessions
 }
