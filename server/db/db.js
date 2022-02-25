@@ -14,13 +14,12 @@ function getActivities () {
 }
 
 function getCounsellingBookings () {
-    return db('counsellors')
+    return db('appointments')
         .select()
   }
   
 function addCounsellingBooking (booking) {
-   console.log("You have hit the db wooo")
-    return db('counsellors')
+    return db('appointments')
     .insert(booking)
 }
 

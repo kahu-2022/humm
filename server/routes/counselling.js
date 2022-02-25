@@ -14,11 +14,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log("you are in the router file")
-    console.log(req.body)
     db.addCounsellingBooking(req.body)
     .then(booking => {
-        //return res.json(books)
+        console.log("returned from the db", booking)
+        return res.json(booking)
     })
     .catch(err => {
         res.status(500).json({ error: err.message })

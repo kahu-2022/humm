@@ -86,10 +86,11 @@ function CounsellorBookingForm(props) {
         event.preventDefault();
          console.log(formData)
         addCounselling(formData)
-        //.then((res)=>{
-            //res will be an id of the new counselling booking
-            //then some react to show the alert
-       // })
+        .then((newAppointmentId)=>{
+            console.log(newAppointmentId)
+            // res will be an id of the new counselling booking
+            // then some react to show the alert
+       })
 
     }
 
