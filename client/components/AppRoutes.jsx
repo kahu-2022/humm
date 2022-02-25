@@ -7,6 +7,7 @@ import Sessions from './Sessions'
 import Activities from './Activities'
 import Counsellor from './Counsellor'
 import RoomIssue from './RoomIssue'
+import EmergencyResources from "./EmergencyResources"
 
 function AppRoutes(props) {
   return (
@@ -42,6 +43,11 @@ function AppRoutes(props) {
          path="/room"
          element = {<RoomIssue />} 
         /> 
+      <Route 
+         exact
+         path="/emergencyresources"
+         element = {<EmergencyResources />} 
+        />
       </Routes> 
     </>
   )
