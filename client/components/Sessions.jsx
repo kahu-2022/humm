@@ -12,6 +12,11 @@ function Sessions () {
         return null
     },[])
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        alert(`Awesome! We'll see you there!`)
+      }
+
 
     return (
         <> 
@@ -24,7 +29,7 @@ function Sessions () {
             <b>session: </b><em>{sesh.title + ' // ' + sesh.info}</em>
             <p>{sesh.date} {sesh.time} in {sesh.location}</p>
             <p>ran by: {sesh.ran_by}</p>
-            <button>i'm keen!</button>
+            <button onClick={handleSubmit}>i'm keen!</button>
             <br></br>
             <br></br>
             </li>
