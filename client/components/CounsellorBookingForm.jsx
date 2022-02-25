@@ -8,6 +8,7 @@ import { addCounselling } from '../apis/api'
 
 
 function CounsellorBookingForm(props) {
+    
     const [formData, setFormData] = useState({
         name: '',
         pronouns:'',
@@ -22,6 +23,9 @@ function CounsellorBookingForm(props) {
 
     const [sessionPrefCheck, setSessionPrefCheck] = useState([])
     const [contactPrefCheck, setContactPrefCheck] = useState([])
+
+    const [showAlert, setShowAlert] = useState(false)
+  // const [alertInfo, setAlertInfo] = useState({})
 
     const handleCheckboxOnChange = (e) => {
         console.log(e.target.name)
@@ -88,6 +92,8 @@ function CounsellorBookingForm(props) {
         addCounselling(formData)
         .then((newAppointmentId)=>{
             console.log(newAppointmentId)
+            setShowAlert(true)
+
             // res will be an id of the new counselling booking
             // then some react to show the alert
        })
@@ -97,19 +103,20 @@ function CounsellorBookingForm(props) {
   return (
     <>
     <Container>
-    <Alert variant="success">
+   
+    <header className="mt-4 header">
+    <h1>Book in your session </h1>
+    </header>
+    <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>You're all booked in</Alert.Heading>
         <p>
             Thank you for making a booking with us. We'll send you a confirmation of your booking to your preferred method of contact. Please let us know if you need to cancel or rearrange your appointment.
-        </p>
+            </p>
         <hr />
         <p className="mb-0">
             If you're currently in crisis we're here to help you or someone important to you right now. If this is an emergency please phone 111.
         </p>
     </Alert> 
-    <header className="mt-4 header">
-    <h1>Book in your session </h1>
-    </header>
     <section>
     <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3"  controlId="name" onChange={handleChange}>
