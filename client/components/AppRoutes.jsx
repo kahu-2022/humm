@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from './Home'
 import CounsellorBookingForm from './CounsellorBookingForm'
 import ShowCounsellors from "./ShowCounsellors"
+import Sessions from './Sessions'
 
 function AppRoutes(props) {
   return (
@@ -22,6 +23,11 @@ function AppRoutes(props) {
          exact
          path="/counsellors"
          element = {<ShowCounsellors />} 
+        /> 
+        <Route 
+         exact
+         path="/sessions"
+         element = {<Sessions />} 
         /> 
       </Routes> 
     </>
