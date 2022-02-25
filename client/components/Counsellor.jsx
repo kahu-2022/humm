@@ -4,20 +4,18 @@ import { Container, Row, Col, Card, Image } from 'react-bootstrap'
 function Counsellor(props) {
   
   return (
-    <Container fluid="md">
-      <Card>
+      <Card className="py-3">
+            <Card.Body>
+
         <Row className="justify-content-md-center">
           <Col>
-            <Card.Body>
-              <Image src={props.photo} thumbnail="true" roundedCircle="true" />
-            </Card.Body>
+              <Image src={props.photo} thumbnail="true" roundedCircle="true" fluid="true" />
           </Col>
           <Col>
-            <Card.Body>
               <Row><Card.Title><em>{props.name}</em></Card.Title></Row>
               <Row><Card.Text>{props.pronouns}</Card.Text></Row>
               <Row>
-                <Card.Text>
+                <Card.Text className="mt-2">
                 <strong>Specialty</strong><br />
                 {props.speciality}
                 </Card.Text>
@@ -28,9 +26,10 @@ function Counsellor(props) {
                 {props.hours}
                 </Card.Text>
               </Row>
-            </Card.Body>
           </Col>
         </Row>
+        </Card.Body>
+
         <Card.Body>
             <Card.Text>
               <strong>Bio</strong>
@@ -40,7 +39,6 @@ function Counsellor(props) {
             </Card.Text>
         </Card.Body>
       </Card>
-    </Container>
   )
 }
 

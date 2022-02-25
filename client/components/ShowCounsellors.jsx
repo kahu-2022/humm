@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Row, Card } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Counsellor from './Counsellor'
+import PageHeader from './PageHeader'
 
 import { fetchCounsellors } from '../apis/api'
 
@@ -17,34 +18,31 @@ function ShowCounsellors (props) {
     fetchCounsellors()
     .then((arr) => {
       setCounsellor(arr)
-      console.log(arr)
     })
   }
 
     return (
         <>
-        <Container fluid="md">
-            <Row>
-                <h3>Our Counsellors</h3>
-            </Row>
-            <Row>
-                <p>This should be where the description will be shown</p>
-            </Row>
+        <PageHeader title = 'Our Counsellors' description = 'Meet our team of friendly counselling staff!'/>
+        <Container>
+          <Row className="g-3"> 
+            {counsellor.map((counsellor) => {
+              return (
+                <Col md={6} lg={4}>
+                <Counsellor 
+                  key={counsellor.id}
+                  name={counsellor.name}
+                  pronouns={counsellor.pronouns}
+                  photo={counsellor.photo}
+                  speciality={counsellor.speciality}
+                  hours={counsellor.hours}
+                  biography={counsellor.biography}
+                />
+                 </Col>
+              )
+            })}
+          </Row>
         </Container>
-
-        {counsellor.map((counsellor) => {
-          return (
-            <Counsellor 
-              key={counsellor.id}
-              name={counsellor.name}
-              pronouns={counsellor.pronouns}
-              photo={counsellor.photo}
-              speciality={counsellor.speciality}
-              hours={counsellor.hours}
-              biography={counsellor.biography}
-            />
-          )
-        })}
         </>
     )
 }
