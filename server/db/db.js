@@ -56,22 +56,22 @@ function addRoomIssues(issue, db = conn) {
   })
 }
 
-function getFood (db = conn) {
+function getFood () {
   return db('food-items')
   .select()
 }
 
-function getFoodById(foodId, db = conn){
+function getFoodById(foodId){
   return db('food-items')
   .where('id', foodId)
   .select()
 }
 
-function addFood (food, db = conn) {
+function addFood (food) {
   return db('food-items')
   .insert(food)
   .then ((id) => {
-      return getFoodById(id, db = conn)
+      return getFoodById(id)
   })
 }
 

@@ -8,6 +8,7 @@ import Activities from './Activities'
 import Counsellor from './Counsellor'
 import RoomIssue from './RoomIssue'
 import EmergencyResources from "./EmergencyResources"
+import ShowFood from "./ShowFood"
 
 function AppRoutes(props) {
   return (
@@ -47,6 +48,11 @@ function AppRoutes(props) {
          exact
          path="/emergencyresources"
          element = {<EmergencyResources />} 
+        />
+       <Route 
+         exact
+         path="/food"
+         element = {<ShowFood />} 
         />
       </Routes> 
     </>

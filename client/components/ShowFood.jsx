@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from "react"
-import { Container, Row, Col } from "react-bootstrap/Container"
+import { Container, Row, Col } from "react-bootstrap"
+import PageHeader from './PageHeader'
+import Food from './Food'
 
 import { fetchFood } from "../apis/api"
 
 function ShowFood (props) {
-  const [food, setFood] = useState([])
-}
+  const [food, setFood] = useState([]
+    // id: '',
+    // name: '',
+    // donorRoom: '',
+    // item: '',
+    // quantity: '',
+    // donateDate: '',
+    // useByDate: '',
+    // status: '',
+    // claimedBy: '',
+    // claimerRoom: ''
+
+  )
 
 useEffect (() => {
   getFood()
@@ -24,12 +37,13 @@ return (
   <Container>
     <Row className="g-3"> 
       {food.map((food) => {
+        console.log(food)
         return (
           <Col md={6} lg={4}>
-          <Counsellor 
+            <Food 
             key={food.id}
             name={food.name}
-          />
+            />
            </Col>
         )
       })}
@@ -37,6 +51,6 @@ return (
   </Container>
   </>
 )
-
+    }
 
 export default ShowFood
