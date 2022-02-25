@@ -12,13 +12,22 @@ export function fetchActivities () {
     return request
     .get('/api/v1/activities')
     .then(res => {
-        console.log(res.body)
+        // console.log(res.body)
       return res.body
     })
     .catch(err => {
       console.error({error: err.message})
     })
-    
   }
 
-  
+
+export function fetchSessions () {
+    return request
+    .get('/api/v1/sessions')
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.error({error: err.message})
+    })
+  }
