@@ -8,7 +8,7 @@ function Home(props) {
     <>
     <Container>
     <header className="mt-4 header">
-    <h1>Welcome to Hummm</h1>
+    <h1>Welcome to Humm</h1>
     </header>
     
     <section className="main">
