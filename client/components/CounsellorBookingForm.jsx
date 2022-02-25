@@ -21,42 +21,70 @@ function CounsellorBookingForm(props) {
     })
 
     const [sessionPrefCheck, setSessionPrefCheck] = useState([])
+    const [contactPrefCheck, setContactPrefCheck] = useState([])
 
-    // various attempts - unsure 
     const handleCheckboxOnChange = (e) => {
+        console.log(e.target.name)
         const isChecked = e.target.checked
-        console.log(isChecked)
-        if(isChecked){     
-            setSessionPrefCheck([...sessionPrefCheck, e.target.value] )         
-            //    ...sessionPrefCheck, 
-            //     sessionPreference: [sessionPreference, e.target.value]
-            
+        if(e.target.name === 'contactPreference'){
+            if(isChecked){     
+                setContactPrefCheck([...contactPrefCheck, e.target.value] )       
+            }else{
+                const index = contactPrefCheck.indexOf(e.target.value)
+                contactPrefCheck.splice(index, 1)
+                setContactPrefCheck([...contactPrefCheck])
+            } 
+
         }else{
-            const index = sessionPrefCheck.indexOf(e.target.value)
-            console.log(index)
-            console.log("The session array", sessionPrefCheck)
-            sessionPrefCheck.splice(index, 1)
-            // console.log("we want to remove", test)
-            setSessionPrefCheck([...sessionPrefCheck])
-            //setSessionPrefCheck(test)
-            console.log("The session array", sessionPrefCheck)
+            if(isChecked){     
+                setSessionPrefCheck([...sessionPrefCheck, e.target.value] )       
+            }else{
+                const index = sessionPrefCheck.indexOf(e.target.value)
+                sessionPrefCheck.splice(index, 1)
+                setSessionPrefCheck([...sessionPrefCheck])
+            }
         } 
     }
 
-    const handleChange = (e) => {
+    // const handleCheckboxOnChange2 = (e) => {
+    //     const isChecked = e.target.checked
 
-        // ( e)=> setSessionPreferences([...sessionPreference, e.target.value])}
+    //     const stuff = {
+    //         contactPreference: [contactPrefCheck, setContactPrefCheck],
+    //         sessionPreference: [sessionPrefCheck, setSessionPrefCheck]
+    //     }
+
+    //     const stateCopy = stuff[e.target.name][0]
+    //     const setStateFunc = stuff[e.target.name][1]
+
+    //     // if(e.target.name === 'contactPreference') {
+    //     //     setStateFunc = setContactPrefCheck
+    //     //     stateCopy = [...contactPrefCheck]
+    //     // } else {
+    //     //     setStateFunc = setSessionPrefCheck
+    //     //     stateCopy = [...sessionPrefCheck]
+    //     // }
+
+    //     if(isChecked){     
+    //         setStateFunc([...stateCopy, e.target.value] )       
+    //     }else{
+    //         const index = stateCopy.indexOf(e.target.value)
+    //         stateCopy.splice(index, 1)
+    //         setStateFunc([...stateCopy])
+    //     } 
+    // }
+
+    const handleChange = (e) => {
 
         setFormData({
             ...formData,
             [e.target.name]: e.target.value 
-           // sessionPreference: [...sessionPreference ]
         })
     }
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(formData)
+         console.log(formData)
         addCounselling(formData)
         //.then((res)=>{
             //res will be an id of the new counselling booking
@@ -71,7 +99,7 @@ function CounsellorBookingForm(props) {
     <Alert variant="success">
         <Alert.Heading>You're all booked in</Alert.Heading>
         <p>
-            Thank you for making a booking with us. We'll send you a confirmation of your booking to your preferred method of contact and please let us know if you need to cancel or rearrange your appointment.
+            Thank you for making a booking with us. We'll send you a confirmation of your booking to your preferred method of contact. Please let us know if you need to cancel or rearrange your appointment.
         </p>
         <hr />
         <p className="mb-0">
@@ -132,17 +160,17 @@ function CounsellorBookingForm(props) {
         </Form.Group>
 
    
-        <Form.Group  name="contactPreferences" className="mb-3" controlId="contactPreferences">
+        <Form.Group  name="contactPreferences" className="mb-3" controlId="contactPreferences" onChange={handleCheckboxOnChange}>
         <Form.Label>Preferred form of contact </Form.Label>
-            <Form.Check type="checkbox" value="Text" label="Text" />
-            <Form.Check type="checkbox" value="Email" label="Email" />
-            <Form.Check type="checkbox" value="Phone call" label="Phone call" />
-            <Form.Check type="checkbox" value= "Room visit" label="Room visit" />
+            <Form.Check name="contactPreference" type="checkbox" value="Text" label="Text" />
+            <Form.Check name="contactPreference" type="checkbox" value="Email" label="Email" />
+            <Form.Check name="contactPreference" type="checkbox" value="Phone call" label="Phone call" />
+            <Form.Check name="contactPreference" type="checkbox" value= "Room visit" label="Room visit" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="contactDetails" onChange={handleChange}>
             <Form.Label>Contact Details</Form.Label>
-             <Form.Control  name="contactDetails"as="textarea" rows={3} placeholder="Enter how you'd like to be contacted here"/>
+             <Form.Control  name="contactDetails" as="textarea" rows={3} placeholder="Enter how you'd like to be contacted here"/>
         </Form.Group>
 
         <Button variant="primary" type="submit">
