@@ -3,18 +3,10 @@ const config = require('./knexfile').development
 const conn = require('knex')(config)
 const db = require('./connection')
 
+// counselling functions
+
 function getAllCounsellors (db = conn) {
     return db('Counsellors')
-    .select()
-}
-
-function getActivities (db = conn) {
-    return db('activities')
-    .select()
-}
-
-function getSessions (db = conn) {
-    return db('group-therapy')
     .select()
 }
 
@@ -36,6 +28,45 @@ function getCounsellingBookingById(bookingId, db = conn){
     .where('id', bookingId)
     .select()
 }
+
+function getSessions (db = conn) {
+    return db('group-therapy')
+    .select()
+}
+
+// activities functions
+
+function getActivities (db = conn) {
+    return db('activities')
+    .select()
+}
+
+function addActivities (activity, db = conn) {
+    return db('activities')
+    .insert(activity)
+}
+
+// add suggestion function
+function getSuggestions(suggestion, db = conn) {
+    return db('suggestions')
+    .select()
+}
+
+function getSuggestionById(suggestionId, db = conn) {
+    return db('suggestions')
+    .where('id', suggestionId)
+    .select()
+}
+
+function addSuggestion(suggestion, db = conn) {
+    return db('suggestions')
+    .insert(suggestion)
+    .then ((id) => {
+        return getSuggestionById(id, db = conn)
+    })
+}
+
+// room issue functions
 
 function getRoomIssues(issue, db = conn) {
   return db('room-issues')
@@ -75,19 +106,19 @@ function addFood (food) {
   })
 }
 
-function addActivities (activity, db = conn) {
-    return db('activities')
-    .insert(activity)
-}
+// exports
 
 module.exports = {
     addCounsellingBooking,
     getCounsellingBookings,
     getAllCounsellors,
-    getActivities,
     getCounsellingBookingById,
-    addActivities,
     getSessions,
+    getActivities,
+    addActivities,
+    getSuggestions,
+    getSuggestionById,
+    addSuggestion,
     getRoomIssues,
     getRoomIssueById,
     addRoomIssues,

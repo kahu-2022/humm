@@ -18,6 +18,7 @@ server.use('/api/v1/counsellors', counsellorRoutes)
 server.use('/api/v1/sessions', sessionsRoutes)
 server.use('/api/v1/room', roomRoutes)
 server.use('/api/v1/food', foodRoutes)
+
 // for browser router (react-router-dom)
 
 server.get('*', (req, res) => {

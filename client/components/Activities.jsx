@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import Container from "react-bootstrap/Container"
 import Footer from './Footer'
+import ActivitySuggestion from './ActivitySuggestion'
 
 import { fetchActivities } from '../apis/api'
 
@@ -30,6 +32,7 @@ function Activities () {
 
     return (
         <> 
+        <Container>
 
         <header className="mt-4 header">
         <h3>Community Events/Activities</h3>
@@ -55,9 +58,11 @@ function Activities () {
         : null}
         </ul>
 
-        
+            <ActivitySuggestion />
 
             <Footer />
+
+        </Container>
           
         </>
     )
