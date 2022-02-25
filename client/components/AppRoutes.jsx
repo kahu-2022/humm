@@ -2,6 +2,10 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from './Home'
 import CounsellorBookingForm from './CounsellorBookingForm'
+import ShowCounsellors from "./ShowCounsellors"
+import Sessions from './Sessions'
+import Activities from './Activities'
+import Counsellor from './Counsellor'
 
 function AppRoutes(props) {
   return (
@@ -16,7 +20,22 @@ function AppRoutes(props) {
           exact
           path="/booking"
           element = {<CounsellorBookingForm />}
-        />  
+        />
+        <Route 
+         exact
+         path="/counsellors"
+         element = {<ShowCounsellors />} 
+        /> 
+        <Route 
+         exact
+         path="/sessions"
+         element = {<Sessions />} 
+        /> 
+        <Route 
+         exact
+         path="/activities"
+         element = {<Activities />} 
+        /> 
       </Routes> 
     </>
   )

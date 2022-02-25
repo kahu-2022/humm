@@ -9,8 +9,13 @@ function getAllCounsellors (db = conn) {
 }
 
 function getActivities (db = conn) {
-  return db('activities')
-      .select()
+    return db('activities')
+    .select()
+}
+
+function getSessions (db = conn) {
+    return db('group-therapy')
+    .select()
 }
 
 function getCounsellingBookings (db = conn) {
@@ -31,11 +36,17 @@ function getCounsellingBookingById(bookingId, db = conn){
     .where('id', bookingId)
     .select()
 }
+function addActivities (activity, db = conn) {
+    return db('activities')
+    .insert(activity)
+}
 
 module.exports = {
     addCounsellingBooking,
     getCounsellingBookings,
     getAllCounsellors,
     getActivities,
-    getCounsellingBookingById
+    getCounsellingBookingById,
+    addActivities,
+    getSessions
 }

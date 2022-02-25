@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { Alert } from 'react-bootstrap'
 
 import { fetchActivities } from '../apis/api'
 
@@ -6,11 +7,22 @@ function Activities () {
 
     const [activities, setActivities] = useState(null)
 
+    // const [message, setMessage] = useState('')
+
     useEffect(() => {
         fetchActivities()
         .then(activities => setActivities(activities))
         return null
     },[])
+
+    // const handleTyping = (e) => {
+    //     setMessage(e.target.value)
+    //   }
+
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        alert(`Awesome! We'll see you there!`)
+      }
 
     return (
         <> 
@@ -23,7 +35,7 @@ function Activities () {
             <b>Activity: </b><em>{act.title + ' // ' + act.info}</em>
             <p>{act.date} {act.time} in {act.location}</p>
             <p>ran by: {act.ran_by}</p>
-            <button>i'm keen!</button>
+            <button onClick={handleSubmit}>i'm keen!</button>
             <br></br>
             <br></br>
             </li>
@@ -32,7 +44,6 @@ function Activities () {
         </ul>
           
         </>
-
     )
 }
 
