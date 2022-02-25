@@ -4,6 +4,7 @@ import Home from './Home'
 import CounsellorBookingForm from './CounsellorBookingForm'
 import ShowCounsellors from "./ShowCounsellors"
 import Sessions from './Sessions'
+import Counsellor from './Counsellor'
 
 function AppRoutes(props) {
   return (
