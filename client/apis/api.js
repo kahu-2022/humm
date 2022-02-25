@@ -52,3 +52,16 @@ export function fetchSessions () {
 
 }
 
+
+export function fetchFood () {
+  return request
+  .get('api/v1/food')
+  .then(res => {
+    return res.body
+  })
+  .catch(err => {
+    console.error({error: err.message})
+  })
+}
+
+

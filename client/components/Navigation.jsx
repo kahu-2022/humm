@@ -23,7 +23,7 @@ function Navigation(props) {
         <NavDropdown.Item href="/">More resources</NavDropdown.Item>
       </NavDropdown>
       <Nav.Link href="/activities">Community Activities</Nav.Link>  
-      <Nav.Link href="/">Food</Nav.Link>    
+      <Nav.Link href="/food">Food</Nav.Link>    
     </Nav>
     <Nav>
       <Nav.Link href="/room">Report an issue</Nav.Link>
