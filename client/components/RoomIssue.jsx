@@ -6,7 +6,7 @@ import Alert from "react-bootstrap/Alert"
 
 import { addRoomIssue } from '../apis/api'
 
-function roomIssueForm(props) {
+function RoomIssueForm(props) {
 
   const [roomIssue, setRoomIssue] = useState({
     name: '',
@@ -86,4 +86,4 @@ return (
 )
 }
 
-export default RoomIssue
+export default RoomIssueForm
