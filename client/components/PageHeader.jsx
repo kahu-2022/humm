@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap'
 
 function PageHeader (props) {
   return (
-    <Container fluid="md" className="mt-4">
+    <Container className="mt-4">
             <Row>
                 <h3>{props.title}</h3>
             </Row>

@@ -55,6 +55,8 @@ function Activities () {
         : null}
         </ul>
 
+        
+
             <Footer />
           
         </>
