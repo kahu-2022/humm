@@ -11,6 +11,15 @@ export function fetchActivities () {
     })
   }
 
+export function addRoomIssue(issueObj){
+  console.log("You have reached the api wooo", issueObj)
+    return request.post('/api/v1/room')
+    .send(issueObj)
+    .then(newRoomIssue => { 
+      return newRoomIssue.body
+  })
+}
+
 export function addCounselling (bookingObj) {
     console.log("You have reached the api wooo", bookingObj)
     return request.post('/api/v1/counselling')

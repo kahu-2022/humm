@@ -25,7 +25,7 @@ function Navigation(props) {
       <Nav.Link href="/">Food</Nav.Link>    
     </Nav>
     <Nav>
-      <Nav.Link href="/">Another thing</Nav.Link>
+      <Nav.Link href="/room">Report an issue</Nav.Link>
       <Nav.Link eventKey={2} href="/">
       Another thing
       </Nav.Link>
