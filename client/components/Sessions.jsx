@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import Footer from './Footer'
 
 import { fetchSessions } from '../apis/api'
 
@@ -17,6 +18,7 @@ function Sessions () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        window.scrollTo(0, 0)
         setShowAlert(true)
       }
 
@@ -47,6 +49,8 @@ function Sessions () {
         })
         : null}
         </ul>
+
+            <Footer />
           
         </>
 

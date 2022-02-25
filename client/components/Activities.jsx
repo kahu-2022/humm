@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import Footer from './Footer'
 
 import { fetchActivities } from '../apis/api'
 
@@ -23,6 +24,7 @@ function Activities () {
 
       const handleSubmit = (e) => {
         e.preventDefault();
+        window.scrollTo(0, 0)
         setShowAlert(true)
       }
 
@@ -52,6 +54,8 @@ function Activities () {
         })
         : null}
         </ul>
+
+            <Footer />
           
         </>
     )
