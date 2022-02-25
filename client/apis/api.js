@@ -25,7 +25,7 @@ export function fetchCounsellors () {
     return request
     .get('api/v1/counsellors')
     .then(res => {
-      console.log(res.body)
+      return res.body
     })
   .catch(err => {
       console.error({error: err.message})
