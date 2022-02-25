@@ -13,12 +13,14 @@ function getActivities () {
       .select()
 }
 
-// function confirmBooking () {
-//     return db('counsellors')
-//     .insert()
-// }
+function addCounsellingBooking (booking) {
+   console.log("You have hit the db wooo")
+    // return db('counsellors')
+    // .insert(booking)
+}
 
 module.exports = {
+    addCounsellingBooking,
     getAllCounsellors,
     getActivities,
 }
