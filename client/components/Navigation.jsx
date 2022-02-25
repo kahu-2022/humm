@@ -15,7 +15,7 @@ function Navigation(props) {
     <Nav className="me-auto">
       <Nav.Link href="/">About</Nav.Link>
       <NavDropdown title="Mental Health" id="collapsible-nav-dropdown">
-      <NavDropdown.Item href="/">Book counselling</NavDropdown.Item>
+      <NavDropdown.Item href="/booking">Book counselling</NavDropdown.Item>
         <NavDropdown.Item href="/counsellors">Browse counsellors</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="/sessions">Group Therapy</NavDropdown.Item>
