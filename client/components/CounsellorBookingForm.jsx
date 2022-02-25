@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 
-import { addCounselling } from '../apis/api'
+import { addCounselling, fetchCounsellors } from '../apis/api'
 
 
 function CounsellorBookingForm(props) {
@@ -14,6 +14,7 @@ function CounsellorBookingForm(props) {
         pronouns:'',
         roomNumber: '',
         urgency: '',
+        preferredCounsellor: [],
         sessionPreference: [],
         contactPreference: [],
         date: '',
@@ -137,6 +138,18 @@ function CounsellorBookingForm(props) {
         <Form.Group className="mb-3" controlId="roomNumber" onChange={handleChange}>
             <Form.Label>Room number</Form.Label>
             <Form.Control  name="roomNumber" type="text" placeholder="Enter your room number" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="urgency" onChange={handleChange}>
+        <Form.Label>Preferred Counsellor</Form.Label>
+          {counsellor.map((counsellor) => {
+            return (
+            <Form.Select  name="urgency" aria-label="urgency">
+                <option>Select preferred counsellor</option>
+                <option value="Today">1</option>
+                <option value="1-2 days">2</option>
+                <option value="This week">3</option>
+            </Form.Select>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="urgency" onChange={handleChange}>
