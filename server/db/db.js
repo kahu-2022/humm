@@ -56,6 +56,24 @@ function addRoomIssues(issue, db = conn) {
   })
 }
 
+function getFood (db = conn) {
+  return db('food-items')
+  .select()
+}
+
+function getFoodById(foodId, db = conn){
+  return db('food-items')
+  .where('id', foodId)
+  .select()
+}
+
+function addFood (food, db = conn) {
+  return db('food-items')
+  .insert(food)
+  .then ((id) => {
+      return getFoodById(id, db = conn)
+  })
+}
 
 function addActivities (activity, db = conn) {
     return db('activities')
@@ -72,5 +90,9 @@ module.exports = {
     getSessions,
     getRoomIssues,
     getRoomIssueById,
-    addRoomIssues
+    addRoomIssues,
+    getFood,
+    getFoodById,
+    addFood
+
 }
