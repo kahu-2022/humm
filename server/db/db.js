@@ -1,39 +1,52 @@
 
-// const config = require('./knexfile').development
-// const database = require('knex')(config)
+const config = require('./knexfile').development
+const conn = require('knex')(config)
 const db = require('./connection')
 
-// counsellors
-
-function getAllCounsellors () {
+function getAllCounsellors (db = conn) {
     return db('Counsellors')
     .select()
 }
 
-// group therapy
+function getActivities (db = conn) {
+    return db('activities')
+    .select()
+}
 
-function getSessions () {
+function getSessions (db = conn) {
     return db('group-therapy')
     .select()
 }
 
-// activities
-
-function getActivities () {
-  return db('activities')
-      .select()
+function getCounsellingBookings (db = conn) {
+    return db('appointments')
+        .select()
+  }
+  
+function addCounsellingBooking (booking, db = conn) {
+    return db('appointments')
+    .insert(booking)
+    .then ((id) => {
+        return getCounsellingBookingById(id, db = conn)
+    })
 }
 
-function addActivities (activity) {
+function getCounsellingBookingById(bookingId, db = conn){
+    return db('appointments')
+    .where('id', bookingId)
+    .select()
+}
+function addActivities (activity, db = conn) {
     return db('activities')
     .insert(activity)
 }
 
-// exports
-
 module.exports = {
+    addCounsellingBooking,
+    getCounsellingBookings,
     getAllCounsellors,
     getActivities,
+    getCounsellingBookingById,
     addActivities,
     getSessions
 }
