@@ -26,8 +26,8 @@ export function fetchActivities () {
     console.log("You have reached the api wooo", bookingObj)
     return request.post('/api/v1/counselling')
     .send(bookingObj)
-    .then(newAppointmentId => { 
-      return newAppointmentId.body
+    .then(newAppointment => { 
+      return newAppointment.body
     })
     .catch(err => {
       console.error({error: err.message})

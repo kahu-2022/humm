@@ -25,7 +25,7 @@ function CounsellorBookingForm(props) {
     const [contactPrefCheck, setContactPrefCheck] = useState([])
 
     const [showAlert, setShowAlert] = useState(false)
-  // const [alertInfo, setAlertInfo] = useState({})
+    const [alertInfo, setAlertInfo] = useState({})
 
     const handleCheckboxOnChange = (e) => {
         console.log(e.target.name)
@@ -90,8 +90,13 @@ function CounsellorBookingForm(props) {
         event.preventDefault();
          console.log(formData)
         addCounselling(formData)
-        .then((newAppointmentId)=>{
-            console.log(newAppointmentId)
+        .then((newAppointment)=>{
+            setAlertInfo({
+                name: newAppointment[0].name,
+                time: newAppointment[0].time,
+                date: newAppointment[0].date,
+                contactDetails: newAppointment[0].contactDetails
+                })
             setShowAlert(true)
 
             // res will be an id of the new counselling booking
@@ -108,9 +113,9 @@ function CounsellorBookingForm(props) {
     <h1>Book in your session </h1>
     </header>
     <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-        <Alert.Heading>You're all booked in</Alert.Heading>
+        <Alert.Heading>Kia ora {alertInfo.name}, you're all booked in</Alert.Heading>
         <p>
-            Thank you for making a booking with us. We'll send you a confirmation of your booking to your preferred method of contact. Please let us know if you need to cancel or rearrange your appointment.
+            Thank you for making a booking with us. We'll sell you on the {alertInfo.date} at {alertInfo.time}. Please let us know if you need to cancel or rearrange your appointment. 
             </p>
         <hr />
         <p className="mb-0">
