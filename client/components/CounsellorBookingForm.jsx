@@ -115,7 +115,7 @@ function CounsellorBookingForm(props) {
     <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Kia ora {alertInfo.name}, you're all booked in</Alert.Heading>
         <p>
-            Thank you for making a booking with us. We'll sell you on the {alertInfo.date} at {alertInfo.time}. Please let us know if you need to cancel or rearrange your appointment. 
+            Thank you for making a booking with us. We'll see you on the {alertInfo.date} at {alertInfo.time}. Please let us know if you need to cancel or rearrange your appointment. 
             </p>
         <hr />
         <p className="mb-0">
