@@ -27,10 +27,10 @@ export function fetchCounsellors () {
     .then(res => {
       console.log(res.body)
     })
-  .catch(err => {
+    .catch(err => {
       console.error({error: err.message})
     })
-          }
+}
 
 export function fetchSessions () {
     return request
