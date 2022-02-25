@@ -22,7 +22,7 @@ function AppRoutes(props) {
         <Route 
          exact
          path="/counsellors"
-         element = {<Counsellor />} 
+         element = {<ShowCounsellors />} 
         /> 
       </Routes> 
     </>

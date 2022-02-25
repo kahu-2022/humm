@@ -1,24 +1,33 @@
 import React from 'react'
 import { Container, Row, Col, Card, Image } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
 
 function Counsellor(props) {
-  // const { id, pronouns, name, speciality, photo, hours, biography } = props.counsellor
+  
   return (
     <Container fluid="md">
-      <Card style={{ width: '18rem' }}>
+      <Card>
         <Row className="justify-content-md-center">
           <Col>
             <Card.Body>
-              <Image src="./images/CHR.jpg" thumbnail="true" roundedCircle="true" />
+              <Image src={props.photo} thumbnail="true" roundedCircle="true" />
             </Card.Body>
           </Col>
           <Col>
             <Card.Body>
-              <Row><Card.Title>Name</Card.Title></Row>
-              <Row><Card.Text>pronoun</Card.Text></Row>
-              <Row><Card.Text>pronoun</Card.Text></Row>
-              <Row><Card.Text>pronoun</Card.Text></Row>
+              <Row><Card.Title><em>{props.name}</em></Card.Title></Row>
+              <Row><Card.Text>{props.pronouns}</Card.Text></Row>
+              <Row>
+                <Card.Text>
+                <strong>Specialty</strong><br />
+                {props.speciality}
+                </Card.Text>
+              </Row>
+              <Row>
+                <Card.Text>
+                <strong>Office Hours</strong><br />
+                {props.hours}
+                </Card.Text>
+              </Row>
             </Card.Body>
           </Col>
         </Row>
@@ -27,8 +36,7 @@ function Counsellor(props) {
               <strong>Bio</strong>
             </Card.Text>
             <Card.Text>
-               Some quick example text to build on the card title and make up the bulk of
-              the card's content.
+               {props.biography}
             </Card.Text>
         </Card.Body>
       </Card>
