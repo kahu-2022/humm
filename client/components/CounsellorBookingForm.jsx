@@ -5,13 +5,14 @@ import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 
 import PageHeader from "./PageHeader"
-import { addCounselling } from "../apis/api"
+import { addCounselling, fetchCounsellors } from "../apis/api"
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
     name: "",
     pronouns: "",
     roomNumber: "",
+    preferredCounsellor: [],
     urgency: "",
     sessionPreference: [],
     contactPreference: [],
@@ -22,6 +23,8 @@ function CounsellorBookingForm(props) {
 
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
+
+  const [counsellor, setCounsellor] = useState([])
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
@@ -76,6 +79,17 @@ function CounsellorBookingForm(props) {
   //     }
   // }
 
+  useEffect (() => {
+    getCounsellors()
+  }, [])
+
+  const getCounsellors = () => {
+    fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    })
+  }
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -91,6 +105,7 @@ function CounsellorBookingForm(props) {
         name: newAppointment[0].name,
         time: newAppointment[0].time,
         date: newAppointment[0].date,
+        preferredCounsellor: newAppointment[0].preferredCounsellor,
         contactDetails: newAppointment[0].contactDetails,
       })
       window.scrollTo(0, 0)
@@ -169,6 +184,20 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your room number"
               />
+            </Form.Group>
+
+             
+            <Form.Group
+              className="mb-3"
+              controlId="preferredCounsellor"
+              onChange={handleChange}
+            >
+            <Form.Label>Preferred Counsellor</Form.Label>
+              <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
+                <option>Select preferred counsellor</option>
+                {counsellor.map((counsellor) => {
+                  return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})} 
+              </Form.Select>
             </Form.Group>
 
             <Form.Group
