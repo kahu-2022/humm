@@ -36,6 +36,27 @@ function getCounsellingBookingById(bookingId, db = conn){
     .where('id', bookingId)
     .select()
 }
+
+function getRoomIssues(issue, db = conn) {
+  return db('room-issues')
+  .select()
+}
+
+function getRoomIssueById(issueId, db = conn){
+  return db('room-issues')
+  .where('id', issueId)
+  .select()
+}
+
+function addRoomIssues(issue, db = conn) {
+  return db('room-issues')
+  .insert(issue)
+  .then ((id) => {
+      return getRoomIssueById(id, db = conn)
+  })
+}
+
+
 function addActivities (activity, db = conn) {
     return db('activities')
     .insert(activity)
@@ -48,5 +69,8 @@ module.exports = {
     getActivities,
     getCounsellingBookingById,
     addActivities,
-    getSessions
+    getSessions,
+    getRoomIssues,
+    getRoomIssueById,
+    addRoomIssues
 }
