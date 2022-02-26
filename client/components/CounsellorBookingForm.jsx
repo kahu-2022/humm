@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
 import { addCounselling, fetchCounsellors } from "../apis/api"
@@ -22,11 +23,11 @@ function CounsellorBookingForm(props) {
     contactDetails: "",
   })
 
-  // const selectedCounsellor = useParams()
+  const params = useParams()
 
-  // useEffect (() => {
-  //   console.log(selectedCounsellor)
-  // }, [])
+  useEffect (() => {
+    console.log(params)
+  }, [])
 
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
@@ -197,9 +198,11 @@ function CounsellorBookingForm(props) {
             >
             <Form.Label>Preferred Counsellor</Form.Label>
               <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
+                <Routes><Route path="/booking/:name" /></Routes> ? 
+                <option>{params.name}</option> :
                 <option>Select preferred counsellor</option>
                 {counsellor.map((counsellor) => {
-                  return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})} 
+                return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})}
               </Form.Select>
             </Form.Group>
 

@@ -29,7 +29,7 @@ function Counsellor(props) {
 
                 <Row>
                   <Card.Text>
-                    <Link to='/booking'><strong>Book for an appointment</strong></Link>
+                    <Link to={`/booking/${props.name}`}><strong>Book for an appointment</strong></Link>
                   </Card.Text>
                 </Row>
 
