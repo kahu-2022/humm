@@ -77,6 +77,16 @@ export function fetchFood () {
   })
 }
 
+export function fetchVolunteering () {
+  return request
+  .get('api/v1/volunteering')
+  .then(res => {
+    return res.body
+  })
+  .catch(err => {
+    console.error({error: err.message})
+  })
+}
 
 export function addNewFood(foodObj){
   console.log("You have reached the api wooo", foodObj)
