@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Button, Container, Row, Col } from "react-bootstrap"
 import PageHeader from './PageHeader'
-import Food from './Food'
+import Food from './Food' 
+import AddFood from "./AddFood"
 
 import { fetchFood } from "../apis/api"
 
@@ -23,6 +24,7 @@ return (
   <>
   <PageHeader title = 'Food' description = 'Food up for grabs. Please take what you need.'/>
   <Container>
+    {/* <Button>Donate Food </Button> */}
     <Row className="g-3"> 
       {food.map((food) => {
         console.log(food)
@@ -44,6 +46,7 @@ return (
         )
       })}
     </Row>
+    < AddFood />
   </Container>
   </>
 )
