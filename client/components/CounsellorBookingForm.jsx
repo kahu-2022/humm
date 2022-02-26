@@ -38,10 +38,6 @@ function CounsellorBookingForm(props) {
 
   const handleCheckboxOnChange = (e) => {
     console.log(e.target.name)
-    fetchCounsellors()
-    .then((arr) => {
-      setCounsellor(arr)
-    })
     const isChecked = e.target.checked
     if (e.target.name === "contactPreference") {
       if (isChecked) {
@@ -90,11 +86,11 @@ function CounsellorBookingForm(props) {
   //     }
   // }
 
-   fetchCounsellors()
+    fetchCounsellors()
     .then((arr) => {
       setCounsellor(arr)
-    }) 
-
+    })
+   
      
 
   const handleChange = (e) => {

@@ -31,7 +31,7 @@ export function addCounselling (bookingObj) {
 
 export function fetchCounsellors () {
     return request
-    .get('api/v1/counsellors')
+    .get('/api/v1/counsellors')
     .then(res => {
       return res.body
     })
