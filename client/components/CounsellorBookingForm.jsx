@@ -3,15 +3,18 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
-import { addCounselling } from "../apis/api"
+import { addCounselling, fetchCounsellors } from "../apis/api"
+import { useParams } from "react-router-dom"
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
     name: "",
     pronouns: "",
     roomNumber: "",
+    preferredCounsellor: [],
     urgency: "",
     sessionPreference: [],
     contactPreference: [],
@@ -20,8 +23,12 @@ function CounsellorBookingForm(props) {
     contactDetails: "",
   })
 
+  const params = useParams()
+
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
+
+  const [counsellor, setCounsellor] = useState([])
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
@@ -76,6 +83,13 @@ function CounsellorBookingForm(props) {
   //     }
   // }
 
+    fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    })
+   
+     
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -91,6 +105,7 @@ function CounsellorBookingForm(props) {
         name: newAppointment[0].name,
         time: newAppointment[0].time,
         date: newAppointment[0].date,
+        preferredCounsellor: newAppointment[0].preferredCounsellor,
         contactDetails: newAppointment[0].contactDetails,
       })
       window.scrollTo(0, 0)
@@ -114,7 +129,7 @@ function CounsellorBookingForm(props) {
             Kia ora {alertInfo.name}, you're all booked in
           </Alert.Heading>
           <p>
-            Thank you for making a booking with us. We'll see you on the{" "}
+            Thank you for making a booking with {alertInfo.preferredCounsellor}. We'll see you on the{" "}
             {alertInfo.date} at {alertInfo.time}. Please let us know if you need
             to cancel or rearrange your appointment.
           </p>
@@ -169,6 +184,21 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your room number"
               />
+            </Form.Group>
+
+             
+            <Form.Group
+              className="mb-3"
+              controlId="preferredCounsellor"
+              onChange={handleChange}
+            >
+            <Form.Label>Preferred Counsellor</Form.Label>
+              <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
+                <option>Select preferred counsellor</option>
+                {counsellor.map((counsellor) => {
+                return <option value={counsellor.name} key={counsellor.id} selected = {params.name == counsellor.name ? true : false }>{counsellor.name}
+                </option>})}
+              </Form.Select>
             </Form.Group>
 
             <Form.Group

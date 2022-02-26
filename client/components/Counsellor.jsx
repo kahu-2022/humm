@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Card, Image } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function Counsellor(props) {
   
@@ -25,6 +26,13 @@ function Counsellor(props) {
                   {props.hours}
                   </Card.Text>
                 </Row>
+
+                <Row>
+                  <Card.Text>
+                    <Link to={`/booking/${props.name}`}><strong>Book for an appointment</strong></Link>
+                  </Card.Text>
+                </Row>
+
             </Col>
           </Row>
         </Card.Body>

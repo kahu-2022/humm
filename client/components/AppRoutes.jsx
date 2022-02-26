@@ -50,7 +50,11 @@ function AppRoutes(props) {
          path="/emergencyresources"
          element = {<EmergencyResources />} 
         />
-       <Route 
+      <Route
+         path="/booking/:name"
+         element = {<CounsellorBookingForm />} 
+        />
+     <Route 
          exact
          path="/food"
          element = {<ShowFood />} 
