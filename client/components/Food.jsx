@@ -8,16 +8,16 @@ function Food(props) {
         <Card.Body>
           <Row className="justify-content-md-center">
             <Col>
-                <Row><Card.Title><em>{props.name}</em></Card.Title></Row>
-                <Row><Card.Text>{props.donorRoom}</Card.Text></Row>
-                <Row><Card.Text>{props.item}</Card.Text></Row>
-                <Row><Card.Text>{props.quantity}</Card.Text></Row>
+                <Row><Card.Title><em>{props.item} </em></Card.Title></Row>
+                <Row><Card.Text>{props.quantity} available </Card.Text></Row>
+                <br /> <strong>Donated by</strong><br />
+                <Row><Card.Text>{props.name} in room {props.donorRoom} </Card.Text></Row>
                 <Row>
                   <Card.Text className="mt-2">
                   <strong>Date Donated</strong><br />
                   {props.donateDate}
                   </Card.Text>
-                </Row>
+                </Row><br />
                 <Row>
                   <Card.Text>
                   <strong>Expiry Date</strong><br />
@@ -27,12 +27,10 @@ function Food(props) {
             </Col>
           </Row>
         </Card.Body>
-
         <Card.Body>
             <Card.Text>
               <strong>Status</strong>
-            </Card.Text>
-            <Card.Text>
+              <br />
                {props.status}
             </Card.Text>
         </Card.Body>
