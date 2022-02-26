@@ -25,10 +25,6 @@ function CounsellorBookingForm(props) {
 
   const params = useParams()
 
-  useEffect (() => {
-    console.log(params)
-  }, [])
-
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
 
@@ -198,11 +194,10 @@ function CounsellorBookingForm(props) {
             >
             <Form.Label>Preferred Counsellor</Form.Label>
               <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
-                <Routes><Route path="/booking/:name" /></Routes> ? 
-                <option>{params.name}</option> :
                 <option>Select preferred counsellor</option>
                 {counsellor.map((counsellor) => {
-                return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})}
+                return <option value={counsellor.name} key={counsellor.id} selected = {params.name == counsellor.name ? true : false }>{counsellor.name}
+                </option>})}
               </Form.Select>
             </Form.Group>
 
