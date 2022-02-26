@@ -6,19 +6,7 @@ import Food from './Food'
 import { fetchFood } from "../apis/api"
 
 function ShowFood (props) {
-  const [food, setFood] = useState([]
-    // id: '',
-    // name: '',
-    // donorRoom: '',
-    // item: '',
-    // quantity: '',
-    // donateDate: '',
-    // useByDate: '',
-    // status: '',
-    // claimedBy: '',
-    // claimerRoom: ''
-
-  )
+  const [food, setFood] = useState([])
 
 useEffect (() => {
   getFood()
@@ -43,6 +31,14 @@ return (
             <Food 
             key={food.id}
             name={food.name}
+            donorRoom={food.donorRoom}
+            item={food.item}
+            quantity={food.quantity}
+            donateDate={food.donateDate}
+            useByDate={food.useByDate}
+            status={food.status}
+            claimedBy={food.claimedBy}
+            claimerRoom={food.claimerRoom}
             />
            </Col>
         )
