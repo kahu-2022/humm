@@ -1,7 +1,6 @@
 
 const config = require('./knexfile').development
 const conn = require('knex')(config)
-const db = require('./connection')
 
 function getAllCounsellors (db = conn) {
     return db('Counsellors')

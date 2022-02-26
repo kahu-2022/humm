@@ -8,12 +8,15 @@ import Alert from "react-bootstrap/Alert"
 import PageHeader from "./PageHeader"
 
 import { addCounselling } from "../apis/api"
+import { addCounselling, fetchCounsellors } from "../apis/api"
+import { useParams } from "react-router-dom"
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
     name: "",
     pronouns: "",
     roomNumber: "",
+    preferredCounsellor: [],
     urgency: "",
     sessionPreference: [],
     contactPreference: [],
@@ -22,13 +25,26 @@ function CounsellorBookingForm(props) {
     contactDetails: "",
   })
 
+  // const selectedCounsellor = useParams()
+
+  // useEffect (() => {
+  //   console.log(selectedCounsellor)
+  // }, [])
+
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
+
+  const [counsellor, setCounsellor] = useState([])
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
 
   const handleCheckboxOnChange = (e) => {
+    console.log(e.target.name)
+    fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    })
     const isChecked = e.target.checked
 
     const checkboxes = {
@@ -49,7 +65,13 @@ function CounsellorBookingForm(props) {
     }
   }
 
-  //For non-checkbox inputs
+   fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    }) 
+
+     
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -71,6 +93,7 @@ function CounsellorBookingForm(props) {
         name: newAppointment[0].name,
         time: newAppointment[0].time,
         date: newAppointment[0].date,
+        preferredCounsellor: newAppointment[0].preferredCounsellor,
         contactDetails: newAppointment[0].contactDetails,
       })
 
@@ -93,7 +116,7 @@ function CounsellorBookingForm(props) {
             Kia ora {alertInfo.name}, you're all booked in
           </Alert.Heading>
           <p>
-            Thank you for making a booking with us. We'll see you on the{" "}
+            Thank you for making a booking with {alertInfo.preferredCounsellor}. We'll see you on the{" "}
             {alertInfo.date} at {alertInfo.time}. Please let us know if you need
             to cancel or rearrange your appointment.
           </p>
@@ -148,6 +171,20 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your room number"
               />
+            </Form.Group>
+
+             
+            <Form.Group
+              className="mb-3"
+              controlId="preferredCounsellor"
+              onChange={handleChange}
+            >
+            <Form.Label>Preferred Counsellor</Form.Label>
+              <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
+                <option>Select preferred counsellor</option>
+                {counsellor.map((counsellor) => {
+                  return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})} 
+              </Form.Select>
             </Form.Group>
 
             <Form.Group

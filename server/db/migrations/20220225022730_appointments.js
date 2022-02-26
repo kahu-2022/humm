@@ -5,6 +5,7 @@ exports.up = function(knex) {
         table.string('name')
         table.string('pronouns')
         table.string('roomNumber')
+        table.string('preferredCounsellor')
         table.string('urgency')
         table.string('date')
         table.string('time')
