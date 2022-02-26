@@ -14,7 +14,6 @@ function ShowVolunteering (props) {
 useEffect (() => {
   fetchVolunteering()
   .then(arr => {
-    console.log(arr)
     setVolunteering(arr)})
     return null
 }, [])

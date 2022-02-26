@@ -46,6 +46,7 @@ function addActivities (activity, db = conn) {
 }
 
 // add suggestion function
+
 function getSuggestions(suggestion, db = conn) {
     return db('suggestions')
     .select()
@@ -109,10 +110,15 @@ function addFood (food) {
 
 // volunteer functions
 
-function getVolunteering () {
+function getVolunteering (db = conn) {
   return db('volunteering')
   .select()
 }
+
+// function getActivities (db = conn) {
+//   return db('activities')
+//   .select()
+// }
 
 // exports
 
