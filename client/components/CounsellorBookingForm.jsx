@@ -31,6 +31,10 @@ function CounsellorBookingForm(props) {
 
   const handleCheckboxOnChange = (e) => {
     console.log(e.target.name)
+    fetchCounsellors()
+    .then((arr) => {
+      setCounsellor(arr)
+    })
     const isChecked = e.target.checked
     if (e.target.name === "contactPreference") {
       if (isChecked) {
@@ -79,16 +83,10 @@ function CounsellorBookingForm(props) {
   //     }
   // }
 
-  useEffect (() => {
-    getCounsellors()
-  }, [])
-
-  const getCounsellors = () => {
     fetchCounsellors()
     .then((arr) => {
       setCounsellor(arr)
-    })
-  }
+    })  
 
   const handleChange = (e) => {
     setFormData({
@@ -129,7 +127,7 @@ function CounsellorBookingForm(props) {
             Kia ora {alertInfo.name}, you're all booked in
           </Alert.Heading>
           <p>
-            Thank you for making a booking with us. We'll see you on the{" "}
+            Thank you for making a booking with {alertInfo.preferredCounsellor}. We'll see you on the{" "}
             {alertInfo.date} at {alertInfo.time}. Please let us know if you need
             to cancel or rearrange your appointment.
           </p>
