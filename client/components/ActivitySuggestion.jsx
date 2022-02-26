@@ -42,7 +42,7 @@ return (
     <Container>
  
     <header className="mt-4 header">
-      <h1> Make a suggestion! </h1>
+      <h2> Make a suggestion! </h2>
       <h4>Have a cool idea for an activity you'd like to see happen in the future? Let us know below, and we'll weave our magic & try to make it happen!</h4>
     </header>
     <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
