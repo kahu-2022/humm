@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import Form from 'react-bootstrap/Form'
 import Container from "react-bootstrap/Container"
 import Footer from './Footer'
 import ActivitySuggestion from './ActivitySuggestion'
@@ -12,7 +13,15 @@ function Activities () {
     const [activities, setActivities] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
 
-    // const [message, setMessage] = useState('')
+    const [showForm, setShowForm] = useState(false)
+
+    // const appear = () => {
+    //         setShowForm(signup)
+    //         return null
+    //       .catch(err => {
+    //         console.log(err.message)
+    //       })
+    //   }
 
     useEffect(() => {
         fetchActivities()
@@ -22,6 +31,25 @@ function Activities () {
 
     // const handleTyping = (e) => {
     //     setMessage(e.target.value)
+    //   }
+    const handleChange = (e) => {
+
+        // setSuggestion({
+        //     ...suggestion,
+        //     [e.target.name]: e.target.value 
+        // })
+      }
+      
+    //   const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     addSuggestion(suggestion) 
+    //     .then((newSuggestion)=> {
+    //       setAlertInfo({
+    //         name: newSuggestion[0].name
+    //       })
+    //   setShowAlert(true)
+    //   })
+      
     //   }
 
       const handleSubmit = (e) => {
@@ -48,9 +76,36 @@ function Activities () {
             <b>Activity: </b><em>{act.title + ' // ' + act.info}</em>
             <p>{act.date} {act.time} in {act.location}</p>
             <p>ran by: {act.ran_by}</p>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
+            <Button variant="primary" type="submit" onClick={() => setShowForm(true)}>
             i'm keen!
             </Button>
+
+            <section
+            >
+    {showForm ? <Form 
+    // show={showForm}
+    onSubmit={handleSubmit}>
+        <Form.Group className="mb-3"  controlId="name" onChange={handleChange}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control name="name" type="text" placeholder="Enter your name" />
+        </Form.Group>
+
+    <Form.Group className="mb-3" controlId="pronouns" onChange={handleChange}>
+        <Form.Label>Pronouns</Form.Label>
+        <Form.Control  name="pronouns" type="text" placeholder="Enter your preferred pronouns" />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="roomNumber" onChange={handleChange}>
+        <Form.Label>Room number</Form.Label>
+        <Form.Control  name="roomNumber" type="text" placeholder="Enter your room number" />
+    </Form.Group>
+
+    <Button variant="primary" type="submit">
+            Submit
+        </Button>
+        </Form> : null }
+      </section>
+
             <br></br>
             <br></br>
             </li>
