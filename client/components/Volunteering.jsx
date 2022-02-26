@@ -3,11 +3,11 @@ import { Row, Col, Card, Container } from 'react-bootstrap'
 
 function Volunteering(props) {
 
-  
+  console.log(props)
+
   return (
     <>
     <Container>
-      <h1>blepp</h1>
       <Card className="py-3">
         <Card.Body>
           <Row className="justify-content-md-center">

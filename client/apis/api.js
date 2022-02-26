@@ -68,7 +68,7 @@ export function addRoomIssue(issueObj){
 
 export function fetchFood () {
   return request
-  .get('api/v1/food')
+  .get('/api/v1/food')
   .then(res => {
     return res.body
   })
@@ -79,7 +79,7 @@ export function fetchFood () {
 
 export function fetchVolunteering () {
   return request
-  .get('api/v1/volunteering')
+  .get('/api/v1/volunteering')
   .then(res => {
     return res.body
   })
@@ -87,6 +87,7 @@ export function fetchVolunteering () {
     console.error({error: err.message})
   })
 }
+
 
 export function addNewFood(foodObj){
   console.log("You have reached the api wooo", foodObj)
