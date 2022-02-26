@@ -1,6 +1,5 @@
 import React from 'react'
 import { Row, Col, Card, Container } from 'react-bootstrap'
-import AddFood from './AddFood'
 
 function Food(props) {
 

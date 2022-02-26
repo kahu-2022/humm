@@ -27,9 +27,7 @@ function Navigation(props) {
     </Nav>
     <Nav>
       <Nav.Link href="/room">Report an issue</Nav.Link>
-      <Nav.Link eventKey={2} href="/">
-      Another thing
-      </Nav.Link>
+      <Nav.Link href="/volunteering">Volunteering</Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>

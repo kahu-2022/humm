@@ -108,6 +108,13 @@ function addFood (food) {
   })
 }
 
+// volunteer functions
+
+function getVolunteering () {
+  return db('volunteering')
+  .select()
+}
+
 // exports
 
 module.exports = {
@@ -126,6 +133,6 @@ module.exports = {
     addRoomIssues,
     getFood,
     getFoodById,
-    addFood
-
+    addFood,
+    getVolunteering
 }
