@@ -87,6 +87,8 @@ function addRoomIssues(issue, db = conn) {
   })
 }
 
+// food functions
+
 function getFood () {
   return db('food-items')
   .select()

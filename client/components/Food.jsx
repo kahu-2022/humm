@@ -1,9 +1,13 @@
 import React from 'react'
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row, Col, Card, Container } from 'react-bootstrap'
+import AddFood from './AddFood'
 
 function Food(props) {
+
   
   return (
+    <>
+    <container>
       <Card className="py-3">
         <Card.Body>
           <Row className="justify-content-md-center">
@@ -35,6 +39,10 @@ function Food(props) {
             </Card.Text>
         </Card.Body>
       </Card>
+      </container>
+
+</>
+    
   )
 }
 
