@@ -14,7 +14,8 @@ function AddFood (props) {
     item: '',
     quantity: '',
     donateDate: '',
-    useByDate: ''
+    useByDate: '',
+    status: ''
 })
 
 const [showAlert, setShowAlert] = useState(false)
@@ -49,7 +50,7 @@ return (
     <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Kia ora {alertInfo.name}, thanks for adding your food.</Alert.Heading>
         <p>
-          You're also more than welcome to claim food up for grabs
+          You're also more than welcome to claim food up for grabs.
         </p>
         <hr />
     </Alert> 
@@ -83,6 +84,11 @@ return (
     <Form.Group className="mb-3" controlId="useByDate" onChange={handleChange}>
         <Form.Label>Use by date</Form.Label>
         <Form.Control  name="useByDate" type="text" placeholder="Enter the useby date for the food" />
+    </Form.Group>   
+
+    <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
+        <Form.Label>Status</Form.Label>
+        <Form.Control  name="status" type="text" placeholder="Enter available" />
     </Form.Group>   
 
     <Button variant="primary" type="submit">

@@ -13,6 +13,16 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+  db.getFoodById(req.body)
+    .then(food => {
+        return res.json(food)
+    })
+    .catch(err => {
+        res.status(500).json({ error: err.message })
+    })
+})
+
 router.post('/', (req, res) => {
     db.addFood(req.body)
     .then(food => {
