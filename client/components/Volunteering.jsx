@@ -3,8 +3,6 @@ import { Row, Col, Card, Container } from 'react-bootstrap'
 
 function Volunteering(props) {
 
-  console.log(props)
-
   return (
     <>
     <Container>

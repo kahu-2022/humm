@@ -3,80 +3,45 @@ import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import Form from 'react-bootstrap/Form'
 import Container from "react-bootstrap/Container"
-import Footer from './Footer'
-import ActivitySuggestion from './ActivitySuggestion'
-
-import { fetchActivities } from '../apis/api'
 
 function Activity (props) {
 
     const {activity} = props
-    // const [activities, setActivities] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
-
     const [showForm, setShowForm] = useState(false)
-
-    // const appear = () => {
-    //         setShowForm(signup)
-    //         return null
-    //       .catch(err => {
-    //         console.log(err.message)
-    //       })
-    //   }
+    const [showButton, setShowButton] = useState(true)
 
     useEffect(() => {
-        console.log(activity)
+        // console.log(activity)
     },[])
 
-    // const handleTyping = (e) => {
-    //     setMessage(e.target.value)
-    //   }
     const handleChange = (e) => {
-
-        // setSuggestion({
-        //     ...suggestion,
-        //     [e.target.name]: e.target.value 
-        // })
-      }
-      
-    //   const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     addSuggestion(suggestion) 
-    //     .then((newSuggestion)=> {
-    //       setAlertInfo({
-    //         name: newSuggestion[0].name
-    //       })
-    //   setShowAlert(true)
-    //   })
-      
-    //   }
+    }
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        window.scrollTo(0, 0)
         setShowAlert(true)
         setShowForm(false)
       }
+
+    //   const hideButton = () => {
+    //     setShowButton(false)
+    //   }
 
     return (
         <> 
         <Container>
 
-        <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-        <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
-        </Alert>
-
-            <p> <b>Activity: </b><em>{activity.title + ' // ' + activity.info}</em> </p>
+            <p> <b>{activity.title} </b><em>   // {activity.info}</em> </p>
             <p>{activity.date} {activity.time} in {activity.location}</p>
             <p>ran by: {activity.ran_by}</p>
-            <Button variant="primary" type="submit" onClick={() => setShowForm(true)}>
+            <Button variant="primary" type="submit" onClick={() => setShowForm(true), () => setShowButton(false)}>
             i'm keen!
             </Button>
 
             <section
             >
     {showForm ? <Form 
-    // show={showForm}
     onSubmit={handleSubmit}>
         <Form.Group className="mb-3"  controlId="name" onChange={handleChange}>
             <Form.Label>Name</Form.Label>
@@ -99,7 +64,12 @@ function Activity (props) {
         </Form> : null }
       </section>
 
-            <br></br>
+        <br></br>
+
+      <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+        <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+        </Alert>
+
             <br></br>
 
         </Container>

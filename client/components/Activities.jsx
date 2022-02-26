@@ -13,51 +13,13 @@ function Activities () {
 
     const [activities, setActivities] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
-
     const [showForm, setShowForm] = useState(false)
-
-    // const appear = () => {
-    //         setShowForm(signup)
-    //         return null
-    //       .catch(err => {
-    //         console.log(err.message)
-    //       })
-    //   }
 
     useEffect(() => {
         fetchActivities()
         .then(activities => setActivities(activities))
         return null
     },[])
-
-    // const handleTyping = (e) => {
-    //     setMessage(e.target.value)
-    //   }
-    const handleChange = (e) => {
-
-        // setSuggestion({
-        //     ...suggestion,
-        //     [e.target.name]: e.target.value 
-        // })
-      }
-      
-    //   const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     addSuggestion(suggestion) 
-    //     .then((newSuggestion)=> {
-    //       setAlertInfo({
-    //         name: newSuggestion[0].name
-    //       })
-    //   setShowAlert(true)
-    //   })
-      
-    //   }
-
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        window.scrollTo(0, 0)
-        setShowAlert(true)
-      }
 
     return (
         <> 
