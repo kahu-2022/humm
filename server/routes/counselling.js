@@ -4,7 +4,7 @@ const router = express.Router()
 const db = require('../db/db')
 
 router.get('/', (req, res) => {
-    db.getCounsellingBookings(req.body)
+    db.getCounsellingBookings()
     .then(bookings => {
         return res.json(bookings)
     })

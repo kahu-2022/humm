@@ -6,6 +6,7 @@ import Alert from "react-bootstrap/Alert"
 
 import PageHeader from "./PageHeader"
 import { addCounselling, fetchCounsellors } from "../apis/api"
+import { useParams } from "react-router-dom"
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
@@ -20,6 +21,12 @@ function CounsellorBookingForm(props) {
     time: "",
     contactDetails: "",
   })
+
+  // const selectedCounsellor = useParams()
+
+  // useEffect (() => {
+  //   console.log(selectedCounsellor)
+  // }, [])
 
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
@@ -83,10 +90,12 @@ function CounsellorBookingForm(props) {
   //     }
   // }
 
-    fetchCounsellors()
+   fetchCounsellors()
     .then((arr) => {
       setCounsellor(arr)
-    })  
+    }) 
+
+     
 
   const handleChange = (e) => {
     setFormData({
