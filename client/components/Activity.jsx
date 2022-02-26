@@ -5,13 +5,13 @@ import Form from 'react-bootstrap/Form'
 import Container from "react-bootstrap/Container"
 import Footer from './Footer'
 import ActivitySuggestion from './ActivitySuggestion'
-import Activity from './Activity'
 
 import { fetchActivities } from '../apis/api'
 
-function Activities () {
+function Activity (props) {
 
-    const [activities, setActivities] = useState(null)
+    const {activity} = props
+    // const [activities, setActivities] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
 
     const [showForm, setShowForm] = useState(false)
@@ -25,9 +25,7 @@ function Activities () {
     //   }
 
     useEffect(() => {
-        fetchActivities()
-        .then(activities => setActivities(activities))
-        return null
+        console.log(activity)
     },[])
 
     // const handleTyping = (e) => {
@@ -57,28 +55,52 @@ function Activities () {
         e.preventDefault();
         window.scrollTo(0, 0)
         setShowAlert(true)
+        setShowForm(false)
       }
 
     return (
         <> 
         <Container>
 
-        <header className="mt-4 header">
-        <h1>Community Events/Activities</h1>
-        </header>
-
         <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
 
-        { activities ? activities.map(act => { return <Activity key={act.id} activity={act} /> }
-        ) 
-        : null
-    }
+            <p> <b>Activity: </b><em>{activity.title + ' // ' + activity.info}</em> </p>
+            <p>{activity.date} {activity.time} in {activity.location}</p>
+            <p>ran by: {activity.ran_by}</p>
+            <Button variant="primary" type="submit" onClick={() => setShowForm(true)}>
+            i'm keen!
+            </Button>
 
-            <ActivitySuggestion />
+            <section
+            >
+    {showForm ? <Form 
+    // show={showForm}
+    onSubmit={handleSubmit}>
+        <Form.Group className="mb-3"  controlId="name" onChange={handleChange}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control name="name" type="text" placeholder="Enter your name" />
+        </Form.Group>
 
-            <Footer />
+    <Form.Group className="mb-3" controlId="pronouns" onChange={handleChange}>
+        <Form.Label>Pronouns</Form.Label>
+        <Form.Control  name="pronouns" type="text" placeholder="Enter your preferred pronouns" />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="roomNumber" onChange={handleChange}>
+        <Form.Label>Room number</Form.Label>
+        <Form.Control  name="roomNumber" type="text" placeholder="Enter your room number" />
+    </Form.Group>
+
+    <Button variant="primary" type="submit" >
+            Submit
+        </Button>
+        </Form> : null }
+      </section>
+
+            <br></br>
+            <br></br>
 
         </Container>
           
@@ -86,4 +108,4 @@ function Activities () {
     )
 }
 
-export default Activities
+export default Activity

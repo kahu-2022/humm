@@ -5,8 +5,6 @@ import PageHeader from './PageHeader'
 
 import { fetchCounsellors } from '../apis/api'
 
-// import Counsellor from './Counsellor'
-
 function ShowCounsellors (props) {
   const [counsellor, setCounsellor] = useState([])
 
