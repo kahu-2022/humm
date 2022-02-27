@@ -76,16 +76,25 @@ return (
         <Form.Control  name="quantity" type="text" placeholder="Enter the amout of food you have to donate" />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="donateDate" onChange={handleChange}>
-        <Form.Label>Date donated </Form.Label>
-        <Form.Control  name="donateDate" type="text" placeholder="Enter the food you'd like to donate" />
+    <Form.Group
+      className="mb-3"
+      controlId="donateDate"
+      onChange={handleChange}
+    >
+      <Form.Label>Date Donated</Form.Label>
+        <Form.Control name="donateDate" type="date" />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="useByDate" onChange={handleChange}>
-        <Form.Label>Use by date</Form.Label>
-        <Form.Control  name="useByDate" type="text" placeholder="Enter the useby date for the food" />
-    </Form.Group>   
+    <Form.Group
+      className="mb-3"
+      controlId="useByDate"
+      onChange={handleChange}
+    >
+      <Form.Label>Use by Date</Form.Label>
+        <Form.Control name="useByDate" type="date" />
+    </Form.Group> 
 
+    {/* This will be boolean */}
     <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
         <Form.Label>Status</Form.Label>
         <Form.Control  name="status" type="text" placeholder="Enter available" />
