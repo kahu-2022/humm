@@ -1,17 +1,93 @@
-import React from 'react'
-import { Row, Col, Card, Container } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row, Col, Card, Container, Button, Modal, Form, Alert } from 'react-bootstrap'
+
+import { addNewFood } from '../apis/api'
 
 function Food(props) {
 
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  const [claimData, setClaimData] = useState({
+    claimedBy: "",
+    claimerRoom: ""
+  })
+
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertInfo, setAlertInfo] = useState({})
+
+  const handleChange = (e) => {
+    setClaimData({
+      ...claimData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // console.log(claimData)
+    addNewFood(claimData).then((newClaim) => {
+      setAlertInfo({
+        claimedBy: newClaim[0].claimedBy
+      })
+      window.scrollTo(0, 0)
+      setShowAlert(true)
+
+      // res will be an id of the new counselling booking
+      // then some react to show the alert
+    })
+  }
   
   return (
     <>
     <Container>
+
+       
+
       <Card className="py-3">
         <Card.Body>
           <Row className="justify-content-md-center">
             <Col>
-                <Row><Card.Title><em>{props.item} </em></Card.Title></Row>
+                <Row>
+                  <Col>
+                    <Card.Title><em>{props.item} </em></Card.Title>
+                  </Col>
+                  <Col>
+                      <Button variant="primary" onClick={handleShow}>Claim</Button>
+
+                      <Modal show={show} onHide={handleClose}>
+                        <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
+                              <Alert.Heading>Kia ora {alertInfo.claimedBy}, that's all yours!</Alert.Heading>
+                          </Alert>
+                        <Modal.Header closeButton>
+                          <Modal.Title>Claim the food</Modal.Title>
+                        </Modal.Header>
+                        <Form >
+                        <Modal.Body>
+                          <Form.Group className="mb-3"  controlId="claimedBy" onChange={handleChange}>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control name="claimedBy" type="text" placeholder="Enter your name" />
+                          </Form.Group>
+
+                          <Form.Group className="mb-3" controlId="claimerRoom" onChange={handleChange}>
+                            <Form.Label>Room Number</Form.Label>
+                            <Form.Control  name="claimerRoom" type="text" placeholder="Enter your room number" />
+                          </Form.Group>
+                        
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Close
+                          </Button>
+                          <Button variant="primary" onClick={handleSubmit}>
+                            Save Changes
+                          </Button>
+                        </Modal.Footer></Form>
+                      </Modal>
+                  </Col>
+                </Row>
                 <Row><Card.Text>{props.quantity} available </Card.Text></Row>
                 <br /> <strong>Donated by</strong><br />
                 <Row><Card.Text>{props.name} in room {props.donorRoom} </Card.Text></Row>
@@ -30,13 +106,13 @@ function Food(props) {
             </Col>
           </Row>
         </Card.Body>
-        <Card.Body>
+        {/* <Card.Body>
             <Card.Text>
               <strong>Status</strong>
               <br />
                {props.status}
             </Card.Text>
-        </Card.Body>
+        </Card.Body> */}
       </Card>
       </Container>
 
