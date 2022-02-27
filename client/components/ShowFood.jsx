@@ -27,7 +27,6 @@ return (
     {/* <Button>Donate Food </Button> */}
     <Row className="g-3"> 
       { food ? food.map(food => {
-        console.log(food)
         return (
           <Col md={6} lg={4}>
             <Food 
@@ -47,16 +46,12 @@ return (
             }
             )
         : null
-    }
-            
-           
-        )
-
+      }
     </Row>
     < AddFood />
   </Container>
   </>
-)
-    }
+  )
+}
 
 export default ShowFood
