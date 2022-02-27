@@ -41,7 +41,7 @@ function Sessions () {
             <p>{sesh.date} {sesh.time} in {sesh.location}</p>
             <p>ran by: {sesh.ran_by}</p>
             <Button variant="primary" type="submit" onClick={handleSubmit}>
-            i'm keen!
+            I'm keen!
             </Button>
             <br></br>
             <br></br>
