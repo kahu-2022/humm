@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import Form from 'react-bootstrap/Form'
-import Container from "react-bootstrap/Container"
+import { Container, Card, Image } from 'react-bootstrap'
 
 function Activity (props) {
 
@@ -32,12 +32,19 @@ function Activity (props) {
         <> 
         <Container>
 
+        <Card className="py-3">
+            <Card.Body>
+
             <p> <b>{activity.title} </b><em>   // {activity.info}</em> </p>
             <p>{activity.date} {activity.time} in {activity.location}</p>
             <p>ran by: {activity.ran_by}</p>
-            <Button variant="primary" type="submit" onClick={() => setShowForm(true), () => setShowButton(false)}>
+            <Image src= {activity.image} rounded="true" fluid="true" />
+            <Button variant="primary" type="submit" align="center" onClick={() => setShowForm(true), () => setShowButton(false)}>
             i'm keen!
             </Button>
+
+            </Card.Body>
+            </Card>
 
             <section
             >
