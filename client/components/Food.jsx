@@ -49,7 +49,6 @@ function Food(props) {
     <Container>
 
        
-
       <Card className="py-3">
         <Card.Body>
           <Row className="justify-content-md-center">

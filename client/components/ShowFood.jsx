@@ -28,12 +28,13 @@ return (
     <Row className="g-3"> 
       { food ? food.map(food => {
         return (
+          food.status != 'Claimed' ?
           <Col md={6} lg={4}>
             <Food 
             key={food.id}
             food={food}
             />
-          </Col>
+          </Col> : null
         )
             }
             )
