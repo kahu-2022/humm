@@ -10,6 +10,7 @@ import RoomIssue from './RoomIssue'
 import EmergencyResources from "./EmergencyResources"
 import ShowFood from "./ShowFood"
 import ShowVolunteering from "./ShowVolunteering"
+import { signUpForVolunteering } from "../apis/api"
 
 function AppRoutes(props) {
   return (
@@ -63,6 +64,11 @@ function AppRoutes(props) {
          exact
          path="/volunteering"
          element = {<ShowVolunteering />} 
+        />
+         <Route 
+         exact
+         path="/volunteering/:name"
+         element = {<signUpForVolunteering />} 
         />
       </Routes> 
     </>

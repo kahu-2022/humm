@@ -18,6 +18,7 @@ function addCounsellingBooking (booking, db = conn) {
     return db('appointments')
     .insert(booking)
     .then ((id) => {
+      console.log("hit the server")
         return getCounsellingBookingById(id, db = conn)
     })
 }
@@ -125,6 +126,20 @@ function getVolunteering (db = conn) {
   .select()
 }
 
+function signUpForVolunteering(booking, db = conn) {
+  return db('volunteering')
+  .insert(booking)
+  .then ((id) => {
+      return getVolunteeringBookingById(id, db = conn)
+  })
+}
+
+function getVolunteeringBookingById(bookingId, db = conn){
+  return db('volunteering')
+  .where('id', bookingId)
+  .select()
+}
+
 // function getActivities (db = conn) {
 //   return db('activities')
 //   .select()
@@ -150,5 +165,7 @@ module.exports = {
     getFoodById,
     addFood,
     getVolunteering,
-    claimFood
+    claimFood,
+    signUpForVolunteering,
+    getVolunteeringBookingById
 }

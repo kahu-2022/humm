@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+
 import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -6,6 +7,7 @@ import Alert from "react-bootstrap/Alert"
 import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
+
 import { addCounselling, fetchCounsellors } from "../apis/api"
 import { useParams } from "react-router-dom"
 
@@ -34,59 +36,30 @@ function CounsellorBookingForm(props) {
   const [alertInfo, setAlertInfo] = useState({})
 
   const handleCheckboxOnChange = (e) => {
-    console.log(e.target.name)
     const isChecked = e.target.checked
-    if (e.target.name === "contactPreference") {
-      if (isChecked) {
-        setContactPrefCheck([...contactPrefCheck, e.target.value])
-      } else {
-        const index = contactPrefCheck.indexOf(e.target.value)
-        contactPrefCheck.splice(index, 1)
-        setContactPrefCheck([...contactPrefCheck])
-      }
+
+    const checkboxes = {
+      contactPreference: [contactPrefCheck, setContactPrefCheck],
+      sessionPreference: [sessionPrefCheck, setSessionPrefCheck],
+    }
+
+    const checkboxState = checkboxes[e.target.name][0]
+    const setCheckboxState = checkboxes[e.target.name][1]
+
+    if (isChecked) {
+      setCheckboxState([...checkboxState, e.target.value])
     } else {
-      if (isChecked) {
-        setSessionPrefCheck([...sessionPrefCheck, e.target.value])
-      } else {
-        const index = sessionPrefCheck.indexOf(e.target.value)
-        sessionPrefCheck.splice(index, 1)
-        setSessionPrefCheck([...sessionPrefCheck])
-      }
+      const index = checkboxState.indexOf(e.target.value)
+      checkboxState.splice(index, 1)
+      setCheckboxState([...checkboxState])
     }
   }
 
-  // const handleCheckboxOnChange2 = (e) => {
-  //     const isChecked = e.target.checked
+    useEffect(()=>{
+      fetchCounsellors()
+      .then((arr) => setCounsellor(arr))
+    }, [])
 
-  //     const stuff = {
-  //         contactPreference: [contactPrefCheck, setContactPrefCheck],
-  //         sessionPreference: [sessionPrefCheck, setSessionPrefCheck]
-  //     }
-
-  //     const stateCopy = stuff[e.target.name][0]
-  //     const setStateFunc = stuff[e.target.name][1]
-
-  //     // if(e.target.name === 'contactPreference') {
-  //     //     setStateFunc = setContactPrefCheck
-  //     //     stateCopy = [...contactPrefCheck]
-  //     // } else {
-  //     //     setStateFunc = setSessionPrefCheck
-  //     //     stateCopy = [...sessionPrefCheck]
-  //     // }
-
-  //     if(isChecked){
-  //         setStateFunc([...stateCopy, e.target.value] )
-  //     }else{
-  //         const index = stateCopy.indexOf(e.target.value)
-  //         stateCopy.splice(index, 1)
-  //         setStateFunc([...stateCopy])
-  //     }
-  // }
-
-    fetchCounsellors()
-    .then((arr) => {
-      setCounsellor(arr)
-    })
    
      
 
@@ -99,8 +72,14 @@ function CounsellorBookingForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    formData.sessionPreference = sessionPrefCheck
+    formData.contactPreference = contactPrefCheck
+    
     console.log(formData)
+
     addCounselling(formData).then((newAppointment) => {
+      console.log(newAppointment)
       setAlertInfo({
         name: newAppointment[0].name,
         time: newAppointment[0].time,
@@ -108,11 +87,10 @@ function CounsellorBookingForm(props) {
         preferredCounsellor: newAppointment[0].preferredCounsellor,
         contactDetails: newAppointment[0].contactDetails,
       })
+
+      //Scroll to the top of the page to show alert
       window.scrollTo(0, 0)
       setShowAlert(true)
-
-      // res will be an id of the new counselling booking
-      // then some react to show the alert
     })
   }
 
@@ -140,11 +118,11 @@ function CounsellorBookingForm(props) {
             111.
           </p>
         </Alert>
-        </Container>
+      </Container>
 
-        <PageHeader title="Book in your session" description="Booking form" />
+      <PageHeader title="Book in your session" description="Booking form" />
 
-    <Container>
+      <Container>
         <section>
           <Form onSubmit={handleSubmit}>
             <Form.Group
