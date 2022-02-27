@@ -8,6 +8,8 @@ import Activities from './Activities'
 import Counsellor from './Counsellor'
 import RoomIssue from './RoomIssue'
 import EmergencyResources from "./EmergencyResources"
+import ShowFood from "./ShowFood"
+import ShowVolunteering from "./ShowVolunteering"
 
 function AppRoutes(props) {
   return (
@@ -48,9 +50,19 @@ function AppRoutes(props) {
          path="/emergencyresources"
          element = {<EmergencyResources />} 
         />
-      <Route 
+      <Route
          path="/booking/:name"
          element = {<CounsellorBookingForm />} 
+        />
+     <Route 
+         exact
+         path="/food"
+         element = {<ShowFood />} 
+        />
+        <Route 
+         exact
+         path="/volunteering"
+         element = {<ShowVolunteering />} 
         />
       </Routes> 
     </>

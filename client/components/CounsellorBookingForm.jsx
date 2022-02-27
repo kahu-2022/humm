@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
 
@@ -25,11 +26,7 @@ function CounsellorBookingForm(props) {
     contactDetails: "",
   })
 
-  // const selectedCounsellor = useParams()
-
-  // useEffect (() => {
-  //   console.log(selectedCounsellor)
-  // }, [])
+  const params = useParams()
 
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
   const [contactPrefCheck, setContactPrefCheck] = useState([])
@@ -41,10 +38,6 @@ function CounsellorBookingForm(props) {
 
   const handleCheckboxOnChange = (e) => {
     console.log(e.target.name)
-    fetchCounsellors()
-    .then((arr) => {
-      setCounsellor(arr)
-    })
     const isChecked = e.target.checked
 
     const checkboxes = {
@@ -68,8 +61,8 @@ function CounsellorBookingForm(props) {
    fetchCounsellors()
     .then((arr) => {
       setCounsellor(arr)
-    }) 
-
+    })
+   
      
 
   const handleChange = (e) => {
@@ -183,7 +176,8 @@ function CounsellorBookingForm(props) {
               <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
                 <option>Select preferred counsellor</option>
                 {counsellor.map((counsellor) => {
-                  return <option value={counsellor.name} key={counsellor.id}>{counsellor.name}</option>})} 
+                return <option value={counsellor.name} key={counsellor.id} selected = {params.name == counsellor.name ? true : false }>{counsellor.name}
+                </option>})}
               </Form.Select>
             </Form.Group>
 

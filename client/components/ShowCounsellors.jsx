@@ -5,8 +5,6 @@ import PageHeader from './PageHeader'
 
 import { fetchCounsellors } from '../apis/api'
 
-// import Counsellor from './Counsellor'
-
 function ShowCounsellors (props) {
   const [counsellor, setCounsellor] = useState([])
 
@@ -25,9 +23,6 @@ function ShowCounsellors (props) {
         <>
         <PageHeader title = 'Our Counsellors' description = 'Meet our team of friendly counselling staff!'/>
         <Container>
-          <Row>
-              <a href='/booking'><strong>Book an appointment now!</strong></a>
-          </Row>
           <Row className="g-3"> 
             {counsellor.map((counsellor) => {
               return (

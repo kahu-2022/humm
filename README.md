@@ -1,4 +1,4 @@
-# Humm
+# humm
 
 ## Final project
 
@@ -38,7 +38,7 @@ https://unsplash.com/
 ### User Story Map 
 (You can view it here) https://miro.com/app/board/uXjVOKLWmg8=/?invite_link_id=102738140562 
 
-![Humm map (2)](https://user-images.githubusercontent.com/93626609/155415284-1e15339c-b29f-4a19-9613-49717a2c87e0.jpg)
+![humm map (2)](https://user-images.githubusercontent.com/93626609/155415284-1e15339c-b29f-4a19-9613-49717a2c87e0.jpg)
 
 
 ### MVP
