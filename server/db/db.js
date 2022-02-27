@@ -115,6 +115,20 @@ function getVolunteering (db = conn) {
   .select()
 }
 
+function signUpForVolunteering(booking, db = conn) {
+  return db('volunteering')
+  .insert(booking)
+  .then ((id) => {
+      return getVolunteeringBookingById(id, db = conn)
+  })
+}
+
+function getVolunteeringBookingById(bookingId, db = conn){
+  return db('volunteering')
+  .where('id', bookingId)
+  .select()
+}
+
 // function getActivities (db = conn) {
 //   return db('activities')
 //   .select()
@@ -139,5 +153,7 @@ module.exports = {
     getFood,
     getFoodById,
     addFood,
-    getVolunteering
+    getVolunteering,
+    signUpForVolunteering,
+    getVolunteeringBookingById
 }
