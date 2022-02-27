@@ -108,6 +108,16 @@ function addFood (food, db = conn) {
   })
 }
 
+function claimFood (food, db = conn) {
+  console.log("about to update db")
+  return db('food-items')
+  .update(food)
+  .where('id', food.id)
+  .then ((food) => {
+      return getFoodById(food)
+  })
+}
+
 // volunteer functions
 
 function getVolunteering (db = conn) {
@@ -139,5 +149,6 @@ module.exports = {
     getFood,
     getFoodById,
     addFood,
-    getVolunteering
+    getVolunteering,
+    claimFood
 }

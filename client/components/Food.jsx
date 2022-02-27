@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Row, Col, Card, Container, Button, Modal, Form, Alert } from 'react-bootstrap'
 
-import { addNewFood } from '../apis/api'
+import { addNewFood, claimNewFood } from '../apis/api'
 
 function Food(props) {
+
+  const {food} = props
 
   const [show, setShow] = useState(false)
 
@@ -11,8 +13,10 @@ function Food(props) {
   const handleShow = () => setShow(true)
 
   const [claimData, setClaimData] = useState({
+    id: food.id,
     claimedBy: "",
-    claimerRoom: ""
+    claimerRoom: "",
+    status: "Claimed"
   })
 
   const [showAlert, setShowAlert] = useState(false)
@@ -28,7 +32,7 @@ function Food(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
     // console.log(claimData)
-    addNewFood(claimData).then((newClaim) => {
+    claimNewFood(claimData).then((newClaim) => {
       setAlertInfo({
         claimedBy: newClaim[0].claimedBy
       })
@@ -52,7 +56,7 @@ function Food(props) {
             <Col>
                 <Row>
                   <Col>
-                    <Card.Title><em>{props.item} </em></Card.Title>
+                    <Card.Title><em>{food.item} </em></Card.Title>
                   </Col>
                   <Col>
                       <Button variant="primary" onClick={handleShow}>Claim</Button>
@@ -62,7 +66,7 @@ function Food(props) {
                               <Alert.Heading>Kia ora {alertInfo.claimedBy}, that's all yours!</Alert.Heading>
                           </Alert>
                         <Modal.Header closeButton>
-                          <Modal.Title>Claim the food</Modal.Title>
+                          <Modal.Title>Claim the food {food.item} </Modal.Title>
                         </Modal.Header>
                         <Form >
                         <Modal.Body>
@@ -88,19 +92,19 @@ function Food(props) {
                       </Modal>
                   </Col>
                 </Row>
-                <Row><Card.Text>{props.quantity} available </Card.Text></Row>
+                <Row><Card.Text>{food.quantity} available </Card.Text></Row>
                 <br /> <strong>Donated by</strong><br />
-                <Row><Card.Text>{props.name} in room {props.donorRoom} </Card.Text></Row>
+                <Row><Card.Text>{food.name} in room {food.donorRoom} </Card.Text></Row>
                 <Row>
                   <Card.Text className="mt-2">
                   <strong>Date Donated</strong><br />
-                  {props.donateDate}
+                  {food.donateDate}
                   </Card.Text>
                 </Row><br />
                 <Row>
                   <Card.Text>
                   <strong>Expiry Date</strong><br />
-                  {props.useByDate}
+                  {food.useByDate}
                   </Card.Text>
                 </Row>
             </Col>
@@ -110,7 +114,7 @@ function Food(props) {
             <Card.Text>
               <strong>Status</strong>
               <br />
-               {props.status}
+               {food.status}
             </Card.Text>
         </Card.Body> */}
       </Card>

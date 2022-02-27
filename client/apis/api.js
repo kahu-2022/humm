@@ -97,3 +97,14 @@ export function addNewFood(foodObj){
   })
 }
 
+export function claimNewFood(claimData){
+  console.log("You have reached the api wooo", claimData)
+    return request.patch('/api/v1/food')
+    .send(claimData)
+    .then(claimedFoodAdded => { 
+      return claimedFoodAdded.body
+  })
+  .catch(err => {
+    console.error({error: err.message})
+  })
+}

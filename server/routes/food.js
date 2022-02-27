@@ -34,4 +34,14 @@ router.post('/', (req, res) => {
     })
 })
 
+router.patch('/', (req, res) => {
+    db.claimFood(req.body)
+    .then(claimedFood => {
+      return res.json(claimedFood)
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message })
+  })
+})
+
 module.exports = router

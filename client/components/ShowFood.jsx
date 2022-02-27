@@ -31,15 +31,7 @@ return (
           <Col md={6} lg={4}>
             <Food 
             key={food.id}
-            name={food.name}
-            donorRoom={food.donorRoom}
-            item={food.item}
-            quantity={food.quantity}
-            donateDate={food.donateDate}
-            useByDate={food.useByDate}
-            status={food.status}
-            claimedBy={food.claimedBy}
-            claimerRoom={food.claimerRoom}
+            food={food}
             />
           </Col>
         )
