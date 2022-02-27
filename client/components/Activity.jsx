@@ -40,6 +40,7 @@ function Activity (props) {
                 </Card.Title>
 
             <p> <em> {activity.info}</em> </p>
+
             <p>{activity.date} {activity.time} in {activity.location}</p>
             <p>ran by: {activity.ran_by}</p>
             <Button variant="primary" type="submit" onClick={() => setShowForm(true), () => setShowButton(false)}>

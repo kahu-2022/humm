@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import { Button, Container, Row, Col } from "react-bootstrap"
 import PageHeader from './PageHeader'
 import Volunteering from './Volunteering'
-import Footer from './Footer'
+import VolunterringForm from "./VolunterringSignUp"
 
 
-import { fetchVolunteering } from "../apis/api"
+import { fetchVolunteering, signUpForVolunteering } from "../apis/api"
 
 function ShowVolunteering (props) {
 
@@ -42,11 +42,11 @@ return (
     )
     : null }
 
-    </Row>
-
-    <Footer />
-    
+    </Row>    
     </Container>
+    <Container>
+      <VolunterringForm />
+      </Container>
   </>
   )
 }

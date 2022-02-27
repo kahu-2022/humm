@@ -13,4 +13,15 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  db.signUpForVolunteering(req.body)
+  .then(booking => {
+      console.log("returned from the db", booking)
+      return res.json(booking)
+  })
+  .catch(err => {
+      res.status(500).json({ error: err.message })
+  })
+})
+
 module.exports = router
