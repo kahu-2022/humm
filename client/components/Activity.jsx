@@ -38,9 +38,8 @@ function Activity (props) {
             <p> <b>{activity.title} </b><em>   // {activity.info}</em> </p>
             <p>{activity.date} {activity.time} in {activity.location}</p>
             <p>ran by: {activity.ran_by}</p>
-            <Image src= {activity.image} rounded="true" fluid="true" />
-            <Button variant="primary" type="submit" align="center" onClick={() => setShowForm(true), () => setShowButton(false)}>
-            i'm keen!
+            <Button variant="primary" type="submit" onClick={() => setShowForm(true), () => setShowButton(false)}>
+            I'm keen!
             </Button>
 
             </Card.Body>
