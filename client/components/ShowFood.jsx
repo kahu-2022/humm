@@ -26,7 +26,7 @@ return (
   <Container>
     {/* <Button>Donate Food </Button> */}
     <Row className="g-3"> 
-      {food.map((food) => {
+      { food ? food.map(food => {
         console.log(food)
         return (
           <Col md={6} lg={4}>
@@ -42,9 +42,16 @@ return (
             claimedBy={food.claimedBy}
             claimerRoom={food.claimerRoom}
             />
-           </Col>
+          </Col>
         )
-      })}
+            }
+            )
+        : null
+    }
+            
+           
+        )
+
     </Row>
     < AddFood />
   </Container>
