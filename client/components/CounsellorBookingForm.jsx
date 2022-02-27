@@ -8,7 +8,6 @@ import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
 
-import { addCounselling } from "../apis/api"
 import { addCounselling, fetchCounsellors } from "../apis/api"
 import { useParams } from "react-router-dom"
 
@@ -37,7 +36,6 @@ function CounsellorBookingForm(props) {
   const [alertInfo, setAlertInfo] = useState({})
 
   const handleCheckboxOnChange = (e) => {
-    console.log(e.target.name)
     const isChecked = e.target.checked
 
     const checkboxes = {
@@ -50,7 +48,6 @@ function CounsellorBookingForm(props) {
 
     if (isChecked) {
       setCheckboxState([...checkboxState, e.target.value])
-      console.log("a thing ", sessionPrefCheck)
     } else {
       const index = checkboxState.indexOf(e.target.value)
       checkboxState.splice(index, 1)
@@ -58,10 +55,11 @@ function CounsellorBookingForm(props) {
     }
   }
 
-   fetchCounsellors()
-    .then((arr) => {
-      setCounsellor(arr)
-    })
+    useEffect(()=>{
+      fetchCounsellors()
+      .then((arr) => setCounsellor(arr))
+    }, [])
+
    
      
 
