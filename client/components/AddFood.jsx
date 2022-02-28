@@ -43,7 +43,6 @@ setShowAlert(true)
 return (
   <>
     <Container>
- 
     <header className="mt-4 header">
       <h1> Food</h1>
     </header>
@@ -52,7 +51,6 @@ return (
         <p>
           You're also more than welcome to claim food up for grabs.
         </p>
-        <hr />
     </Alert> 
     <section>
     <Form onSubmit={handleSubmit}>
@@ -95,10 +93,10 @@ return (
     </Form.Group> 
 
     {/* This will be boolean */}
-    <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
+    {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
         <Form.Label>Status</Form.Label>
         <Form.Control  name="status" type="text" placeholder="Enter available" />
-    </Form.Group>   
+    </Form.Group>    */}
 
     <Button variant="primary" type="submit">
             Submit

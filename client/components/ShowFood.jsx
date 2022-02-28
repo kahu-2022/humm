@@ -9,9 +9,19 @@ import { fetchFood } from "../apis/api"
 function ShowFood(props) {
   const [food, setFood] = useState([])
 
-  useEffect(() => {
-    getFood()
-  }, [])
+  const [showAddFood, setShowAddFood] = useState(false)
+
+  const toggleForm = () => {
+    setShowAddFood(!showAddFood)
+  }
+
+  const renderForm = () => {
+    return (<AddFood />)
+  }
+
+useEffect (() => {
+  getFood()
+}, [])
 
   const getFood = () => {
     fetchFood().then((arr) => {
