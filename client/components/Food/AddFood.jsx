@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 
-import { addNewFood } from '../apis/api'
+import { addNewFood } from '../../apis/api'
 
 function AddFood(props) {
   const [food, addFood] = useState({
