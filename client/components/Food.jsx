@@ -5,7 +5,7 @@ import { addNewFood, claimNewFood } from '../apis/api'
 
 function Food(props) {
 
-  const {food} = props
+  const { food, setClaimed } = props
 
   const [show, setShow] = useState(false)
 
@@ -38,9 +38,8 @@ function Food(props) {
       })
       window.scrollTo(0, 0)
       setShowAlert(true)
+      setClaimed(claimData.id)
 
-      // res will be an id of the new counselling booking
-      // then some react to show the alert
     })
   }
   
