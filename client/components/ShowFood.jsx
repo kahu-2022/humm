@@ -27,36 +27,24 @@ return (
     {/* <Button>Donate Food </Button> */}
     <Row className="g-3"> 
       { food ? food.map(food => {
-        console.log(food)
         return (
+          food.status != 'Claimed' ?
           <Col md={6} lg={4}>
             <Food 
             key={food.id}
-            name={food.name}
-            donorRoom={food.donorRoom}
-            item={food.item}
-            quantity={food.quantity}
-            donateDate={food.donateDate}
-            useByDate={food.useByDate}
-            status={food.status}
-            claimedBy={food.claimedBy}
-            claimerRoom={food.claimerRoom}
+            food={food}
             />
-          </Col>
+          </Col> : null
         )
             }
             )
         : null
-    }
-            
-           
-        )
-
+      }
     </Row>
     < AddFood />
   </Container>
   </>
-)
-    }
+  )
+}
 
 export default ShowFood

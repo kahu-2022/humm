@@ -83,6 +83,29 @@ export function fetchFood() {
     })
 }
 
+
+export function addNewFood(foodObj){
+  console.log("You have reached the api wooo", foodObj)
+    return request.post('/api/v1/food')
+    .send(foodObj)
+    .then(newFoodAdded => { 
+      return newFoodAdded.body
+  })
+}
+
+export function claimNewFood(claimData){
+  console.log("You have reached the api wooo", claimData)
+    return request.patch('/api/v1/food')
+    .send(claimData)
+    .then(claimedFoodAdded => { 
+      return claimedFoodAdded.body
+  })
+  .catch(err => {
+    console.error({error: err.message})
+  })
+}
+// volunterring functions
+
 export function fetchVolunteering() {
   return request
     .get("/api/v1/volunteering")
@@ -94,12 +117,14 @@ export function fetchVolunteering() {
     })
 }
 
-export function addNewFood(foodObj) {
-  console.log("You have reached the api wooo", foodObj)
-  return request
-    .post("/api/v1/food")
-    .send(foodObj)
-    .then((newFoodAdded) => {
-      return newFoodAdded.body
-    })
+export function signUpForVolunteering (bookingObj) {
+  console.log("You have reached the api wooo", bookingObj)
+  return request.post('/api/v1/volunteering')
+  .send(bookingObj)
+  .then(volunteered => { 
+    return volunteered.body
+  })
+  .catch(err => {
+  console.error({error: err.message})
+  })
 }
