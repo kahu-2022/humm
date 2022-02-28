@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import { Alert, Container } from 'react-bootstrap'
+
 import Footer from './Footer'
+import Session from './Session'
 
 import { fetchSessions } from '../apis/api'
 
@@ -16,15 +17,9 @@ function Sessions () {
         return null
     },[])
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        window.scrollTo(0, 0)
-        setShowAlert(true)
-      }
-
-
     return (
         <> 
+        <Container>
 
         <header className="mt-4 header">
         <h3>Group therapy sessions & workshops</h3>
@@ -34,23 +29,14 @@ function Sessions () {
         <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
         
-        <ul>
-        { sessions ? sessions.map(sesh => {
-        return <li key={sesh.id}>
-            <b>session: </b><em>{sesh.title + ' // ' + sesh.info}</em>
-            <p>{sesh.date} {sesh.time} in {sesh.location}</p>
-            <p>ran by: {sesh.ran_by}</p>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
-            I'm keen!
-            </Button>
-            <br></br>
-            <br></br>
-            </li>
-        })
-        : null}
-        </ul>
+        { sessions ? sessions.map(sesh => { return <Session key={sesh.id} session={sesh} /> }
+        ) 
+        : null
+    }
 
             <Footer />
+
+        </Container>            
           
         </>
 
