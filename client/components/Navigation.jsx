@@ -60,10 +60,11 @@ function Navigation(props) {
               </NavDropdown>
               <Nav.Link href="/activities">Community Activities</Nav.Link>
               <Nav.Link href="/food">Food</Nav.Link>
+              <Nav.Link href="/room">Report an issue</Nav.Link>
+            <Nav.Link href="/volunteering">Volunteering</Nav.Link>
             </Nav>
           <Nav>
-            <Nav.Link href="/room">Report an issue</Nav.Link>
-            <Nav.Link href="/volunteering">Volunteering</Nav.Link>
+            <Nav.Link onClick={handleLogoff}>Logout</Nav.Link>
           </Nav>
           </IfAuthenticated>          
           

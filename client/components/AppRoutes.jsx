@@ -6,7 +6,6 @@ import CounsellorBookingForm from './CounsellorBookingForm'
 import ShowCounsellors from "./ShowCounsellors"
 import Sessions from './Sessions'
 import Activities from './Activities'
-import Counsellor from './Counsellor'
 import RoomIssue from './RoomIssue'
 import EmergencyResources from "./EmergencyResources"
 import ShowFood from "./ShowFood"

@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db/db')
+const checkJwt = require('../auth0.js')
 
-router.get('/', (req, res) => {
+
+router.get('/', checkJwt, (req, res) => {
     db.getCounsellingBookings()
     .then(bookings => {
         return res.json(bookings)
@@ -13,7 +15,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/', checkJwt, (req, res) => {
     db.addCounsellingBooking(req.body)
     .then(booking => {
         console.log("returned from the db", booking)
