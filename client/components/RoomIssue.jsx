@@ -112,14 +112,14 @@ function RoomIssueForm(props) {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </section>
-      </Container>
-    </>
-  )
+    <Button variant="outline-primary" type="submit">
+            Submit
+        </Button>
+        </Form>
+      </section>
+    </Container>
+  </> 
+)
 }
 
 export default RoomIssueForm

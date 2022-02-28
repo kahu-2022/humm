@@ -33,9 +33,11 @@ function Sessions() {
         <Row className="g-3">
           {sessions?.map((sesh) => {
             return (
+              <div className="shadow p-3 mb-5 bg-white rounded">
               <Col md={6} lg={4} key={sesh.id}>
                 <Session key={sesh.id} session={sesh} />
               </Col>
+              </div>
             )
           })}
         </Row>

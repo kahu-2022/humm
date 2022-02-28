@@ -64,7 +64,8 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-            ` <h5>Other</h5>
+
+            <h5>Other</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
@@ -90,7 +91,8 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-            ` <h5>About us </h5>
+
+            <h5>About us </h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
