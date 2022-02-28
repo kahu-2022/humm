@@ -31,7 +31,7 @@ function Footer() {
 
           <Col md={6} lg={2}>
           </Col>
-          <Col sm={6} md={4} lg={2}>
+          <Col xs ={6} md={4} lg={2}>
 
    `         <h5>Mental Health</h5>
             <ul className="nav flex-column">
@@ -63,7 +63,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col sm={6} md={4} lg={2}>
+          <Col xs={6} md={4} lg={2}>
 
    `         <h5>Other</h5>
             <ul className="nav flex-column">
@@ -90,7 +90,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col sm={6} md={4} lg={2}>
+          <Col xs={6} md={4} lg={2}>
 
    `         <h5>About us </h5>
             <ul className="nav flex-column">
