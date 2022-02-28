@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
-import { Routes, Route } from "react-router-dom"
 
 import PageHeader from "./PageHeader"
 
@@ -16,7 +15,7 @@ function CounsellorBookingForm(props) {
     name: "",
     pronouns: "",
     roomNumber: "",
-    preferredCounsellor: [],
+    preferredCounsellor: "",
     urgency: "",
     sessionPreference: [],
     contactPreference: [],
@@ -55,13 +54,11 @@ function CounsellorBookingForm(props) {
     }
   }
 
-    useEffect(()=>{
-      fetchCounsellors()
-      .then((arr) => setCounsellor(arr))
-    }, [])
-
-   
-     
+  useEffect(() => {
+    fetchCounsellors().then((arr) => setCounsellor(arr))
+    //if preferred counsellor is set in the url
+    params.name ? formData.preferredCounsellor = params.name : null
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -75,11 +72,10 @@ function CounsellorBookingForm(props) {
 
     formData.sessionPreference = sessionPrefCheck
     formData.contactPreference = contactPrefCheck
-    
+
     console.log(formData)
 
-    addCounselling(formData)
-    .then((newAppointment) => {
+    addCounselling(formData).then((newAppointment) => {
       setAlertInfo({
         name: newAppointment[0].name,
         time: newAppointment[0].time,
@@ -107,9 +103,9 @@ function CounsellorBookingForm(props) {
             Kia ora {alertInfo.name}, you're all booked in
           </Alert.Heading>
           <p>
-            Thank you for making a booking with {alertInfo.preferredCounsellor}. We'll see you on the{" "}
-            {alertInfo.date} at {alertInfo.time}. Please let us know if you need
-            to cancel or rearrange your appointment.
+            Thank you for making a booking with {alertInfo.preferredCounsellor}.
+            We'll see you on the {alertInfo.date} at {alertInfo.time}. Please
+            let us know if you need to cancel or rearrange your appointment.
           </p>
           <hr />
           <p className="mb-0">
@@ -125,10 +121,11 @@ function CounsellorBookingForm(props) {
       <Container>
         <section>
           <Form onSubmit={handleSubmit}>
-            <Form.Group
+            {/* <Form.Group
               className="mb-3"
               controlId="name"
               onChange={handleChange}
+              key={"a"}
             >
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -136,12 +133,13 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your name"
               />
-            </Form.Group>
-
+            </Form.Group> */}
+{/* 
             <Form.Group
               className="mb-3"
               controlId="pronouns"
               onChange={handleChange}
+              key={"b"}
             >
               <Form.Label>Pronouns</Form.Label>
               <Form.Control
@@ -149,12 +147,13 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your preferred pronouns"
               />
-            </Form.Group>
+            </Form.Group> */}
 
-            <Form.Group
+            {/* <Form.Group
               className="mb-3"
               controlId="roomNumber"
               onChange={handleChange}
+              key={"c"}
             >
               <Form.Label>Room number</Form.Label>
               <Form.Control
@@ -162,27 +161,39 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your room number"
               />
-            </Form.Group>
+            </Form.Group> */}
 
-             
-            <Form.Group
-              className="mb-3"
-              controlId="preferredCounsellor"
-              onChange={handleChange}
-            >
-            <Form.Label>Preferred Counsellor</Form.Label>
-              <Form.Select name="preferredCounsellor" aria-label="preferredCounsellor">
-                <option>Select preferred counsellor</option>
-                {counsellor.map((counsellor) => {
-                return <option value={counsellor.name} key={counsellor.id} selected = {params.name == counsellor.name ? true : false }>{counsellor.name}
-                </option>})}
-              </Form.Select>
+            <Form.Group className="mb-3" controlId="preferredCounsellor">
+              <Form.Label >Preferred Counsellor</Form.Label>
+              <Form.Control
+                name="preferredCounsellor"
+                aria-label="preferredCounsellor"
+                type="select"
+                as="select"
+                onChange={handleChange}
+                value={formData.preferredCounsellor}
+              >
+                <option key={"preferredCounsellor"}>Select preferred counsellor</option>
+                {counsellor.map((counsellor, index) => {
+                  return (
+                    
+                      <option
+                        value={counsellor.name}
+                        key={index}
+                      >
+                        {counsellor.name}
+                      </option>
+                    
+                  )
+                })}
+              </Form.Control>
             </Form.Group>
 
             <Form.Group
               className="mb-3"
               controlId="urgency"
               onChange={handleChange}
+              key={"e"}
             >
               <Form.Label>Urgency</Form.Label>
               <Form.Select name="urgency" aria-label="urgency">
@@ -197,6 +208,8 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="appointmentDate"
               onChange={handleChange}
+              key={"f"}
+              
             >
               <Form.Label>Preferred date</Form.Label>
               <Form.Control name="date" type="date" />
@@ -206,13 +219,14 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="time"
               onChange={handleChange}
+              key={"g"}
             >
               <Form.Label>Preferred time</Form.Label>
               <Form.Select name="time" aria-label="time">
                 <option>Select time for your session</option>
                 <option value="9am-10am">9 am-10 am</option>
                 <option value="12pm-1pm">12 pm-1 pm</option>
-                <option value="3pm-4pm">3 pm-4 pm</option>
+                 <option value="3pm-4pm">3 pm-4 pm</option>
                 <option value="5pm-6pm">5 pm-6 pm</option>
               </Form.Select>
             </Form.Group>
@@ -221,6 +235,7 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="sessionPreference"
               onChange={handleCheckboxOnChange}
+              key={"h"}
             >
               <Form.Label>Preferred format of session</Form.Label>
               <Form.Check
@@ -248,6 +263,7 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="contactPreferences"
               onChange={handleCheckboxOnChange}
+              key={"i"}
             >
               <Form.Label>Preferred form of contact </Form.Label>
               <Form.Check
@@ -280,6 +296,7 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="contactDetails"
               onChange={handleChange}
+              key={"j"}
             >
               <Form.Label>Contact Details</Form.Label>
               <Form.Control
