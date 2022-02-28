@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Button from "react-bootstrap/Button"
+import {Button, Container, Row, Col} from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
 
 function Footer() {
@@ -8,13 +8,13 @@ function Footer() {
   }
   
   return (
-    <>
-      <div className="container">
-        <footer className="row row-cols-5 py-5 my-5 border-top">
-          <div className="col">
-            <Button variant="outline-secondary" onClick={sendUp}>
-              {" "}
-              <Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' /> Return to top of page
+    <Container>
+        <footer className=" py-5 my-5 border-top">
+          <Row>
+          <Col md={6}>
+   `         <Button variant="outline-secondary" onClick={sendUp}>
+   <Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' /> Return to top of page
+
             </Button>
             <a
               href="/"
@@ -25,13 +25,15 @@ function Footer() {
               </svg>
             </a>
             <p className="text-muted">&copy; 2022</p>
-          </div>
+          </Col>
 
 
 
-          <div className="col"></div>
-          <div className="col">
-            <h5>Mental Health</h5>
+          <Col md={6}>
+          </Col>
+          <Col sm={6} md={4}>
+
+   `         <h5>Mental Health</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
@@ -59,10 +61,11 @@ function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
 
-          <div className="col">
-            <h5>Other</h5>
+          <Col sm={6} md={4}>
+
+   `         <h5>Other</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
@@ -85,10 +88,11 @@ function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
 
-          <div className="col">
-            <h5>About us </h5>
+          <Col sm={6} md={4}>
+
+   `         <h5>About us </h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
@@ -106,10 +110,11 @@ function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
+          </Row>
         </footer>
-      </div>
-    </>
+      </Container>
+    
   )
 }
 
