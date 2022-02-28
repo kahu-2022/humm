@@ -1,50 +1,49 @@
-import React, {useEffect, useState} from 'react'
-import Alert from "react-bootstrap/Alert"
-import Form from 'react-bootstrap/Form'
-import Container from "react-bootstrap/Container"
-import Footer from './Footer'
-import ActivitySuggestion from './ActivitySuggestion'
-import Activity from './Activity'
+import React, { useEffect, useState } from "react"
+import { Alert, Container, Row, Col } from 'react-bootstrap'
 
-import { fetchActivities } from '../apis/api'
+import ActivitySuggestion from "./ActivitySuggestion"
+import Activity from "./Activity"
+import PageHeader from "./PageHeader"
 
-function Activities () {
+import { fetchActivities } from "../apis/api"
 
-    const [activities, setActivities] = useState(null)
-    const [showAlert, setShowAlert] = useState(false)
-    const [showForm, setShowForm] = useState(false)
+function Activities() {
+  const [activities, setActivities] = useState(null)
+  const [showAlert, setShowAlert] = useState(false)
 
-    useEffect(() => {
-        fetchActivities()
-        .then(activities => setActivities(activities))
-        return null
-    },[])
+  useEffect(() => {
+    fetchActivities().then((activities) => setActivities(activities))
+    return null
+  }, [])
 
-    return (
-        <> 
-        <Container>
-
-        <header className="mt-4 header">
-        <h1>Community Events/Activities</h1>
-        </header>
-
-        <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-        <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+  return (
+    <>
+      <PageHeader title = 'Community Events/Activities' description = 'Meet our team of friendly counselling staff!'/>
+      <Container>
+   
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
+        <Row className="g-3">
 
-        { activities ? activities.map(act => { return <Activity key={act.id} activity={act} /> }
-        ) 
-        : null
-    }
+        {activities?.map((act) => {
+          return (
+            <Col md={6} lg={4} key={act.id}>
+              <Activity key={act.id} activity={act} />
+            </Col>
+          )
+        })}
+        </Row>
 
-            <ActivitySuggestion />
-
-            
-
-        </Container>
-          
-        </>
-    )
+        <ActivitySuggestion />
+      </Container>
+    </>
+  )
 }
 
 export default Activities
