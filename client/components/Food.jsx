@@ -27,8 +27,6 @@ function Food(props) {
     status: "Claimed",
   })
 
-  const [showAlert, setShowAlert] = useState(false)
-  const [alertInfo, setAlertInfo] = useState({})
 
   const handleChange = (e) => {
     setClaimData({
@@ -39,13 +37,22 @@ function Food(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    claimNewFood(claimData).then((newClaim) => {
-      setAlertInfo({
-        claimedBy: newClaim[0].claimedBy,
-      })
+    claimNewFood(claimData)
+    .then((newClaim) => {
+      // console.log("the new claim", newClaim)
+      // setAlertInfo({
+      //   claimedBy: newClaim[0].claimedBy,
+      // })
+
+      // const claimInfo = {
+      //     claimedBy: newClaim[0].claimedBy,
+      //   }
+      
+      // console.log("newclaim in food.jsx", newClaim)
       window.scrollTo(0, 0)
-      setShowAlert(true)
-      setClaimed(claimData)
+      // setShowAlert(true)
+      setClaimed(newClaim)
+      setShow(false)
     })
   }
 
@@ -105,7 +112,7 @@ function Food(props) {
                             Close
                           </Button>
                           <Button variant="primary" onClick={handleSubmit}>
-                            Save Changes
+                           Claim
                           </Button>
                         </Modal.Footer>
                       </Form>

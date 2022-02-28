@@ -114,8 +114,8 @@ function claimFood (food, db = conn) {
   return db('food-items')
   .update(food)
   .where('id', food.id)
-  .then ((food) => {
-      return getFoodById(food)
+  .then ((count) => {
+      return getFoodById(food.id)
   })
 }
 

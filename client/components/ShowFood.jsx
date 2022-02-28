@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
+import { Button, Container, Row, Col, Alert } from "react-bootstrap"
 import PageHeader from "./PageHeader"
 import Food from "./Food"
 import AddFood from "./AddFood"
@@ -10,6 +10,9 @@ function ShowFood(props) {
   const [food, setFood] = useState([])
 
   const [showAddFood, setShowAddFood] = useState(false)
+  const [claimedFood, setClaimedFood] = useState()
+
+  const [showAlert, setShowAlert] = useState(false)
 
   const toggleForm = () => {
     setShowAddFood(!showAddFood)
@@ -30,6 +33,9 @@ function ShowFood(props) {
   }
 
   const setClaimed = (foodItem) => {
+    //To put information in the alert
+    setClaimedFood(foodItem[0])
+
     const newSetFood = food.map((aFood) => {
       if (aFood.id === foodItem.id) {
         aFood.status = "Claimed"
@@ -37,6 +43,7 @@ function ShowFood(props) {
       return aFood
     })
     setFood(newSetFood)
+    setShowAlert(true)
   }
 
   return (
@@ -53,7 +60,7 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Kia ora {alertInfo.claimedBy}, that's all yours!
+            Kia ora {claimedFood?.claimedBy}, that's all yours!
           </Alert.Heading>
         </Alert>
         <Row>
@@ -67,8 +74,8 @@ function ShowFood(props) {
             .filter((food) => food.status != "Claimed")
             .map((food) => {
               return (
-                <Col md={6} lg={4}>
-                  <Food key={food.id} food={food} setClaimed={setClaimed} />
+                <Col key={food.id} md={6} lg={4}>
+                  <Food food={food} setClaimed={setClaimed} />
                 </Col>
               )
             })}
