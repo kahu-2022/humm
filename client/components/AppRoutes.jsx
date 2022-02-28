@@ -1,6 +1,7 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from './Home'
+import About from './About'
 import CounsellorBookingForm from './CounsellorBookingForm'
 import ShowCounsellors from "./ShowCounsellors"
 import Sessions from './Sessions'
@@ -20,6 +21,11 @@ function AppRoutes(props) {
           exact
           path="/"
           element = {<Home />}
+        />  
+        <Route
+          exact
+          path="/about"
+          element = {<About />}
         />  
          <Route
           exact

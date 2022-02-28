@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
-const arrow = {
-    // cursor: pointer,
-    // color: 'blue',
-    // align: 'right',
-  };
-
+import Image from 'react-bootstrap/Image'
 
 function Footer () {
 
@@ -13,11 +7,11 @@ function Footer () {
         window.scrollTo(0, 0)
     }
 
-
     return (
         <> 
 
-        <footer style={arrow} onClick={sendUp}> ^ <p>return to top of page</p>
+        <footer onClick={sendUp}>
+        <Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' />
         </footer> 
           
         </>
