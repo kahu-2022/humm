@@ -1,10 +1,9 @@
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('volunteers').del()
+exports.seed = function (knex) {
+  return knex('volunteers')
+    .del()
     .then(function () {
-      // Inserts seed entries
       return knex('volunteers').insert([
-        {id: 1, name: '', pronouns: '', roomNumber: '', volunteeringId: ''}
-      ]);
-    });
-};
+        { id: 1, name: '', pronouns: '', roomNumber: '', volunteeringId: '' },
+      ])
+    })
+}

@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 
-import { addRoomIssue } from '../apis/api'
+import { addSuggestion } from '../../apis/api'
 
-function RoomIssueForm(props) {
-  const [roomIssue, setRoomIssue] = useState({
+function ActivitySuggestion(props) {
+  const [suggestion, setSuggestion] = useState({
     name: '',
     pronouns: '',
     roomNumber: '',
-    issue: '',
+    suggestion: '',
   })
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
 
   const handleChange = (e) => {
-    setRoomIssue({
-      ...roomIssue,
+    setSuggestion({
+      ...suggestion,
       [e.target.name]: e.target.value,
     })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    addRoomIssue(roomIssue).then((newRoomIssue) => {
+    addSuggestion(suggestion).then((newSuggestion) => {
       setAlertInfo({
-        name: newRoomIssue[0].name,
+        name: newSuggestion[0].name,
       })
       setShowAlert(true)
     })
@@ -37,7 +37,12 @@ function RoomIssueForm(props) {
     <>
       <Container>
         <header className="mt-4 header">
-          <h1>Report an issue with your room </h1>
+          <h2> Make a suggestion! </h2>
+          <h4>
+            Have a cool idea for an activity you'd like to see happen in the
+            future? Let us know below, and we'll weave our magic & try to make
+            it happen!
+          </h4>
         </header>
         <Alert
           variant="success"
@@ -46,16 +51,10 @@ function RoomIssueForm(props) {
           dismissible
         >
           <Alert.Heading>
-            Kia ora {alertInfo.name}, your room issue has been reported.
+            Kia ora {alertInfo.name}, thanks for your idea!
           </Alert.Heading>
-          <p>
-            Thank you for taking the time to bring this to our attention. We'll
-            aim to get back to you as soon as we can.
-          </p>
+          <p>We'll do our best to make it happen and let you know soon!</p>
           <hr />
-          <p className="mb-0">
-            If the issue changes in any way please let us know.
-          </p>
         </Alert>
         <section>
           <Form onSubmit={handleSubmit}>
@@ -100,15 +99,15 @@ function RoomIssueForm(props) {
 
             <Form.Group
               className="mb-3"
-              controlId="issue"
+              controlId="suggestion"
               onChange={handleChange}
             >
-              <Form.Label>Issue</Form.Label>
+              <Form.Label>Activity idea</Form.Label>
               <Form.Control
-                name="issue"
+                name="suggestion"
                 as="textarea"
                 rows={3}
-                placeholder="Enter any issues you may be having with your room here"
+                placeholder="Enter your idea here"
               />
             </Form.Group>
 
@@ -117,9 +116,10 @@ function RoomIssueForm(props) {
             </Button>
           </Form>
         </section>
+        <br></br>
       </Container>
     </>
   )
 }
 
-export default RoomIssueForm
+export default ActivitySuggestion

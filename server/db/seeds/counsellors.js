@@ -1,4 +1,4 @@
-exports.seed = async function(knex) {
+exports.seed = async function (knex) {
   await knex('counsellors').del()
   await knex('counsellors').insert([
     {id: 1, name: 'Courtney Brown', pronouns: 'She/Her', speciality: 'LGBTQI+', photo: './images/COU.jpg', hours: 'Monday to Friday, Office Hours', biography: `Courtney offers a ‘pluralistic’ approach, working in partnership with clients as the experts in their own lives. Courtney has particular experience with self-compassion and mindfulness practices and has strong interests in neuropsychology and attachment theory. She has previously worked in hospital, palliative care, community and university settings.`},
