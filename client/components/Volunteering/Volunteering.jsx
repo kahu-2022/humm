@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   Row,
   Col,
@@ -8,9 +8,9 @@ import {
   Modal,
   Form,
   Button,
-} from "react-bootstrap"
+} from 'react-bootstrap'
 
-import { signUpForVolunteering } from "../../apis/api"
+import { signUpForVolunteering } from '../../apis/api'
 
 function Volunteering(props) {
   const [show, setShow] = useState(false)
@@ -19,9 +19,9 @@ function Volunteering(props) {
   const handleShow = () => setShow(true)
 
   const [volunteerData, setVolunteerData] = useState({
-    name: "",
-    pronouns: "",
-    roomNumber: "",
+    name: '',
+    pronouns: '',
+    roomNumber: '',
   })
 
   const [showAlert, setShowAlert] = useState(false)
@@ -48,10 +48,10 @@ function Volunteering(props) {
 
   return (
     <>
-      {/* <Container> */}
-        <Card className="py-2">
-          <Card.Body className="flex-wrap d-grid">
+      <Card className="py-2">
+        <Card.Body className="flex-wrap d-grid">
           <Col>
+<<<<<<< HEAD:client/components/Volunteering.jsx
                 <Row><Card.Title><em>{props.title} </em></Card.Title></Row>
                 <Row><Card.Text>
                   {props.description}
@@ -69,13 +69,42 @@ function Volunteering(props) {
                 </Row>
             </Col>
             {/* <Row> */}
-              <Button variant="primary" className="mt-3 " onClick={handleShow}>
+              <Button variant="outline-primary"className="mt-3 " onClick={handleShow}>
                 Sign Up
               </Button>
             {/* </Row> */}
           </Card.Body>
         </Card>
       {/* </Container> */}
+=======
+            <Row>
+              <Card.Title>
+                <em>{props.title} </em>
+              </Card.Title>
+            </Row>
+            <Row>
+              <Card.Text>{props.description}</Card.Text>
+            </Row>
+            <Row>
+              <Card.Text className="mt-3">
+                <strong>When</strong>
+                <br />
+                {props.when}
+              </Card.Text>
+
+              <Card.Text>
+                <strong>Where</strong>
+                <br />
+                {props.where}
+              </Card.Text>
+            </Row>
+          </Col>
+          <Button variant="primary" className="mt-3 " onClick={handleShow}>
+            Sign Up
+          </Button>
+        </Card.Body>
+      </Card>
+>>>>>>> ee56dd0d3e8b01679d9397fcf69f94cd8b3be013:client/components/Volunteering/Volunteering.jsx
       <Container>
         <Modal show={show} onHide={handleClose}>
           <Alert

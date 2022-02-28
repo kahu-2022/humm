@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
-import PageHeader from "../PageHeader"
-import Food from "./Food"
-import AddFood from "./AddFood"
+import React, { useState, useEffect } from 'react'
+import { Button, Container, Row, Col, Alert } from 'react-bootstrap'
+import PageHeader from '../PageHeader'
+import Food from './Food'
+import AddFood from './AddFood'
 
-import { fetchFood } from "../../apis/api"
+import { fetchFood } from '../../apis/api'
 
 function ShowFood(props) {
   const [food, setFood] = useState([])
@@ -23,19 +23,17 @@ function ShowFood(props) {
   }
 
   useEffect(() => {
-    //Get all food
     fetchFood().then((arr) => {
       setFood(arr)
     })
   }, [])
 
   const setClaimed = (foodItem) => {
-    //To put information in the alert
     setClaimedFood(foodItem[0])
 
     const newSetFood = food.map((aFood) => {
       if (aFood.id === foodItem[0].id) {
-        aFood.status = "Claimed"
+        aFood.status = 'Claimed'
       }
       return aFood
     })
@@ -63,17 +61,15 @@ function ShowFood(props) {
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        {/* <Row> */}
         <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
-          {showAddFood ? "Hide" : "Add Food"}
+          {showAddFood ? 'Hide' : 'Add Food'}
         </Button>
         {showAddFood && renderForm()}
-        {/* </Row> */}
       </Container>
       <Container>
         <Row className="g-3">
           {food
-            .filter((food) => food.status != "Claimed")
+            .filter((food) => food.status != 'Claimed')
             .map((food) => {
               return (
                 <Col key={food.id} md={6} lg={4}>
