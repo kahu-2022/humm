@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Button, Container, Row, Col } from "react-bootstrap"
-import PageHeader from "./PageHeader"
+import PageHeader from "../PageHeader"
 import Food from "./Food"
 import AddFood from "./AddFood"
 
-import { fetchFood } from "../apis/api"
+import { fetchFood } from "../../apis/api"
 
 function ShowFood(props) {
   const [food, setFood] = useState([])

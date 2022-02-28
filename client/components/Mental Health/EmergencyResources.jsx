@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import PageHeader from './PageHeader'
+import PageHeader from '../PageHeader'
 
 import { Card, Row, Container, Col} from 'react-bootstrap'
 
-import resources from '../emergencyresources'
+import resources from '../../emergencyresources'
 
 function EmergencyResources () {
   

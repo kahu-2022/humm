@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { Alert, Container } from 'react-bootstrap'
-
-import Footer from './Footer'
 import Session from './Session'
 
-import { fetchSessions } from '../apis/api'
+import { fetchSessions } from '../../apis/api'
 
 function Sessions () {
 

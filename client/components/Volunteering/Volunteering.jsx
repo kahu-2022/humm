@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Row, Col, Card, Container, Alert, Modal, Form, Button } from 'react-bootstrap'
 
-import { signUpForVolunteering } from "../apis/api"
+import { signUpForVolunteering } from "../../apis/api"
 
 function Volunteering(props) {
 

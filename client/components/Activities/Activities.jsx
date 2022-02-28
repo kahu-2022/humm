@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Alert from "react-bootstrap/Alert"
 import Form from 'react-bootstrap/Form'
 import Container from "react-bootstrap/Container"
-import Footer from './Footer'
 import ActivitySuggestion from './ActivitySuggestion'
 import Activity from './Activity'
 
-import { fetchActivities } from '../apis/api'
+import { fetchActivities } from '../../apis/api'
 
 function Activities () {
 

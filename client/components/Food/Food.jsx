@@ -10,7 +10,7 @@ import {
   Alert,
 } from "react-bootstrap"
 
-import { claimNewFood } from "../apis/api"
+import { claimNewFood } from "../../apis/api"
 
 function Food(props) {
   const { food, setClaimed } = props
