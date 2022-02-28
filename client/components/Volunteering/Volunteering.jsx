@@ -10,7 +10,7 @@ import {
   Button,
 } from "react-bootstrap"
 
-import { signUpForVolunteering } from "../apis/api"
+import { signUpForVolunteering } from "../../apis/api"
 
 function Volunteering(props) {
   const [show, setShow] = useState(false)

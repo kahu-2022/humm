@@ -2,16 +2,14 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from './Home'
 import About from './About'
-import CounsellorBookingForm from './CounsellorBookingForm'
-import ShowCounsellors from "./ShowCounsellors"
-import Sessions from './Sessions'
-import Activities from './Activities'
-import Counsellor from './Counsellor'
+import CounsellorBookingForm from './Mental Health/Sessions'
+import ShowCounsellors from './Mental Health/ShowCounsellors'
+import Sessions from './Mental Health/Sessions'
+import Activities from './Activities/Activities'
 import RoomIssue from './RoomIssue'
-import EmergencyResources from "./EmergencyResources"
-import ShowFood from "./ShowFood"
-import ShowVolunteering from "./ShowVolunteering"
-import { signUpForVolunteering } from "../apis/api"
+import EmergencyResources from './Mental Health/EmergencyResources'
+import ShowFood from './Food/ShowFood'
+import ShowVolunteering from './Volunteering/ShowVolunteering'
 
 function AppRoutes(props) {
   return (
