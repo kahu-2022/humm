@@ -3,7 +3,6 @@ import request from "superagent"
 // counselling functions
 
 export function addCounselling(bookingObj) {
-  console.log("You have reached the api wooo", bookingObj)
   return request
     .post("/api/v1/counselling")
     .send(bookingObj)
@@ -50,7 +49,6 @@ export function fetchActivities() {
 }
 
 export function addSuggestion(issueObj) {
-  console.log("yeeee you reached the api", issueObj)
   return request
     .post("/api/v1/activities")
     .send(issueObj)
@@ -60,9 +58,7 @@ export function addSuggestion(issueObj) {
 }
 
 // room issues functions
-
 export function addRoomIssue(issueObj) {
-  console.log("You have reached the api wooo", issueObj)
   return request
     .post("/api/v1/room")
     .send(issueObj)
@@ -84,7 +80,6 @@ export function fetchFood() {
 
 
 export function addNewFood(foodObj){
-  console.log("You have reached the api wooo", foodObj)
     return request.post('/api/v1/food')
     .send(foodObj)
     .then(newFoodAdded => { 
@@ -93,7 +88,6 @@ export function addNewFood(foodObj){
 }
 
 export function claimNewFood(claimData){
-  console.log("You have reached the api wooo", claimData)
     return request.patch('/api/v1/food')
     .send(claimData)
     .then(claimedFoodAdded => { 
@@ -103,8 +97,8 @@ export function claimNewFood(claimData){
     console.error({error: err.message})
   })
 }
-// volunterring functions
 
+// volunteering functions
 export function fetchVolunteering() {
   return request
     .get("/api/v1/volunteering")
@@ -117,7 +111,6 @@ export function fetchVolunteering() {
 }
 
 export function signUpForVolunteering (bookingObj) {
-  console.log("You have reached the api wooo", bookingObj)
   return request.post('/api/v1/volunteers')
   .send(bookingObj)
   .then(volunteered => { 

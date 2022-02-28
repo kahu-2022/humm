@@ -26,7 +26,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     db.addFood(req.body)
     .then(food => {
-        console.log("returned from the db", food)
         return res.json(food)
     })
     .catch(err => {
