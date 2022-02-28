@@ -10,19 +10,18 @@ router.get('/', checkJwt, (req, res) => {
     .then(bookings => {
         return res.json(bookings)
     })
-    .catch(err => {
-        res.status(500).json({ error: err.message })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
     })
 })
 
 router.post('/', checkJwt, (req, res) => {
     db.addCounsellingBooking(req.body)
     .then(booking => {
-        console.log("returned from the db", booking)
         return res.json(booking)
     })
-    .catch(err => {
-        res.status(500).json({ error: err.message })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
     })
 })
 

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap"
-// import NavDropdown from "react-bootstrap/NavDropdown"
-// import Nav from "react-bootstrap/Nav"
-// import Container from "react-bootstrap/Container"
 
 import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
@@ -12,10 +9,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 function Navigation(props) {
   const { loginWithRedirect, logout } = useAuth0()
 
-  // TODO: call the useAuth0 hook and destructure logout and loginWithRedirect
   function handleLogoff(e) {
     e.preventDefault()
-    //console.log('log off')
     logout({ returnTo: window.location.origin })
   }
 
@@ -28,7 +23,6 @@ function Navigation(props) {
 
   function handleSignIn(e) {
     e.preventDefault()
-    // console.log("sign in")
     loginWithRedirect()
   }
 

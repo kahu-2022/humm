@@ -5,10 +5,10 @@ const db = require('../db/db')
 
 router.get('/', (req, res) => {
   db.getAllCounsellors()
-    .then(counsellors => {
+    .then((counsellors) => {
       res.json(counsellors)
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({ error: err.message })
     })
 })

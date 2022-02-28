@@ -24,11 +24,8 @@ server.use('/api/v1/food', foodRoutes)
 server.use('/api/v1/volunteering', volunteeringRoutes)
 server.use('/api/v1/volunteers', volunteersRoute)
 
-
-// for browser router (react-router-dom)
-
 server.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-  })
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 module.exports = server

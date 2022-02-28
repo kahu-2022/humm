@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react"
-import Container from "react-bootstrap/Container"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import React, { useState } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
-import { addNewFood } from "../apis/api"
+import { addNewFood } from '../apis/api'
 
 function AddFood(props) {
   const [food, addFood] = useState({
-    name: "",
-    donorRoom: "",
-    item: "",
-    quantity: "",
-    donateDate: "",
-    useByDate: "",
-    status: "",
+    name: '',
+    donorRoom: '',
+    item: '',
+    quantity: '',
+    donateDate: '',
+    useByDate: '',
+    status: '',
   })
 
   const [showAlert, setShowAlert] = useState(false)
@@ -124,12 +124,6 @@ function AddFood(props) {
               <Form.Label>Use by Date</Form.Label>
               <Form.Control name="useByDate" type="date" />
             </Form.Group>
-
-            {/* This will be boolean */}
-            {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
-        <Form.Label>Status</Form.Label>
-        <Form.Control  name="status" type="text" placeholder="Enter available" />
-    </Form.Group>    */}
 
             <Button variant="primary" type="submit">
               Submit
