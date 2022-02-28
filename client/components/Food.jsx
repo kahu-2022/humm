@@ -109,13 +109,6 @@ function Food(props) {
             </Col>
           </Row>
         </Card.Body>
-        {/* <Card.Body>
-            <Card.Text>
-              <strong>Status</strong>
-              <br />
-               {food.status}
-            </Card.Text>
-        </Card.Body> */}
       </Card>
       </Container>
 

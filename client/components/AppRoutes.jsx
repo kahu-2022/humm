@@ -65,11 +65,6 @@ function AppRoutes(props) {
          path="/volunteering"
          element = {<ShowVolunteering />} 
         />
-         <Route 
-         exact
-         path="/volunteering/:name"
-         element = {<signUpForVolunteering />} 
-        />
       </Routes> 
     </>
   )
