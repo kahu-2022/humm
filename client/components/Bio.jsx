@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
-function Bio () {
+function Bio() {
   return (
     <Container>
     <p>

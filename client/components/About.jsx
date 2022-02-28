@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"
-import Container from "react-bootstrap/Container"
-import Bio from "./Bio"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Bio from './Bio'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
-
 
 function About() {
   return (
@@ -33,7 +32,6 @@ function About() {
 
     </Container>
     </>
-    
   )
 }
 

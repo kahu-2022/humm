@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react"
-import Container from "react-bootstrap/Container"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import React, { useState } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
-import { addNewFood } from "../apis/api"
+import { addNewFood } from '../apis/api'
 
 function AddFood(props) {
   const [food, addFood] = useState({
-    name: "",
-    donorRoom: "",
-    item: "",
-    quantity: "",
-    donateDate: "",
-    useByDate: "",
-    status: "",
+    name: '',
+    donorRoom: '',
+    item: '',
+    quantity: '',
+    donateDate: '',
+    useByDate: '',
+    status: '',
   })
 
   const [showAlert, setShowAlert] = useState(false)
@@ -125,6 +125,7 @@ function AddFood(props) {
               <Form.Control name="useByDate" type="date" />
             </Form.Group>
 
+<<<<<<< HEAD:client/components/AddFood.jsx
             {/* This will be boolean */}
             {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
         <Form.Label>Status</Form.Label>
@@ -132,6 +133,9 @@ function AddFood(props) {
     </Form.Group>    */}
 
             <Button variant="outline-primary" type="submit">
+=======
+            <Button variant="primary" type="submit">
+>>>>>>> ee56dd0d3e8b01679d9397fcf69f94cd8b3be013:client/components/Food/AddFood.jsx
               Submit
             </Button>
           </Form>

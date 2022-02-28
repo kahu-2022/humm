@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react"
-import { Alert, Container, Row, Col } from "react-bootstrap"
+import React, { useEffect, useState } from 'react'
+import { Alert, Container } from 'react-bootstrap'
 
-import Footer from "./Footer"
-import Session from "./Session"
-import PageHeader from "./PageHeader"
+import Session from './Session'
+import PageHeader from '../PageHeader'
 
-import { fetchSessions } from "../apis/api"
+import { fetchSessions } from '../../apis/api'
 
 function Sessions() {
   const [sessions, setSessions] = useState(null)
