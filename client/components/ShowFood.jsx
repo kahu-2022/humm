@@ -9,6 +9,16 @@ import { fetchFood } from "../apis/api"
 function ShowFood (props) {
   const [food, setFood] = useState([])
 
+  const [showAddFood, setShowAddFood] = useState(false)
+
+  const toggleForm = () => {
+    setShowAddFood(!showAddFood)
+  }
+
+  const renderForm = () => {
+    return (<AddFood />)
+  }
+
 useEffect (() => {
   getFood()
 }, [])
@@ -24,7 +34,11 @@ return (
   <>
   <PageHeader title = 'Food' description = 'Food up for grabs. Please take what you need.'/>
   <Container>
-    {/* <Button>Donate Food </Button> */}
+    <Row>
+     <Button onClick={toggleForm}>{showAddFood ? 'Hide' : 'Add Food'}</Button>
+    {showAddFood && renderForm()}
+    </Row>
+    
     <Row className="g-3"> 
       { food ? food.map(food => {
         return (
@@ -41,7 +55,6 @@ return (
         : null
       }
     </Row>
-    < AddFood />
   </Container>
   </>
   )
