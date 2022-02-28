@@ -29,9 +29,9 @@ function ShowFood(props) {
     })
   }
 
-  const setClaimed = (id) => {
+  const setClaimed = (foodItem) => {
     const newSetFood = food.map((aFood) => {
-      if (aFood.id === id) {
+      if (aFood.id === foodItem.id) {
         aFood.status = "Claimed"
       }
       return aFood
@@ -46,8 +46,18 @@ function ShowFood(props) {
         description="Food up for grabs. Please take what you need."
       />
       <Container>
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>
+            Kia ora {alertInfo.claimedBy}, that's all yours!
+          </Alert.Heading>
+        </Alert>
         <Row>
-          <Button className="my-3"onClick={toggleForm}>
+          <Button className="my-3" onClick={toggleForm}>
             {showAddFood ? "Hide" : "Add Food"}
           </Button>
           {showAddFood && renderForm()}
