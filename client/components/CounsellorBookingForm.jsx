@@ -121,11 +121,10 @@ function CounsellorBookingForm(props) {
       <Container>
         <section>
           <Form onSubmit={handleSubmit}>
-            {/* <Form.Group
+            <Form.Group
               className="mb-3"
               controlId="name"
               onChange={handleChange}
-              key={"a"}
             >
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -133,13 +132,12 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your name"
               />
-            </Form.Group> */}
-{/* 
+            </Form.Group>
+
             <Form.Group
               className="mb-3"
               controlId="pronouns"
               onChange={handleChange}
-              key={"b"}
             >
               <Form.Label>Pronouns</Form.Label>
               <Form.Control
@@ -147,13 +145,12 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your preferred pronouns"
               />
-            </Form.Group> */}
+            </Form.Group>
 
-            {/* <Form.Group
+            <Form.Group
               className="mb-3"
               controlId="roomNumber"
               onChange={handleChange}
-              key={"c"}
             >
               <Form.Label>Room number</Form.Label>
               <Form.Control
@@ -161,7 +158,7 @@ function CounsellorBookingForm(props) {
                 type="text"
                 placeholder="Enter your room number"
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="preferredCounsellor">
               <Form.Label >Preferred Counsellor</Form.Label>

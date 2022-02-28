@@ -1,49 +1,80 @@
 import React, { useState, useEffect } from "react"
 import { Button, Container, Row, Col } from "react-bootstrap"
-import PageHeader from './PageHeader'
-import Food from './Food' 
+import PageHeader from "./PageHeader"
+import Food from "./Food"
 import AddFood from "./AddFood"
 
 import { fetchFood } from "../apis/api"
 
-function ShowFood (props) {
+function ShowFood(props) {
   const [food, setFood] = useState([])
 
-useEffect (() => {
-  getFood()
-}, [])
+  const [showAddFood, setShowAddFood] = useState(false)
 
-const getFood = () => {
-  fetchFood()
-  .then((arr) => {
-    setFood(arr)
-  })
-}
+  const toggleForm = () => {
+    setShowAddFood(!showAddFood)
+  }
 
-return (
-  <>
-  <PageHeader title = 'Food' description = 'Food up for grabs. Please take what you need.'/>
-  <Container>
-    {/* <Button>Donate Food </Button> */}
-    <Row className="g-3"> 
-      { food ? food.map(food => {
-        return (
-          food.status != 'Claimed' ?
-          <Col md={6} lg={4}>
-            <Food 
-            key={food.id}
-            food={food}
-            />
-          </Col> : null
-        )
-            }
-            )
-        : null
+  const renderForm = () => {
+    return <AddFood />
+  }
+
+  useEffect(() => {
+    getFood()
+  }, [])
+
+  const getFood = () => {
+    fetchFood().then((arr) => {
+      setFood(arr)
+    })
+  }
+
+  const setClaimed = (foodItem) => {
+    const newSetFood = food.map((aFood) => {
+      if (aFood.id === foodItem.id) {
+        aFood.status = "Claimed"
       }
-    </Row>
-    < AddFood />
-  </Container>
-  </>
+      return aFood
+    })
+    setFood(newSetFood)
+  }
+
+  return (
+    <>
+      <PageHeader
+        title="Food"
+        description="Food up for grabs. Please take what you need."
+      />
+      <Container>
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>
+            Kia ora {alertInfo.claimedBy}, that's all yours!
+          </Alert.Heading>
+        </Alert>
+        <Row>
+          <Button className="my-3" onClick={toggleForm}>
+            {showAddFood ? "Hide" : "Add Food"}
+          </Button>
+          {showAddFood && renderForm()}
+        </Row>
+        <Row className="g-3">
+          {food
+            .filter((food) => food.status != "Claimed")
+            .map((food) => {
+              return (
+                <Col md={6} lg={4}>
+                  <Food key={food.id} food={food} setClaimed={setClaimed} />
+                </Col>
+              )
+            })}
+        </Row>
+      </Container>
+    </>
   )
 }
 
