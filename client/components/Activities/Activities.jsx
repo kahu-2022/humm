@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 import ActivitySuggestion from './ActivitySuggestion'
 import Activity from './Activity'
+import PageHeader from '../PageHeader'
 
 import { fetchActivities } from '../../apis/api'
 

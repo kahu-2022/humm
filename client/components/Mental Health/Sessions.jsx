@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Container } from 'react-bootstrap'
+import { Alert, Container, Row, Col } from 'react-bootstrap'
 
 import Session from './Session'
 import PageHeader from '../PageHeader'
