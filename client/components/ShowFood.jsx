@@ -16,12 +16,12 @@ function ShowFood(props) {
   }
 
   const renderForm = () => {
-    return (<AddFood />)
+    return <AddFood />
   }
 
-useEffect (() => {
-  getFood()
-}, [])
+  useEffect(() => {
+    getFood()
+  }, [])
 
   const getFood = () => {
     fetchFood().then((arr) => {
@@ -31,8 +31,8 @@ useEffect (() => {
 
   const setClaimed = (id) => {
     const newSetFood = food.map((aFood) => {
-      if(aFood.id === id){
-        aFood.status = 'Claimed'
+      if (aFood.id === id) {
+        aFood.status = "Claimed"
       }
       return aFood
     })
@@ -46,19 +46,23 @@ useEffect (() => {
         description="Food up for grabs. Please take what you need."
       />
       <Container>
-        {/* <Button>Donate Food </Button> */}
+        <Row>
+          <Button className="my-3"onClick={toggleForm}>
+            {showAddFood ? "Hide" : "Add Food"}
+          </Button>
+          {showAddFood && renderForm()}
+        </Row>
         <Row className="g-3">
           {food
             .filter((food) => food.status != "Claimed")
             .map((food) => {
               return (
                 <Col md={6} lg={4}>
-                  <Food key={food.id} food={food} setClaimed={setClaimed}/>
+                  <Food key={food.id} food={food} setClaimed={setClaimed} />
                 </Col>
               )
             })}
         </Row>
-        <AddFood />
       </Container>
     </>
   )
