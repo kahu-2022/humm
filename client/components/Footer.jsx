@@ -11,7 +11,7 @@ function Footer() {
     <Container>
         <footer className=" py-5 my-5 border-top">
           <Row>
-          <Col md={6}>
+          <Col md={6} lg={4}>
    `         <Button variant="outline-secondary" onClick={sendUp}>
    <Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' /> Return to top of page
 
@@ -29,9 +29,9 @@ function Footer() {
 
 
 
-          <Col md={6}>
+          <Col md={6} lg={2}>
           </Col>
-          <Col sm={6} md={4}>
+          <Col xs ={6} md={4} lg={2}>
 
    `         <h5>Mental Health</h5>
             <ul className="nav flex-column">
@@ -63,7 +63,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col sm={6} md={4}>
+          <Col xs={6} md={4} lg={2}>
 
    `         <h5>Other</h5>
             <ul className="nav flex-column">
@@ -90,7 +90,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col sm={6} md={4}>
+          <Col xs={6} md={4} lg={2}>
 
    `         <h5>About us </h5>
             <ul className="nav flex-column">
