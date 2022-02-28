@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Card, Image } from 'react-bootstrap'
+import { Row, Col, Card, Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function Counsellor(props) {
@@ -15,21 +15,23 @@ function Counsellor(props) {
                 <Row><Card.Title><em>{props.name}</em></Card.Title></Row>
                 <Row><Card.Text>{props.pronouns}</Card.Text></Row>
                 <Row>
-                  <Card.Text className="mt-2">
+                  <Card.Text className="mt-3">
                   <strong>Specialty</strong><br />
                   {props.speciality}
                   </Card.Text>
                 </Row>
                 <Row>
-                  <Card.Text>
+                  <Card.Text className="mt-3">
                   <strong>Office Hours</strong><br />
                   {props.hours}
                   </Card.Text>
                 </Row>
 
-                <Row>
+                <Row className="mt-3">
                   <Card.Text>
-                    <Link to={`/booking/${props.name}`} key={props.id}><strong>Book for an appointment</strong></Link>
+                  <Button href={`/booking/${props.name}`}variant="outline-primary" size="sm">
+                    Book appointment
+                  </Button>
                   </Card.Text>
                 </Row>
 
