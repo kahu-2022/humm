@@ -1,34 +1,38 @@
-import React, { useState, useEffect } from "react"
-import Container from "react-bootstrap/Container"
-import Bio from "./Bio"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Bio from './Bio'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
 function Home() {
   return (
     <>
-    <Container>
-    <header className="mt-4 header">
-    <h1>Welcome to humm!</h1>
-    </header>
+      <Container>
+        <header className="mt-4 header">
+          <h1>Welcome to humm!</h1>
+        </header>
 
-    <Image src='./images/vibes/building.jpg' fluid='true' rounded='true'/>
-    
-    <section className="main">
-      <br></br>
-      <Bio />
-      <br></br>
-    </section>
+        <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" />
 
-    <Button variant="danger" className='mb-3'>Resident Login</Button>
-    <br></br>
-    <Button variant="danger" className='mb-3'>Resident Register</Button>
-    <br></br>
-    <Button href="/about" variant="danger" className='mb-3'>Browse as a guest</Button>
+        <section className="main">
+          <br></br>
+          <Bio />
+          <br></br>
+        </section>
 
-    </Container>
+        <Button variant="danger" className="mb-3">
+          Resident Login
+        </Button>
+        <br></br>
+        <Button variant="danger" className="mb-3">
+          Resident Register
+        </Button>
+        <br></br>
+        <Button href="/about" variant="danger" className="mb-3">
+          Browse as a guest
+        </Button>
+      </Container>
     </>
-    
   )
 }
 

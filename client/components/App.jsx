@@ -4,12 +4,12 @@ import Navigation from './Navigation'
 import AppRoutes from './AppRoutes'
 import Footer from './Footer'
 
-function App () {
+function App() {
   return (
     <>
-    <Navigation />
-    <AppRoutes />
-    <Footer />
+      <Navigation />
+      <AppRoutes />
+      <Footer />
     </>
   )
 }

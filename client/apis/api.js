@@ -1,21 +1,20 @@
-import request from "superagent"
-
-// counselling functions
+import request from 'superagent'
 
 export function addCounselling(bookingObj) {
   return request
-    .post("/api/v1/counselling")
+    .post('/api/v1/counselling')
     .send(bookingObj)
-    .then(newAppointment => {
+    .then((newAppointment) => {
       return newAppointment.body
-    }).catch(err => {
-      console.error({error: err.message})
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
     })
 }
 
 export function fetchCounsellors() {
   return request
-    .get("/api/v1/counsellors")
+    .get('/api/v1/counsellors')
     .then((res) => {
       return res.body
     })
@@ -26,7 +25,7 @@ export function fetchCounsellors() {
 
 export function fetchSessions() {
   return request
-    .get("/api/v1/sessions")
+    .get('/api/v1/sessions')
     .then((res) => {
       return res.body
     })
@@ -35,11 +34,9 @@ export function fetchSessions() {
     })
 }
 
-// activities functions
-
 export function fetchActivities() {
   return request
-    .get("/api/v1/activities")
+    .get('/api/v1/activities')
     .then((res) => {
       return res.body
     })
@@ -50,7 +47,7 @@ export function fetchActivities() {
 
 export function addSuggestion(issueObj) {
   return request
-    .post("/api/v1/activities")
+    .post('/api/v1/activities')
     .send(issueObj)
     .then((newSuggestion) => {
       return newSuggestion.body
@@ -60,7 +57,7 @@ export function addSuggestion(issueObj) {
 // room issues functions
 export function addRoomIssue(issueObj) {
   return request
-    .post("/api/v1/room")
+    .post('/api/v1/room')
     .send(issueObj)
     .then((newRoomIssue) => {
       return newRoomIssue.body
@@ -69,7 +66,7 @@ export function addRoomIssue(issueObj) {
 
 export function fetchFood() {
   return request
-    .get("/api/v1/food")
+    .get('/api/v1/food')
     .then((res) => {
       return res.body
     })
@@ -78,30 +75,31 @@ export function fetchFood() {
     })
 }
 
-
-export function addNewFood(foodObj){
-    return request.post('/api/v1/food')
+export function addNewFood(foodObj) {
+  return request
+    .post('/api/v1/food')
     .send(foodObj)
-    .then(newFoodAdded => { 
+    .then((newFoodAdded) => {
       return newFoodAdded.body
-  })
+    })
 }
 
-export function claimNewFood(claimData){
-    return request.patch('/api/v1/food')
+export function claimNewFood(claimData) {
+  return request
+    .patch('/api/v1/food')
     .send(claimData)
-    .then(claimedFoodAdded => { 
+    .then((claimedFoodAdded) => {
       return claimedFoodAdded.body
-  })
-  .catch(err => {
-    console.error({error: err.message})
-  })
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
 }
 
 // volunteering functions
 export function fetchVolunteering() {
   return request
-    .get("/api/v1/volunteering")
+    .get('/api/v1/volunteering')
     .then((res) => {
       return res.body
     })
@@ -110,13 +108,14 @@ export function fetchVolunteering() {
     })
 }
 
-export function signUpForVolunteering (bookingObj) {
-  return request.post('/api/v1/volunteers')
-  .send(bookingObj)
-  .then(volunteered => { 
-    return volunteered.body
-  })
-  .catch(err => {
-  console.error({error: err.message})
-  })
+export function signUpForVolunteering(bookingObj) {
+  return request
+    .post('/api/v1/volunteers')
+    .send(bookingObj)
+    .then((volunteered) => {
+      return volunteered.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
 }

@@ -5,22 +5,22 @@ const db = require('../db/db')
 
 router.get('/', (req, res) => {
   db.getVolunteers()
-  .then(volunteering => {
-    return res.json(volunteering)
-  })
-  .catch(err => {
-    res.status(500).json({ error: err.message })
-  })
+    .then((volunteering) => {
+      return res.json(volunteering)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
 })
 
 router.post('/', (req, res) => {
   db.signUpForVolunteering(req.body)
-  .then(booking => {
+    .then((booking) => {
       return res.json(booking)
-  })
-  .catch(err => {
+    })
+    .catch((err) => {
       res.status(500).json({ error: err.message })
-  })
+    })
 })
 
 module.exports = router
