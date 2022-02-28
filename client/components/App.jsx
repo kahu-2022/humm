@@ -1,14 +1,15 @@
 import React from 'react'
 
+import Navigation from './Navigation'
+import AppRoutes from './AppRoutes'
+import Footer from './Footer'
+
 function App () {
   return (
     <>
-      <header className="header">
-        <h1>My Collection</h1>
-      </header>
-      <section className="main">
-        {/* add your code here */}
-      </section>
+    <Navigation />
+    <AppRoutes />
+    <Footer />
     </>
   )
 }

@@ -1,0 +1,33 @@
+.pet {
+    // height: 200px;
+    // width: auto;
+    // align-items: center;
+    // margin: 10px;
+    // border-radius: 50%;
+    object-fit: cover;
+    width: 230px;
+    height: 230px;
+  }
+
+  body {
+    //background-color: pink;
+    height: 2000px;
+    margin: 0%;
+    padding: 0%;
+
+  }
+
+  .home-img {
+    max-width: 350px;
+    max-height: auto;
+  }
+
+  .arrow {
+    max-height: 30px;
+    margin: 5px;
+    max-width: auto;
+  }
+
+  .rounded-circle{
+    object-fit: cover;
+  }
