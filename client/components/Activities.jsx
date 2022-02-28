@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import Form from 'react-bootstrap/Form'
 import Container from "react-bootstrap/Container"
@@ -40,7 +39,7 @@ function Activities () {
 
             <ActivitySuggestion />
 
-            <Footer />
+            
 
         </Container>
           
