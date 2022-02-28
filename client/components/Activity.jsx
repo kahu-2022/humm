@@ -42,7 +42,7 @@ function Activity (props) {
         <Container fluid="true">
 
         <Card className="py-3" className='m-1'>
-           <Card.Img src={activity.image} className='mt-3' />
+           <Card.Img src={activity.image} className='mt-3' fluid='true' />
             <Card.Body>
                 <Card.Title>
                     <b>{activity.title} </b>

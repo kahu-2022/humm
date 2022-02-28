@@ -1,39 +1,35 @@
 import React, { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
-
-const arrow = {
-  // cursor: pointer,
-  // color: 'blue',
-  // align: 'right',
-}
+import Image from 'react-bootstrap/Image'
 
 function Footer() {
   const sendUp = () => {
     window.scrollTo(0, 0)
   }
-
+  
   return (
     <>
-      <div class="container">
-        <footer class="row row-cols-5 py-5 my-5 border-top">
-          <div class="col">
+      <div className="container">
+        <footer className="row row-cols-5 py-5 my-5 border-top">
+          <div className="col">
             <Button variant="outline-secondary" style={arrow} onClick={sendUp}>
               {" "}
               ^ Return to top of page
             </Button>
             <a
               href="/"
-              class="d-flex align-items-center mb-3 link-dark text-decoration-none"
+              className="d-flex align-items-center mb-3 link-dark text-decoration-none"
             >
-              <svg class="bi me-2" width="40" height="32">
+              <svg className="bi me-2" width="40" height="32">
                 {/* Add logo */}
               </svg>
             </a>
-            <p class="text-muted">&copy; 2022</p>
+            <p className="text-muted">&copy; 2022</p>
           </div>
 
-          <div class="col"></div>
+<Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' />
 
+          <div className="col"></div>
           <div class="col">
             <h5>Mental Health</h5>
             <ul class="nav flex-column">
