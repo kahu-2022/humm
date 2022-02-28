@@ -117,7 +117,7 @@ export function fetchVolunteering() {
 
 export function signUpForVolunteering (bookingObj) {
   console.log("You have reached the api wooo", bookingObj)
-  return request.post('/api/v1/volunteering')
+  return request.post('/api/v1/volunteers')
   .send(bookingObj)
   .then(volunteered => { 
     return volunteered.body

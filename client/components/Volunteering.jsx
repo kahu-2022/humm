@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Row, Col, Card, Container, Alert, Modal, Form, Button } from 'react-bootstrap'
 
-import { fetchVolunteering, signUpForVolunteering } from "../apis/api"
+import { signUpForVolunteering } from "../apis/api"
 
 function Volunteering(props) {
-
 
   const [show, setShow] = useState(false)
 
@@ -15,10 +14,6 @@ function Volunteering(props) {
     name: "",
     pronouns:"",
     roomNumber: "",
-    title: "",
-    description: "",
-    when: "",
-    where: ""
   })
 
   const [showAlert, setShowAlert] = useState(false)
@@ -33,7 +28,6 @@ function Volunteering(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // console.log(claimData)
     signUpForVolunteering(volunteerData).then((volunteered) => {
       setAlertInfo({
         title: volunteered[0].title,
@@ -41,13 +35,8 @@ function Volunteering(props) {
       })
       window.scrollTo(0, 0)
       setShowAlert(true)
-
-      // res will be an id of the new counselling booking
-      // then some react to show the alert
     })
   }
-
-
 
   return (
     <>
@@ -57,7 +46,10 @@ function Volunteering(props) {
           <Row className="justify-content-md-center">
             <Col>
                 <Row><Card.Title><em>{props.title} </em></Card.Title></Row>
-                <Row><Card.Text>Description of volunteering role{props.description}</Card.Text></Row>
+                <Row><Card.Text>
+                  <strong>Description of volunteering role</strong><br />
+                  {props.description}
+                  </Card.Text></Row>
                 <Row>
                   <Card.Text className="mt-2">
                   <strong>When</strong><br />
@@ -75,7 +67,6 @@ function Volunteering(props) {
           <Row>
           
             <Button variant="primary" onClick={handleShow}>Sign Up</Button>
-
             <Modal show={show} onHide={handleClose}>
             <Alert
               variant="success"
@@ -84,7 +75,7 @@ function Volunteering(props) {
               dismissible
             >
             <Alert.Heading>
-                Kia ora {props.name}, you're all booked in.
+                Kia ora {alertInfo.name}, you're all booked in.
               </Alert.Heading>
               <p>
                 Thank you for signing up to help us out. Please let us know if you can no longer make it.
@@ -140,21 +131,6 @@ function Volunteering(props) {
                     />
                   </Form.Group>
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="contactDetails"
-                    onChange={handleChange}
-                  >
-                    <Form.Label>Contact Details</Form.Label>
-                    <Form.Control
-                      name="contactDetails"
-                      as="textarea"
-                      rows={3}
-                      placeholder="Enter how you'd like to be contacted here"
-                    />
-                  </Form.Group>
-               
-              
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
