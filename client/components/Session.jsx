@@ -1,19 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
-import Form from 'react-bootstrap/Form'
-import { Container, Card } from 'react-bootstrap'
+import { Button, Alert, Form, Container, Card } from 'react-bootstrap'
 
-function Activity (props) {
+function Session (props) {
 
-    const {activity} = props
+    const {session} = props
     const [showAlert, setShowAlert] = useState(false)
     const [showForm, setShowForm] = useState(false)
     const [showButton, setShowButton] = useState(true)
     const [showConf, setShowConf] = useState(false)
 
     useEffect(() => {
-        // console.log(activity)
+        // console.log(session)
     },[])
 
     const handleChange = (e) => {
@@ -26,7 +23,7 @@ function Activity (props) {
         setShowConf(true)
       }
 
-      const formAppear = () => {
+    const formAppear = () => {
         setShowForm(true)
         setShowButton(false)
     }
@@ -42,23 +39,22 @@ function Activity (props) {
         <Container fluid="true">
 
         <Card className="py-3" className='m-1'>
-           <Card.Img src={activity.image} className='mt-3' />
             <Card.Body>
                 <Card.Title>
-                    <b>{activity.title} </b>
+                    <b>{session.title} </b>
                 </Card.Title>
 
-            <p> <em> {activity.info}</em> </p>
+            <p> <em> {session.info}</em> </p>
 
-            <p>{activity.date} {activity.time} in {activity.location}</p>
-            <p>ran by: {activity.ran_by}</p>
+            <p>{session.date} {session.time} in the {session.location}</p>
+            <p>ran by: {session.ran_by}</p>
             {showButton ? <Button variant="primary" type="submit" onClick={formAppear}>
-            I'm keen!
+            sign up
             </Button> : null }
-            {showConf ? <p>You're all booked! <Button variant="success" onClick={cancelBooking}>Need to cancel?</Button> </p> : null }
+            {showConf ? <p>You're all booked! <Button variant="success" onClick={cancelBooking}>Need to cancel?</Button> </p> : null } 
             <br></br>
 
-    {showForm ? <Form 
+            {showForm ? <Form 
     onSubmit={handleSubmit}>
         <Form.Group className="mb-3"  controlId="name" onChange={handleChange}>
             <Form.Label>Name</Form.Label>
@@ -80,14 +76,18 @@ function Activity (props) {
         </Button>
         </Form> : null }
 
+        <br></br>
+
       <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
 
-        </Card.Body>
+        
+
+             </Card.Body>
             </Card>
 
-        <br></br>
+            <br></br>
 
         </Container>
           
@@ -95,4 +95,4 @@ function Activity (props) {
     )
 }
 
-export default Activity
+export default Session
