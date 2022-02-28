@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
+import { Button, Container, Row, Col, Alert } from "react-bootstrap"
 import PageHeader from "./PageHeader"
 import Food from "./Food"
 import AddFood from "./AddFood"
@@ -10,6 +10,9 @@ function ShowFood(props) {
   const [food, setFood] = useState([])
 
   const [showAddFood, setShowAddFood] = useState(false)
+  const [claimedFood, setClaimedFood] = useState()
+
+  const [showAlert, setShowAlert] = useState(false)
 
   const toggleForm = () => {
     setShowAddFood(!showAddFood)
@@ -20,23 +23,25 @@ function ShowFood(props) {
   }
 
   useEffect(() => {
-    getFood()
-  }, [])
-
-  const getFood = () => {
+    //Get all food
     fetchFood().then((arr) => {
       setFood(arr)
     })
-  }
+  }, [])
 
   const setClaimed = (foodItem) => {
+    //To put information in the alert
+    setClaimedFood(foodItem[0])
+
     const newSetFood = food.map((aFood) => {
-      if (aFood.id === foodItem.id) {
+      if (aFood.id === foodItem[0].id) {
         aFood.status = "Claimed"
       }
       return aFood
     })
+
     setFood(newSetFood)
+    setShowAlert(true)
   }
 
   return (
@@ -53,22 +58,26 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Kia ora {alertInfo.claimedBy}, that's all yours!
+            Thanks {claimedFood?.claimedBy}, the {claimedFood?.item}are all
+            yours!
           </Alert.Heading>
+          <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Row>
-          <Button className="my-3" onClick={toggleForm}>
-            {showAddFood ? "Hide" : "Add Food"}
-          </Button>
-          {showAddFood && renderForm()}
-        </Row>
+        {/* <Row> */}
+        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
+          {showAddFood ? "Hide" : "Add Food"}
+        </Button>
+        {showAddFood && renderForm()}
+        {/* </Row> */}
+      </Container>
+      <Container>
         <Row className="g-3">
           {food
             .filter((food) => food.status != "Claimed")
             .map((food) => {
               return (
-                <Col md={6} lg={4}>
-                  <Food key={food.id} food={food} setClaimed={setClaimed} />
+                <Col key={food.id} md={6} lg={4}>
+                  <Food food={food} setClaimed={setClaimed} />
                 </Col>
               )
             })}

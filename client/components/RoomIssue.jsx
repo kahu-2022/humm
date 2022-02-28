@@ -76,7 +76,7 @@ return (
              <Form.Control  name="issue" as="textarea" rows={3} placeholder="Enter any issues you may be having with your room here"/>
     </Form.Group>
 
-    <Button variant="primary" type="submit">
+    <Button variant="outline-primary" type="submit">
             Submit
         </Button>
         </Form>

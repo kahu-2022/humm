@@ -1,35 +1,67 @@
-  // body {
-  //   // background-color: #84A98C; lighter green
-  //   background-color: #9ECE9A;
-  //   min-height: 100%;
-  // }
+  body {
+  
+    background-color: #F5FFF9;
+    min-height: 100%;
+  }
 
-  // .btn-primary {
-  //   background-color: seagreen;
-  //   border: none;
-  // }
+  .btn-primary {
+    background-color:#83CCa0;
+    border: none;
+  }
 
-  // .btn-primary:hover {
-  //   background-color: #E4C5AF;
-  // }
+  .btn-outline-primary:hover {
+    background-color:#83CCa0;
+    border: none;
+  }
 
-  // .card {
-  //   background-color: rgb(255, 244, 224);
-  // }
+  .btn-outline-primary {
+    border-color: #83CCA0;
+    color: black;
+  }
 
-  // .form-control {
-  //   background-color: rgb(255, 244, 224);
+  .navigation {
+   background-color: #83CCA0;
+ }
 
-  // }
+  #collapsible-nav-dropdown {
+    background-color: #83CCA0;
+  }
+
+  #responsive-navbar-nav {
+    background-color:  #83CCA0;
+  }
+
+  .card {
+    border: none;
+  }
+  .img-thumbnail {
+    border: none;
+  }
+
+  .btn-outline-secondary {
+    border: #83CCA0;
+  }
+  .btn-outline-secondary:hover {
+    background-color:  #83CCA0;
+  }
 
   // TO DO
-  // smaller buttons
   // center text
   // columns for layout
   // uniform cards
-  // circular photos for counsellors
   // image margins within cards
-  // Start each sentence with a capital letter
   // pastel colours 
   // italics underneath bold heading 
-  // homepage text not in bold
+  // change colour for dropdown mental health resources
+  //add shadow to cards
+  
+  .arrow {
+    max-height: 30px;
+    margin: 5px;
+    max-width: auto;
+  }
+
+  .rounded-circle{
+    object-fit: cover;
+  }
+

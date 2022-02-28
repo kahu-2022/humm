@@ -20,11 +20,9 @@ function Home() {
       <br></br>
     </section>
 
-    <Button variant="danger" className='mb-3'>Resident Login</Button>
+    <Button variant="primary" className='mb-3'>Resident Login</Button> <span></span><Button variant="primary" className='mb-3'>Resident Register</Button>
     <br></br>
-    <Button variant="danger" className='mb-3'>Resident Register</Button>
-    <br></br>
-    <Button href="/about" variant="danger" className='mb-3'>Browse as a guest</Button>
+    <Button href="/about" variant="primary" className='mb-3'>Browse as a guest</Button>
 
     </Container>
     </>

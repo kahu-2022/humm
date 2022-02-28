@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Button from "react-bootstrap/Button"
+import {Button, Container, Row, Col} from "react-bootstrap"
 import Image from 'react-bootstrap/Image'
 
 function Footer() {
@@ -8,13 +8,13 @@ function Footer() {
   }
   
   return (
-    <>
-      <div className="container">
-        <footer className="row row-cols-5 py-5 my-5 border-top">
-          <div className="col">
-            <Button variant="outline-secondary" style={arrow} onClick={sendUp}>
-              {" "}
-              ^ Return to top of page
+    <Container>
+        <footer className=" py-5 my-5 border-top">
+          <Row>
+          <Col md={6} lg={4}>
+            <Button variant="outline-secondary" onClick={sendUp}>
+   <Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' /> Return to top of page
+
             </Button>
             <a
               href="/"
@@ -25,91 +25,96 @@ function Footer() {
               </svg>
             </a>
             <p className="text-muted">&copy; 2022</p>
-          </div>
+          </Col>
 
-<Image src='./images/back-to-top-icon.png' title='return to top' fluid='true' className='arrow' />
 
-          <div className="col"></div>
-          <div class="col">
+
+          <Col md={6} lg={2}>
+          </Col>
+          <Col xs ={6} md={4} lg={2}>
+
             <h5>Mental Health</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Home
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Book counselling
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Browse counselling
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Group Therapy
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Emergency resources
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
 
-          <div class="col">
+          <Col xs={6} md={4} lg={2}>
+
             <h5>Other</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Community activities
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Food
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Report an issue
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Volunteering
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
 
-          <div class="col">
+          <Col xs={6} md={4} lg={2}>
+
             <h5>About us </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+            <ul className="nav flex-column">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   About
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   FAQs
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-muted">
+              <li className="nav-item mb-2">
+                <a href="#" className="nav-link p-0 text-muted">
                   Contact
                 </a>
               </li>
             </ul>
-          </div>
+          </Col>
+          </Row>
         </footer>
-      </div>
-    </>
+      </Container>
+    
   )
 }
 

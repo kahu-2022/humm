@@ -18,32 +18,30 @@ useEffect (() => {
 return (
   <>
   <PageHeader title = 'Volunteer' description = 'Fill out the form to lend a helping hand!'/>
+
   <Container>
     <Row className="g-3">
 
+
       {volunteering ? volunteering.map(volunteer => {
         return (
-          <>
-          <Col md={6} lg={4}>
+          <div className="shadow p-3 mb-5 bg-white rounded">
+
+          <Col md={6} lg={4} key={volunteer.id}>
             <Volunteering 
-            key={volunteer.id}
             title={volunteer.title}
             description={volunteer.description}
             when={volunteer.when}
             where={volunteer.where}
             />
           </Col>
-          </>
+          </div>
         )
       }
     )
     : null }
-
-    </Row>    
+    </Row>   
     </Container>
-    <Container>
-      {/* <VolunterringForm /> */}
-      </Container>
   </>
   )
 }

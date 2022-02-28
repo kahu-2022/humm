@@ -12,6 +12,7 @@ function EmergencyResources () {
       <PageHeader title = 'Emergency Resources' description = 'Here are useful contacts in case of emergencies'/>
       
       <Container>
+        
         <Row className="g-3"> 
           {resources.map(resource => {
             return <Col md={6} lg={4} key={resource.id}>

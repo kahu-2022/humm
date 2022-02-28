@@ -1,45 +1,50 @@
-import React, {useEffect, useState} from 'react'
-import { Alert, Container } from 'react-bootstrap'
+import React, { useEffect, useState } from "react"
+import { Alert, Container, Row, Col } from "react-bootstrap"
 
-import Footer from './Footer'
-import Session from './Session'
+import Footer from "./Footer"
+import Session from "./Session"
+import PageHeader from "./PageHeader"
 
-import { fetchSessions } from '../apis/api'
+import { fetchSessions } from "../apis/api"
 
-function Sessions () {
+function Sessions() {
+  const [sessions, setSessions] = useState(null)
+  const [showAlert, setShowAlert] = useState(false)
 
-    const [sessions, setSessions] = useState(null)
-    const [showAlert, setShowAlert] = useState(false)
+  useEffect(() => {
+    fetchSessions().then((sessions) => setSessions(sessions))
+    return null
+  }, [])
 
-    useEffect(() => {
-        fetchSessions()
-        .then(sessions => setSessions(sessions))
-        return null
-    },[])
-
-    return (
-        <> 
-        <Container>
-
-        <header className="mt-4 header">
-        <h3>Group therapy sessions & workshops</h3>
-        </header>
-
-        <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
-        <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+  return (
+    <>
+      <PageHeader
+        title="Group therapy sessions & workshops"
+        description="Meet our team of friendly counselling staff!"
+      />
+      <Container>
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
-        
-        { sessions ? sessions.map(sesh => { return <Session key={sesh.id} session={sesh} /> }
-        ) 
-        : null
-    }
-
-
-        </Container>            
-          
-        </>
-
-    )
+        <Row className="g-3">
+          {sessions?.map((sesh) => {
+            return (
+              <div className="shadow p-3 mb-5 bg-white rounded">
+              <Col md={6} lg={4} key={sesh.id}>
+                <Session key={sesh.id} session={sesh} />
+              </Col>
+              </div>
+            )
+          })}
+        </Row>
+      </Container>
+    </>
+  )
 }
 
 export default Sessions
