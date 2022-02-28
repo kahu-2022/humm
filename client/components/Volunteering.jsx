@@ -1,7 +1,53 @@
-import React from 'react'
-import { Row, Col, Card, Container } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row, Col, Card, Container, Alert, Modal, Form, Button } from 'react-bootstrap'
+
+import { fetchVolunteering, signUpForVolunteering } from "../apis/api"
 
 function Volunteering(props) {
+
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  const [volunteerData, setVolunteerData] = useState({
+    name: "",
+    pronouns:"",
+    roomNumber: "",
+    title: "",
+    description: "",
+    when: "",
+    where: ""
+  })
+
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertInfo, setAlertInfo] = useState({})
+
+  const handleChange = (e) => {
+    setVolunteerData({
+      ...volunteerData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // console.log(claimData)
+    signUpForVolunteering(volunteerData).then((volunteered) => {
+      setAlertInfo({
+        title: volunteered[0].title,
+        name: volunteered[0].name,
+      })
+      window.scrollTo(0, 0)
+      setShowAlert(true)
+
+      // res will be an id of the new counselling booking
+      // then some react to show the alert
+    })
+  }
+
+
 
   return (
     <>
@@ -25,6 +71,102 @@ function Volunteering(props) {
                   </Card.Text>
                 </Row>
             </Col>
+          </Row>
+          <Row>
+          
+            <Button variant="primary" onClick={handleShow}>Sign Up</Button>
+
+            <Modal show={show} onHide={handleClose}>
+            <Alert
+              variant="success"
+              show={showAlert}
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+            <Alert.Heading>
+                Kia ora {props.name}, you're all booked in.
+              </Alert.Heading>
+              <p>
+                Thank you for signing up to help us out. Please let us know if you can no longer make it.
+              </p>
+              <hr />
+              <p className="mb-0">
+              
+              </p>
+            </Alert>  
+
+              <Modal.Header closeButton>
+                <Modal.Title>Sign up for {props.title} </Modal.Title>
+              </Modal.Header>
+              <Form >
+              <Modal.Body>
+                
+                  <Form.Group
+                    className="mb-3"
+                    controlId="name"
+                    onChange={handleChange}
+                  >
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      name="name"
+                      type="text"
+                      placeholder="Enter your name"
+                    />
+                  </Form.Group>
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="pronouns"
+                    onChange={handleChange}
+                  >
+                    <Form.Label>Pronouns</Form.Label>
+                    <Form.Control
+                      name="pronouns"
+                      type="text"
+                      placeholder="Enter your preferred pronouns"
+                    />
+                  </Form.Group>
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="roomNumber"
+                    onChange={handleChange}
+                  >
+                    <Form.Label>Room number</Form.Label>
+                    <Form.Control
+                      name="roomNumber"
+                      type="text"
+                      placeholder="Enter your room number"
+                    />
+                  </Form.Group>
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="contactDetails"
+                    onChange={handleChange}
+                  >
+                    <Form.Label>Contact Details</Form.Label>
+                    <Form.Control
+                      name="contactDetails"
+                      as="textarea"
+                      rows={3}
+                      placeholder="Enter how you'd like to be contacted here"
+                    />
+                  </Form.Group>
+               
+              
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleSubmit}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+              </Form>
+            </Modal>
+
           </Row>
         </Card.Body>
       </Card>

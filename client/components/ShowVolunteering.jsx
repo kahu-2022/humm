@@ -13,9 +13,8 @@ function ShowVolunteering (props) {
 
 useEffect (() => {
   fetchVolunteering()
-  .then(arr => {
-    setVolunteering(arr)})
-    return null
+  .then((arr) => 
+    setVolunteering(arr))
 }, [])
 
 return (
@@ -45,7 +44,7 @@ return (
     </Row>    
     </Container>
     <Container>
-      <VolunterringForm />
+      {/* <VolunterringForm /> */}
       </Container>
   </>
   )
