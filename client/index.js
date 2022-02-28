@@ -16,7 +16,7 @@
        */
       <Auth0Provider
         domain={"kahu-2022-rosebaylis.au.auth0.com"}
-        clientId={"zFvQlxd1lxF5POaM4rS4BITKzm8i98xr "}
+        clientId={"zFvQlxd1lxF5POaM4rS4BITKzm8i98xr"}
         redirectUri={window.location.origin}
         audience="https://humm/api"
       >

@@ -70,7 +70,7 @@ function Navigation(props) {
         </Navbar.Collapse>
 
         <IfNotAuthenticated>
-        <Button variant="primary">Login</Button>
+          <Button variant="primary" onClick={handleSignIn}>Login</Button>
         </IfNotAuthenticated>
       </Container>
     </Navbar>
