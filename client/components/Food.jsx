@@ -58,7 +58,7 @@ function Food(props) {
 
   return (
     <>
-      <Container>
+    
         <Card className="py-3">
           <Card.Body>
             <Row className="justify-content-md-center">
@@ -148,7 +148,6 @@ function Food(props) {
             </Row>
           </Card.Body>
         </Card>
-      </Container>
     </>
   )
 }
