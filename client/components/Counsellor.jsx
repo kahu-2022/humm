@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Card, Image } from 'react-bootstrap'
+import { Row, Col, Card, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function Counsellor(props) {
@@ -29,7 +29,7 @@ function Counsellor(props) {
 
                 <Row>
                   <Card.Text>
-                    <Link to={`/booking/${props.name}`}><strong>Book for an appointment</strong></Link>
+                    <Link to={`/booking/${props.name}`} key={props.id}><strong>Book for an appointment</strong></Link>
                   </Card.Text>
                 </Row>
 
