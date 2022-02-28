@@ -23,17 +23,14 @@ return (
 
       {volunteering ? volunteering.map(volunteer => {
         return (
-          <>
-          <Col md={6} lg={4}>
+          <Col md={6} lg={4} key={volunteer.id}>
             <Volunteering 
-            key={volunteer.id}
             title={volunteer.title}
             description={volunteer.description}
             when={volunteer.when}
             where={volunteer.where}
             />
           </Col>
-          </>
         )
       }
     )

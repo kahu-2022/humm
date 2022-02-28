@@ -84,9 +84,11 @@ function CounsellorBookingForm(props) {
         contactDetails: newAppointment[0].contactDetails,
       })
 
+      formData.name = ''
       //Scroll to the top of the page to show alert
       window.scrollTo(0, 0)
       setShowAlert(true)
+
     })
   }
 
@@ -125,12 +127,14 @@ function CounsellorBookingForm(props) {
               className="mb-3"
               controlId="name"
               onChange={handleChange}
+              value = {formData.name}
             >
               <Form.Label>Name</Form.Label>
               <Form.Control
                 name="name"
                 type="text"
                 placeholder="Enter your name"
+                
               />
             </Form.Group>
 
