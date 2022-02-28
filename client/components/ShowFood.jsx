@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
+import { Button, Container, Row, Col, Alert } from "react-bootstrap"
 import PageHeader from "./PageHeader"
 import Food from "./Food"
 import AddFood from "./AddFood"
@@ -46,16 +46,7 @@ function ShowFood(props) {
         description="Food up for grabs. Please take what you need."
       />
       <Container>
-        <Alert
-          variant="success"
-          show={showAlert}
-          onClose={() => setShowAlert(false)}
-          dismissible
-        >
-          <Alert.Heading>
-            Kia ora {alertInfo.claimedBy}, that's all yours!
-          </Alert.Heading>
-        </Alert>
+        
         <Row>
           <Button className="my-3" onClick={toggleForm}>
             {showAddFood ? "Hide" : "Add Food"}
