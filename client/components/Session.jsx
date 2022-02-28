@@ -33,7 +33,6 @@ function Session(props) {
   }
 
   return (
-    <>
         <Card className="py-3" className="m-1">
           <Card.Body>
             <Card.Title>
@@ -41,25 +40,24 @@ function Session(props) {
             </Card.Title>
 
             <p>
-              {" "}
-              <em> {session.info}</em>{" "}
+              <em> {session.info}</em>
             </p>
 
             <p>
               {session.date} {session.time} in the {session.location}
             </p>
-            <p>ran by: {session.ran_by}</p>
+            <p>Run by: {session.ran_by}</p>
             {showButton ? (
               <Button variant="primary" type="submit" onClick={formAppear}>
-                sign up
+                Sign up
               </Button>
             ) : null}
             {showConf ? (
               <p>
-                You're all booked!{" "}
+                You're all booked!
                 <Button variant="success" onClick={cancelBooking}>
                   Need to cancel?
-                </Button>{" "}
+                </Button>
               </p>
             ) : null}
             <br></br>
@@ -124,9 +122,7 @@ function Session(props) {
           </Card.Body>
         </Card>
 
-        <br></br>
-    </>
-  )
+      )
 }
 
 export default Session
