@@ -28,13 +28,7 @@ function ShowCounsellors (props) {
               return (
                 <Col md={6} lg={4} key={counsellor.id}>
                 <Counsellor 
-                  
-                  name={counsellor.name}
-                  pronouns={counsellor.pronouns}
-                  photo={counsellor.photo}
-                  speciality={counsellor.speciality}
-                  hours={counsellor.hours}
-                  biography={counsellor.biography}
+                    counsellor = {counsellor}
                 />
                  </Col>
               )
