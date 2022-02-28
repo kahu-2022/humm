@@ -26,9 +26,9 @@ function ShowCounsellors (props) {
           <Row className="g-3"> 
             {counsellor.map((counsellor) => {
               return (
-                <Col md={6} lg={4}>
+                <Col md={6} lg={4} key={counsellor.id}>
                 <Counsellor 
-                  key={counsellor.id}
+                  
                   name={counsellor.name}
                   pronouns={counsellor.pronouns}
                   photo={counsellor.photo}

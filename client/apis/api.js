@@ -8,7 +8,6 @@ export function addCounselling(bookingObj) {
     .post("/api/v1/counselling")
     .send(bookingObj)
     .then(newAppointment => {
-      console.log("heyy")
       return newAppointment.body
     }).catch(err => {
       console.error({error: err.message})
