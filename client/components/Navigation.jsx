@@ -9,6 +9,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 
 function Navigation(props) {
   const { loginWithRedirect, logout } = useAuth0()
+  const { user } = useAuth0();
+
 
   function handleLogoff(e) {
     e.preventDefault()
@@ -61,11 +63,13 @@ function Navigation(props) {
             <Nav>
             <Nav.Link href="/resident">
               <Image
-                src="./images/user-icon.png"
+                src={user?.picture}
                 title="my page"
                 fluid="true"
                 className="arrow"
+                roundedCircle={true} 
               />
+              
               </Nav.Link>
             </Nav>
           <Nav>

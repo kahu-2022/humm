@@ -1,6 +1,38 @@
 const config = require('./knexfile').development
 const conn = require('knex')(config)
 
+
+function addUser(user, db = conn){
+  return db('users')
+    .insert(user)
+    .then((userId) =>{
+      return getUserById(userId)
+    })
+}
+
+function updateUser(id, user, db = conn){
+  return db('users')
+    .update(user)
+    .where('id', id)
+    .then((userId) =>{
+      return getUserById(id)
+    })
+   
+}
+
+function getUserByEmail(email, db = conn) {
+  return db('users').where('email', email).select()
+}
+
+function getUserById(id, db = conn) {
+  return db('users').where('id', id).select()
+}
+
+function getUsers( db = conn) {
+  return db('users')
+  .select()
+}
+
 function getAllCounsellors(db = conn) {
   return db('Counsellors').select()
 }
@@ -115,6 +147,10 @@ function getVolunteersById(id, db = conn) {
 }
 
 module.exports = {
+  addUser,
+  getUsers,
+  updateUser,
+  getUserByEmail,
   addCounsellingBooking,
   getCounsellingBookings,
   getAllCounsellors,
