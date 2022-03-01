@@ -15,26 +15,30 @@ function Sessions() {
   const [sessions, setSessions] = useState(null)
   const [showAlert, setShowAlert] = useState(false)
 
-  useEffect(() => {
-    fetchSessions().then((sessions) => setSessions(sessions))
-    return null
-  }, [])
+    const [sessions, setSessions] = useState(null)
+    const [showAlert, setShowAlert] = useState(false)
 
-  return (
-    <>
-      <PageHeader
-        title="Group therapy sessions & workshops"
-        description="Meet our team of friendly counselling staff!"
-      />
-      <Container>
-        <Alert
-          variant="success"
-          show={showAlert}
-          onClose={() => setShowAlert(false)}
-          dismissible
-        >
-          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
-        </Alert>
+    useEffect(() => {
+        fetchSessions()
+        .then(sessions => setSessions(sessions))
+        return null
+    },[])
+
+    return (
+        <> 
+         <PageHeader
+            title="Group therapy sessions & workshops"
+            description="Meet our team of friendly counselling staff!"
+        />
+        <Container>
+            <Alert
+                variant="success"
+                show={showAlert}
+                onClose={() => setShowAlert(false)}
+                dismissible
+            >
+            <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+            </Alert>
         <Row className="g-3">
           {sessions?.map((sesh) => {
             return (

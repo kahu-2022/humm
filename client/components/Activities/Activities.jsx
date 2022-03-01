@@ -35,13 +35,17 @@ function Activities() {
           <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
         <Row className="g-3">
-          {activities?.map((act) => {
-            return (
-              <Col md={6} lg={4} key={act.id}>
-                <Activity key={act.id} activity={act} />
-              </Col>
-            )
-          })}
+
+        {activities?.map((act) => {
+          return (
+            <div className="shadow p-3 mb-5 bg-white rounded">
+
+            <Col md={6} lg={4} key={act.id}>
+              <Activity key={act.id} activity={act} />
+            </Col>
+            </div>
+          )
+        })}
         </Row>
 
         <ActivitySuggestion />

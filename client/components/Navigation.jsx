@@ -6,6 +6,7 @@ import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
 import { useAuth0 } from "@auth0/auth0-react"
 
+
 function Navigation(props) {
   const { loginWithRedirect, logout } = useAuth0()
 

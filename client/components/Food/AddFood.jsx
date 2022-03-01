@@ -125,7 +125,13 @@ function AddFood(props) {
               <Form.Control name="useByDate" type="date" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            {/* This will be boolean */}
+            {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
+        <Form.Label>Status</Form.Label>
+        <Form.Control  name="status" type="text" placeholder="Enter available" />
+    </Form.Group>    */}
+
+            <Button variant="outline-primary" type="submit">
               Submit
             </Button>
           </Form>
