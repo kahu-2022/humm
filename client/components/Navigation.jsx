@@ -29,8 +29,8 @@ function Navigation(props) {
 
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
-      <Container className="navigation">
+    <Navbar collapseOnSelect expand="lg" className="navigation" variant="dark">
+      <Container>
         <Navbar.Brand href="/">humm</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -39,17 +39,17 @@ function Navigation(props) {
           </Nav>
           <IfAuthenticated>
             <Nav className="me-auto">
-              <NavDropdown className="me-auto" title="Mental Health" id="collapsible-nav-dropdown">
-                <NavDropdown.Item className="me-auto" href="/counsellors">
+              <NavDropdown title="Mental Health" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/counsellors">
                   Browse counsellors
                 </NavDropdown.Item>
-                <NavDropdown.Item className="me-auto" href="/booking">
+                <NavDropdown.Item href="/booking">
                   Book counselling
                 </NavDropdown.Item>
-                <NavDropdown.Item className="me-auto"href="/sessions">
+                <NavDropdown.Item href="/sessions">
                   Group Therapy
                 </NavDropdown.Item>
-                <NavDropdown.Item className="me-auto" href="/emergencyresources">
+                <NavDropdown.Item href="/emergencyresources">
                   Emergency Resources
                 </NavDropdown.Item>
               </NavDropdown>
