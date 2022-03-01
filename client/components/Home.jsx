@@ -7,19 +7,18 @@ import Image from 'react-bootstrap/Image'
 function Home() {
   return (
     <>
-      <Container>
+
+      <Container className="home-page">
         <header className="mt-4 header">
-          <h1>Welcome to humm!</h1>
+          <h1>humm</h1>
         </header>
-
-        <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" />
-
+        
+        <Image src="./images/vibes/building-cropped-2.jpeg" fluid="true" rounded="true" className="mt-2 mb-4" />
         <Button variant="primary" className="mb-3">
-          Resident Login
-        </Button>
-        <br></br>
+           Login
+        </Button> <span></span>
         <Button variant="primary" className="mb-3">
-          Resident Register
+           Register
         </Button>
         <br></br>
         <Button href="/about" variant="primary" className="mb-3">

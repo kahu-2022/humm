@@ -12,6 +12,7 @@ function AddFood(props) {
     donorRoom: '',
     item: '',
     quantity: '',
+    type: '',
     donateDate: '',
     useByDate: '',
     status: '',
@@ -40,7 +41,7 @@ function AddFood(props) {
     <>
       <Container>
         <header className="mt-4 header">
-          <h1> Food</h1>
+          <h2>Add A Food</h2>
         </header>
         <Alert
           variant="success"
@@ -109,6 +110,21 @@ function AddFood(props) {
 
             <Form.Group
               className="mb-3"
+              controlId="type"
+              onChange={handleChange}
+              key={"e"}
+            >
+              <Form.Label>Type of Food</Form.Label>
+              <Form.Select name="type" aria-label="type">
+                <option>Select type of food</option>
+                <option value="fruit">fruit</option>
+                <option value="veggies">veggies</option>
+                <option value="staple">staple</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group
+              className="mb-3"
               controlId="donateDate"
               onChange={handleChange}
             >
@@ -131,7 +147,7 @@ function AddFood(props) {
         <Form.Control  name="status" type="text" placeholder="Enter available" />
     </Form.Group>    */}
 
-            <Button variant="outline-primary" type="submit">
+            <Button variant="primary" type="submit">
               Submit
             </Button>
           </Form>

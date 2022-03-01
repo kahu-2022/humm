@@ -9,54 +9,60 @@ function Footer() {
 
   return (
     <Container>
-      <footer className=" py-5 my-5 border-top">
+      <footer className="py-5 my-5 border-top mb-2 pb-2">
         <Row>
           <Col md={6} lg={4}>
-            `{' '}
+            
             <Button variant="outline-secondary" onClick={sendUp}>
               <Image
-                src="./images/back-to-top-icon.png"
+                src="./images/back-to-top-icon2.png"
                 title="return to top"
                 fluid="true"
                 className="arrow"
-              />{' '}
-              Return to top of page
+              />
+              Return to top
             </Button>
+
+            <Button variant="outline-secondary" href="/">
+              <Image
+                src="./images/return-home-icon.png"
+                title="return home"
+                fluid="true"
+                className="arrow"
+              />
+              Return home
+            </Button>
+
             <a
               href="/"
               className="d-flex align-items-center mb-3 link-dark text-decoration-none"
             >
               <svg className="bi me-2" width="40" height="32"></svg>
             </a>
-            <p className="text-muted">&copy; 2022</p>
-          </Col>
+
+            </Col>
 
           <Col md={6} lg={2}></Col>
           <Col xs={6} md={4} lg={2}>
-            ` <h5>Mental Health</h5>
+            <h5>Mental Health</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/booking" className="nav-link p-0 text-muted">
                   Book counselling
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  Browse counselling
+                <a href="/counsellors" className="nav-link p-0 text-muted">
+                  Browse counsellors
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/sessions" className="nav-link p-0 text-muted">
                   Group Therapy
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/emergencyresources" className="nav-link p-0 text-muted">
                   Emergency resources
                 </a>
               </li>
@@ -64,26 +70,25 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-
             <h5>Other</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/activities" className="nav-link p-0 text-muted">
                   Community activities
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/food" className="nav-link p-0 text-muted">
                   Food
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/room" className="nav-link p-0 text-muted">
                   Report an issue
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/volunteering" className="nav-link p-0 text-muted">
                   Volunteering
                 </a>
               </li>
@@ -91,11 +96,10 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-
             <h5>About us </h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/about" className="nav-link p-0 text-muted">
                   About
                 </a>
               </li>
@@ -112,7 +116,18 @@ function Footer() {
             </ul>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <Container>
+              <p className="text-muted">&copy; 2022</p>
+            </Container>
+          </Col>
+        </Row>
+       
       </footer>
+
+
+
     </Container>
   )
 }

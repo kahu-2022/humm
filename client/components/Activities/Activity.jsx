@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
-import Form from "react-bootstrap/Form"
-import { Container, Card } from "react-bootstrap"
+
+import { Card, Form, Button, Alert } from "react-bootstrap"
 
 function Activity(props) {
   const { activity } = props
@@ -12,7 +10,6 @@ function Activity(props) {
   const [showConf, setShowConf] = useState(false)
 
   useEffect(() => {
-    // console.log(activity)
   }, [])
 
   const handleChange = (e) => {}
@@ -36,8 +33,8 @@ function Activity(props) {
   }
 
   return (
-    <div className="shadow p-3 mb-5 bg-white rounded">
-        <Card className="py-3" className="m-1">
+  
+        <Card className="py-3" className="shadow p-3 mb-5 bg-white rounded">
           <Card.Img src={activity.image} className="mt-3" fluid="true" />
           <Card.Body>
             <Card.Title>
@@ -125,7 +122,6 @@ function Activity(props) {
             </Alert>
           </Card.Body>
         </Card>
-        </div>
 
   )
 }

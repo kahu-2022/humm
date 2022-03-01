@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react"
 
-import Container from "react-bootstrap/Container"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 
-import PageHeader from "../PageHeader"
+import DayJS from 'react-dayjs'
+
+import PageHeader from '../PageHeader'
+import Loading from '../Loading'
 
 import { addCounselling, fetchCounsellors } from "../../apis/api"
 import { useParams } from "react-router-dom"
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
@@ -94,7 +97,6 @@ function CounsellorBookingForm(props) {
 
   return (
     <>
-    <h1>blepblepblepppp</h1>
       <Container className="mt-3">
         <Alert
           variant="success"
@@ -107,7 +109,7 @@ function CounsellorBookingForm(props) {
           </Alert.Heading>
           <p>
             Thank you for making a booking with {alertInfo.preferredCounsellor}.
-            We'll see you on the {alertInfo.date} at {alertInfo.time}. Please
+            We'll see you on the <DayJS format="MMM DD, YYYY">{alertInfo.date}</DayJS> at {alertInfo.time}. Please
             let us know if you need to cancel or rearrange your appointment.
           </p>
           <hr />
@@ -305,7 +307,7 @@ function CounsellorBookingForm(props) {
                 name="contactDetails"
                 as="textarea"
                 rows={3}
-                placeholder="Enter how you'd like to be contacted here"
+                placeholder="Enter how we can contact you here e.g. your email address or phone number"
               />
             </Form.Group>
 
@@ -319,4 +321,6 @@ function CounsellorBookingForm(props) {
   )
 }
 
-export default CounsellorBookingForm
+export default withAuthenticationRequired(CounsellorBookingForm, {
+  onRedirecting: () => <Loading />,
+});

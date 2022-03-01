@@ -1,14 +1,19 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Alert, Container, Row, Col } from 'react-bootstrap'
 
 import Session from './Session'
-import Footer from "../Footer"
-import PageHeader from "../PageHeader"
+import PageHeader from '../PageHeader'
+import Loading from '../Loading'
+
 
 import { fetchSessions } from '../../apis/api'
 
-function Sessions () {
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
+
+
+function Sessions() {
+  
     const [sessions, setSessions] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
 
@@ -21,10 +26,11 @@ function Sessions () {
     return (
         <> 
          <PageHeader
-            title="Group therapy sessions & workshops"
-            description="Meet our team of friendly counselling staff!"
+            title="Group therapy sessions and workshops"
+            description=""
         />
-        <Container>
+      
+        <Container >
             <Alert
                 variant="success"
                 show={showAlert}
@@ -47,4 +53,7 @@ function Sessions () {
   )
 }
 
-export default Sessions
+export default withAuthenticationRequired(Sessions, {
+  onRedirecting: () => <Loading />,
+});
+

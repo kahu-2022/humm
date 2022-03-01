@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Container, Row, Col, Alert } from 'react-bootstrap'
+import React, { useState, useEffect, useMemo } from 'react'
+import { Button, Container, Row, Col, Alert, Form, Card } from 'react-bootstrap'
 import PageHeader from '../PageHeader'
 import Food from './Food'
 import AddFood from './AddFood'
+import Loading from '../Loading'
 
 import { fetchFood } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function ShowFood(props) {
   const [food, setFood] = useState([])
@@ -21,6 +25,16 @@ function ShowFood(props) {
   const renderForm = () => {
     return <AddFood />
   }
+
+  const categories = ['All', 'fruit', 'veggies', 'staple']
+
+  const [category, setCategory] = useState('') 
+
+  const filteredData = useMemo(() => {  
+    if (!category || category === "All") return food
+
+    return food.filter(item => item.type === category) 
+  }, [category])
 
   useEffect(() => {
     fetchFood().then((arr) => {
@@ -43,11 +57,22 @@ function ShowFood(props) {
   }
 
   return (
-    <>
-      <PageHeader
+<>
+  <PageHeader
         title="Food"
         description="Food up for grabs. Please take what you need."
       />
+  <Container>
+    <Card className="py-3" className="shadow p-3 mb-3 bg-white rounded">
+          <Card.Img src="./images/tonights-menu.jpg" className="mt-3" fluid="true" />
+          <Card.Body>
+            <Card.Title>
+              <p> Dinner </p>
+            </Card.Title>
+            <p>Tonight's dinner is vegan. All welcome. </p>
+          </Card.Body>
+      </Card>
+  </Container>
       <Container>
         <Alert
           variant="success"
@@ -56,19 +81,35 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Thanks {claimedFood?.claimedBy}, the {claimedFood?.item}are all
-            yours!
+            Thanks {claimedFood?.claimedBy}, you've claimed {claimedFood?.item}!
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
+        <Button variant="primary" className="my-3" onClick={toggleForm}>
           {showAddFood ? 'Hide' : 'Add Food'}
         </Button>
         {showAddFood && renderForm()}
       </Container>
       <Container>
+        <header className="mt-4 header">
+          <h2>Search Food</h2>
+        </header>
+        <Form.Group
+          className="mb-3"
+          controlId="foodCategory"
+          key={'e'}
+          onChange={e => setCategory(e.target.value)}
+          >
+            <Form.Label>Type of Food</Form.Label>
+              <Form.Select name="foodCategory" aria-label="foodCategory" >
+                <option>Select Category</option>
+                  {categories.map((category, index) => {
+                    return (<option value={category} key={index}>{category}</option>)
+                  })}
+              </Form.Select>
+          </Form.Group>
         <Row className="g-3">
-          {food
+          {filteredData
             .filter((food) => food.status != 'Claimed')
             .map((food) => {
               return (
@@ -83,4 +124,6 @@ function ShowFood(props) {
   )
 }
 
-export default ShowFood
+export default withAuthenticationRequired(ShowFood, {
+  onRedirecting: () => <Loading />,
+});
