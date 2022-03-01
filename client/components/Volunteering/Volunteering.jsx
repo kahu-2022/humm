@@ -48,10 +48,12 @@ function Volunteering(props) {
 
   return (
     <>
+    
       <Card className="py-2">
+        <Col>
         <Card.Body className="flex-wrap d-grid">
           <Col>
-                <Row><Card.Title><em>{props.title} </em></Card.Title></Row>
+            <Card.Title><em>{props.title} </em></Card.Title>
                 <Row><Card.Text>
                   {props.description}
                   </Card.Text></Row>
@@ -67,14 +69,14 @@ function Volunteering(props) {
                   </Card.Text>
                 </Row>
             </Col>
-            {/* <Row> */}
-              <Button variant="outline-primary"className="mt-3 " onClick={handleShow}>
+    
+              <Button variant="primary" className="mt-3" onClick={handleShow}>
                 Sign Up
               </Button>
-            {/* </Row> */}
+        
           </Card.Body>
+          </Col>
         </Card>
-      {/* </Container> */}
       <Container>
         <Modal show={show} onHide={handleClose}>
           <Alert
