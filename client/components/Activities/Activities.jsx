@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Alert from 'react-bootstrap/Alert'
-import Container from 'react-bootstrap/Container'
+import { Alert, Container, Row, Col } from 'react-bootstrap'
 import ActivitySuggestion from './ActivitySuggestion'
+
+import PageHeader from '../PageHeader'
 import Activity from './Activity'
+import Loading from '../Loading'
 
 import { fetchActivities } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 function Activities() {
   const [activities, setActivities] = useState(null)
@@ -46,4 +50,6 @@ function Activities() {
   )
 }
 
-export default Activities
+export default withAuthenticationRequired(Activities, {
+  onRedirecting: () => <Loading />,
+});

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Container } from 'react-bootstrap'
+import { Alert, Container, Row, Col } from 'react-bootstrap'
 
 import Session from './Session'
 import PageHeader from '../PageHeader'
+import Loading from '../Loading'
+
 
 import { fetchSessions } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function Sessions() {
   const [sessions, setSessions] = useState(null)
@@ -44,4 +49,7 @@ function Sessions() {
   )
 }
 
-export default Sessions
+export default withAuthenticationRequired(Sessions, {
+  onRedirecting: () => <Loading />,
+});
+

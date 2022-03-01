@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 
-<<<<<<< HEAD:client/components/CounsellorBookingForm.jsx
-import PageHeader from "./PageHeader"
-import Loading from "./Loading"
-=======
 import PageHeader from '../PageHeader'
->>>>>>> ee56dd0d3e8b01679d9397fcf69f94cd8b3be013:client/components/Mental Health/CounsellorBookingForm.jsx
+import Loading from '../Loading'
 
 import { addCounselling, fetchCounsellors } from '../../apis/api'
 import { useParams } from 'react-router-dom'
@@ -315,8 +308,6 @@ function CounsellorBookingForm(props) {
     </>
   )
 }
-
-// export default 
 
 export default withAuthenticationRequired(CounsellorBookingForm, {
   onRedirecting: () => <Loading />,

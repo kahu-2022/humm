@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PageHeader from '../PageHeader'
+import Loading from '../Loading'
 
 import { Card, Row, Container, Col } from 'react-bootstrap'
 
 import resources from '../../emergencyresources'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function EmergencyResources() {
   return (
@@ -39,4 +43,6 @@ function EmergencyResources() {
   )
 }
 
-export default EmergencyResources
+export default withAuthenticationRequired(EmergencyResources, {
+  onRedirecting: () => <Loading />,
+});

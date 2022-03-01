@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Counsellor from './Counsellor'
 import PageHeader from '../PageHeader'
+import Loading from '../Loading'
+
 
 import { fetchCounsellors } from '../../apis/api'
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function ShowCounsellors(props) {
   const [counsellor, setCounsellor] = useState([])
@@ -39,4 +43,7 @@ function ShowCounsellors(props) {
   )
 }
 
-export default ShowCounsellors
+export default withAuthenticationRequired(ShowCounsellors, {
+  onRedirecting: () => <Loading />,
+});
+

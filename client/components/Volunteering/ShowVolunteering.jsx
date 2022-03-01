@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import PageHeader from '../PageHeader'
 import Volunteering from './Volunteering'
+import Loading from '../Loading'
+
 
 import { fetchVolunteering } from '../../apis/api'
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 function ShowVolunteering(props) {
   const [volunteering, setVolunteering] = useState([])
@@ -40,4 +43,6 @@ function ShowVolunteering(props) {
   )
 }
 
-export default ShowVolunteering
+export default withAuthenticationRequired(ShowVolunteering, {
+  onRedirecting: () => <Loading />,
+});
