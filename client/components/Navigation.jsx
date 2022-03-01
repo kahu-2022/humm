@@ -35,7 +35,7 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <Nav.Link href="about">About us</Nav.Link>
+            <Nav.Link href="/about">About us</Nav.Link>
           </Nav>
           <IfAuthenticated>
             <Nav className="me-auto">

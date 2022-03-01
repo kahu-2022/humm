@@ -11,7 +11,9 @@ import { fetchSessions } from '../../apis/api'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 
-function Sessions() {1
+
+function Sessions() {
+  
     const [sessions, setSessions] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
 
