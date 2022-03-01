@@ -60,13 +60,16 @@ function Activities() {
         {showAddActivities && renderForm()}
       </Container>
       <Container>
+        <header className="mt-4 header">
+          <h2>Browse Activities</h2>
+        </header>
         <Form.Group
           className="mb-3"
           controlId="activityCategory"
           key={'e'}
           onChange={e => setCategory(e.target.value)}
           >
-            <Form.Label>Counsellor Speciality</Form.Label>
+            <Form.Label>Check out our latest events and activities</Form.Label>
               <Form.Select name="activityCategory" aria-label="activityCategory" >
                 <option>Select Category</option>
                   {categories.map((category, index) => {

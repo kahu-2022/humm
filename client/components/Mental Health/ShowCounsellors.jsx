@@ -42,13 +42,16 @@ function ShowCounsellors (props) {
       />
       
       <Container>
+        <header className="mt-4 header">
+          <h2>Browse Counsellors</h2>
+        </header>
         <Form.Group
           className="mb-3"
           controlId="counsellorSpeciality"
           key={'e'}
           onChange={e => setCategory(e.target.value)}
           >
-            <Form.Label>Counsellor Speciality</Form.Label>
+            <Form.Label>Choose from our counsellors to find the perfect fit for you</Form.Label>
               <Form.Select name="counsellorSpeciality" aria-label="counsellorSpeciality" >
                 <option>Select Speciality</option>
                   {categories.map((speciality, index) => {
