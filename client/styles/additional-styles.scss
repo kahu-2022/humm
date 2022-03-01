@@ -5,8 +5,8 @@
   }
 
   .btn-primary {
-    background-color:#83CCa0;
-    border: none;
+    // background-color:#83CCa0;
+    // border: none;
   }
 
   .btn-outline-primary:hover {
@@ -35,6 +35,10 @@
     font-weight:700;
   }
 
+  .profile-img{
+    max-width:80px;
+    margin-right:15px;
+  }
   
   .card {
     border: none;

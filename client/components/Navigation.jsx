@@ -67,7 +67,9 @@ function Navigation(props) {
                 title="my page"
                 fluid="true"
                 className="arrow"
+                roundedCircle={true} 
               />
+              
               </Nav.Link>
             </Nav>
           <Nav>
