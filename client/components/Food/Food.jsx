@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
   Row,
   Col,
@@ -10,12 +10,17 @@ import {
   Alert,
 } from "react-bootstrap"
 
-import DayJS from 'react-dayjs'
+import { useAuth0 } from "@auth0/auth0-react"
 
-import { claimNewFood } from "../../apis/api"
+import DayJS from "react-dayjs"
+
+import { claimNewFood, getUserByEmail } from "../../apis/api"
 
 function Food(props) {
   const { food, setClaimed } = props
+  const { user } = useAuth0()
+
+  
 
   const [show, setShow] = useState(false)
 
@@ -29,6 +34,20 @@ function Food(props) {
     status: "Claimed",
   })
 
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user?.email).then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setClaimData({
+          id: food.id,
+          name: userFromDB[0].name,
+          claimedBy: userFromDB[0].pronouns,
+          claimerRoom: userFromDB[0].roomNumber,
+          status: "Claimed",
+        })
+      }
+    })
+  }, [])
 
   const handleChange = (e) => {
     setClaimData({
@@ -39,20 +58,8 @@ function Food(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    claimNewFood(claimData)
-    .then((newClaim) => {
-      // console.log("the new claim", newClaim)
-      // setAlertInfo({
-      //   claimedBy: newClaim[0].claimedBy,
-      // })
-
-      // const claimInfo = {
-      //     claimedBy: newClaim[0].claimedBy,
-      //   }
-      
-      // console.log("newclaim in food.jsx", newClaim)
+    claimNewFood(claimData).then((newClaim) => {
       window.scrollTo(0, 0)
-      // setShowAlert(true)
       setClaimed(newClaim)
       setShow(false)
     })
@@ -60,7 +67,7 @@ function Food(props) {
 
   return (
     <>
-        <div className="shadow p-3 mb-5 bg-white rounded">
+      <div className="shadow p-3 mb-5 bg-white rounded">
         <Card className="py-3">
           <Card.Body>
             <Row className="justify-content-md-center">
@@ -77,35 +84,30 @@ function Food(props) {
                     </Button>
 
                     <Modal show={show} onHide={handleClose}>
-                    
                       <Modal.Header closeButton>
                         <Modal.Title>Claim the food {food.item} </Modal.Title>
                       </Modal.Header>
                       <Form>
                         <Modal.Body>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="claimedBy"
-                            onChange={handleChange}
-                          >
+                          <Form.Group className="mb-3" controlId="claimedBy">
                             <Form.Label>Name</Form.Label>
                             <Form.Control
                               name="claimedBy"
                               type="text"
                               placeholder="Enter your name"
+                              onChange={handleChange}
+                              defaultValue={claimData?.name}
                             />
                           </Form.Group>
 
-                          <Form.Group
-                            className="mb-3"
-                            controlId="claimerRoom"
-                            onChange={handleChange}
-                          >
+                          <Form.Group className="mb-3" controlId="claimerRoom">
                             <Form.Label>Room Number</Form.Label>
                             <Form.Control
                               name="claimerRoom"
                               type="text"
                               placeholder="Enter your room number"
+                              onChange={handleChange}
+                              defaultValue={claimData?.claimerRoom}
                             />
                           </Form.Group>
                         </Modal.Body>
@@ -114,7 +116,7 @@ function Food(props) {
                             Close
                           </Button>
                           <Button variant="primary" onClick={handleSubmit}>
-                           Claim
+                            Claim
                           </Button>
                         </Modal.Footer>
                       </Form>
@@ -150,10 +152,9 @@ function Food(props) {
             </Row>
           </Card.Body>
         </Card>
-        </div>
+      </div>
     </>
   )
 }
 
 export default Food
-  
