@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export function addUser(user) {
+  console.log("user to add api", user)
   return request
     .post('/api/v1/users')
     .send(user)
@@ -40,8 +41,9 @@ export function getAllUsers() {
 export function getUserByEmail(email) {
   return request
     .get(`/api/v1/users/${email}`)
-    .then((users) => {
-      return users.body
+    .then((user) => {
+      console.log(user)
+      return user.body
     })
     .catch((err) => {
       console.error({ error: err.message })

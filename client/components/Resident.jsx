@@ -21,7 +21,6 @@ function Resident() {
   const [showAlert, setShowAlert] = useState(false)
 
   const [formData, setFormData] = useState({
-    id: "",
     name: "",
     pronouns: "",
     email: user.email,
@@ -31,6 +30,7 @@ function Resident() {
 
   useEffect(() => {
     getUserByEmail(user.email).then((userFromDB) => {
+      console.log(user)
       if (userFromDB[0].email === user.email) {
         setUserExists(true)
         setFormData(userFromDB[0])
