@@ -99,17 +99,12 @@ function Footer() {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="/about" className="nav-link p-0 text-muted">
-                  About
+                  The Project
                 </a>
               </li>
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  Contact
+                  The Team
                 </a>
               </li>
             </ul>
