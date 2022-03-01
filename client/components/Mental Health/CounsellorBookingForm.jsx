@@ -307,7 +307,7 @@ function CounsellorBookingForm(props) {
                 name="contactDetails"
                 as="textarea"
                 rows={3}
-                placeholder="Enter how you'd like to be contacted here"
+                placeholder="Enter how we can contact you here e.g. your email address or phone number"
               />
             </Form.Group>
 
