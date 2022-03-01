@@ -34,7 +34,6 @@ function Activities() {
           <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
         <Row className="g-3">
-<<<<<<< HEAD:client/components/Activities.jsx
 
         {activities?.map((act) => {
           return (
@@ -46,15 +45,6 @@ function Activities() {
             </div>
           )
         })}
-=======
-          {activities?.map((act) => {
-            return (
-              <Col md={6} lg={4} key={act.id}>
-                <Activity key={act.id} activity={act} />
-              </Col>
-            )
-          })}
->>>>>>> ee56dd0d3e8b01679d9397fcf69f94cd8b3be013:client/components/Activities/Activities.jsx
         </Row>
 
         <ActivitySuggestion />
