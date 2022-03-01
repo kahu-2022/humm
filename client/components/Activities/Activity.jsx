@@ -35,7 +35,7 @@ function Activity(props) {
   return (
   
         <Card className="py-3" className="shadow p-3 mb-5 bg-white rounded">
-          <Card.Img src={activity.image} className="mt-3 act-image" fluid="true" />
+          <Card.Img src={activity.image} className="mt-3" fluid="true" />
           <Card.Body>
             <Card.Title>
               <b>{activity.title} </b>
