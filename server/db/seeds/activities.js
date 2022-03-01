@@ -20,7 +20,7 @@ exports.seed = function (knex) {
           id: 2,
           title: 'Movie Night',
           category: 'Fun',
-          info: 'Are you a film lover? Come along and join our movie nights, cast your weekly vote and enjoy culturally significant movies together.',
+          info: 'Come along, cast your weekly vote and enjoy culturally significant movies together.',
           date: 'Every Friday at',
           time: '7pm',
           location: 'the Green Room',
@@ -39,7 +39,7 @@ exports.seed = function (knex) {
           location: 'the Pink Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/REO.jpeg',
+          image: './images/te-reo2.jpeg',
           ran_by: 'Isaiah',
         },
         {
@@ -91,7 +91,7 @@ exports.seed = function (knex) {
           location: 'the Blue Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/POE.jpeg',
+          image: './images/POE1.png',
           ran_by: 'Courtney',
         },
       ])
