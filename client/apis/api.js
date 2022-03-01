@@ -13,7 +13,7 @@ export function addUser(user) {
 }
 
 export function updateUser(user) {
-  console.log("updated data to the api", user)
+  ("updated data to the api", user)
   return request
     .patch(`/api/v1/users/${user.id}`)
     .send(user)

@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { Form, Button, Image, Container, Row, Col } from "react-bootstrap"
+import {
+  Alert,
+  Form,
+  Button,
+  Image,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap"
 
 import PageHeader from "./PageHeader"
 import Loading from "./Loading"
@@ -10,6 +18,8 @@ import { addUser, getUserByEmail, updateUser } from "../apis/api"
 function Resident() {
   const { user } = useAuth0()
   const [userExists, setUserExists] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
+
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -36,24 +46,37 @@ function Resident() {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(userExists){
-      updateUser(formData).then((updatedUser) => {
-        console.log("updated!")
-        setFormData(updateUser)
-      })
+    if (userExists) {
+      console.log("user exists", formData)
+      updateUser(formData)
+      .then((updatedUser) => {
+        console.log("returned", updatedUser[0])
 
-    }else{
+        setFormData(updatedUser[0])
+        setShowAlert(true)
+      })
+    } else {
       addUser(formData).then((newUser) => {
-        console.log("saved!")
+        setShowAlert(true)
       })
     }
-   
   }
   return (
     <>
+      <Container className="mt-3"></Container>
+
       <Container>
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
+            <Alert
+              variant="success"
+              show={showAlert}
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+              <Alert.Heading>Thanks, {formData?.name} updated</Alert.Heading>
+              <p>Thank you for making a booking with</p>
+            </Alert>
             <PageHeader
               title="Profile page"
               description="Feel free to help us out around the place."
@@ -77,29 +100,25 @@ function Resident() {
                     name="name"
                     type="text"
                     placeholder="Enter your name"
-                    value={formData?.name}
+                    defaultValue={formData?.name}
                     onChange={handleChange}
                   />
                 </Form.Group>
 
-                <Form.Group
-                  className="mb-3"
-                  controlId="pronouns"
-                >
+                <Form.Group className="mb-3" controlId="pronouns">
                   <Form.Label>Your Pronouns</Form.Label>
                   <Form.Control
                     name="pronouns"
                     type="text"
                     placeholder="Enter your preferred pronouns"
                     onChange={handleChange}
-                    value={formData?.pronouns}
+                    defaultValue={formData?.pronouns}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="roomNumber"
-                  onChange={handleChange}
                 >
                   <Form.Label>Room number</Form.Label>
                   <Form.Control
@@ -107,15 +126,13 @@ function Resident() {
                     type="text"
                     placeholder="Enter your room number"
                     onChange={handleChange}
-                    value={formData?.roomNumber}
+                    defaultValue={formData?.roomNumber}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="contactDetails"
-                  onChange={handleChange}
-                  key={"j"}
                 >
                   <Form.Label>Contact Details</Form.Label>
                   <Form.Control
@@ -124,7 +141,7 @@ function Resident() {
                     rows={3}
                     placeholder="Enter how you'd like to be contacted here"
                     onChange={handleChange}
-                    value={formData?.contactDetails}
+                    defaultValue={formData?.contactDetails}
                   />
                 </Form.Group>
 

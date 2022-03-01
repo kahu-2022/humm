@@ -14,6 +14,9 @@ function updateUser(id, user, db = conn){
   return db('users')
     .update(user)
     .where('id', id)
+    .then((userId) =>{
+      return getUserById(id)
+    })
    
 }
 
