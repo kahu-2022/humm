@@ -10,6 +10,8 @@ import {
   Alert,
 } from "react-bootstrap"
 
+import DayJS from 'react-dayjs'
+
 import { claimNewFood } from "../../apis/api"
 
 function Food(props) {
@@ -133,7 +135,7 @@ function Food(props) {
                   <Card.Text className="mt-2">
                     <strong>Date Donated</strong>
                     <br />
-                    {food.donateDate}
+                    <DayJS format="MMM DD, YYYY">{food.donateDate}</DayJS>
                   </Card.Text>
                 </Row>
                 <br />
@@ -141,7 +143,7 @@ function Food(props) {
                   <Card.Text>
                     <strong>Expiry Date</strong>
                     <br />
-                    {food.useByDate}
+                    <DayJS format="MMM DD, YYYY">{food.useByDate}</DayJS>
                   </Card.Text>
                 </Row>
               </Col>
