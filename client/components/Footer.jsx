@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <Container>
-      <footer className=" py-5 my-5 border-top">
+      <footer className="py-5 my-5 border-top mb-2 pb-2">
         <Row>
           <Col md={6} lg={4}>
             
@@ -116,10 +116,17 @@ function Footer() {
             </ul>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <Container>
+              <p className="text-muted">&copy; 2022</p>
+            </Container>
+          </Col>
+        </Row>
        
       </footer>
 
-      <p className="text-muted">&copy; 2022</p>
+
 
     </Container>
   )

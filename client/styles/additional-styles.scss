@@ -78,11 +78,12 @@
   }
 
   img.card-img.mt-3 {
-    max-height: 200px;
-    object-fit: cover;
-  }    
-  .act-image {
     max-height: 250px;
     max-width: auto;
-  }
+    object-fit: cover;
+  }    
+  // .act-image {
+  //   max-height: 250px;
+  //   max-width: auto;
+  // }
 
