@@ -39,17 +39,17 @@ function Navigation(props) {
           </Nav>
           <IfAuthenticated>
             <Nav className="me-auto">
-              <NavDropdown title="Mental Health" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="/counsellors">
+              <NavDropdown className="me-auto" title="Mental Health" id="collapsible-nav-dropdown">
+                <NavDropdown.Item className="me-auto" href="/counsellors">
                   Browse counsellors
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/booking">
+                <NavDropdown.Item className="me-auto" href="/booking">
                   Book counselling
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/sessions">
+                <NavDropdown.Item className="me-auto"href="/sessions">
                   Group Therapy
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/emergencyresources">
+                <NavDropdown.Item className="me-auto" href="/emergencyresources">
                   Emergency Resources
                 </NavDropdown.Item>
               </NavDropdown>

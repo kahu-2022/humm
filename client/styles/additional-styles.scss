@@ -50,7 +50,17 @@
   }
 
   .me-auto {
-    background-color:  #83CCA0; 
+    margin: 0%;
+  }
+
+  .dropdown-menu {
+    background-color:  #69b186; 
+  }
+
+  .navbar {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0%;
   }
   // TO DO
   // center text
@@ -58,10 +68,7 @@
   // uniform cards
   // image margins within cards
   // pastel colours 
-  // italics underneath bold heading 
-  // change colour for dropdown mental health resources
-  //add shadow to cards
-  
+  // italics underneath bold heading   
   .arrow {
     max-height: 30px;
     margin: 5px;
