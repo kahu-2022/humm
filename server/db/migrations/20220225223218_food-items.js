@@ -5,6 +5,7 @@ exports.up = function (knex) {
     table.string('donorRoom')
     table.string('item')
     table.string('quantity')
+    table.string('type')
     table.date('donateDate')
     table.date('useByDate')
     table.string('status')
