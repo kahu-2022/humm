@@ -18,6 +18,7 @@ function Home() {
     email: user.email
   }
   useEffect(() => {
+    //set the user to the global state
     dispatch(fetchUser(newUser.email))
   }, [])
 

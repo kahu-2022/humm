@@ -9,14 +9,15 @@ const emptyUser = {
 export default function user (state = emptyUser, action) {
   switch (action.type) {
     case SET_USER:
-      return action.user
+      state.user = action.user;
+      return state
 
     case CLEAR_USER:
       return emptyUser
 
     case RECEIVE_USER:
-      console.log("in the switch",action.user)
-      state = action.user;
+      console.log("in reducer",action.user)
+      state.user = action.user;
       return state
         
     default:

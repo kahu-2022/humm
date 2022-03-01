@@ -4,7 +4,7 @@ import { Navbar, NavDropdown, Nav, Container, Button, Image } from "react-bootst
 
 import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react"
 
 import { useDispatch } from 'react-redux'
 import { fetchUser, setUser } from '../actions/user'
@@ -38,11 +38,11 @@ function Navigation(props) {
 
     
   useEffect(() => {
-    // if (isAuthenticated) {
+    if (isAuthenticated) {
 
-    console.log("in nav", user)
-  //  dispatch(fetchUser(user))
-    // }
+    console.log("trdyfug")
+ //   dispatch(fetchUser(user))
+    }
   }, [])
 
 

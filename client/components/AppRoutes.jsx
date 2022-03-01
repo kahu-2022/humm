@@ -14,6 +14,7 @@ import NotFound404 from './NotFound404'
 import Resident from './Resident'
 
 function AppRoutes(props) {
+  
   return (
     <>
       <Routes>
