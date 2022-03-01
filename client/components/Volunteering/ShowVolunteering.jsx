@@ -26,8 +26,8 @@ function ShowVolunteering(props) {
           {volunteering
             ? volunteering.map((volunteer) => {
                 return (
-                  <div className="shadow p-3 mb-5 bg-white rounded">
-                    <Col md={6} lg={4} key={volunteer.id}>
+                  <div className="shadow p-3 mb-5 bg-white rounded" key={volunteer.id}>
+                    <Col md={6} lg={4} >
                       <Volunteering
                         title={volunteer.title}
                         description={volunteer.description}
