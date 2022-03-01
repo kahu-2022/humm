@@ -11,10 +11,7 @@ import { fetchSessions } from '../../apis/api'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 
-function Sessions() {
-  const [sessions, setSessions] = useState(null)
-  const [showAlert, setShowAlert] = useState(false)
-
+function Sessions() {1
     const [sessions, setSessions] = useState(null)
     const [showAlert, setShowAlert] = useState(false)
 
@@ -27,10 +24,11 @@ function Sessions() {
     return (
         <> 
          <PageHeader
-            title="Group therapy sessions & workshops"
+            title="Group therapy sessions and workshops"
             description="Meet our team of friendly counselling staff!"
         />
-        <Container>
+      
+        <Container >
             <Alert
                 variant="success"
                 show={showAlert}

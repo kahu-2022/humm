@@ -29,8 +29,8 @@ function Navigation(props) {
 
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light  " variant="light  ">
-      <Container>
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
+      <Container className="navigation">
         <Navbar.Brand href="/">humm</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
