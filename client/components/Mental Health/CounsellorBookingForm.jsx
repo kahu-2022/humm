@@ -9,6 +9,8 @@ import Loading from '../Loading'
 
 import { addCounselling, fetchCounsellors } from "../../apis/api"
 import { useParams } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { fetchUser, setUser } from '../../actions/user'
 
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
@@ -27,6 +29,7 @@ function CounsellorBookingForm(props) {
     contactDetails: "",
   })
 
+  const { user ,isAuthenticated} = useAuth0();
   const params = useParams()
 
   const [sessionPrefCheck, setSessionPrefCheck] = useState([])
@@ -38,6 +41,7 @@ function CounsellorBookingForm(props) {
   const [alertInfo, setAlertInfo] = useState({})
 
   const handleCheckboxOnChange = (e) => {
+    
     const isChecked = e.target.checked
 
     const checkboxes = {
@@ -57,7 +61,15 @@ function CounsellorBookingForm(props) {
     }
   }
 
+  const dispatch = useDispatch()
+
+  const newUser = {
+    email: user.email
+  }
   useEffect(() => {
+    console.log("in form" ,user.email)
+       dispatch(fetchUser(newUser.email))
+
     fetchCounsellors().then((arr) => setCounsellor(arr))
     //if preferred counsellor is set in the url
     params.name ? formData.preferredCounsellor = params.name : null

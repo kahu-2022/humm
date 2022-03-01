@@ -29,6 +29,7 @@ function Resident() {
   })
 
   useEffect(() => {
+    console.log("hiiii",user)
     getUserByEmail(user.email).then((userFromDB) => {
       console.log(user)
       if (userFromDB[0].email === user.email) {

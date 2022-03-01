@@ -13,7 +13,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 
 function App() {
-  // const { user } = useAuth0()
+  const { user } = useAuth0()
   // const [newUser, setNewUser] = useState(user)
   // const dispatch = useDispatch()
   // const [formData, setFormData] = useState({
@@ -25,6 +25,9 @@ function App() {
   //   contactDetails: "",
   // })
 
+  useEffect(() => {
+    console.log("In app", user)
+  },[])    
 
   
   // useEffect(() => {

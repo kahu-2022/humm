@@ -14,9 +14,10 @@ export default function user (state = emptyUser, action) {
     case CLEAR_USER:
       return emptyUser
 
-      case RECEIVE_USER:
-        state = action.books;
-        return state
+    case RECEIVE_USER:
+      console.log("in the switch",action.user)
+      state = action.user;
+      return state
         
     default:
       return state
