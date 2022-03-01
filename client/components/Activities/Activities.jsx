@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Alert, Container, Row, Col, Button } from 'react-bootstrap'
+import React, { useEffect, useState, useMemo } from 'react'
+import { Alert, Container, Row, Col, Button, Form } from 'react-bootstrap'
 import ActivitySuggestion from './ActivitySuggestion'
 
 import PageHeader from '../PageHeader'
@@ -23,6 +23,16 @@ function Activities() {
   const renderForm = () => {
     return <ActivitySuggestion />
   }
+
+  const categories = ['All', 'Health', 'Fun', 'Culture', 'Cuisine']
+
+  const [category, setCategory] = useState('') 
+
+  const filteredData = useMemo(() => {  
+    if (!category || category === "All") return activities
+
+    return activities.filter(item => item.category === category) 
+  }, [category])
 
   useEffect(() => {
     fetchActivities().then((activities) => setActivities(activities))
@@ -50,9 +60,22 @@ function Activities() {
         {showAddActivities && renderForm()}
       </Container>
       <Container>
+        <Form.Group
+          className="mb-3"
+          controlId="activityCategory"
+          key={'e'}
+          onChange={e => setCategory(e.target.value)}
+          >
+            <Form.Label>Counsellor Speciality</Form.Label>
+              <Form.Select name="activityCategory" aria-label="activityCategory" >
+                <option>Select Category</option>
+                  {categories.map((category, index) => {
+                    return (<option value={category} key={index}>{category}</option>)
+                  })}
+              </Form.Select>
+          </Form.Group>
         <Row className="g-3">
-
-        {activities?.map((act) => {
+        {filteredData?.map((act) => {
           return (
             <Col md={6} lg={4} key={act.id}>
               <Activity key={act.id} activity={act} />
