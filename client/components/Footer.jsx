@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
 function Footer() {
+
   const sendUp = () => {
     window.scrollTo(0, 0)
   }
@@ -23,6 +24,7 @@ function Footer() {
               Return to top
             </Button>
 
+            {window.location.href === "http://localhost:3000/"  ?  null :
             <Button variant="outline-secondary" href="/">
               <Image
                 src="./images/return-home-icon.png"
@@ -31,7 +33,8 @@ function Footer() {
                 className="arrow"
               />
               Return home
-            </Button>
+            </Button> 
+            }
 
             <a
               href="/"
