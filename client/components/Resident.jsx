@@ -5,14 +5,33 @@ import PageHeader from "./PageHeader"
 import Loading from "./Loading"
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import { addUser } from '../apis/api'
 
 function Resident() {
   const { user } = useAuth0()
 
-  const [formData, setFormData] = useState()
-  const handleChange = () => {}
+  const [formData, setFormData] = useState({
+    name: "",
+    pronouns: "",
+    email: user.email,
+    roomNumber: "",
+    contactDetails: "",
+  })
 
-  const handleSubmit = () => {}
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    addUser(formData)
+    .then((newUser) =>{
+      console.log('saved!')
+    })
+
+  }
   return (
     <>
       <Container>

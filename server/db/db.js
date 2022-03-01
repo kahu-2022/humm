@@ -1,6 +1,24 @@
 const config = require('./knexfile').development
 const conn = require('knex')(config)
 
+
+function addUser(user, db = conn){
+  return db('users')
+    .insert(user)
+    .then((userId) =>{
+      return getUserById(userId)
+    })
+}
+
+function getUserById(userId, db = conn) {
+  return db('appointments').where('id', userId).select()
+}
+
+function getUsers( db = conn) {
+  return db('users')
+  .select()
+}
+
 function getAllCounsellors(db = conn) {
   return db('Counsellors').select()
 }
@@ -115,6 +133,8 @@ function getVolunteersById(id, db = conn) {
 }
 
 module.exports = {
+  addUser,
+  getUsers,
   addCounsellingBooking,
   getCounsellingBookings,
   getAllCounsellors,

@@ -1,5 +1,32 @@
 import request from 'superagent'
 
+export function addUser(user) {
+  return request
+    .post('/api/v1/users')
+    .send(user)
+    .then((newUser) => {
+      return newUser.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+export function getAllUsers() {
+  return request
+    .get('/api/v1/users')
+    .then((users) => {
+      return users.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+
+
+
+
 export function addCounselling(bookingObj) {
   return request
     .post('/api/v1/counselling')
