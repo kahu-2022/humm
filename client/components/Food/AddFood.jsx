@@ -125,7 +125,6 @@ function AddFood(props) {
               <Form.Control name="useByDate" type="date" />
             </Form.Group>
 
-<<<<<<< HEAD:client/components/AddFood.jsx
             {/* This will be boolean */}
             {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
         <Form.Label>Status</Form.Label>
@@ -133,9 +132,6 @@ function AddFood(props) {
     </Form.Group>    */}
 
             <Button variant="outline-primary" type="submit">
-=======
-            <Button variant="primary" type="submit">
->>>>>>> ee56dd0d3e8b01679d9397fcf69f94cd8b3be013:client/components/Food/AddFood.jsx
               Submit
             </Button>
           </Form>
