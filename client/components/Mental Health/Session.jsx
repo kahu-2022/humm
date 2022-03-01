@@ -61,7 +61,6 @@ function Session(props) {
               </p>
             ) : null}
             <br></br>
-
             {showForm ? (
               <Form onSubmit={handleSubmit}>
                 <Form.Group

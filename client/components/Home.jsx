@@ -11,9 +11,7 @@ function Home() {
         <header className="mt-4 header">
           <h1>Welcome to humm!</h1>
         </header>
-
         <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" className="mt-2 mb-4" />
-
         <Button variant="primary" className="mb-3">
           Resident Login
         </Button>

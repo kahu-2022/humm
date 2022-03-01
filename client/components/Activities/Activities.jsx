@@ -23,7 +23,7 @@ function Activities() {
     <>
       <PageHeader
         title="Community Events/Activities"
-        description="Meet our team of friendly counselling staff!"
+        description="Sign up for our free community events and activities"
       />
       <Container>
         <Alert
@@ -38,12 +38,11 @@ function Activities() {
 
         {activities?.map((act) => {
           return (
-            <div className="shadow p-3 mb-5 bg-white rounded">
+      
 
             <Col md={6} lg={4} key={act.id}>
               <Activity key={act.id} activity={act} />
             </Col>
-            </div>
           )
         })}
         </Row>

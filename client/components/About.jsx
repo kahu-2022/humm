@@ -20,7 +20,7 @@ function About() {
       <br></br>
     </section>
 
-    <Image src='./images/vibes/frenz.jpg' fluid='true' rounded='true' />
+    <Image src='./images/vibes/frenz.jpg' fluid='true' thumbnail='true' rounded='true' />
 
 
     <section>
