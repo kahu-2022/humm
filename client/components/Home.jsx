@@ -1,31 +1,49 @@
-import React, { useState, useEffect } from 'react'
-import Container from 'react-bootstrap/Container'
-import Bio from './Bio'
-import Button from 'react-bootstrap/Button'
-import Image from 'react-bootstrap/Image'
+import React, { useEffect } from "react"
+
+import { Image, Container, Form, Button, Alert } from "react-bootstrap"
+
+import Loading from "./Loading"
+
+import { useDispatch } from "react-redux"
+import { fetchUser } from "../actions/user"
+
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 function Home() {
+  
+  const dispatch = useDispatch()
+  const { user } = useAuth0()
+  
+  const newUser = {
+    email: user.email
+  }
+  useEffect(() => {
+    dispatch(fetchUser(newUser.email))
+  }, [])
+
   return (
-    <>
-      <Container>
-        <header className="mt-4 header">
-          <h1>Welcome to humm!</h1>
-        </header>
-        <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" className="mt-2 mb-4" />
-        <Button variant="primary" className="mb-3">
-          Resident Login
-        </Button>
-        <br></br>
-        <Button variant="primary" className="mb-3">
-          Resident Register
-        </Button>
-        <br></br>
-        <Button href="/about" variant="primary" className="mb-3">
-          Browse as a guest
-        </Button>
-      </Container>
-    </>
+    <Container>
+      <header className="mt-4 header">
+        <h1>Welcome to humm!</h1>
+      </header>
+
+      <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" />
+
+      <Button variant="primary" className="mb-3">
+        Resident Login
+      </Button>
+      <br></br>
+      <Button variant="primary" className="mb-3">
+        Resident Register
+      </Button>
+      <br></br>
+      <Button href="/about" variant="primary" className="mb-3">
+        Browse as a guest
+      </Button>
+    </Container>
   )
 }
 
-export default Home
+export default withAuthenticationRequired(Home, {
+  onRedirecting: () => <Loading />,
+})

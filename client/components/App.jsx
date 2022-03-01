@@ -5,7 +5,7 @@ import AppRoutes from './AppRoutes'
 import Footer from './Footer'
 
 // import { addUser, getUserByEmail, updateUser } from "../apis/api"
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+// import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 // import { useDispatch } from 'react-redux'
 // import { setUser } from '../actions/user'
@@ -13,7 +13,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 
 function App() {
-  const { user } = useAuth0()
+  // const { user } = useAuth0()
   // const [newUser, setNewUser] = useState(user)
   // const dispatch = useDispatch()
   // const [formData, setFormData] = useState({
@@ -25,9 +25,16 @@ function App() {
   //   contactDetails: "",
   // })
 
-  useEffect(() => {
-    console.log("In app", user)
-  },[])    
+  // const dispatch = useDispatch()
+
+  // const newUser = {
+  //   email: user.email
+  // }
+  // useEffect(() => {
+  //   console.log("in form" ,user.email)
+  //      dispatch(fetchUser(newUser.email))
+  //   console.log("In app", user)
+  // },[])    
 
   
   // useEffect(() => {
