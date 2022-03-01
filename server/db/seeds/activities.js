@@ -39,7 +39,7 @@ exports.seed = function (knex) {
           location: 'the Pink Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/REO.jpeg',
+          image: './images/te-reo2.jpeg',
           ran_by: 'Isaiah',
         },
         {
