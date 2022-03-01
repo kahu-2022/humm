@@ -74,7 +74,7 @@ function ShowFood(props) {
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
+        <Button variant="primary" className="my-3" onClick={toggleForm}>
           {showAddFood ? 'Hide' : 'Add Food'}
         </Button>
         {showAddFood && renderForm()}
