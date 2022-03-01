@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap"
+import { Navbar, NavDropdown, Nav, Container, Button, Image } from "react-bootstrap"
 
 import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
@@ -35,7 +35,7 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <Nav.Link href="about">About us</Nav.Link>
+            <Nav.Link href="/about">About us</Nav.Link>
           </Nav>
           <IfAuthenticated>
             <Nav className="me-auto">
@@ -57,6 +57,16 @@ function Navigation(props) {
               <Nav.Link href="/food">Food</Nav.Link>
               <Nav.Link href="/room">Report an issue</Nav.Link>
             <Nav.Link href="/volunteering">Volunteering</Nav.Link>
+            </Nav>
+            <Nav>
+            <Nav.Link href="/resident">
+              <Image
+                src="./images/user-icon.png"
+                title="my page"
+                fluid="true"
+                className="arrow"
+              />
+              </Nav.Link>
             </Nav>
           <Nav>
             <Nav.Link onClick={handleLogoff}>Logout</Nav.Link>
