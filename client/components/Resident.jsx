@@ -61,7 +61,7 @@ function Resident() {
   return (
       <Container className="mt-3">
         <Row className="m-2">
-          <Col className="styled-form" md={{ span: 6, offset: 4 }}>
+          <Col className="styled-form" lg ={{ span: 6, offset: 3 }}>
           <Alert
               variant="success"
               show={showAlert}
