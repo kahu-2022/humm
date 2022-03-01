@@ -19,7 +19,7 @@ useEffect (() => {
 
 return (
   <>
-  <PageHeader title = 'Volunteer' description = 'Fill out the form to lend a helping hand!'/>
+  <PageHeader title = 'Volunteer' description = 'Feel free to help us out around the place.'/>
 
   <Container>
     <Row className="g-3">
