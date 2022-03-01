@@ -3,8 +3,12 @@ import { Button, Container, Row, Col, Alert } from 'react-bootstrap'
 import PageHeader from '../PageHeader'
 import Food from './Food'
 import AddFood from './AddFood'
+import Loading from '../Loading'
 
 import { fetchFood } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function ShowFood(props) {
   const [food, setFood] = useState([])
@@ -83,4 +87,6 @@ function ShowFood(props) {
   )
 }
 
-export default ShowFood
+export default withAuthenticationRequired(ShowFood, {
+  onRedirecting: () => <Loading />,
+});

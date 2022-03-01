@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react"
 import { Button, Container, Row, Col } from "react-bootstrap"
 import PageHeader from '../PageHeader'
 import Volunteering from './Volunteering'
+import Loading from '../Loading'
 
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { fetchVolunteering, signUpForVolunteering } from "../../apis/api"
 
 function ShowVolunteering (props) {
@@ -46,4 +48,6 @@ return (
   )
 }
 
-export default ShowVolunteering
+export default withAuthenticationRequired(ShowVolunteering, {
+  onRedirecting: () => <Loading />,
+});

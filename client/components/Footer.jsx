@@ -12,14 +12,14 @@ function Footer() {
       <footer className=" py-5 my-5 border-top">
         <Row>
           <Col md={6} lg={4}>
-            `{' '}
+            
             <Button variant="outline-secondary" onClick={sendUp}>
               <Image
                 src="./images/back-to-top-icon.png"
                 title="return to top"
                 fluid="true"
                 className="arrow"
-              />{' '}
+              />
               Return to top of page
             </Button>
             <a
@@ -33,7 +33,7 @@ function Footer() {
 
           <Col md={6} lg={2}></Col>
           <Col xs={6} md={4} lg={2}>
-            ` <h5>Mental Health</h5>
+            <h5>Mental Health</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
@@ -64,7 +64,6 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-
             <h5>Other</h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
@@ -91,7 +90,6 @@ function Footer() {
           </Col>
 
           <Col xs={6} md={4} lg={2}>
-
             <h5>About us </h5>
             <ul className="nav flex-column">
               <li className="nav-item mb-2">

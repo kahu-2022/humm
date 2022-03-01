@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react"
 
-import Container from "react-bootstrap/Container"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 
-import PageHeader from "../PageHeader"
+import PageHeader from '../PageHeader'
+import Loading from '../Loading'
 
 import { addCounselling, fetchCounsellors } from "../../apis/api"
 import { useParams } from "react-router-dom"
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function CounsellorBookingForm(props) {
   const [formData, setFormData] = useState({
@@ -319,4 +320,6 @@ function CounsellorBookingForm(props) {
   )
 }
 
-export default CounsellorBookingForm
+export default withAuthenticationRequired(CounsellorBookingForm, {
+  onRedirecting: () => <Loading />,
+});

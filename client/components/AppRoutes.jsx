@@ -10,6 +10,7 @@ import RoomIssue from './RoomIssue'
 import EmergencyResources from './Mental Health/EmergencyResources'
 import ShowFood from './Food/ShowFood'
 import ShowVolunteering from './Volunteering/ShowVolunteering'
+import NotFound404 from './NotFound404'
 import Resident from './Resident'
 
 function AppRoutes(props) {
@@ -38,6 +39,7 @@ function AppRoutes(props) {
         <Route path="/booking/:name" element={<CounsellorBookingForm />} />
         <Route exact path="/food" element={<ShowFood />} />
         <Route exact path="/volunteering" element={<ShowVolunteering />} />
+        <Route path="*" element={<NotFound404 />} />
       </Routes>
     </>
   )
