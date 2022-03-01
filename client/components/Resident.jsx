@@ -30,9 +30,10 @@ function Resident(props) {
 
   useEffect(() => {
     //Get our user information to populate the form
-    getUserByEmail(user.email).then((userFromDB) => {
-      console.log(user)
-      if (userFromDB[0].email === user.email) {
+    getUserByEmail(user?.email).then((userFromDB) => {
+      // console.log(user)
+      if (userFromDB[0]?.email === user?.email) {
+        // console.log("I exist in the db")
         setUserExists(true)
         setFormData(userFromDB[0])
       }
@@ -48,6 +49,7 @@ function Resident(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
     if (userExists) {
+      // console.log("i exist - calling update user")
       updateUser(formData).then((updatedUser) => {
         setFormData(updatedUser[0])
         setShowAlert(true)

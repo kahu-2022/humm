@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
-import { addUser, getUserByEmail, updateUser } from "../../apis/api"
+import { getUserByEmail } from "../../apis/api"
 
 function CounsellorBookingForm(props) {
   const { user } = useAuth0()
@@ -46,7 +46,6 @@ function CounsellorBookingForm(props) {
     //Get our user information to populate the form
     getUserByEmail(user.email).then((userFromDB) => {
       if (userFromDB[0].email === user.email) {
-        console.log(userFromDB[0])
         setFormData({
           ...formData,
           name: userFromDB[0].name,
