@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Button from "react-bootstrap/Button"
-import Alert from "react-bootstrap/Alert"
-import Form from "react-bootstrap/Form"
-import { Container, Card } from "react-bootstrap"
+
+import { Card, Form, Button, Alert } from "react-bootstrap"
 
 function Activity(props) {
   const { activity } = props
@@ -12,7 +10,6 @@ function Activity(props) {
   const [showConf, setShowConf] = useState(false)
 
   useEffect(() => {
-    // console.log(activity)
   }, [])
 
   const handleChange = (e) => {}
