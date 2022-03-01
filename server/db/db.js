@@ -44,6 +44,7 @@ function getCounsellingBookings(db = conn) {
 }
 
 function addCounsellingBooking(booking, db = conn) {
+
   return db('appointments')
     .insert(booking)
     .then((id) => {

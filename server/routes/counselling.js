@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     db.addCounsellingBooking(req.body)
     .then(booking => {
+      console.log("sgsdfa", booking)
         return res.json(booking)
     })
     .catch((err) => {

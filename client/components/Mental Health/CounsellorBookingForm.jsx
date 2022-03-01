@@ -47,7 +47,14 @@ function CounsellorBookingForm(props) {
     getUserByEmail(user.email).then((userFromDB) => {
       if (userFromDB[0].email === user.email) {
         console.log(userFromDB[0])
-        setFormData(userFromDB[0])
+        setFormData({
+          ...formData,
+          name: userFromDB[0].name,
+          pronouns: userFromDB[0].pronouns,
+          contactDetails: userFromDB[0].contactDetails,
+          roomNumber: userFromDB[0].roomNumber,
+
+        })
       }
     })
 
