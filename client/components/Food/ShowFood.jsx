@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Container, Row, Col, Alert } from 'react-bootstrap'
+import React, { useState, useEffect, useMemo } from 'react'
+import { Button, Container, Row, Col, Alert, Form } from 'react-bootstrap'
 import PageHeader from '../PageHeader'
 import Food from './Food'
 import AddFood from './AddFood'
@@ -25,6 +25,16 @@ function ShowFood(props) {
   const renderForm = () => {
     return <AddFood />
   }
+
+  const categories = ['All', 'fruit', 'veggies', 'staple']
+
+  const [category, setCategory] = useState('') 
+
+  const filteredData = useMemo(() => {  
+    if (!category || category === "All") return food
+
+    return food.filter(item => item.type === category) 
+  }, [category])
 
   useEffect(() => {
     fetchFood().then((arr) => {
@@ -60,8 +70,7 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Thanks {claimedFood?.claimedBy}, the {claimedFood?.item}are all
-            yours!
+            Thanks {claimedFood?.claimedBy}, you've claimed {claimedFood?.item}!
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
@@ -71,8 +80,25 @@ function ShowFood(props) {
         {showAddFood && renderForm()}
       </Container>
       <Container>
+        <header className="mt-4 header">
+          <h2>Search Food</h2>
+        </header>
+        <Form.Group
+          className="mb-3"
+          controlId="foodCategory"
+          key={'e'}
+          onChange={e => setCategory(e.target.value)}
+          >
+            <Form.Label>Type of Food</Form.Label>
+              <Form.Select name="foodCategory" aria-label="foodCategory" >
+                <option>Select Category</option>
+                  {categories.map((category, index) => {
+                    return (<option value={category} key={index}>{category}</option>)
+                  })}
+              </Form.Select>
+          </Form.Group>
         <Row className="g-3">
-          {food
+          {filteredData
             .filter((food) => food.status != 'Claimed')
             .map((food) => {
               return (
