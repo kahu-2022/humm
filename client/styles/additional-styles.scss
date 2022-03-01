@@ -10,7 +10,6 @@
     border-radius: 10px;
   }
 
-
   .btn-outline-primary {
     border-color: #83CCA0;
     color: black;
@@ -68,6 +67,11 @@
 
   .navigation {
     background-color:  #83CCA0;
+  }
+
+  .navbar-toggler {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .me-auto {
