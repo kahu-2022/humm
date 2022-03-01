@@ -27,7 +27,7 @@ function Sessions() {
         <> 
          <PageHeader
             title="Group therapy sessions and workshops"
-            description="Meet our team of friendly counselling staff!"
+            description=""
         />
       
         <Container >
