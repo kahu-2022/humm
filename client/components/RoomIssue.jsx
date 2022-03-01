@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
+import {Container, Form, Button, Alert} from 'react-bootstrap'
 
+import Loading from './Loading'
 import { addRoomIssue } from '../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+
 
 function RoomIssueForm(props) {
   const [roomIssue, setRoomIssue] = useState({
@@ -112,14 +113,18 @@ function RoomIssueForm(props) {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </section>
-      </Container>
-    </>
-  )
+    <Button variant="outline-primary" type="submit">
+            Submit
+        </Button>
+        </Form>
+      </section>
+    </Container>
+  </> 
+)
 }
 
-export default RoomIssueForm
+export default withAuthenticationRequired(RoomIssueForm, {
+  onRedirecting: () => <Loading />,
+});
+
+

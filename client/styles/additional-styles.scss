@@ -1,26 +1,85 @@
-.pet {
-  object-fit: cover;
-  width: 230px;
-  height: 230px;
-}
+  body {
+  
+    background-color: #F5FFF9;
+    min-height: 100%;
+  }
 
-body {
-  height: 2000px;
-  margin: 0%;
-  padding: 0%;
-}
+  .btn-primary {
+    background-color:#83CCa0;
+    border: none;
+  }
 
-.home-img {
-  max-width: 350px;
-  max-height: auto;
-}
+  .btn-outline-primary:hover {
+    background-color:#83CCa0;
+    border: none;
+  }
 
-.arrow {
-  max-height: 30px;
-  margin: 5px;
-  max-width: auto;
-}
+  .btn-outline-primary {
+    border-color: #83CCA0;
+    color: black;
+  }
 
-.rounded-circle {
-  object-fit: cover;
-}
+  .navigation {
+   background-color: #83CCA0;
+ }
+
+  #collapsible-nav-dropdown {
+    background-color: #83CCA0;
+  }
+
+  #responsive-navbar-nav {
+    background-color:  #83CCA0;
+  }
+
+  .card {
+    border: none;
+  }
+  .img-thumbnail {
+    border: none;
+  }
+
+  .btn-outline-secondary {
+    border: #83CCA0;
+  }
+  .btn-outline-secondary:hover {
+    background-color:  #83CCA0;
+  }
+
+  .navigation {
+    background-color:  #83CCA0;
+  }
+
+  .me-auto {
+    margin: 0%;
+  }
+
+  .dropdown-menu {
+    background-color:  #69b186; 
+  }
+
+  .navbar {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0%;
+  }
+
+  .home-images {
+    padding-bottom: 0.5rem;
+  }
+  // TO DO
+  // center text
+  // columns for layout
+  // uniform cards
+  // image margins within cards
+  // pastel colours 
+  // italics underneath bold heading   
+  .arrow {
+    max-height: 30px;
+    margin: 5px;
+    max-width: auto;
+  }
+
+  .rounded-circle{
+    object-fit: cover;
+  }
+

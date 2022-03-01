@@ -2,10 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import Counsellor from './Counsellor'
 import PageHeader from '../PageHeader'
+import Loading from '../Loading'
+
 
 import { fetchCounsellors } from '../../apis/api'
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
-function ShowCounsellors(props) {
+
+function ShowCounsellors (props) {
   const [counsellor, setCounsellor] = useState([])
 
   const categories = ['All', 'Addiction', 'Anxiety & Stress', 'Job Support', 'LGBTQI+', 'Relationships', 'Te Whare Tapa Whā', 'Trauma & Grief']
@@ -24,7 +28,8 @@ function ShowCounsellors(props) {
   }, [])
 
   const getCounsellors = () => {
-    fetchCounsellors().then((arr) => {
+    fetchCounsellors()
+    .then((arr) => {
       setCounsellor(arr)
     })
   }
@@ -65,4 +70,7 @@ function ShowCounsellors(props) {
   )
 }
 
-export default ShowCounsellors
+export default withAuthenticationRequired(ShowCounsellors, {
+  onRedirecting: () => <Loading />,
+});
+

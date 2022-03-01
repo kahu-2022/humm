@@ -11,24 +11,16 @@ function Home() {
         <header className="mt-4 header">
           <h1>Welcome to humm!</h1>
         </header>
-
-        <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" />
-
-        <section className="main">
-          <br></br>
-          <Bio />
-          <br></br>
-        </section>
-
-        <Button variant="danger" className="mb-3">
+        <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" className="mt-2 mb-4" />
+        <Button variant="primary" className="mb-3">
           Resident Login
         </Button>
         <br></br>
-        <Button variant="danger" className="mb-3">
+        <Button variant="primary" className="mb-3">
           Resident Register
         </Button>
         <br></br>
-        <Button href="/about" variant="danger" className="mb-3">
+        <Button href="/about" variant="primary" className="mb-3">
           Browse as a guest
         </Button>
       </Container>

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Alert from 'react-bootstrap/Alert'
-import Container from 'react-bootstrap/Container'
+import { Alert, Container, Row, Col } from 'react-bootstrap'
 import ActivitySuggestion from './ActivitySuggestion'
-import Activity from './Activity'
+
 import PageHeader from '../PageHeader'
+import Activity from './Activity'
+import Loading from '../Loading'
 
 import { fetchActivities } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 function Activities() {
   const [activities, setActivities] = useState(null)
@@ -22,7 +23,7 @@ function Activities() {
     <>
       <PageHeader
         title="Community Events/Activities"
-        description="Meet our team of friendly counselling staff!"
+        description="Sign up for our free community events and activities"
       />
       <Container>
         <Alert
@@ -34,13 +35,16 @@ function Activities() {
           <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
         <Row className="g-3">
-          {activities?.map((act) => {
-            return (
-              <Col md={6} lg={4} key={act.id}>
-                <Activity key={act.id} activity={act} />
-              </Col>
-            )
-          })}
+
+        {activities?.map((act) => {
+          return (
+      
+
+            <Col md={6} lg={4} key={act.id}>
+              <Activity key={act.id} activity={act} />
+            </Col>
+          )
+        })}
         </Row>
 
         <ActivitySuggestion />
@@ -49,4 +53,6 @@ function Activities() {
   )
 }
 
-export default Activities
+export default withAuthenticationRequired(Activities, {
+  onRedirecting: () => <Loading />,
+});

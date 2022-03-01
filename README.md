@@ -53,6 +53,16 @@ https://unsplash.com/
    - Urgency - (today, 1-2 days, soon)
    - Preferred date and time
    - Preference for being contacted
+    - Form component
+    - hooks for each form field 
+    - handleSubmit: call API function
+    
+    - Import API file to form component
+    - Write API function 
+    - Router.post(/api/v1/booking, formObject)
+    - db function to create booking 
+
+
 
 2. I want to be able to browse available counsellors
 
@@ -193,14 +203,10 @@ TODO - add actions
 
 TODO - add api routes
 
-<!-- | Method | Endpoint                | Protected | Usage                          | Response                                          |
+| Method | Endpoint                | Protected | Usage                          | Response                                          |
 | ------ | ----------------------- | --------- | ------------------------------ | ------------------------------------------------- |
-| Post   | /api/auth/login         | Yes       | Log In a User                  | The Users JWT Token                               |
-| Post   | /api/auth/register      | Yes       | Register a User                | The Users JWT Token                               |
-| Get    | /api/meetings           | Yes       | Get a Users Meeting Histroy    | An Array of Meetings                              |
-| Post   | /api/meetings           | Yes       | Save a completed meeting       | The Meeting that has been saved in db read format |
-| Get    | /api/meetings/:id/users | Yes       | Get the attendees of a Meeting | An Array of User objects                          |
-| Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          | -->
+| Post   | /api/v1/booking         | No       | Add a new booking              | Success Status code                               |
+| Get   | /api/v1/counsellors      | No       | Get all counsellors         | All counsellors                             |
 
 ## DB (Server Side)
 

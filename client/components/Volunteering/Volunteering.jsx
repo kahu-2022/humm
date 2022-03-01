@@ -51,33 +51,30 @@ function Volunteering(props) {
       <Card className="py-2">
         <Card.Body className="flex-wrap d-grid">
           <Col>
-            <Row>
-              <Card.Title>
-                <em>{props.title} </em>
-              </Card.Title>
-            </Row>
-            <Row>
-              <Card.Text>{props.description}</Card.Text>
-            </Row>
-            <Row>
-              <Card.Text className="mt-3">
-                <strong>When</strong>
-                <br />
-                {props.when}
-              </Card.Text>
-
-              <Card.Text>
-                <strong>Where</strong>
-                <br />
-                {props.where}
-              </Card.Text>
-            </Row>
-          </Col>
-          <Button variant="primary" className="mt-3 " onClick={handleShow}>
-            Sign Up
-          </Button>
-        </Card.Body>
-      </Card>
+                <Row><Card.Title><em>{props.title} </em></Card.Title></Row>
+                <Row><Card.Text>
+                  {props.description}
+                  </Card.Text></Row>
+                <Row>
+                  <Card.Text className="mt-3">
+                  <strong>When</strong><br />
+                  {props.when}
+                  </Card.Text>
+                
+                  <Card.Text>
+                  <strong>Where</strong><br />
+                  {props.where}
+                  </Card.Text>
+                </Row>
+            </Col>
+            {/* <Row> */}
+              <Button variant="outline-primary"className="mt-3 " onClick={handleShow}>
+                Sign Up
+              </Button>
+            {/* </Row> */}
+          </Card.Body>
+        </Card>
+      {/* </Container> */}
       <Container>
         <Modal show={show} onHide={handleClose}>
           <Alert
