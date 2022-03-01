@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import PageHeader from './PageHeader'
+import PageHeader from '../PageHeader'
 
 import { Card, Row, Container, Col} from 'react-bootstrap'
 
-import resources from '../emergencyresources'
+import resources from '../../emergencyresources'
 
 function EmergencyResources () {
   
@@ -12,6 +12,7 @@ function EmergencyResources () {
       <PageHeader title = 'Emergency Resources' description = 'Here are useful contacts in case of emergencies'/>
       
       <Container>
+        
         <Row className="g-3"> 
           {resources.map(resource => {
             return <Col md={6} lg={4} key={resource.id}>

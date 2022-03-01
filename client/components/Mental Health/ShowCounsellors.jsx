@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Counsellor from './Counsellor'
-import PageHeader from './PageHeader'
+import PageHeader from '../PageHeader'
 
-import { fetchCounsellors } from '../apis/api'
+import { fetchCounsellors } from '../../apis/api'
 
 function ShowCounsellors (props) {
   const [counsellor, setCounsellor] = useState([])

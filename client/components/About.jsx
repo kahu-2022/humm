@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"
-import Container from "react-bootstrap/Container"
-import Bio from "./Bio"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Bio from './Bio'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
-
 
 function About() {
   return (
@@ -13,13 +12,11 @@ function About() {
     <h1>Welcome to humm!</h1>
     </header>
 
-    <Image src='./images/vibes/wall.jpg' fluid='true' rounded='true' />
+    <Image src='./images/vibes/wall.jpg' fluid='true' rounded='true'/>
     
     <section className="main">
       <br></br>
-      <h4> (an extended biooooo...) </h4>
       <Bio />
-      <h4> (nag hareton to finish it lol) </h4>
       <br></br>
     </section>
 
@@ -28,14 +25,13 @@ function About() {
 
     <section>
     <br></br>
-      <h3>Contact us:</h3>
-      <h5>phone...</h5>
-      <h5>email...</h5>
+      <p>Contact us:</p>
+      <p>Phone</p>
+      <p>Email</p>
     </section>
 
     </Container>
     </>
-    
   )
 }
 

@@ -36,6 +36,7 @@ function Activity(props) {
   }
 
   return (
+    <div className="shadow p-3 mb-5 bg-white rounded">
         <Card className="py-3" className="m-1">
           <Card.Img src={activity.image} className="mt-3" fluid="true" />
           <Card.Body>
@@ -108,7 +109,7 @@ function Activity(props) {
                   />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="outline-primary" type="submit">
                   Submit
                 </Button>
               </Form>
@@ -124,6 +125,7 @@ function Activity(props) {
             </Alert>
           </Card.Body>
         </Card>
+        </div>
 
   )
 }

@@ -48,7 +48,7 @@ function Session(props) {
             </p>
             <p>Run by: {session.ran_by}</p>
             {showButton ? (
-              <Button variant="primary" type="submit" onClick={formAppear}>
+              <Button variant="outline-primary" type="submit" onClick={formAppear}>
                 Sign up
               </Button>
             ) : null}
@@ -103,7 +103,7 @@ function Session(props) {
                   />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="outline-primary" type="submit">
                   Submit
                 </Button>
               </Form>

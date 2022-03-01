@@ -9,6 +9,7 @@ const roomRoutes = require('./routes/room')
 const foodRoutes = require('./routes/food')
 const volunteeringRoutes = require('./routes/volunteering')
 const volunteersRoute = require('./routes/volunteers')
+const residentRoutes = require('./routes/resident')
 
 const server = express()
 
@@ -23,12 +24,12 @@ server.use('/api/v1/room', roomRoutes)
 server.use('/api/v1/food', foodRoutes)
 server.use('/api/v1/volunteering', volunteeringRoutes)
 server.use('/api/v1/volunteers', volunteersRoute)
-
+server.use('api/v1/resident', residentRoutes)
 
 // for browser router (react-router-dom)
 
 server.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-  })
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 module.exports = server

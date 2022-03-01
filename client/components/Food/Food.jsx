@@ -10,7 +10,7 @@ import {
   Alert,
 } from "react-bootstrap"
 
-import { claimNewFood } from "../apis/api"
+import { claimNewFood } from "../../apis/api"
 
 function Food(props) {
   const { food, setClaimed } = props
@@ -58,7 +58,7 @@ function Food(props) {
 
   return (
     <>
-    
+        <div className="shadow p-3 mb-5 bg-white rounded">
         <Card className="py-3">
           <Card.Body>
             <Row className="justify-content-md-center">
@@ -70,7 +70,7 @@ function Food(props) {
                     </Card.Title>
                   </Col>
                   <Col>
-                    <Button variant="primary" onClick={handleShow}>
+                    <Button variant="outline-primary" onClick={handleShow}>
                       Claim
                     </Button>
 
@@ -148,6 +148,7 @@ function Food(props) {
             </Row>
           </Card.Body>
         </Card>
+        </div>
     </>
   )
 }

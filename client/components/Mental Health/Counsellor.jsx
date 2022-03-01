@@ -5,25 +5,23 @@ import { Link } from 'react-router-dom'
 function Counsellor(props) {
   const { counsellor } = props
   const ref = useRef(null)
-  // const [imgCol, setImgCol] = useState()
-  // useEffect(() => {
-  //  setImgCol(ref.current.offsetWidth)
-  //   console.log("width", imgCol);
-  // }, []);
+
 
   return (
-      <Card className="py-3">
+    <div className="shadow p-3 mb-5 bg-white rounded">
+
+      <Card >
         <Card.Body>
-          <Row className="justify-content-md-center">
-            {/* <Col ref={ref} className=" m-0"> */}
+          <Row className="justify-content-md-center" >
             <Col>
-                {/* <Image src={props.photo} thumbnail="true" roundedCircle="true" fluid="true" style={{ maxHeight: `${imgCol}px`, width: `${imgCol}px` }}/> */}
-                <Image src={counsellor.photo} thumbnail="true" roundedCircle="true" fluid="true" />
+             
+                <Image src={counsellor.photo} thumbnail="true" fluid="true" />
             </Col>
             <Col>
                 <Row><Card.Title><em>{counsellor.name}</em></Card.Title></Row>
                 <Row><Card.Text>{counsellor.pronouns}</Card.Text></Row>
                 <Row>
+
                   <Card.Text className="mt-3">
                   <strong>Specialty</strong><br />
                   {counsellor.speciality}
@@ -55,8 +53,12 @@ function Counsellor(props) {
             <Card.Text>
                {counsellor.biography}
             </Card.Text>
+
         </Card.Body>
       </Card>
+      </div>
+
+
   )
 }
 
