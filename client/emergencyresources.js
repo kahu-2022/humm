@@ -45,6 +45,13 @@ export default [
   },
   {
     id: 7,
+    name: 'Narcotics Anonymous Aotearoa',
+    description: `If using drugs is causing problems in your life NA can help. NA is made up of addicts who are helping each other recover from using drugs and make changes in their lives. Maybe you have already heard something about NA, or this is your first look at NA. Either way we welcome you to come along to a meeting, meet other recovering addicts, and find out for yourself if we have something to offer you.`,
+    'contact number': '0800 NA TODAY (0800 628 632)',
+    email: 'newzealand@na.org.nz',
+  },
+  {
+    id: 8,
     name: 'Project Gambling Foundation',
     description: `At PGF Services we know it’s sometimes hard to ask for help, but if gambling is impacting your life, or the life of someone you care about, you don’t have to struggle alone. Our experienced counsellors are there to provide guidance. They will help you to achieve goals, learn new skills, provide information on the harms from gambling and help reduce your chances of gambling relapse. You can bring a support person and whānau are always welcome in our counselling sessions. Our approach in counselling sessions is to empower and encourage individuals and whānau towards wellbeing, and to be mana enhancing in all we do, caring for the spiritual emotional, physical and intellectual needs of people and communities. We actively seek your feedback so that we can best meet your needs and aspirations.`,
     'contact number': '0800 664 262',
