@@ -17,7 +17,7 @@ function Resident() {
     <>
       <Container>
         <Row>
-          <Col md={6}>
+          <Col md={{span:6, offset:3}} >
             <PageHeader
               title="Profile page"
               description="Feel free to help us out around the place."
