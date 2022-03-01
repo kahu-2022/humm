@@ -59,11 +59,9 @@ function Resident() {
     }
   }
   return (
-    <>
-      <Container className="mt-3"></Container>
-      <Container>
-        <Row>
-          <Col className = "m-2 styled-form" md={{ span: 6, offset: 3 }}>
+      <Container className="mt-3">
+        <Row className="m-2">
+          <Col className="styled-form" md={{ span: 6, offset: 4 }}>
           <Alert
               variant="success"
               show={showAlert}
@@ -89,8 +87,7 @@ function Resident() {
                 <p>{user?.email}</p>
                 
               </div>
-            </Container>
-            <Container>
+              </Container>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label>Your full name</Form.Label>
@@ -153,11 +150,9 @@ function Resident() {
                   Save changes
                 </Button>
               </Form>
-            </Container>
           </Col>
         </Row>
       </Container>
-    </>
   )
 }
 
