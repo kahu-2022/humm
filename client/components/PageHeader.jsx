@@ -5,10 +5,10 @@ function PageHeader(props) {
   return (
     <Container className="mt-4">
       <Row>
-        <h1>{props.title}</h1>
+        <h2>{props.title}</h2>
       </Row>
       <Row>
-        <p>{props.description}</p>
+        <p className="text-muted">{props.description}</p>
       </Row>
     </Container>
   )

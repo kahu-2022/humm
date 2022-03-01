@@ -72,7 +72,7 @@ function Resident() {
               {/* <p>Thanks, we've updated your information</p> */}
             </Alert>
             <PageHeader
-              title="Profile page"
+              title="Your profile"
               description="We use this information to populate your information accross the site"
             />
    
