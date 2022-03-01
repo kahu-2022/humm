@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 
 import { Container, Form, Button, Alert } from 'react-bootstrap'
 
+import DayJS from 'react-dayjs'
+
 import PageHeader from '../PageHeader'
 import Loading from '../Loading'
 
@@ -107,7 +109,7 @@ function CounsellorBookingForm(props) {
           </Alert.Heading>
           <p>
             Thank you for making a booking with {alertInfo.preferredCounsellor}.
-            We'll see you on the {alertInfo.date} at {alertInfo.time}. Please
+            We'll see you on the <DayJS format="MMM DD, YYYY">{alertInfo.date}</DayJS> at {alertInfo.time}. Please
             let us know if you need to cancel or rearrange your appointment.
           </p>
           <hr />
