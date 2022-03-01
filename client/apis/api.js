@@ -12,6 +12,19 @@ export function addUser(user) {
     })
 }
 
+export function updateUser(user) {
+  console.log("updated data to the api", user)
+  return request
+    .patch(`/api/v1/users/${user.id}`)
+    .send(user)
+    .then((updatedUser) => {
+      return updatedUser.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
 export function getAllUsers() {
   return request
     .get('/api/v1/users')
@@ -24,7 +37,16 @@ export function getAllUsers() {
 }
 
 
-
+export function getUserByEmail(email) {
+  return request
+    .get(`/api/v1/users/${email}`)
+    .then((users) => {
+      return users.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
 
 
 export function addCounselling(bookingObj) {

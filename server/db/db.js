@@ -10,8 +10,19 @@ function addUser(user, db = conn){
     })
 }
 
-function getUserById(userId, db = conn) {
-  return db('appointments').where('id', userId).select()
+function updateUser(id, user, db = conn){
+  return db('users')
+    .update(user)
+    .where('id', id)
+   
+}
+
+function getUserByEmail(email, db = conn) {
+  return db('users').where('email', email).select()
+}
+
+function getUserById(id, db = conn) {
+  return db('users').where('id', id).select()
 }
 
 function getUsers( db = conn) {
@@ -135,6 +146,8 @@ function getVolunteersById(id, db = conn) {
 module.exports = {
   addUser,
   getUsers,
+  updateUser,
+  getUserByEmail,
   addCounsellingBooking,
   getCounsellingBookings,
   getAllCounsellors,

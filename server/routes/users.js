@@ -3,10 +3,7 @@ const router = express.Router()
 
 const db = require('../db/db')
 
-
-
 router.post('/', (req, res) => {
-    console.log("am i getting here")
     db.addUser(req.body)
     .then(user => {
         return res.json(user)
@@ -16,10 +13,30 @@ router.post('/', (req, res) => {
     })
 })
 
+router.patch('/:id', (req, res) => {
+    const id = req.params.id
+    db.updateUser(id, req.body)
+    .then(user => {
+        return res.json(user)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
 
 router.get('/', (req, res) => {
-    console.log("am i getting here")
     db.getUsers()
+    .then(users => {
+        return res.json(users)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
+router.get('/:email', (req, res) => {
+    const email = req.params.email
+    db.getUserByEmail(email)
     .then(users => {
         return res.json(users)
     })
