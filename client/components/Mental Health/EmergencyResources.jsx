@@ -18,9 +18,9 @@ function EmergencyResources() {
         <Row className="g-3"> 
           {resources.map(resource => {
             return <Col md={6} lg={4} key={resource.id}>
-              <Card>
+              <Card className="shadow p-3 mb-5 bg-white rounded">
                 <Card.Header className="text-white bg-success mb-3"><strong>{resource.name}</strong></Card.Header>
-                  <Card.Body className="text-dark bg-light mb-3">
+                  <Card.Body>
                     <Card.Text>{resource.description}</Card.Text>
                     <Card.Text><strong>{resource['contact number']}</strong></Card.Text>
                     <Card.Text>{resource.email}</Card.Text>
