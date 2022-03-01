@@ -147,7 +147,7 @@ function AddFood(props) {
         <Form.Control  name="status" type="text" placeholder="Enter available" />
     </Form.Group>    */}
 
-            <Button variant="outline-primary" type="submit">
+            <Button variant="primary" type="submit">
               Submit
             </Button>
           </Form>
