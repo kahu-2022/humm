@@ -43,7 +43,7 @@ return (
  
     <header className="mt-4 header">
       <h2> Make a suggestion! </h2>
-      <h4>Have a cool idea for an activity you'd like to see happen in the future? Let us know below, and we'll weave our magic & try to make it happen!</h4>
+      <p>Have a cool idea for an activity you'd like to see happen in the future? Let us know below, and we'll weave our magic and try to make it happen!</p>
     </header>
     <Alert variant="success" show={showAlert} onClose={() => setShowAlert(false)} dismissible>
         <Alert.Heading>Kia ora {alertInfo.name}, thanks for your idea!</Alert.Heading>
