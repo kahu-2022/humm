@@ -66,7 +66,7 @@ function addRoomIssues(issue, db = conn) {
 }
 
 function getFood(db = conn) {
-  return db('food-items').select()
+  return db('food-items').select().orderBy("donateDate")
 }
 
 function getFoodById(foodId, db = conn) {
