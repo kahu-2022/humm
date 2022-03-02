@@ -63,8 +63,8 @@ function Resident(props) {
     }
   }
   return (
-    <Container className="mt-3">
-      <Row className="m-2">
+    <Container>
+      <Row className="m-3">
         <Col className="styled-form" lg={{ span: 6, offset: 3 }}>
           <Alert
             variant="success"
@@ -77,10 +77,16 @@ function Resident(props) {
             </Alert.Heading>
             {/* <p>Thanks, we've updated your information</p> */}
           </Alert>
+
           <PageHeader
             title="Your profile"
             description="We use this data to populate your info across the site."
           />
+
+          <h2 className="page-title">Your profile</h2>
+          <p className="text-muted">
+            We use this information to populate your info across the site
+          </p>
 
           <Container className="d-flex align-items-center py-3 my-3 border-top border-bottom">
             <Image
