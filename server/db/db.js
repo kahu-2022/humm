@@ -67,9 +67,6 @@ function getSessions(db = conn) {
 function addSessionBooking(booking, db = conn) {
   return db('engagements')
     .insert(booking)
-    // .then((id) => {
-    //   return getCounsellingBookingById(id, (db = conn))
-    // })
 }
 
 // Activities functions
@@ -80,6 +77,11 @@ function getActivities(db = conn) {
 
 function addActivities(activity, db = conn) {
   return db('activities').insert(activity)
+}
+
+function addActivityBooking(booking, db = conn) {
+  return db('engagements')
+    .insert(booking)
 }
 
 function getSuggestions(suggestion, db = conn) {
@@ -209,6 +211,7 @@ module.exports = {
   addSessionBooking,
   getActivities,
   addActivities,
+  addActivityBooking,
   getSuggestions,
   getSuggestionById,
   addSuggestion,

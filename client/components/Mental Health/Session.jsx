@@ -8,6 +8,7 @@ import { bookSession } from '../../apis/api'
 function Session(props) {
   const { session } = props
   const { user } = useAuth0()
+
   const [showAlert, setShowAlert] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [showButton, setShowButton] = useState(true)
@@ -47,7 +48,7 @@ function Session(props) {
     console.log(formData)
 
     bookSession(formData).then((newBooking) => {
-    console.log("new booking",newBooking)
+    console.log("new booking", newBooking)
     })
 
     setShowAlert(true)
