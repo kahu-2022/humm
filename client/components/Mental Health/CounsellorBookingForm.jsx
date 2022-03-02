@@ -126,7 +126,7 @@ function CounsellorBookingForm(props) {
           dismissible
         >
           <Alert.Heading>
-            Kia ora {alertInfo.name}, you're all booked in
+            Kia ora {alertInfo.name}, you're all booked in.
           </Alert.Heading>
           <p>
             Thank you for making a booking with {alertInfo.preferredCounsellor}.
