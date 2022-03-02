@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react"
-import { Card, Form, Button, Alert } from "react-bootstrap"
-import { getUserByEmail } from "../../apis/api"
-import { useAuth0 } from "@auth0/auth0-react"
+import React, { useEffect, useState } from 'react'
+import Alert from 'react-bootstrap/Alert'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
-import { bookActivity } from '../../apis/api'
+import { getUserByEmail, bookActivity } from '../../apis/api'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Activity(props) {
   const { activity } = props

@@ -1,14 +1,20 @@
-import React, { useEffect, useState, useMemo } from "react"
-import { Alert, Container, Row, Col, Button, Form } from "react-bootstrap"
-import ActivitySuggestion from "./ActivitySuggestion"
+import React, { useEffect, useState } from "react"
+import  Alert from 'react-bootstrap/Alert'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
-import PageHeader from "../PageHeader"
-import Activity from "./Activity"
-import Loading from "../Loading"
+import ActivitySuggestion from './ActivitySuggestion'
 
-import { fetchActivities } from "../../apis/api"
+import PageHeader from '../PageHeader'
+import Activity from './Activity'
+import Loading from '../Loading'
 
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import { fetchActivities } from '../../apis/api'
+
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 function Activities() {
   const [activities, setActivities] = useState(null)
