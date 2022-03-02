@@ -53,10 +53,12 @@ function Resident(props) {
       updateUser(formData).then((updatedUser) => {
         setFormData(updatedUser[0])
         setShowAlert(true)
+        window.scrollTo(0, 0)
       })
     } else {
       addUser(formData).then((newUser) => {
         setShowAlert(true)
+        window.scrollTo(0, 0)
       })
     }
   }
@@ -71,10 +73,15 @@ function Resident(props) {
             dismissible
           >
             <Alert.Heading>
-              Thanks, we've updated your information
+              Thanks, we've updated your information.
             </Alert.Heading>
             {/* <p>Thanks, we've updated your information</p> */}
           </Alert>
+
+          <PageHeader
+            title="Your profile"
+            description="We use this data to populate your info across the site."
+          />
 
           <h2 className="page-title">Your profile</h2>
           <p className="text-muted">

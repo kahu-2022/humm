@@ -52,6 +52,7 @@ function AddFood(props) {
         name: newFood[0].name,
       })
       setShowAlert(true)
+      window.scrollTo(0, 0)
     })
   }
   return (
@@ -159,12 +160,6 @@ function AddFood(props) {
               <Form.Label>Use by Date</Form.Label>
               <Form.Control name="useByDate" type="date" />
             </Form.Group>
-
-            {/* This will be boolean */}
-            {/* <Form.Group className="mb-3" controlId="status" onChange={handleChange}>
-        <Form.Label>Status</Form.Label>
-        <Form.Control  name="status" type="text" placeholder="Enter available" />
-    </Form.Group>    */}
 
             <Button variant="primary" type="submit">
               Submit
