@@ -62,7 +62,7 @@ function Activities() {
                 name="activityCategory"
                 aria-label="activityCategory"
               >
-                <option>Select Category</option>
+                <option>Filter by activity category</option>
                 {categories.map((category, index) => {
                   return (
                     <option value={category} key={index}>
