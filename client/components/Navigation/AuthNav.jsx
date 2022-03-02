@@ -5,10 +5,6 @@ import Image from 'react-bootstrap/Image'
 import { useAuth0 } from '@auth0/auth0-react'
 import NavLoading from '../NavLoading'
 
-import { useAuth0 } from '@auth0/auth0-react'
-import NavLoading from '../NavLoading'
-
-
 function AuthNav (props) {
 
 const { user , logout, isAuthenticated, isLoading, loginWithRedirect} = useAuth0()
