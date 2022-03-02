@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 
-import { addNewFood } from '../../apis/api'
+import { addNewFood, getUserByEmail } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 function AddFood(props) {
+  const { user } = useAuth0()
+
   const [food, addFood] = useState({
     name: '',
     donorRoom: '',
@@ -20,6 +24,19 @@ function AddFood(props) {
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
+
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user.email).then((userFromDB) => {
+      if (userFromDB[0].email === user.email) {
+        addFood({
+          ...food,
+          name: userFromDB[0].name,
+          donorRoom: userFromDB[0].roomNumber
+        })
+      }
+    })
+  }, [])
 
   const handleChange = (e) => {
     addFood({
@@ -66,6 +83,7 @@ function AddFood(props) {
                 name="name"
                 type="text"
                 placeholder="Enter your name"
+                defaultValue={food?.name}
               />
             </Form.Group>
 
@@ -79,6 +97,7 @@ function AddFood(props) {
                 name="donorRoom"
                 type="text"
                 placeholder="Enter your room number"
+                defaultValue={food?.donorRoom}
               />
             </Form.Group>
 
@@ -157,4 +176,6 @@ function AddFood(props) {
   )
 }
 
-export default AddFood
+export default withAuthenticationRequired(AddFood, {
+  onRedirecting: () => <Loading />,
+})
