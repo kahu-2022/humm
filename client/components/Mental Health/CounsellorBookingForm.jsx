@@ -84,8 +84,6 @@ function CounsellorBookingForm(props) {
     }
   }
 
-
-
   const handleChange = (e) => {
     setFormData({
       ...formData,

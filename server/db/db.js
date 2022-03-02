@@ -1,6 +1,7 @@
 const config = require('./knexfile').development
 const conn = require('knex')(config)
 
+// User functions
 
 function addUser(user, db = conn){
   console.log("user to add", user)
@@ -18,7 +19,6 @@ function updateUser(id, user, db = conn){
     .then((userId) =>{
       return getUserById(id)
     })
-   
 }
 
 function getUserByEmail(email, db = conn) {
@@ -34,6 +34,8 @@ function getUsers( db = conn) {
   return db('users')
   .select()
 }
+
+// Counsellor functions
 
 function getAllCounsellors(db = conn) {
   return db('Counsellors').select()
@@ -56,9 +58,18 @@ function getCounsellingBookingById(bookingId, db = conn) {
   return db('appointments').where('id', bookingId).select()
 }
 
+// Group Therapy functions
+
 function getSessions(db = conn) {
   return db('group-therapy').select()
 }
+
+function addSessionBooking(booking, db = conn) {
+  return db('engagements')
+    .insert(booking)
+}
+
+// Activities functions
 
 function getActivities(db = conn) {
   return db('activities').select()
@@ -66,6 +77,11 @@ function getActivities(db = conn) {
 
 function addActivities(activity, db = conn) {
   return db('activities').insert(activity)
+}
+
+function addActivityBooking(booking, db = conn) {
+  return db('engagements')
+    .insert(booking)
 }
 
 function getSuggestions(suggestion, db = conn) {
@@ -84,6 +100,8 @@ function addSuggestion(suggestion, db = conn) {
     })
 }
 
+// Room issues functions
+
 function getRoomIssues(issue, db = conn) {
   return db('room-issues').select()
 }
@@ -99,6 +117,8 @@ function addRoomIssues(issue, db = conn) {
       return getRoomIssueById(id, (db = conn))
     })
 }
+
+// Free food functions
 
 function getFood(db = conn) {
   return db('food-items').select().orderBy('donateDate', 'desc')
@@ -125,6 +145,8 @@ function claimFood(food, db = conn) {
     })
 }
 
+// Free item functions
+
 function getFreeItems(db = conn) {
   return db('free-items').select().orderBy('donateDate', 'desc')
 }
@@ -149,6 +171,8 @@ function claimFreeItem(freeItem, db = conn) {
       return getFoodById(freeItem.id)
     })
 }
+
+// Volunteering functions
 
 function getVolunteering(db = conn) {
   return db('volunteering').select()
@@ -184,8 +208,10 @@ module.exports = {
   getAllCounsellors,
   getCounsellingBookingById,
   getSessions,
+  addSessionBooking,
   getActivities,
   addActivities,
+  addActivityBooking,
   getSuggestions,
   getSuggestionById,
   addSuggestion,
