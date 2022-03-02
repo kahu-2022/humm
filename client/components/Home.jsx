@@ -24,7 +24,11 @@ function Home() {
           <Col className="p-5" md={6}>
           <header className="mt-4 header">
           <h1 className="landing-hero">Welcome to humm!</h1>
-          <h5>We’re a community dedicated to housing and feeding vulnerable members of our whānau, as well as providing them with resources and strategies to recover and grow.</h5>
+            <h5>
+              We’re a community dedicated to housing and feeding vulnerable 
+              members of our whānau, as well as providing them with resources 
+              and strategies to recover and grow.
+            </h5>
           <br></br>
         {
         !isAuthenticated ?
@@ -50,8 +54,7 @@ function Home() {
               className="mt-2 mb-4"
             />
           </Col>
-        </Row>  
-        <br></br>
+        </Row>
       </Container>
     </>
   )

@@ -53,16 +53,18 @@ function Resident(props) {
       updateUser(formData).then((updatedUser) => {
         setFormData(updatedUser[0])
         setShowAlert(true)
+        window.scrollTo(0, 0)
       })
     } else {
       addUser(formData).then((newUser) => {
         setShowAlert(true)
+        window.scrollTo(0, 0)
       })
     }
   }
   return (
-    <Container className="mt-3">
-      <Row className="m-2">
+    <Container>
+      <Row className="m-3">
         <Col className="styled-form" lg={{ span: 6, offset: 3 }}>
           <Alert
             variant="success"
@@ -71,14 +73,20 @@ function Resident(props) {
             dismissible
           >
             <Alert.Heading>
-              Thanks, we've updated your information
+              Thanks, we've updated your information.
             </Alert.Heading>
             {/* <p>Thanks, we've updated your information</p> */}
           </Alert>
+
           <PageHeader
             title="Your profile"
-            description="We use this information to populate your information accross the site"
+            description="We use this data to populate your info across the site."
           />
+
+          <h2 className="page-title">Your profile</h2>
+          <p className="text-muted">
+            We use this information to populate your info across the site
+          </p>
 
           <Container className="d-flex align-items-center py-3 my-3 border-top border-bottom">
             <Image
@@ -93,7 +101,7 @@ function Resident(props) {
           </Container>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Your full name</Form.Label>
+              <Form.Label>Your name</Form.Label>
               <Form.Control
                 name="name"
                 type="text"
