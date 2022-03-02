@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Container, Row, Col } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Alert from 'react-bootstrap/Alert'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import Session from './Session'
 import PageHeader from '../PageHeader'
@@ -7,7 +10,7 @@ import Loading from '../Loading'
 
 import { fetchSessions } from '../../apis/api'
 
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 function Sessions() {
   

@@ -1,13 +1,17 @@
-import React, { useState, useEffect, useMemo } from "react"
-import { Container, Row, Col, Form } from "react-bootstrap"
-import Counsellor from "./Counsellor"
-import PageHeader from "../PageHeader"
-import Loading from "../Loading"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-import { fetchCounsellors } from "../../apis/api"
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import Counsellor from './Counsellor'
+import PageHeader from '../PageHeader'
+import Loading from '../Loading'
 
-function ShowCounsellors(props) {
+import { fetchCounsellors } from '../../apis/api'
+import { withAuthenticationRequired } from '@auth0/auth0-react'
+
+function ShowCounsellors (props) {
   const [counsellors, setCounsellors] = useState([])
 
   const categories = [

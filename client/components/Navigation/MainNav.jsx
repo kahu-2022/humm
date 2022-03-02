@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react"
-import {
-  Navbar,
-  NavDropdown,
-  Nav,
-  Container,
-  Button,
-  Image,
-} from "react-bootstrap"
+import React, { useState, useEffect } from 'react'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
-import {
-  useAuth0,
-  logout,
-  withAuthenticationRequired,
-} from "@auth0/auth0-react"
-import NavLoading from "../NavLoading"
+import { useAuth0 } from '@auth0/auth0-react'
 
-function MainNav(props) {
+function MainNav (props) {
   const { user, logout, isAuthenticated, isLoading, loginWithRedirect } =
     useAuth0()
 

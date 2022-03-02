@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react"
-import {
-  Navbar,
-  NavDropdown,
-  Nav,
-  Container,
-  Button,
-  Image,
-} from "react-bootstrap"
+import React, { useState, useEffect } from 'react'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
 
 import AuthNav from "./AuthNav"
 import MainNav from "./MainNav"

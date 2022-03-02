@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
@@ -8,9 +8,9 @@ import Form from 'react-bootstrap/Form'
 
 import DayJS from 'react-dayjs'
 
-import { claimFreeItem, getUserByEmail } from "../../apis/api"
+import { claimFreeItem, getUserByEmail } from '../../apis/api'
 
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from '@auth0/auth0-react'
 
 function FreeItem (props) {
   const { freeItem, setClaimed } = props
