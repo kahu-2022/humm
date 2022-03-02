@@ -1,13 +1,19 @@
-import React, { useState, useEffect, useMemo } from "react"
-import { Button, Container, Row, Col, Alert, Form, Card } from "react-bootstrap"
-import PageHeader from "../PageHeader"
-import Food from "./Food"
-import AddFood from "./AddFood"
-import Loading from "../Loading"
+import React, { useState, useEffect } from 'react'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
-import { fetchFood } from "../../apis/api"
+import PageHeader from '../PageHeader'
+import Food from './Food'
+import AddFood from './AddFood'
+import Loading from '../Loading'
 
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import { fetchFood } from '../../apis/api'
+
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 function ShowFood(props) {
   const [food, setFood] = useState([])
