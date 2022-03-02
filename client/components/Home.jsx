@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image'
 import { useAuth0 } from "@auth0/auth0-react"
 
 
-
 function Home() {
   const { isAuthenticated, loginWithRedirect } = useAuth0()
 
