@@ -6,7 +6,7 @@ exports.seed = function (knex) {
         {
           id: 1,
           title: 'Kitchen Hand',
-          description: 'Help out in the kitchen, prepare and serve daily meals',
+          description: 'Help out in the kitchen, prepare and serve daily meals.',
           when: 'Monday afternoons',
           where: 'Communal Kitchen',
         },
@@ -14,14 +14,14 @@ exports.seed = function (knex) {
           id: 2,
           title: 'Garden Maintenance',
           description:
-            'Tend to our vegetables and fruit in the community garden',
+            'Tend to our vegetables and fruit in the community garden.',
           when: 'Fridays',
           where: 'Communal Garden',
         },
         {
           id: 3,
           title: 'Administration',
-          description: 'Assist us with our day to day administration tasks',
+          description: 'Assist us with our day to day administration tasks.',
           when: 'Wednesday',
           where: 'Main Office',
         },
