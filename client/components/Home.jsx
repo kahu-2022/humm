@@ -3,8 +3,12 @@ import { Row, Col, Container, Button, Image } from "react-bootstrap"
 import { withAuthenticationRequired } from "@auth0/auth0-react"
 import Loading from "./Loading"
 import Team from "./Team"
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Home() {
+
+  const { isAuthenticated } = useAuth0();
+
   return (
     <>
       <Container className="py-3">
@@ -18,7 +22,12 @@ function Home() {
                 and strategies to recover and grow.
               </h5>
               <br></br>
-              <Button variant="primary" className="mb-3">
+
+              {
+      !isAuthenticated ?
+     <>
+          
+          <Button variant="primary" className="mb-3">
                 Login
               </Button>{" "}
               <span></span>
@@ -26,6 +35,12 @@ function Home() {
                 Register
               </Button>{" "}
               <span></span>
+        </>
+
+        : null
+
+    }
+
               <Button href="./Team" variant="primary" className="mb-3">
                 Meet the team
               </Button>
