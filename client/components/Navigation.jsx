@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+
 import { Navbar, NavDropdown, Nav, Container, Button, Image } from "react-bootstrap"
 
 import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
@@ -13,7 +13,6 @@ import { fetchUser, setUser } from '../actions/user'
 function Navigation(props) {
 
   const dispatch = useDispatch()
-
 
   const { loginWithRedirect, logout } = useAuth0()
   const { user ,isAuthenticated} = useAuth0();
@@ -72,15 +71,15 @@ function Navigation(props) {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/activities">Community Activities</Nav.Link>
-              <NavDropdown title="Free Marketplace" id="collapsible-nav-dropdown">
+              <NavDropdown title="Free stuff" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/food">
                   Food
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/dinner">
-                  Free Dinner
-                </NavDropdown.Item>
                 <NavDropdown.Item href="/free">
-                  Free Items
+                  Items
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/dinner">
+                  Dinner
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/room">Report an issue</Nav.Link>
