@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Button, Container, Row, Col, Alert, Form, Card } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Alert from 'react-bootstrap/Alert'
+import Form from 'react-bootstrap/Form'
+
 import PageHeader from '../PageHeader'
 import Food from './Food'
 import AddFood from './AddFood'
@@ -75,7 +81,7 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Thanks {claimedFood?.claimedBy}, you've claimed {claimedFood?.item}!
+            Thanks {claimedFood?.name}, you've claimed {claimedFood?.item}!
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
