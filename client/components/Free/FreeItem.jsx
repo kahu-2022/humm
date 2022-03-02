@@ -55,7 +55,7 @@ function FreeItem (props) {
     claimFreeItem(claimData)
     .then((newClaim) => {
       window.scrollTo(0, 0)
-      setClaimed(newClaim)
+        setClaimed(newClaim)
       setShow(false)
     })
   }

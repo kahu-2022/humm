@@ -103,7 +103,7 @@ function CounsellorBookingForm(props) {
 
     addCounselling(formData).then((newAppointment) => {
       console.log("new appointment",newAppointment)
-      setAlertInfo({
+      setAlertInfo({  
         name: newAppointment[0].name,
         time: newAppointment[0].time,
         date: newAppointment[0].date,

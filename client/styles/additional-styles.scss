@@ -1,3 +1,7 @@
+  
+  :root{
+    --primary-green: #83CCA0;
+  }
   body {
     background-color: #F5FFF9;
     min-height: 100%;
@@ -12,18 +16,18 @@
   }
 
   .btn-outline-primary {
-    border-color: #83CCA0;
+    border-color: var(--primary-green);
     color: black;
   }
 
   .btn-outline-primary:hover {
-    background-color:#83CCa0;
+    background-color:var(--primary-green);
     border: none;
   }
 
   .btn-primary{
-    background-color: #83CCA0;
-    border-color: #83CCA0;
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
   }
 
   .btn-primary:hover{
@@ -32,16 +36,18 @@
   }
 
   .navigation {
-   background-color: #83CCA0;
+   background-color: var(--primary-green);
  }
 
   #collapsible-nav-dropdown {
-    background-color: #83CCA0;
+    background-color: var(--primary-green);
   }
 
   #responsive-navbar-nav {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
+
+
 
   p.data-title.mb-0{
     font-weight:700;
@@ -60,14 +66,14 @@
   }
 
   .btn-outline-secondary {
-    border: #83CCA0;
+    border: var(--primary-green);
   }
   .btn-outline-secondary:hover {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
 
   .navigation {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
 
   .navbar-toggler {
@@ -75,14 +81,28 @@
     margin-right: 0.5rem;
   }
 
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.90  );
+}
+
   .me-auto {
     margin: 0%;
   }
 
   .dropdown-menu {
     background-color:  #69b186; 
+    color:white;
+
   }
 
+  .dropdown-item{
+    color:white;
+
+  }
+  .dropdown-item:hover {
+    color:white;
+    background-color: var(--primary-green);
+  }
 
   .home-images {
     padding-bottom: 0.5rem;
