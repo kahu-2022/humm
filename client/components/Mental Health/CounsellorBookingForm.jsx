@@ -125,7 +125,7 @@ function CounsellorBookingForm(props) {
         <Row className="m-3">
           <Col className="styled-form" lg={{ span: 6, offset: 3 }}>
               <h2 className="page-title">Book in your session</h2>
-            <p className="text-muted">Fill in the form to book a session with one of our counsellors</p>
+            <p className="text-muted">Fill in the form to book a session with one of our counsellors.</p>
 
             <Alert
               variant="success"
@@ -134,7 +134,7 @@ function CounsellorBookingForm(props) {
               dismissible
             >
               <Alert.Heading>
-                Kia ora {alertInfo.name}, you're all booked in
+                Kia ora {alertInfo.name}, you're all booked in.
               </Alert.Heading>
               <p>
                 Thank you for making a booking with{" "}

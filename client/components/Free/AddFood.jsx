@@ -39,7 +39,7 @@ function AddFood(props) {
   }, [])
 
   const handleChange = (e) => {
-    addFood({
+    addFood({ 
       ...food,
       [e.target.name]: e.target.value,
     })
@@ -59,7 +59,7 @@ function AddFood(props) {
     <>
       <Container>
         <header className="mt-4 header">
-          <h2>Add A Food</h2>
+          <h2>Add Food</h2>
         </header>
         <Alert
           variant="success"

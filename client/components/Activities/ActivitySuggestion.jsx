@@ -19,24 +19,24 @@ const [showAlert, setShowAlert] = useState(false)
 const [alertInfo, setAlertInfo] = useState({})
 
 const handleChange = (e) => {
+      setSuggestion({
+          ...suggestion,
+          [e.target.name]: e.target.value 
+      })
+    }
 
-  setSuggestion({
-      ...suggestion,
-      [e.target.name]: e.target.value 
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      addSuggestion(suggestion) 
+      .then((newSuggestion)=> {
+        setAlertInfo({
+          name: newSuggestion[0].name
+        })
+    setShowAlert(true)
+    window.scrollTo(0, 0)
   })
 }
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  addSuggestion(suggestion) 
-  .then((newSuggestion)=> {
-    setAlertInfo({
-      name: newSuggestion[0].name
-    })
-setShowAlert(true)
-})
-
-}
 return (
   <>
     <Container>

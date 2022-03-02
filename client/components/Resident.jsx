@@ -73,17 +73,11 @@ function Resident (props) {
             <Alert.Heading>
               Thanks, we've updated your information.
             </Alert.Heading>
-            {/* <p>Thanks, we've updated your information</p> */}
           </Alert>
-
-          <PageHeader
-            title="Your profile"
-            description="We use this data to populate your info across the site."
-          />
 
           <h2 className="page-title">Your profile</h2>
           <p className="text-muted">
-            We use this information to populate your info across the site
+            We use this to populate your info across the site.
           </p>
 
           <Container className="d-flex align-items-center py-3 my-3 border-top border-bottom">

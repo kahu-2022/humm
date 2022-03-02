@@ -44,7 +44,7 @@ function Team () {
   </Row>
   <Row className='g-3 my-3'>
   <Col>
-  <em>humm is a project made from love and caffeine, plus the support of our fellow Kāhu 2022 cohort and awesome facillitators here at Enspiral Dev Academy. &#x1F495; </em>
+  <em className="intro-text">humm is a project made from love and caffeine, plus the support of our fellow Kāhu 2022 cohort and awesome facillitators here at Enspiral Dev Academy. &#x1F495; </em>
   </Col>
 </Row>
 </Container>
