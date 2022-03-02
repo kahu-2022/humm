@@ -21,7 +21,7 @@ exports.seed = function (knex) {
         {
           id: 3,
           title: 'Administration',
-          description: 'Assist with day to day administration tasks',
+          description: 'Assist us with our day to day administration tasks',
           when: 'Wednesday',
           where: 'Main Office',
         },

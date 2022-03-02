@@ -14,6 +14,8 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 import { signUpForVolunteering, getUserByEmail } from "../../apis/api"
 
 function Volunteering(props) {
+
+  const { volunteer } = props
   const { user } = useAuth0()
 
   const [show, setShow] = useState(false)
@@ -63,43 +65,35 @@ function Volunteering(props) {
   }
 
   return (
-    <Card className="py-2">
-      <Card.Body className="flex-wrap d-grid">
-        <Col>
-          <Row>
+    <>
+      <Col md={6} lg={4} key={volunteer.id} >
+
+    <Card className="py-3 shadow p-3 mb-5 bg-white rounded">
+      <Card.Body>
             <Card.Title>
-              <em>{props.title} </em>
+              <em>{volunteer.title} </em>
             </Card.Title>
-          </Row>
-          <Row>
-            <Card.Text>{props.description}</Card.Text>
-          </Row>
-          <Row>
-            <Card.Text className="mt-3">
+            <Card.Text>{volunteer.description}</Card.Text>
+            <Card.Text>
               <strong>When</strong>
               <br />
-              {props.when}
+              {volunteer.when}
             </Card.Text>
-
             <Card.Text>
               <strong>Where</strong>
               <br />
-              {props.where}
+              {volunteer.where}
             </Card.Text>
-          </Row>
-        </Col>
-        {/* <Row> */}
         <Button
-          variant="outline-primary"
+          variant="primary"
           className="mt-3 "
           onClick={handleShow}
         >
           Sign Up
         </Button>
-        {/* </Row> */}
       </Card.Body>
-
-      {/* </Container> */}
+    </Card>
+        
       <Container>
         <Modal show={show} onHide={handleClose}>
           <Alert
@@ -120,7 +114,7 @@ function Volunteering(props) {
           </Alert>
 
           <Modal.Header closeButton>
-            <Modal.Title>Sign up for {props.title} </Modal.Title>
+            <Modal.Title>Sign up for {volunteer.title} </Modal.Title>
           </Modal.Header>
           <Form>
             <Modal.Body>
@@ -145,7 +139,7 @@ function Volunteering(props) {
                   defaultValue={volunteerData?.pronouns}
                 />
               </Form.Group>
-
+              Row
               <Form.Group className="mb-3" controlId="roomNumber">
                 <Form.Label>Room number</Form.Label>
                 <Form.Control
@@ -168,7 +162,8 @@ function Volunteering(props) {
           </Form>
         </Modal>
       </Container>
-    </Card>
+      </Col>
+    </>
   )
 }
 

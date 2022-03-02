@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Button, Alert, Form, Container, Card } from "react-bootstrap"
+import { Button, Alert, Form, Card } from "react-bootstrap"
 import { getUserByEmail } from "../../apis/api"
 import { useAuth0 } from "@auth0/auth0-react"
 
