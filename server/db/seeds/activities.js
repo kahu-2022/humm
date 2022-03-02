@@ -13,7 +13,7 @@ exports.seed = function (knex) {
           location: 'Blue Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/YOG.jpg',
+          image: './images/activities/YOG.jpg',
           ran_by: 'Kaia',
         },
         {
@@ -26,7 +26,7 @@ exports.seed = function (knex) {
           location: 'Green Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/MOV.jpeg',
+          image: './images/activities/MOV.jpeg',
           ran_by: 'Finn',
         },
         {
@@ -39,7 +39,7 @@ exports.seed = function (knex) {
           location: 'Pink Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/te-reo2.jpeg',
+          image: './images/activities/te-reo2.jpeg',
           ran_by: 'Isaiah',
         },
         {
@@ -52,7 +52,7 @@ exports.seed = function (knex) {
           location: 'Blue Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/COO.webp',
+          image: './images/activities/COO.webp',
           ran_by: 'Courtney',
         },
         {
@@ -65,7 +65,7 @@ exports.seed = function (knex) {
           location: 'Blue Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/poetry_image.jpeg',
+          image: './images/activities/poetry_image.jpeg',
           ran_by: 'Courtney',
         },
         {
@@ -78,7 +78,7 @@ exports.seed = function (knex) {
           location: 'Pink Room',
           recurring: false,
           frequency: '',
-          image: './images/PUP.jpeg',
+          image: './images/activities/PUP.jpeg',
           ran_by: 'Dellon',
         },
         {
@@ -91,7 +91,7 @@ exports.seed = function (knex) {
           location: 'Green Room',
           recurring: true,
           frequency: 'weekly',
-          image: './images/BOO.png',
+          image: './images/activities/BOO.png',
           ran_by: 'Cujo',
         },
       ])

@@ -125,6 +125,31 @@ function claimFood(food, db = conn) {
     })
 }
 
+function getFreeItems(db = conn) {
+  return db('free-items').select().orderBy('donateDate', 'desc')
+}
+
+function getFreeItemsById(freeItemId, db = conn) {
+  return db('free-items').where('id', freeItemId).select()
+}
+
+function addFreeItem(freeItem, db = conn) {
+  return db('free-items')
+    .insert(freeItem)
+    .then((id) => {
+      return getFreeItemsById(id)
+    })
+}
+
+function claimFreeItem(freeItem, db = conn) {
+  return db('free-items')
+    .update(freeItem)
+    .where('id', freeItem.id)
+    .then((count) => {
+      return getFoodById(freeItem.id)
+    })
+}
+
 function getVolunteering(db = conn) {
   return db('volunteering').select()
 }
@@ -170,6 +195,10 @@ module.exports = {
   getFood,
   getFoodById,
   addFood,
+  getFreeItems,
+  getFreeItemsById,
+  addFreeItem,
+  claimFreeItem,
   getVolunteering,
   claimFood,
   signUpForVolunteering,

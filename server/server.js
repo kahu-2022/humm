@@ -10,6 +10,7 @@ const foodRoutes = require('./routes/food')
 const volunteeringRoutes = require('./routes/volunteering')
 const volunteersRoute = require('./routes/volunteers')
 const userRoutes = require('./routes/users')
+const freeItemRoutes = require('./routes/freeItems')
 
 const server = express()
 
@@ -25,6 +26,7 @@ server.use('/api/v1/food', foodRoutes)
 server.use('/api/v1/volunteering', volunteeringRoutes)
 server.use('/api/v1/volunteers', volunteersRoute)
 server.use('/api/v1/users', userRoutes)
+server.use('/api/v1/free', freeItemRoutes)
 
 // for browser router (react-router-dom)
 server.get('*', (req, res) => {

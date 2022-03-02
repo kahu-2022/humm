@@ -9,7 +9,7 @@ import NavLoading from "../NavLoading";
 
 function AuthNav(props) {
 
-const { user , logout, isAuthenticated, isLoading} = useAuth0();
+const { user , logout, isAuthenticated, isLoading, loginWithRedirect} = useAuth0();
 
 
 function handleLogoff(e) {
@@ -29,9 +29,9 @@ function handleLogoff(e) {
     loginWithRedirect()
   }
 
-//   if (isLoading) {
-//     return <Loading />;
-//   }
+  if (isLoading) {
+    return <NavLoading />;
+  }
 
 
 
