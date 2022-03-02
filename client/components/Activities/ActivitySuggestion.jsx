@@ -74,7 +74,7 @@ return (
              <Form.Control  name="suggestion" as="textarea" rows={3} placeholder="Enter your idea here"/>
     </Form.Group>
 
-    <Button variant="outline-primary" type="submit">
+    <Button variant="primary" type="submit">
             Submit
         </Button>
         </Form>

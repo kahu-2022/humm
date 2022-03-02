@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Container, Row, Col } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
+import React from 'react'
+import { Button, Container, Row, Col, Image } from 'react-bootstrap'
 
 function Footer() {
+
   const sendUp = () => {
     window.scrollTo(0, 0)
   }
@@ -23,6 +23,7 @@ function Footer() {
               Return to top
             </Button>
 
+            {window.location.href === "http://localhost:3000/"  ?  null :
             <Button variant="outline-secondary" href="/">
               <Image
                 src="./images/return-home-icon.png"
@@ -31,7 +32,8 @@ function Footer() {
                 className="arrow"
               />
               Return home
-            </Button>
+            </Button> 
+            }
 
             <a
               href="/"
@@ -100,17 +102,12 @@ function Footer() {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="/about" className="nav-link p-0 text-muted">
-                  About
+                  The Project
                 </a>
               </li>
               <li className="nav-item mb-2">
                 <a href="#" className="nav-link p-0 text-muted">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  Contact
+                  The Team
                 </a>
               </li>
             </ul>
@@ -119,15 +116,12 @@ function Footer() {
         <Row>
           <Col>
             <Container>
-              <p className="text-muted">&copy; 2022</p>
+              <p className="text-muted mt-2">&copy; 2022</p>
             </Container>
           </Col>
         </Row>
        
       </footer>
-
-
-
     </Container>
   )
 }

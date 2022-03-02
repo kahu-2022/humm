@@ -79,7 +79,7 @@ function Food(props) {
                     </Card.Title>
                   </Col>
                   <Col>
-                    <Button variant="outline-primary" onClick={handleShow}>
+                    <Button variant="primary" onClick={handleShow}>
                       Claim
                     </Button>
 

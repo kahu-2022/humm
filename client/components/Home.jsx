@@ -1,50 +1,45 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from 'react'
+import { Row, Col, Container, Button, Image } from 'react-bootstrap'
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import Loading from './Loading'
 
-import { Image, Container, Form, Button, Alert } from "react-bootstrap"
-
-import Loading from "./Loading"
-
-import { useDispatch } from "react-redux"
-import { fetchUser } from "../actions/user"
-
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 function Home() {
   
-  const dispatch = useDispatch()
-  const { user } = useAuth0()
-  
-  const newUser = {
-    email: user.email
-  }
-  useEffect(() => {
-    //set the user to the global state
-    dispatch(fetchUser(newUser.email))
-  }, [])
 
   return (
-    <Container>
-      <header className="mt-4 header">
-        <h1>Welcome to humm!</h1>
-      </header>
+    <>
+      <Container className="py-3">
+        <Row>
+          <Col className="p-5" md={6}>
+          <header className="mt-4 header">
+          <h1 className="landing-hero">We’re a community dedicated to housing</h1>
+          <p>We’re a community dedicated to housing and feeding vulnerable members of our whānau, as well as providing them with resources and strategies to recover and grow.
 
-      <Image src="./images/vibes/building.jpg" fluid="true" rounded="true" />
-
-      <Button variant="primary" className="mb-3">
-        Resident Login
-      </Button>
-      <br></br>
-      <Button variant="primary" className="mb-3">
-        Resident Register
-      </Button>
-      <br></br>
-      <Button href="/about" variant="primary" className="mb-3">
-        Browse as a guest
-      </Button>
-    </Container>
+</p>
+<Button variant="primary" className="mb-3">
+           Login
+        </Button> <span></span>
+        <Button variant="primary" className="mb-3">
+           Register
+        </Button>
+        </header>
+        
+          </Col>
+          <Col>
+          <Image src="./images/vibes/building-cropped-2.jpeg" fluid="true" rounded="true" className="mt-2 mb-4" />
+          </Col>
+        </Row>
+    
+        
+      
+        <br></br>
+        {/* <Button href="/about" variant="primary" className="mb-3">
+          Browse as a guest
+        </Button> */}
+      </Container>
+    </>
   )
 }
 
-export default withAuthenticationRequired(Home, {
-  onRedirecting: () => <Loading />,
-})
+export default Home

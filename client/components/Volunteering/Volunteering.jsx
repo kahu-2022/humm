@@ -9,7 +9,7 @@ import {
   Form,
   Button,
 } from "react-bootstrap"
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 import { signUpForVolunteering, getUserByEmail } from "../../apis/api"
 

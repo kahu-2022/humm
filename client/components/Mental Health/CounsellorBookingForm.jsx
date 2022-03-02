@@ -10,7 +10,6 @@ import Loading from "../Loading"
 
 import { addCounselling, fetchCounsellors } from "../../apis/api"
 import { useParams } from "react-router-dom"
-import { useDispatch } from "react-redux"
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 import { getUserByEmail } from "../../apis/api"

@@ -1,12 +1,6 @@
   body {
-  
     background-color: #F5FFF9;
     min-height: 100%;
-  }
-
-  .btn-primary {
-    // background-color:#83CCa0;
-    // border: none;
   }
 
   .styled-form{
@@ -16,15 +10,24 @@
     border-radius: 10px;
   }
 
+  .btn-outline-primary {
+    border-color: #83CCA0;
+    color: black;
+  }
 
   .btn-outline-primary:hover {
     background-color:#83CCa0;
     border: none;
   }
 
-  .btn-outline-primary {
+  .btn-primary{
+    background-color: #83CCA0;
     border-color: #83CCA0;
-    color: black;
+  }
+
+  .btn-primary:hover{
+    background-color: #075024;
+    border-color: #075024;
   }
 
   .navigation {
@@ -66,6 +69,11 @@
     background-color:  #83CCA0;
   }
 
+  .navbar-toggler {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
   .me-auto {
     margin: 0%;
   }
@@ -78,13 +86,7 @@
   .home-images {
     padding-bottom: 0.5rem;
   }
-  // TO DO
-  // center text
-  // columns for layout
-  // uniform cards
-  // image margins within cards
-  // pastel colours 
-  // italics underneath bold heading   
+
   .arrow {
     max-height: 30px;
     margin: 5px;
@@ -100,8 +102,21 @@
     max-width: auto;
     object-fit: cover;
   }    
-  // .act-image {
-  //   max-height: 250px;
-  //   max-width: auto;
-  // }
+  
+.home-page {
+  max-width: auto;
+  object-fit: cover;
+}
 
+  img.card-top{
+    max-height: 250px;
+    max-width: auto;
+    object-fit: cover;
+  
+}
+
+
+h1.landing-hero{
+  font-size: 3em;
+    font-weight: 800;
+}

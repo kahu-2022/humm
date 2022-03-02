@@ -36,7 +36,7 @@ function Counsellor(props) {
 
                 <Row className="mt-3">
                   <Card.Text>
-                  <Button href={`/booking/${counsellor.name}`}variant="outline-primary" size="sm">
+                  <Button href={`/booking/${counsellor.name}`}variant="primary" size="sm">
                     Book appointment
                   </Button>
                   </Card.Text>
