@@ -74,7 +74,7 @@ function ShowFreeItem(props) {
   return (
     <>
       <PageHeader
-        title="Free Items"
+        title="Items"
         description="Free Items up for grabs. Please take what you need."
       />
       <Container>

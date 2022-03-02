@@ -52,13 +52,14 @@ function AddFreeItem (props) {
         name: newFreeItem[0].name,
       })
       setShowAlert(true)
+      window.scrollTo(0, 0)
     })
   }
   return (
     <>
-      <Container>
+      <Container className="mb-3">
         <header className="mt-4 header">
-          <h2>Add A Food</h2>
+          <h2>Add Item</h2>
         </header>
         <Alert
           variant="success"
@@ -71,7 +72,6 @@ function AddFreeItem (props) {
           </Alert.Heading>
           <p>You're also more than welcome to claim any free item up for grabs.</p>
         </Alert>
-        <section>
           <Form onSubmit={handleSubmit}>
             <Form.Group
               className="mb-3"
@@ -175,8 +175,7 @@ function AddFreeItem (props) {
               Submit
             </Button>
           </Form>
-        </section>
-      </Container>
+        </Container>
     </>
   )
 }
