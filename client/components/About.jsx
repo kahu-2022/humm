@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
@@ -16,7 +16,10 @@ function About() {
     </header>
 
     <Image className="home-page" src='./images/vibes/wall.jpg' fluid='true'  rounded='true'/>
+<<<<<<< HEAD
     
+=======
+>>>>>>> a8e603752b13a9bfdef606b662a8386f95240855
 
     <Container>
       <Row className="g-4 my-3">
