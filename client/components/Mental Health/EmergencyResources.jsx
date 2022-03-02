@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 import PageHeader from '../PageHeader'
 import Loading from '../Loading'
 
-import { Card, Row, Container, Col} from 'react-bootstrap'
 
 import resources from '../../emergencyresources'
 
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 
 function EmergencyResources() {
