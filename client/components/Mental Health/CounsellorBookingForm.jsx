@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { useSelector } from "react-redux"
 
-import { Container, Form, Button, Alert } from "react-bootstrap"
+import Container from "react-bootstrap/Container"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import Alert from "react-bootstrap/Alert"
 
 import DayJS from "react-dayjs"
 
@@ -140,7 +142,8 @@ function CounsellorBookingForm(props) {
           <p className="mb-0">
             If you're currently in crisis we're here to help you or someone
             important to you right now. If this is an emergency please phone
-            111.
+            111. A list of other important <a href='/emergencyresources'>emergency resources</a> are also 
+            available for you to browse.
           </p>
         </Alert>
       </Container>
