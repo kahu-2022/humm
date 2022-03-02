@@ -77,7 +77,7 @@ function Resident(props) {
           </Alert>
           <PageHeader
             title="Your profile"
-            description="We use this information to populate your information accross the site"
+            description="We use this data to populate your info across the site"
           />
 
           <Container className="d-flex align-items-center py-3 my-3 border-top border-bottom">
@@ -93,7 +93,7 @@ function Resident(props) {
           </Container>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Your full name</Form.Label>
+              <Form.Label>Your name</Form.Label>
               <Form.Control
                 name="name"
                 type="text"
