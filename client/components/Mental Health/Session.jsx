@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react"
-import { Button, Alert, Form, Card } from "react-bootstrap"
-import { getUserByEmail } from "../../apis/api"
-import { useAuth0 } from "@auth0/auth0-react"
+import React, { useEffect, useState } from 'react'
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
-import { bookSession } from '../../apis/api'
+import { getUserByEmail, bookSession } from '../../apis/api'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Session(props) {
   const { session } = props

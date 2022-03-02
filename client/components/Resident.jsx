@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react"
-import {
-  Alert,
-  Form,
-  Button,
-  Image,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
+import Row from 'react-bootstrap/Row'
 
-import PageHeader from "./PageHeader"
-import Loading from "./Loading"
+import PageHeader from './PageHeader'
+import Loading from './Loading'
 
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
-import { addUser, getUserByEmail, updateUser } from "../apis/api"
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
+import { addUser, getUserByEmail, updateUser } from '../apis/api'
 
-function Resident(props) {
+function Resident (props) {
   const { user } = useAuth0()
   const [userExists, setUserExists] = useState(false)
   const [showAlert, setShowAlert] = useState(false)

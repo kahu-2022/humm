@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from "react"
-import {
-  Row,
-  Col,
-  Card,
-  Container,
-  Alert,
-  Modal,
-  Form,
-  Button,
-} from "react-bootstrap"
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Modal from 'react-bootstrap/Modal'
 
-import { signUpForVolunteering, getUserByEmail } from "../../apis/api"
+import { useAuth0 } from '@auth0/auth0-react'
 
-function Volunteering(props) {
+import { signUpForVolunteering, getUserByEmail } from '../../apis/api'
+
+function Volunteering (props) {
 
   const { volunteer } = props
   const { user } = useAuth0()
@@ -139,7 +137,7 @@ function Volunteering(props) {
                   defaultValue={volunteerData?.pronouns}
                 />
               </Form.Group>
-              Row
+              
               <Form.Group className="mb-3" controlId="roomNumber">
                 <Form.Label>Room number</Form.Label>
                 <Form.Control

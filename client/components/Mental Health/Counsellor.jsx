@@ -1,6 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react'
-import { Row, Col, Card, Image, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React, { useRef } from 'react'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
 
 function Counsellor(props) {
   const { counsellor } = props

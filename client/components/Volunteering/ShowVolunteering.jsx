@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
-import PageHeader from "../PageHeader"
-import Volunteering from "./Volunteering"
-import Loading from "../Loading"
+import React, { useState, useEffect } from 'react'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
 
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
-import { fetchVolunteering, signUpForVolunteering } from "../../apis/api"
+import PageHeader from '../PageHeader'
+import Volunteering from './Volunteering'
+import Loading from '../Loading'
 
-function ShowVolunteering(props) {
+import { withAuthenticationRequired } from '@auth0/auth0-react'
+import { fetchVolunteering } from '../../apis/api'
+
+function ShowVolunteering (props) {
   const [volunteering, setVolunteering] = useState([])
 
   useEffect(() => {

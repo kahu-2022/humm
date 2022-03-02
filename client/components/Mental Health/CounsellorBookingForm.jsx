@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-import {
-  Alert,
-  Form,
-  Button,
-  Image,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap"
-import DayJS from "react-dayjs"
+import DayJS from 'react-dayjs'
 
-import PageHeader from "../PageHeader"
-import Loading from "../Loading"
+import Loading from '../Loading'
 
 import {
   addCounselling,
   fetchCounsellors,
   getUserByEmail,
-} from "../../apis/api"
+  } from "../../apis/api"
+  
 import { useParams } from "react-router-dom"
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"

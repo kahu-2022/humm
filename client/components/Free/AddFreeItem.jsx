@@ -6,7 +6,7 @@ import Alert from 'react-bootstrap/Alert'
 
 import { addNewFreeItem, getUserByEmail } from '../../apis/api'
 
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 
 function AddFreeItem (props) {
   const { user } = useAuth0()
