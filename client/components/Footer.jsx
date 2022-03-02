@@ -1,5 +1,9 @@
 import React from 'react'
-import { Button, Container, Row, Col, Image } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
 
 function Footer() {
 
@@ -15,7 +19,7 @@ function Footer() {
             
             <Button variant="outline-secondary" onClick={sendUp}>
               <Image
-                src="./images/back-to-top-icon2.png"
+                src="/images/back-to-top-icon2.png"
                 title="return to top"
                 fluid="true"
                 className="arrow"
@@ -26,7 +30,7 @@ function Footer() {
             {window.location.href === "http://localhost:3000/"  ?  null :
             <Button variant="outline-secondary" href="/">
               <Image
-                src="./images/return-home-icon.png"
+                src="/images/return-home-icon.png"
                 title="return home"
                 fluid="true"
                 className="arrow"
