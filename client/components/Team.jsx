@@ -8,28 +8,28 @@ function Team() {
     <h2>Meet the team behind humm</h2>
   <Row className='g-3 my-3'>
   <Col  xs={6} md={4}>
-    <h5>Hareton </h5>
-    <em> Product Owner, Co-Git Lead & Co-Scrum Leam</em>
+    <h5>Hareton 👾</h5>
+    <em> Product Owner, Co-Git Lead & Co-Scrum Lead</em>
     <p>Hareton loves dying their hair, their friend Ivy and yoga.</p>
   </Col>
   <Col  xs={6} md={4}>
-    <h5>Rose </h5>
-    <em>Front-End Lead, Advisor</em>
+    <h5>Rose 💅</h5>
+    <em>Front-End Lead & Advisor</em>
     <p>Rose loves her mum, the colour pink and coffee. </p>
   </Col>
   <Col  xs={6} md={4}>
-  <h5>John </h5>
+  <h5>John 🦸 </h5> 
   <em>Vibes Lead</em>
   <p>John loves Marvel, dinosaurs and Marvel.</p>
 
   </Col>
   <Col xs={6} md={4} >
-  <h5>Jad </h5>
+  <h5>Jad 😎  </h5>
   <em> Back-End Lead </em>
   <p>Jad loves the idea of getting a flame tattoo, his car not being stolen and caldereta.</p>
   </Col>
   <Col xs={6} md={4}>
-  <h5>Courtney </h5>
+  <h5>Courtney 🤠</h5>
   <em> Co-Git Lead & Co-Scrum Master</em>
   <p>Courtney loves colour co-ordinated outfits, potatoes and sit-coms.</p>
   </Col>
