@@ -25,7 +25,7 @@ function ShowFood(props) {
     return <AddFood />
   }
 
-  const categories = ["All", "fruit", "veggies", "staple"]
+  const categories = ['All', 'Fruit', 'Veggies', 'Staple']
 
   const [category, setCategory] = useState("All")
 
@@ -102,7 +102,7 @@ function ShowFood(props) {
           dismissible
         >
           <Alert.Heading>
-            Thanks {claimedFood?.claimedBy}, you've claimed {claimedFood?.item}!
+            Thanks {claimedFood?.name}, you've claimed {claimedFood?.item}!
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>

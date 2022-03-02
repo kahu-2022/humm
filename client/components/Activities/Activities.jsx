@@ -108,9 +108,20 @@ function Activities() {
           })}
         </Row>
       </Container>
-
-
-
+      <Container>
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+        </Alert>
+        <Button variant="primary" className="my-3" onClick={toggleForm}>
+          {showAddActivities ? 'Hide' : 'Add Activities'}
+        </Button>
+        {showAddActivities && renderForm()}
+      </Container>
     </>
   )
 }

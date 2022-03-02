@@ -22,20 +22,13 @@ function ShowVolunteering(props) {
       />
 
       <Container>
-        <Row className="g-3">
+        <Row >
           {volunteering
             ? volunteering.map((volunteer) => {
                 return (
-                  <div className="shadow p-3 mb-5 bg-white rounded" key={volunteer.id}>
-                    <Col md={6} lg={4} >
                       <Volunteering
-                        title={volunteer.title}
-                        description={volunteer.description}
-                        when={volunteer.when}
-                        where={volunteer.where}
+                        volunteer = {volunteer}
                       />
-                    </Col>
-                  </div>
                 )
               })
             : null}

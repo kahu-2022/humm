@@ -1,19 +1,20 @@
-import React, { useState } from "react"
-import {
-  Row,
-  Col,
-  Card,
-  Button,
-  Modal,
-  Form,
-} from "react-bootstrap"
+import React, { useState, useEffect } from "react"
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 
 import DayJS from 'react-dayjs'
 
-import { claimFreeItem } from "../../apis/api"
+import { claimFreeItem, getUserByEmail } from "../../apis/api"
+
+import { useAuth0 } from "@auth0/auth0-react"
 
 function FreeItem (props) {
   const { freeItem, setClaimed } = props
+  const { user } = useAuth0()
 
   const [show, setShow] = useState(false)
 
@@ -27,6 +28,20 @@ function FreeItem (props) {
     status: "Claimed",
   })
 
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user?.email).then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setClaimData({
+          id: freeItem.id,
+          name: userFromDB[0].name,
+          claimedBy: userFromDB[0].pronouns,
+          claimerRoom: userFromDB[0].roomNumber,
+          status: "Claimed",
+        })
+      }
+    })
+  }, [])
 
   const handleChange = (e) => {
     setClaimData({
@@ -80,6 +95,7 @@ function FreeItem (props) {
                               name="claimedBy"
                               type="text"
                               placeholder="Enter your name"
+                              defaultValue={claimData?.name}
                             />
                           </Form.Group>
 
@@ -93,6 +109,7 @@ function FreeItem (props) {
                               name="claimerRoom"
                               type="text"
                               placeholder="Enter your room number"
+                              defaultValue={claimData?.claimerRoom}
                             />
                           </Form.Group>
                         </Modal.Body>

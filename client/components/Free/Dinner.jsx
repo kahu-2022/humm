@@ -1,6 +1,5 @@
 import React from 'react'
-import { Card, Container, Row, Col, Alert, Form } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image'
+import { Card, Container, Row, Col } from 'react-bootstrap'
 
 function Dinner() {
   return(
@@ -12,9 +11,9 @@ function Dinner() {
         <Card.Img src="./images/tonights-menu.jpg" className="my-3" fluid="true" variant="top"/>
         <Card.Body>
           <Card.Title>
-            <p> Dinner </p>
+            <h3> Tonight on the menu </h3>
           </Card.Title>
-          <p>Tonight's meal is vegan. </p>
+          <p>Please arrive by 5 pm to join us for our weekly dinner.</p>
         </Card.Body>
       </Card>
     </Col>
@@ -22,8 +21,10 @@ function Dinner() {
     <header className="header"> 
     <h1 className="landing-hero">
      Humm's weekly dinners </h1> 
-    <h3> Please arrive by 5 pm.</h3>
-    <p>All are welcome.</p>
+     <br></br>
+    <h3>Tonight's meal is vegan. Our delightful team have cooked us up quite the feast! For dinner we have rosemary and grape foceacia, charred zucchini capsicum with mint, and a fresh garden salad.</h3>
+    <br></br>
+    <h3> To go alongside dinner we have a wonderful snickers slice and refreshing tea.</h3>
     </header>
         </Col>
       </Row>

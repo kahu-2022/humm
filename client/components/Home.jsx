@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Container, Button, Image } from 'react-bootstrap'
 import { withAuthenticationRequired } from "@auth0/auth0-react"
 import Loading from "./Loading"
+import Team from "./Team"
 
 function Home() {
   return (
@@ -18,6 +19,9 @@ function Home() {
         </Button> <span></span>
         <Button variant="primary" className="mb-3">
            Register
+        </Button> <span></span>
+        <Button href="./Team" variant="primary" className="mb-3">
+           Meet the team
         </Button>
         </header>
         

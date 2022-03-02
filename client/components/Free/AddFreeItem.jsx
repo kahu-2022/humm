@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 
-import { addNewFreeItem } from '../../apis/api'
+import { addNewFreeItem, getUserByEmail } from '../../apis/api'
+
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 function AddFreeItem (props) {
+  const { user } = useAuth0()
+
   const [freeItem, addFreeItem] = useState({
     name: '',
     donorRoom: '',
     item: '',
     description: '',
     quantity: '',
-    type: '',
+    category: '',
     donateDate: '',
     status: '',
   })
@@ -21,8 +25,21 @@ function AddFreeItem (props) {
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
 
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user.email).then((userFromDB) => {
+      if (userFromDB[0].email === user.email) {
+        addFreeItem({
+          ...freeItem,
+          name: userFromDB[0].name,
+          donorRoom: userFromDB[0].roomNumber
+        })
+      }
+    })
+  }, [])
+
   const handleChange = (e) => {
-    addFood({
+    addFreeItem({
       ...freeItem,
       [e.target.name]: e.target.value,
     })
@@ -66,6 +83,7 @@ function AddFreeItem (props) {
                 name="name"
                 type="text"
                 placeholder="Enter your name"
+                defaultValue={freeItem?.name}
               />
             </Form.Group>
 
@@ -79,6 +97,7 @@ function AddFreeItem (props) {
                 name="donorRoom"
                 type="text"
                 placeholder="Enter your room number"
+                defaultValue={freeItem?.donorRoom}
               />
             </Form.Group>
 
@@ -87,7 +106,7 @@ function AddFreeItem (props) {
               controlId="item"
               onChange={handleChange}
             >
-              <Form.Label>Free Item</Form.Label>
+              <Form.Label>Item</Form.Label>
               <Form.Control
                 name="item"
                 type="text"
@@ -123,12 +142,12 @@ function AddFreeItem (props) {
 
             <Form.Group
               className="mb-3"
-              controlId="type"
+              controlId="category"
               onChange={handleChange}
               key={"e"}
             >
               <Form.Label>Category</Form.Label>
-              <Form.Select name="type" aria-label="type">
+              <Form.Select name="category" aria-label="category">
                 <option>Select a category</option>
                 <option value="Home & Living">Home & Living</option>
                 <option value="Books, Music & Movies">Books, Music & Movies</option>
@@ -162,4 +181,6 @@ function AddFreeItem (props) {
   )
 }
 
-export default AddFreeItem
+export default withAuthenticationRequired(AddFreeItem, {
+  onRedirecting: () => <Loading />,
+})
