@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import { Button, Container, Row, Col, Alert, Form, Card } from 'react-bootstrap'
-import PageHeader from '../PageHeader'
-import Food from './Food'
-import AddFood from './AddFood'
-import Loading from '../Loading'
+import React, { useState, useEffect, useMemo } from "react"
+import { Button, Container, Row, Col, Alert, Form, Card } from "react-bootstrap"
+import PageHeader from "../PageHeader"
+import Food from "./Food"
+import AddFood from "./AddFood"
+import Loading from "../Loading"
 
-import { fetchFood } from '../../apis/api'
+import { fetchFood } from "../../apis/api"
 
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
-
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 function ShowFood(props) {
   const [food, setFood] = useState([])
@@ -26,17 +25,17 @@ function ShowFood(props) {
     return <AddFood />
   }
 
-  const categories = ['All', 'fruit', 'veggies', 'staple']
+  const categories = ["All", "fruit", "veggies", "staple"]
 
-  const [category, setCategory] = useState('All') 
+  const [category, setCategory] = useState("All")
 
   const filteredData = foodCategory()
 
-  function foodCategory () {
+  function foodCategory() {
     if (!category || category === "All") {
       return food
     } else {
-      return food.filter(item => item.type === category) 
+      return food.filter((item) => item.type === category)
     }
   }
 
@@ -51,7 +50,7 @@ function ShowFood(props) {
 
     const newSetFood = food.map((aFood) => {
       if (aFood.id === foodItem[0].id) {
-        aFood.status = 'Claimed'
+        aFood.status = "Claimed"
       }
       return aFood
     })
@@ -61,14 +60,43 @@ function ShowFood(props) {
   }
 
   return (
-<>
-  <PageHeader
+    <>
+      <PageHeader
         title="Food"
         description="Food up for grabs. Please take what you need."
       />
 
       <Container>
-        <Alert
+
+        <Row className="mb-3">
+          <Col sm={6} lg={4} className="mb-3">
+            <Form.Group
+              controlId="foodCategory"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <Form.Select name="foodCategory" aria-label="foodCategory">
+                <option>Filter on food category</option>
+                {categories.map((category, index) => {
+                  return (
+                    <option value={category} key={index}>
+                      {category}
+                    </option>
+                  )
+                })}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+
+          <Col sm={6} lg={{ span: 3, offset: 5 }} className="d-grid gap-2 mb-3">
+            <Button variant="primary" onClick={toggleForm}>
+              {showAddFood ? "Hide" : "Add Food"}
+            </Button>
+            {showAddFood && renderForm()}
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+      <Alert
           variant="success"
           show={showAlert}
           onClose={() => setShowAlert(false)}
@@ -79,32 +107,9 @@ function ShowFood(props) {
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Button variant="primary" className="my-3" onClick={toggleForm}>
-          {showAddFood ? 'Hide' : 'Add Food'}
-        </Button>
-        {showAddFood && renderForm()}
-      </Container>
-      <Container>
-        <header className="mt-4 header">
-          <h2>Search Food</h2>
-        </header>
-        <Form.Group
-          className="mb-3"
-          controlId="foodCategory"
-          key={'e'}
-          onChange={e => setCategory(e.target.value)}
-          >
-            <Form.Label>Type of Food</Form.Label>
-              <Form.Select name="foodCategory" aria-label="foodCategory" >
-                <option>Select Category</option>
-                  {categories.map((category, index) => {
-                    return (<option value={category} key={index}>{category}</option>)
-                  })}
-              </Form.Select>
-          </Form.Group>
         <Row className="g-3">
           {filteredData
-            .filter((food) => food.status != 'Claimed')
+            .filter((food) => food.status != "Claimed")
             .map((food) => {
               return (
                 <Col key={food.id} md={6} lg={4}>
@@ -120,4 +125,4 @@ function ShowFood(props) {
 
 export default withAuthenticationRequired(ShowFood, {
   onRedirecting: () => <Loading />,
-});
+})

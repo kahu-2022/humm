@@ -50,10 +50,9 @@ function Activities() {
         description="Sign up for our free community events and activities"
       />
       <Container>
-        <Row className="mb-4">
+        <Row className="mb-3">
           <Col sm={6} lg={4} className="mb-3" >
             <Form.Group
-              // className="mb-3"
               controlId="activityCategory"
               key={"e"}
               onChange={(e) => setCategory(e.target.value)}
@@ -79,7 +78,7 @@ function Activities() {
               
               onClick={toggleForm}
             >
-              {showAddActivities ? "Hide" : "Add new activity"}
+              {showAddActivities ? "Hide" : "Suggest an activity"}
             </Button>
           </Col>
         </Row>

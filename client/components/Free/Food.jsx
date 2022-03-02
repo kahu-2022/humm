@@ -19,7 +19,7 @@ import { claimNewFood, getUserByEmail } from "../../apis/api"
 function Food(props) {
   const { food, setClaimed } = props
   const { user } = useAuth0()
-
+  
   
 
   const [show, setShow] = useState(false)

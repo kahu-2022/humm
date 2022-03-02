@@ -6,7 +6,7 @@ function PageHeader(props) {
     <Container className="pt-5 pb-2">
       <Row>
         <Col xs={12}> 
-        <h2>{props.title}</h2>
+        <h2 className="page-title">{props.title}</h2>
         <p className="text-muted">{props.description}</p>
         </Col>
         <Col className="d-flex justify-content-end">
