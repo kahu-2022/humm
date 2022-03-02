@@ -15,11 +15,7 @@ function About() {
   </p>
     </header>
 
-    <Image className="home-page" src='./images/vibes/wall.jpg' fluid='true'  rounded='true'/>
-<<<<<<< HEAD
-    
-=======
->>>>>>> a8e603752b13a9bfdef606b662a8386f95240855
+    <Image className="home-page" src='./images/vibes/wall.jpg' fluid='true'  rounded='true'/>    
 
     <Container>
       <Row className="g-4 my-3">
@@ -40,13 +36,13 @@ function About() {
 
     <Image src='./images/vibes/frenz.jpg' fluid='true' thumbnail='true' rounded='true' />
 
-{/* 
+{
     <section>
     <br></br>
       <h5>Contact us:</h5>
       <p className="pt-2">phone: 021 154 9674</p>
       <p>email: hareton@humm.co.nz</p>
-    </section> */}
+    </section> 
 
     </Container>
     </>
