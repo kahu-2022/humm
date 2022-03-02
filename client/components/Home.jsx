@@ -1,12 +1,9 @@
 import React from 'react'
 import { Row, Col, Container, Button, Image } from 'react-bootstrap'
 import { withAuthenticationRequired } from "@auth0/auth0-react"
-import Loading from './Loading'
-
+import Loading from "./Loading"
 
 function Home() {
-  
-
   return (
     <>
       <Container className="py-3">
@@ -26,7 +23,12 @@ function Home() {
         
           </Col>
           <Col>
-          <Image src="./images/vibes/building-cropped-2.jpeg" fluid="true" rounded="true" className="mt-2 mb-4" />
+            <Image
+              src="./images/vibes/building-cropped-2.jpeg"
+              fluid="true"
+              rounded="true"
+              className="mt-2 mb-4"
+            />
           </Col>
         </Row>  
         <br></br>
