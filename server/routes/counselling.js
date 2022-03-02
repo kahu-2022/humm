@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const db = require('../db/db')
-const checkJwt = require('../auth0.js')
+// const checkJwt = require('../auth0.js')
 
 
 router.get('/', (req, res) => {

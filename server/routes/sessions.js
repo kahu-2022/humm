@@ -13,4 +13,15 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  db.addSessionBooking(req.body)
+  .then(booking => {
+    console.log("hey look a booking", booking)
+      return res.json(booking)
+  })
+  .catch((err) => {
+    res.status(500).json({ error: err.message })
+  })
+})
+
 module.exports = router

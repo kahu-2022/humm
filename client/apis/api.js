@@ -61,6 +61,18 @@ export function addCounselling(bookingObj) {
     })
 }
 
+export function bookSession(bookingObj) {
+  return request
+    .post('/api/v1/sessions')
+    .send(bookingObj)
+    .then((newBooking) => {
+      return newBooking.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
 export function fetchCounsellors() {
   return request
     .get('/api/v1/counsellors')

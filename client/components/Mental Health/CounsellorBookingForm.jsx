@@ -10,11 +10,10 @@ import DayJS from "react-dayjs"
 import PageHeader from "../PageHeader"
 import Loading from "../Loading"
 
-import { addCounselling, fetchCounsellors } from "../../apis/api"
+import { addCounselling, fetchCounsellors, getUserByEmail } from "../../apis/api"
 import { useParams } from "react-router-dom"
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
-import { getUserByEmail } from "../../apis/api"
 
 function CounsellorBookingForm(props) {
   const { user } = useAuth0()
@@ -84,8 +83,6 @@ function CounsellorBookingForm(props) {
       setCheckboxState([...checkboxState])
     }
   }
-
-
 
   const handleChange = (e) => {
     setFormData({
