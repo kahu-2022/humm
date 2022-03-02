@@ -1,6 +1,11 @@
+  
+  :root{
+    --primary-green: #83CCA0;
+  }
   body {
     background-color: #F5FFF9;
     min-height: 100%;
+    font-family: 'Fira Sans', sans-serif;
   }
 
   .styled-form{
@@ -11,36 +16,61 @@
   }
 
   .btn-outline-primary {
-    border-color: #83CCA0;
+    border-color: var(--primary-green);
     color: black;
   }
 
   .btn-outline-primary:hover {
-    background-color:#83CCa0;
+    background-color:var(--primary-green);
     border: none;
   }
 
+
+  .btn-primary:active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-primary:active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem #19875457;
+
+}
+
+.claim-food-btn{
+  width:100%;
+}
+
+.btn-primary:focus {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  box-shadow: 0 0 0 0.25rem #19875457;
+
+}
   .btn-primary{
-    background-color: #83CCA0;
-    border-color: #83CCA0;
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
   }
 
   .btn-primary:hover{
-    background-color: #075024;
-    border-color: #075024;
+    background-color: #65ab81;
+    border-color: #65ab81;
   }
 
   .navigation {
-   background-color: #83CCA0;
+   background-color: var(--primary-green);
  }
 
   #collapsible-nav-dropdown {
-    background-color: #83CCA0;
+    background-color: var(--primary-green);
   }
 
   #responsive-navbar-nav {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
+
+
 
   p.data-title.mb-0{
     font-weight:700;
@@ -59,14 +89,14 @@
   }
 
   .btn-outline-secondary {
-    border: #83CCA0;
+    border: var(--primary-green);
   }
   .btn-outline-secondary:hover {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
 
   .navigation {
-    background-color:  #83CCA0;
+    background-color:  var(--primary-green);
   }
 
   .navbar-toggler {
@@ -74,14 +104,28 @@
     margin-right: 0.5rem;
   }
 
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.90  );
+}
+
   .me-auto {
     margin: 0%;
   }
 
   .dropdown-menu {
     background-color:  #69b186; 
+    color:white;
+
   }
 
+  .dropdown-item{
+    color:white;
+
+  }
+  .dropdown-item:hover {
+    color:white;
+    background-color: var(--primary-green);
+  }
 
   .home-images {
     padding-bottom: 0.5rem;
@@ -93,6 +137,9 @@
     max-width: auto;
   }
 
+  .nav-user-pic{
+    max-height:25px;
+  }
   .rounded-circle{
     object-fit: cover;
   }
@@ -103,4 +150,43 @@
     object-fit: cover;
   }    
   
+.home-page {
+  max-width: auto;
+  object-fit: cover;
+}
 
+  img.card-top{
+    max-height: 250px;
+    max-width: auto;
+    object-fit: cover;
+  
+}
+
+.vertical-about-pic{
+
+  max-height: 650px;
+
+}
+
+.contact-label{
+  font-weight:600;
+  margin-bottom: 0;
+}
+
+h1.landing-hero{
+  font-size: 3em;
+    font-weight: 800;
+}
+
+h2.landing-hero{
+    font-weight: 800;
+}
+
+
+h2.page-title{
+  font-weight: 600;
+}
+
+.intro-text{
+  font-size:1.2rem;
+}

@@ -1,21 +1,20 @@
-import React, { useState } from "react"
-import {
-  Row,
-  Col,
-  Card,
-  Container,
-  Button,
-  Modal,
-  Form,
-  Alert,
-} from "react-bootstrap"
+import React, { useState, useEffect } from "react"
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 
 import DayJS from 'react-dayjs'
 
-import { claimNewFood } from "../../apis/api"
+import { claimFreeItem, getUserByEmail } from "../../apis/api"
 
-function Food(props) {
-  const { food, setClaimed } = props
+import { useAuth0 } from "@auth0/auth0-react"
+
+function FreeItem (props) {
+  const { freeItem, setClaimed } = props
+  const { user } = useAuth0()
 
   const [show, setShow] = useState(false)
 
@@ -23,12 +22,26 @@ function Food(props) {
   const handleShow = () => setShow(true)
 
   const [claimData, setClaimData] = useState({
-    id: food.id,
+    id: freeItem.id,
     claimedBy: "",
     claimerRoom: "",
     status: "Claimed",
   })
 
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user?.email).then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setClaimData({
+          id: freeItem.id,
+          name: userFromDB[0].name,
+          claimedBy: userFromDB[0].pronouns,
+          claimerRoom: userFromDB[0].roomNumber,
+          status: "Claimed",
+        })
+      }
+    })
+  }, [])
 
   const handleChange = (e) => {
     setClaimData({
@@ -39,21 +52,10 @@ function Food(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    claimNewFood(claimData)
+    claimFreeItem(claimData)
     .then((newClaim) => {
-      // console.log("the new claim", newClaim)
-      // setAlertInfo({
-      //   claimedBy: newClaim[0].claimedBy,
-      // })
-
-      // const claimInfo = {
-      //     claimedBy: newClaim[0].claimedBy,
-      //   }
-      
-      // console.log("newclaim in food.jsx", newClaim)
       window.scrollTo(0, 0)
-      // setShowAlert(true)
-      setClaimed(newClaim)
+        setClaimed(newClaim)
       setShow(false)
     })
   }
@@ -68,7 +70,7 @@ function Food(props) {
                 <Row>
                   <Col>
                     <Card.Title>
-                      <em>{food.item} </em>
+                      <em>{freeItem.item} </em>
                     </Card.Title>
                   </Col>
                   <Col>
@@ -79,7 +81,7 @@ function Food(props) {
                     <Modal show={show} onHide={handleClose}>
                     
                       <Modal.Header closeButton>
-                        <Modal.Title>Claim the food {food.item} </Modal.Title>
+                        <Modal.Title>Claim Free {freeItem.item} </Modal.Title>
                       </Modal.Header>
                       <Form>
                         <Modal.Body>
@@ -93,6 +95,7 @@ function Food(props) {
                               name="claimedBy"
                               type="text"
                               placeholder="Enter your name"
+                              defaultValue={claimData?.name}
                             />
                           </Form.Group>
 
@@ -106,6 +109,7 @@ function Food(props) {
                               name="claimerRoom"
                               type="text"
                               placeholder="Enter your room number"
+                              defaultValue={claimData?.claimerRoom}
                             />
                           </Form.Group>
                         </Modal.Body>
@@ -122,30 +126,26 @@ function Food(props) {
                   </Col>
                 </Row>
                 <Row>
-                  <Card.Text>{food.quantity} available </Card.Text>
+                  <Card.Text>{freeItem.quantity} available </Card.Text>
+                </Row>
+                <Row>
+                  <Card.Text>{freeItem.description}</Card.Text>
                 </Row>
                 <br /> <strong>Donated by</strong>
                 <br />
                 <Row>
                   <Card.Text>
-                    {food.name} in room {food.donorRoom}{" "}
+                    {freeItem.name} in room {freeItem.donorRoom}{" "}
                   </Card.Text>
                 </Row>
                 <Row>
                   <Card.Text className="mt-2">
                     <strong>Date Donated</strong>
                     <br />
-                    <DayJS format="MMM DD, YYYY">{food.donateDate}</DayJS>
+                    <DayJS format="MMM DD, YYYY">{freeItem.donateDate}</DayJS>
                   </Card.Text>
                 </Row>
                 <br />
-                <Row>
-                  <Card.Text>
-                    <strong>Expiry Date</strong>
-                    <br />
-                    <DayJS format="MMM DD, YYYY">{food.useByDate}</DayJS>
-                  </Card.Text>
-                </Row>
               </Col>
             </Row>
           </Card.Body>
@@ -155,5 +155,5 @@ function Food(props) {
   )
 }
 
-export default Food
+export default FreeItem
   

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 import AppRoutes from './AppRoutes'
 import Footer from './Footer'
 
+
+
 function App() {
+
   return (
     <>
       <Navigation />

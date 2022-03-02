@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Container, Row, Col } from 'react-bootstrap'
+import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 
 function Footer() {
+
   const sendUp = () => {
     window.scrollTo(0, 0)
   }
 
   return (
     <Container>
-      <footer className="py-5 my-5 border-top mb-2 pb-2">
+      <footer className="py-5 my-3 border-top mb-2 pb-2">
         <Row>
           <Col md={6} lg={4}>
             
             <Button variant="outline-secondary" onClick={sendUp}>
               <Image
-                src="./images/back-to-top-icon2.png"
+                src="/images/back-to-top-icon2.png"
                 title="return to top"
                 fluid="true"
                 className="arrow"
@@ -23,15 +27,17 @@ function Footer() {
               Return to top
             </Button>
 
+            {window.location.href === "http://localhost:3000/"  ?  null :
             <Button variant="outline-secondary" href="/">
               <Image
-                src="./images/return-home-icon.png"
+                src="/images/return-home-icon.png"
                 title="return home"
                 fluid="true"
                 className="arrow"
               />
               Return home
-            </Button>
+            </Button> 
+            }
 
             <a
               href="/"
@@ -83,6 +89,16 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
+                <a href="/free" className="nav-link p-0 text-muted">
+                  Free Item
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/dinner" className="nav-link p-0 text-muted">
+                  Dinner
+                </a>
+              </li>
+              <li className="nav-item mb-2">
                 <a href="/room" className="nav-link p-0 text-muted">
                   Report an issue
                 </a>
@@ -100,17 +116,12 @@ function Footer() {
             <ul className="nav flex-column">
               <li className="nav-item mb-2">
                 <a href="/about" className="nav-link p-0 text-muted">
-                  About
+                  The Project
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  FAQs
-                </a>
-              </li>
-              <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
-                  Contact
+                <a href="/team" className="nav-link p-0 text-muted">
+                  The Team
                 </a>
               </li>
             </ul>
@@ -119,15 +130,12 @@ function Footer() {
         <Row>
           <Col>
             <Container>
-              <p className="text-muted">&copy; 2022</p>
+              <p className="text-muted mt-2">&copy; 2022</p>
             </Container>
           </Col>
         </Row>
        
       </footer>
-
-
-
     </Container>
   )
 }

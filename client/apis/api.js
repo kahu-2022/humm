@@ -1,5 +1,7 @@
 import request from 'superagent'
 
+// User functions
+
 export function addUser(user) {
   return request
     .post('/api/v1/users')
@@ -36,18 +38,29 @@ export function getAllUsers() {
     })
 }
 
-
 export function getUserByEmail(email) {
   return request
     .get(`/api/v1/users/${email}`)
-    .then((users) => {
-      return users.body
+    .then((user) => {
+      return user.body
     })
     .catch((err) => {
       console.error({ error: err.message })
     })
 }
 
+// Counselling functions
+
+export function fetchCounsellors() {
+  return request
+    .get('/api/v1/counsellors')
+    .then((res) => {
+      return res.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
 
 export function addCounselling(bookingObj) {
   return request
@@ -55,17 +68,6 @@ export function addCounselling(bookingObj) {
     .send(bookingObj)
     .then((newAppointment) => {
       return newAppointment.body
-    })
-    .catch((err) => {
-      console.error({ error: err.message })
-    })
-}
-
-export function fetchCounsellors() {
-  return request
-    .get('/api/v1/counsellors')
-    .then((res) => {
-      return res.body
     })
     .catch((err) => {
       console.error({ error: err.message })
@@ -83,6 +85,20 @@ export function fetchSessions() {
     })
 }
 
+export function bookSession(bookingObj) {
+  return request
+    .post('/api/v1/sessions')
+    .send(bookingObj)
+    .then((newBooking) => {
+      return newBooking.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+// Activities functions
+
 export function fetchActivities() {
   return request
     .get('/api/v1/activities')
@@ -94,9 +110,21 @@ export function fetchActivities() {
     })
 }
 
-export function addSuggestion(issueObj) {
+export function bookActivity(bookingObj) {
   return request
     .post('/api/v1/activities')
+    .send(bookingObj)
+    .then((newBooking) => {
+      return newBooking.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+export function addSuggestion(issueObj) {
+  return request
+    .post('/api/v1/activities/ideas')
     .send(issueObj)
     .then((newSuggestion) => {
       return newSuggestion.body
@@ -104,6 +132,7 @@ export function addSuggestion(issueObj) {
 }
 
 // room issues functions
+
 export function addRoomIssue(issueObj) {
   return request
     .post('/api/v1/room')
@@ -112,6 +141,8 @@ export function addRoomIssue(issueObj) {
       return newRoomIssue.body
     })
 }
+
+// Food functions
 
 export function fetchFood() {
   return request
@@ -145,7 +176,42 @@ export function claimNewFood(claimData) {
     })
 }
 
+// free items functions
+
+export function fetchFreeItems() {
+  return request
+    .get('/api/v1/free')
+    .then((res) => {
+      return res.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+export function addNewFreeItem(freeItemObj) {
+  return request
+    .post('/api/v1/free')
+    .send(freeItemObj)
+    .then((newFreeItemAdded) => {
+      return newFreeItemAdded.body
+    })
+}
+
+export function claimFreeItem(claimData) {
+  return request
+    .patch('/api/v1/free')
+    .send(claimData)
+    .then((claimedFreeItemAdded) => {
+      return claimedFreeItemAdded.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
 // volunteering functions
+
 export function fetchVolunteering() {
   return request
     .get('/api/v1/volunteering')

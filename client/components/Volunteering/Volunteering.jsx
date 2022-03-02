@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react"
 import {
   Row,
   Col,
@@ -8,24 +8,42 @@ import {
   Modal,
   Form,
   Button,
-} from 'react-bootstrap'
+} from "react-bootstrap"
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
-import { signUpForVolunteering } from '../../apis/api'
+import { signUpForVolunteering, getUserByEmail } from "../../apis/api"
 
 function Volunteering(props) {
+
+  const { volunteer } = props
+  const { user } = useAuth0()
+
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   const [volunteerData, setVolunteerData] = useState({
-    name: '',
-    pronouns: '',
-    roomNumber: '',
+    name: "",
+    pronouns: "",
+    roomNumber: "",
   })
 
   const [showAlert, setShowAlert] = useState(false)
   const [alertInfo, setAlertInfo] = useState({})
+
+  useEffect(() => {
+    //Get our user information to populate the form
+    getUserByEmail(user?.email).then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setVolunteerData({
+          name: userFromDB[0].name,
+          pronouns: userFromDB[0].pronouns,
+          roomNumber: userFromDB[0].roomNumber,
+        })
+      }
+    })
+  }, [])
 
   const handleChange = (e) => {
     setVolunteerData({
@@ -48,35 +66,34 @@ function Volunteering(props) {
 
   return (
     <>
-    
-      <Card className="py-2">
-        <Col>
-        <Card.Body className="flex-wrap d-grid">
-          <Col>
-            <Card.Title><em>{props.title} </em></Card.Title>
-                <Row><Card.Text>
-                  {props.description}
-                  </Card.Text></Row>
-                <Row>
-                  <Card.Text className="mt-3">
-                  <strong>When</strong><br />
-                  {props.when}
-                  </Card.Text>
-                
-                  <Card.Text>
-                  <strong>Where</strong><br />
-                  {props.where}
-                  </Card.Text>
-                </Row>
-            </Col>
-    
-              <Button variant="primary" className="mt-3" onClick={handleShow}>
-                Sign Up
-              </Button>
+      <Col md={6} lg={4} key={volunteer.id} >
+
+    <Card className="py-3 shadow p-3 mb-5 bg-white rounded">
+      <Card.Body>
+            <Card.Title>
+              <em>{volunteer.title} </em>
+            </Card.Title>
+            <Card.Text>{volunteer.description}</Card.Text>
+            <Card.Text>
+              <strong>When</strong>
+              <br />
+              {volunteer.when}
+            </Card.Text>
+            <Card.Text>
+              <strong>Where</strong>
+              <br />
+              {volunteer.where}
+            </Card.Text>
+        <Button
+          variant="primary"
+          className="mt-3 "
+          onClick={handleShow}
+        >
+          Sign Up
+        </Button>
+      </Card.Body>
+    </Card>
         
-          </Card.Body>
-          </Col>
-        </Card>
       <Container>
         <Modal show={show} onHide={handleClose}>
           <Alert
@@ -97,46 +114,40 @@ function Volunteering(props) {
           </Alert>
 
           <Modal.Header closeButton>
-            <Modal.Title>Sign up for {props.title} </Modal.Title>
+            <Modal.Title>Sign up for {volunteer.title} </Modal.Title>
           </Modal.Header>
           <Form>
             <Modal.Body>
-              <Form.Group
-                className="mb-3"
-                controlId="name"
-                onChange={handleChange}
-              >
+              <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   name="name"
                   type="text"
                   placeholder="Enter your name"
+                  onChange={handleChange}
+                  defaultValue={volunteerData?.name}
                 />
               </Form.Group>
 
-              <Form.Group
-                className="mb-3"
-                controlId="pronouns"
-                onChange={handleChange}
-              >
+              <Form.Group className="mb-3" controlId="pronouns">
                 <Form.Label>Pronouns</Form.Label>
                 <Form.Control
                   name="pronouns"
                   type="text"
                   placeholder="Enter your preferred pronouns"
+                  onChange={handleChange}
+                  defaultValue={volunteerData?.pronouns}
                 />
               </Form.Group>
-
-              <Form.Group
-                className="mb-3"
-                controlId="roomNumber"
-                onChange={handleChange}
-              >
+              Row
+              <Form.Group className="mb-3" controlId="roomNumber">
                 <Form.Label>Room number</Form.Label>
                 <Form.Control
                   name="roomNumber"
                   type="text"
                   placeholder="Enter your room number"
+                  onChange={handleChange}
+                  defaultValue={volunteerData?.roomNumber}
                 />
               </Form.Group>
             </Modal.Body>
@@ -151,6 +162,7 @@ function Volunteering(props) {
           </Form>
         </Modal>
       </Container>
+      </Col>
     </>
   )
 }

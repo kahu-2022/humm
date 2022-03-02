@@ -1,21 +1,56 @@
 import React, { useEffect, useState } from "react"
-import { Button, Alert, Form, Container, Card } from "react-bootstrap"
+import { Button, Alert, Form, Card } from "react-bootstrap"
+import { getUserByEmail } from "../../apis/api"
+import { useAuth0 } from "@auth0/auth0-react"
+
+import { bookSession } from '../../apis/api'
 
 function Session(props) {
   const { session } = props
+  const { user } = useAuth0()
+
   const [showAlert, setShowAlert] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [showButton, setShowButton] = useState(true)
   const [showConf, setShowConf] = useState(false)
 
   useEffect(() => {
-    // console.log(session)
-  }, [])
+    //Get our user information to populate the form
+    getUserByEmail(user?.email)
+    .then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setFormData({
+          ...formData,
+          name: userFromDB[0].name,
+          pronouns: userFromDB[0].pronouns,
+          roomNumber: userFromDB[0].roomNumber
+        })
+      } 
+    })
+  },[])
 
-  const handleChange = (e) => {}
+  const [formData, setFormData] = useState({
+    name: "",
+    pronouns: "",
+    roomNumber: ""
+  })
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    console.log(formData)
+
+    bookSession(formData).then((newBooking) => {
+    console.log("new booking", newBooking)
+    })
+
     setShowAlert(true)
     setShowForm(false)
     setShowConf(true)
@@ -33,7 +68,8 @@ function Session(props) {
   }
 
   return (
-        <Card className="py-3" className="m-1">
+        <Card className="py-3 shadow p-3 mb-5 bg-white rounded">
+          <Card.Img src={session.image} className="mt-3" fluid="true" />
           <Card.Body>
             <Card.Title>
               <b>{session.title} </b>
@@ -46,7 +82,7 @@ function Session(props) {
             <p>
               {session.date} {session.time} in the {session.location}
             </p>
-            <p>Run by: {session.ran_by}</p>
+            <p>Ran by: {session.ran_by}</p>
             {showButton ? (
               <Button variant="primary" type="submit" onClick={formAppear}>
                 Sign up
@@ -61,44 +97,48 @@ function Session(props) {
               </p>
             ) : null}
             <br></br>
+
             {showForm ? (
               <Form onSubmit={handleSubmit}>
                 <Form.Group
                   className="mb-3"
                   controlId="name"
-                  onChange={handleChange}
                 >
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     name="name"
                     type="text"
                     placeholder="Enter your name"
+                    onChange={handleChange}
+                    defaultValue={formData?.name}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="pronouns"
-                  onChange={handleChange}
                 >
                   <Form.Label>Pronouns</Form.Label>
                   <Form.Control
                     name="pronouns"
                     type="text"
                     placeholder="Enter your preferred pronouns"
+                    onChange={handleChange}
+                    defaultValue={formData?.pronouns}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="roomNumber"
-                  onChange={handleChange}
                 >
                   <Form.Label>Room number</Form.Label>
                   <Form.Control
                     name="roomNumber"
                     type="text"
                     placeholder="Enter your room number"
+                    onChange={handleChange}
+                    defaultValue={formData?.roomNumber}
                   />
                 </Form.Group>
 

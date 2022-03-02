@@ -1,8 +1,10 @@
 const config = require('./knexfile').development
 const conn = require('knex')(config)
 
+// User functions
 
 function addUser(user, db = conn){
+  console.log("user to add", user)
   return db('users')
     .insert(user)
     .then((userId) =>{
@@ -17,10 +19,10 @@ function updateUser(id, user, db = conn){
     .then((userId) =>{
       return getUserById(id)
     })
-   
 }
 
 function getUserByEmail(email, db = conn) {
+  console.log("email passed", email)
   return db('users').where('email', email).select()
 }
 
@@ -33,6 +35,8 @@ function getUsers( db = conn) {
   .select()
 }
 
+// Counsellor functions
+
 function getAllCounsellors(db = conn) {
   return db('Counsellors').select()
 }
@@ -42,6 +46,7 @@ function getCounsellingBookings(db = conn) {
 }
 
 function addCounsellingBooking(booking, db = conn) {
+
   return db('appointments')
     .insert(booking)
     .then((id) => {
@@ -53,9 +58,18 @@ function getCounsellingBookingById(bookingId, db = conn) {
   return db('appointments').where('id', bookingId).select()
 }
 
+// Group Therapy functions
+
 function getSessions(db = conn) {
   return db('group-therapy').select()
 }
+
+function addSessionBooking(booking, db = conn) {
+  return db('engagements')
+    .insert(booking)
+}
+
+// Activities functions
 
 function getActivities(db = conn) {
   return db('activities').select()
@@ -63,6 +77,11 @@ function getActivities(db = conn) {
 
 function addActivities(activity, db = conn) {
   return db('activities').insert(activity)
+}
+
+function addActivityBooking(booking, db = conn) {
+  return db('engagements')
+    .insert(booking)
 }
 
 function getSuggestions(suggestion, db = conn) {
@@ -81,6 +100,8 @@ function addSuggestion(suggestion, db = conn) {
     })
 }
 
+// Room issues functions
+
 function getRoomIssues(issue, db = conn) {
   return db('room-issues').select()
 }
@@ -96,6 +117,8 @@ function addRoomIssues(issue, db = conn) {
       return getRoomIssueById(id, (db = conn))
     })
 }
+
+// Free food functions
 
 function getFood(db = conn) {
   return db('food-items').select().orderBy('donateDate', 'desc')
@@ -121,6 +144,35 @@ function claimFood(food, db = conn) {
       return getFoodById(food.id)
     })
 }
+
+// Free item functions
+
+function getFreeItems(db = conn) {
+  return db('free-items').select().orderBy('donateDate', 'desc')
+}
+
+function getFreeItemsById(freeItemId, db = conn) {
+  return db('free-items').where('id', freeItemId).select()
+}
+
+function addFreeItem(freeItem, db = conn) {
+  return db('free-items')
+    .insert(freeItem)
+    .then((id) => {
+      return getFreeItemsById(id)
+    })
+}
+
+function claimFreeItem(freeItem, db = conn) {
+  return db('free-items')
+    .update(freeItem)
+    .where('id', freeItem.id)
+    .then((count) => {
+      return getFoodById(freeItem.id)
+    })
+}
+
+// Volunteering functions
 
 function getVolunteering(db = conn) {
   return db('volunteering').select()
@@ -156,8 +208,10 @@ module.exports = {
   getAllCounsellors,
   getCounsellingBookingById,
   getSessions,
+  addSessionBooking,
   getActivities,
   addActivities,
+  addActivityBooking,
   getSuggestions,
   getSuggestionById,
   addSuggestion,
@@ -167,6 +221,10 @@ module.exports = {
   getFood,
   getFoodById,
   addFood,
+  getFreeItems,
+  getFreeItemsById,
+  addFreeItem,
+  claimFreeItem,
   getVolunteering,
   claimFood,
   signUpForVolunteering,
