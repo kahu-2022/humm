@@ -36,13 +36,13 @@ function About() {
 
     <Image src='./images/vibes/frenz.jpg' fluid='true' thumbnail='true' rounded='true' />
 
-{
+    {/* 
     <section>
     <br></br>
       <h5>Contact us:</h5>
       <p className="pt-2">phone: 021 154 9674</p>
       <p>email: hareton@humm.co.nz</p>
-    </section> 
+    </section>  */}
 
     </Container>
     </>
