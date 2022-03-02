@@ -13,7 +13,7 @@ function Team () {
   <Col  xs={6} md={4}>
     <h5>Hareton 👾</h5>
     <em> Product Owner, Co-Git Lead & Co-Scrum Lead</em>
-    <p>Hareton loves dying their hair, their friend Ivy and yoga.</p>
+    <p>Hareton loves dyeing their hair, yoga and their friend Ivy.</p>
   </Col>
   <Col  xs={6} md={4}>
     <h5>Rose 💅</h5>
