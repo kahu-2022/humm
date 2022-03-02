@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Bio from './Bio'
 import { Row, Col, Container, Button, Image } from 'react-bootstrap'
+import { withAuthenticationRequired } from "@auth0/auth0-react"
+import Loading from './Loading'
+
 
 function Home() {
+  
+
   return (
     <>
       <Container className="py-3">

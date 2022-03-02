@@ -15,6 +15,7 @@ import Resident from './Resident'
 import Team from './Team'
 
 function AppRoutes(props) {
+  
   return (
     <>
       <Routes>

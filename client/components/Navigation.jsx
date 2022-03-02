@@ -6,10 +6,17 @@ import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
 import { useAuth0 } from "@auth0/auth0-react"
 
+import { useDispatch } from 'react-redux'
+import { fetchUser, setUser } from '../actions/user'
+
 
 function Navigation(props) {
+
+  const dispatch = useDispatch()
+
+
   const { loginWithRedirect, logout } = useAuth0()
-  const { user } = useAuth0();
+  const { user ,isAuthenticated} = useAuth0();
 
 
   function handleLogoff(e) {
@@ -28,6 +35,15 @@ function Navigation(props) {
     e.preventDefault()
     loginWithRedirect()
   }
+
+    
+  useEffect(() => {
+    if (isAuthenticated) {
+
+    console.log("trdyfug")
+ //   dispatch(fetchUser(user))
+    }
+  }, [])
 
 
   return (
