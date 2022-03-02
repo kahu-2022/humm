@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react"
-import { Navbar, NavDropdown, Nav, Container, Button, Image } from "react-bootstrap"
+import React from 'react'
+import Nav from 'react-bootstrap/Nav'
+import Image from 'react-bootstrap/Image'
 
-// import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
+import { useAuth0 } from '@auth0/auth0-react'
+import NavLoading from '../NavLoading'
 
-import { useAuth0, logout, withAuthenticationRequired } from '@auth0/auth0-react';
-import NavLoading from "../NavLoading";
+function AuthNav (props) {
 
-
-function AuthNav(props) {
-
-const { user , logout, isAuthenticated, isLoading, loginWithRedirect} = useAuth0();
-
+const { user , logout, isAuthenticated, isLoading, loginWithRedirect} = useAuth0()
 
 function handleLogoff(e) {
     e.preventDefault()
     logout({ returnTo: window.location.origin })
   }
 
+  // this function is unused - for checking
   function handleRegister(e) {
     e.preventDefault()
     loginWithRedirect({
