@@ -28,13 +28,17 @@ function ShowFood(props) {
 
   const categories = ['All', 'fruit', 'veggies', 'staple']
 
-  const [category, setCategory] = useState('') 
+  const [category, setCategory] = useState('All') 
 
-  const filteredData = useMemo(() => {  
-    if (!category || category === "All") return food
+  const filteredData = foodCategory()
 
-    return food.filter(item => item.type === category) 
-  }, [category])
+  function foodCategory () {
+    if (!category || category === "All") {
+      return food
+    } else {
+      return food.filter(item => item.type === category) 
+    }
+  }
 
   useEffect(() => {
     fetchFood().then((arr) => {
