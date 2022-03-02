@@ -1,15 +1,36 @@
 import React, { useEffect, useState } from "react"
 import { Button, Alert, Form, Container, Card } from "react-bootstrap"
+import { getUserByEmail } from "../../apis/api"
+import { useAuth0 } from "@auth0/auth0-react"
 
 function Session(props) {
   const { session } = props
+  const { user } = useAuth0()
   const [showAlert, setShowAlert] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [showButton, setShowButton] = useState(true)
   const [showConf, setShowConf] = useState(false)
 
   useEffect(() => {
-  }, [])
+    //Get our user information to populate the form
+    getUserByEmail(user?.email)
+    .then((userFromDB) => {
+      if (userFromDB[0]?.email === user?.email) {
+        setFormData({
+          ...formData,
+          name: userFromDB[0].name,
+          pronouns: userFromDB[0].pronouns,
+          roomNumber: userFromDB[0].roomNumber
+        })
+      } 
+    })
+  },[])
+
+  const [formData, setFormData] = useState({
+    name: "",
+    pronouns: "",
+    roomNumber: ""
+  })
 
   const handleChange = (e) => {}
 
@@ -67,39 +88,42 @@ function Session(props) {
                 <Form.Group
                   className="mb-3"
                   controlId="name"
-                  onChange={handleChange}
                 >
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     name="name"
                     type="text"
                     placeholder="Enter your name"
+                    onChange={handleChange}
+                    defaultValue={formData?.name}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="pronouns"
-                  onChange={handleChange}
                 >
                   <Form.Label>Pronouns</Form.Label>
                   <Form.Control
                     name="pronouns"
                     type="text"
                     placeholder="Enter your preferred pronouns"
+                    onChange={handleChange}
+                    defaultValue={formData?.pronouns}
                   />
                 </Form.Group>
 
                 <Form.Group
                   className="mb-3"
                   controlId="roomNumber"
-                  onChange={handleChange}
                 >
                   <Form.Label>Room number</Form.Label>
                   <Form.Control
                     name="roomNumber"
                     type="text"
                     placeholder="Enter your room number"
+                    onChange={handleChange}
+                    defaultValue={formData?.roomNumber}
                   />
                 </Form.Group>
 

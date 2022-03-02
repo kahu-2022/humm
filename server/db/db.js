@@ -3,6 +3,7 @@ const conn = require('knex')(config)
 
 
 function addUser(user, db = conn){
+  console.log("user to add", user)
   return db('users')
     .insert(user)
     .then((userId) =>{
@@ -21,6 +22,7 @@ function updateUser(id, user, db = conn){
 }
 
 function getUserByEmail(email, db = conn) {
+  console.log("email passed", email)
   return db('users').where('email', email).select()
 }
 
@@ -42,6 +44,7 @@ function getCounsellingBookings(db = conn) {
 }
 
 function addCounsellingBooking(booking, db = conn) {
+
   return db('appointments')
     .insert(booking)
     .then((id) => {

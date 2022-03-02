@@ -106,7 +106,7 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/team" className="nav-link p-0 text-muted">
                   The Team
                 </a>
               </li>

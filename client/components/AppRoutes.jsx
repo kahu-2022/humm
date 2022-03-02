@@ -12,8 +12,10 @@ import ShowFood from './Food/ShowFood'
 import ShowVolunteering from './Volunteering/ShowVolunteering'
 import NotFound404 from './NotFound404'
 import Resident from './Resident'
+import Team from './Team'
 
 function AppRoutes(props) {
+  
   return (
     <>
       <Routes>
@@ -34,6 +36,12 @@ function AppRoutes(props) {
          exact
          path="/resident"
          element = {<Resident />} 
+        />
+
+        <Route 
+         exact
+         path="/team"
+         element = {<Team />} 
         />
 
         <Route path="/booking/:name" element={<CounsellorBookingForm />} />

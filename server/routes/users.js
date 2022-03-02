@@ -37,8 +37,9 @@ router.get('/', (req, res) => {
 router.get('/:email', (req, res) => {
     const email = req.params.email
     db.getUserByEmail(email)
-    .then(users => {
-        return res.json(users)
+    .then(user => {
+      console.log(user)
+        return res.json(user)
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })
