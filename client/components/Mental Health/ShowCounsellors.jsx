@@ -10,18 +10,28 @@ import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 
 function ShowCounsellors (props) {
-  const [counsellor, setCounsellor] = useState([])
+    
+  const [counsellors, setCounsellors] = useState([])
 
   const categories = ['All', 'Addiction', 'Anxiety & Stress', 'Job Support', 'LGBTQI+', 'Relationships', 'Te Whare Tapa Whā', 'Trauma & Grief']
 
-  const [category, setCategory] = useState('') 
+  const [category, setCategory] = useState('All') 
 
-  const filteredData = useMemo(() => {  
-    if (!category || category === "All") return counsellor
+  // const filteredData = useMemo(() => {  
+  //   if (!category || category === "All") return counsellor
 
-    return counsellor.filter(item => item.speciality === category) 
-  }, [category])
+  //   return counsellor.filter(item => item.speciality === category) 
+  // }, [category])
 
+  const filteredData = counsellorsCategory()
+
+  function counsellorsCategory () {
+    if (!category || category === "All") {
+      return counsellors
+    } else {
+      return counsellors.filter(item => item.speciality === category) 
+    }
+  }
 
   useEffect(() => {
     getCounsellors()
@@ -30,7 +40,7 @@ function ShowCounsellors (props) {
   const getCounsellors = () => {
     fetchCounsellors()
     .then((arr) => {
-      setCounsellor(arr)
+      setCounsellors(arr)
     })
   }
 
