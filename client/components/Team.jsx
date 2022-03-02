@@ -9,12 +9,12 @@ function Team() {
   <Row className='g-3 my-3'>
   <Col  xs={6} md={4}>
     <h5>Hareton 👾</h5>
-    <em> Product Owner, Co-Git Lead & Co-Scrum Leam</em>
+    <em> Product Owner, Co-Git Lead & Co-Scrum Lead</em>
     <p>Hareton loves dying their hair, their friend Ivy and yoga.</p>
   </Col>
   <Col  xs={6} md={4}>
     <h5>Rose 💅</h5>
-    <em>Front-End Lead, Advisor</em>
+    <em>Front-End Lead & Advisor</em>
     <p>Rose loves her mum, the colour pink and coffee. </p>
   </Col>
   <Col  xs={6} md={4}>
