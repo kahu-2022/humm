@@ -73,7 +73,7 @@ function ShowCounsellors (props) {
                 name="counsellorSpeciality"
                 aria-label="counsellorSpeciality"
               >
-                <option>Filter by counsellor speciality</option>
+                <option>Filter by counsellor specialty</option>
                 {categories.map((speciality, index) => {
                   return (
                     <option value={speciality} key={index}>
