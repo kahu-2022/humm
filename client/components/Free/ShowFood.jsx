@@ -26,7 +26,7 @@ function ShowFood(props) {
     return <AddFood />
   }
 
-  const categories = ['All', 'fruit', 'veggies', 'staple']
+  const categories = ['All', 'Fruit', 'Veggies', 'Staple']
 
   const [category, setCategory] = useState('All') 
 

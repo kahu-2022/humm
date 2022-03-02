@@ -117,9 +117,9 @@ function AddFood(props) {
               <Form.Label>Type of Food</Form.Label>
               <Form.Select name="type" aria-label="type">
                 <option>Select type of food</option>
-                <option value="fruit">fruit</option>
-                <option value="veggies">veggies</option>
-                <option value="staple">staple</option>
+                <option value="Fruit">Fruit</option>
+                <option value="Veggies">Veggies</option>
+                <option value="Staple">staple</option>
               </Form.Select>
             </Form.Group>
 
