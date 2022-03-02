@@ -25,14 +25,37 @@
     border: none;
   }
 
+
+  .btn-primary:active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-primary:active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem #19875457;
+
+}
+
+.claim-food-btn{
+  width:100%;
+}
+
+.btn-primary:focus {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+  box-shadow: 0 0 0 0.25rem #19875457;
+
+}
   .btn-primary{
     background-color: var(--primary-green);
     border-color: var(--primary-green);
   }
 
   .btn-primary:hover{
-    background-color: #075024;
-    border-color: #075024;
+    background-color: #65ab81;
+    border-color: #65ab81;
   }
 
   .navigation {

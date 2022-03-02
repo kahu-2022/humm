@@ -37,7 +37,7 @@ function About() {
           </Col>
         </Row>
       </Container>
-      <Container className="py-3">
+      <Container>
         <Row className="d-flex align-items-center">
           <Col className="d-flex justify-content-center" xs={{order:2}}sm={{order:1}}>
             <Image

@@ -112,7 +112,7 @@ function ShowFood(props) {
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Row className="g-3">
+        <Row className="g-4">
         {showAddFood && renderForm()}
 
           {filteredData
