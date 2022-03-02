@@ -1,16 +1,15 @@
-import React, { useState, useEffect, } from 'react'
-import { Button, Container, Row, Col, Alert, Form } from 'react-bootstrap'
-import PageHeader from '../PageHeader'
-import FreeItem from './FreeItem'
-import AddFreeItem from './AddFreeItem'
-import Loading from '../Loading'
+import React, { useState, useEffect } from "react"
+import { Button, Container, Row, Col, Alert, Form } from "react-bootstrap"
+import PageHeader from "../PageHeader"
+import FreeItem from "./FreeItem"
+import AddFreeItem from "./AddFreeItem"
+import Loading from "../Loading"
 
-import { fetchFreeItems } from '../../apis/api'
+import { fetchFreeItems } from "../../apis/api"
 
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
-
-function ShowFreeItem (props) {
+function ShowFreeItem(props) {
   const [freeItem, setFreeItem] = useState([])
 
   const [showAddFreeItem, setShowAddFreeItem] = useState(false)
@@ -26,27 +25,29 @@ function ShowFreeItem (props) {
     return <AddFreeItem />
   }
 
-  const categories = ['All', 
-  'Home & Living', 
-  'Books, Music & Movies', 
-  'Health & Beauty',
-  'DIY, Garden & Pet',
-  'Electronics & Computer',
-  'Toys & Games',
-  'Clothing & Apparel',
-  'Stationery & Office',
-  'Sports & Outdoors',
-  'Others']
+  const categories = [
+    "All",
+    "Home & Living",
+    "Books, Music & Movies",
+    "Health & Beauty",
+    "DIY, Garden & Pet",
+    "Electronics & Computer",
+    "Toys & Games",
+    "Clothing & Apparel",
+    "Stationery & Office",
+    "Sports & Outdoors",
+    "Others",
+  ]
 
-  const [category, setCategory] = useState('All') 
+  const [category, setCategory] = useState("All")
 
   const filteredData = freeItemCategory()
 
-  function freeItemCategory () {
+  function freeItemCategory() {
     if (!category || category === "All") {
       return freeItem
     } else {
-      return freeItem.filter(item => item.category === category) 
+      return freeItem.filter((item) => item.category === category)
     }
   }
 
@@ -61,7 +62,7 @@ function ShowFreeItem (props) {
 
     const newSetFreeItem = freeItem.map((aFreeItem) => {
       if (aFreeItem.id === freeItem[0].id) {
-        aFreeItem.status = 'Claimed'
+        aFreeItem.status = "Claimed"
       }
       return aFreeItem
     })
@@ -77,6 +78,37 @@ function ShowFreeItem (props) {
         description="Free Items up for grabs. Please take what you need."
       />
       <Container>
+        <Row className="mb-3">
+          <Col sm={6} lg={4} className="mb-3">
+            <Form.Group
+              controlId="freeItemCategory"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <Form.Select
+                name="freeItemCategory"
+                aria-label="freeItemCategory"
+              >
+                <option>Filter on item category</option>
+                {categories.map((category, index) => {
+                  return (
+                    <option value={category} key={index}>
+                      {category}
+                    </option>
+                  )
+                })}
+              </Form.Select>
+            </Form.Group>
+            </Col>
+          <Col sm={6} lg={{span:3, offset: 5}} className="d-grid gap-2 mb-3"  >
+
+            <Button variant="primary" onClick={toggleForm}>
+              {showAddFreeItem ? "Hide" : "Add Free Item"}
+            </Button>
+          </Col>
+        </Row>
+        {showAddFreeItem && renderForm()}
+      </Container>
+      <Container>
         <Alert
           variant="success"
           show={showAlert}
@@ -84,36 +116,15 @@ function ShowFreeItem (props) {
           dismissible
         >
           <Alert.Heading>
-            Thanks {claimedFreeItem?.claimedBy}, you've claimed {claimedFreeItem?.item}!
+            Thanks {claimedFreeItem?.claimedBy}, you've claimed{" "}
+            {claimedFreeItem?.item}!
           </Alert.Heading>
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
-        <Button variant="primary" className="my-3" onClick={toggleForm}>
-          {showAddFreeItem ? 'Hide' : 'Add Free Item'}
-        </Button>
-        {showAddFreeItem && renderForm()}
-      </Container>
-      <Container>
-        <header className="mt-4 header">
-          <h2>Search Free Items</h2>
-        </header>
-        <Form.Group
-          className="mb-3"
-          controlId="freeItemCategory"
-          key={'e'}
-          onChange={e => setCategory(e.target.value)}
-          >
-            <Form.Label>Categories</Form.Label>
-              <Form.Select name="freeItemCategory" aria-label="freeItemCategory" >
-                <option>Select Category</option>
-                  {categories.map((category, index) => {
-                    return (<option value={category} key={index}>{category}</option>)
-                  })}
-              </Form.Select>
-          </Form.Group>
+
         <Row className="g-3">
           {filteredData
-            .filter((freeItem) => freeItem.status != 'Claimed')
+            .filter((freeItem) => freeItem.status != "Claimed")
             .map((freeItem) => {
               return (
                 <Col key={freeItem.id} md={6} lg={4}>
@@ -129,4 +140,4 @@ function ShowFreeItem (props) {
 
 export default withAuthenticationRequired(ShowFreeItem, {
   onRedirecting: () => <Loading />,
-});
+})
