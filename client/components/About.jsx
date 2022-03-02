@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
@@ -16,7 +16,6 @@ function About() {
     </header>
 
     <Image className="home-page" src='./images/vibes/wall.jpg' fluid='true'  rounded='true'/>
-    
 
     <Container>
       <Row className="g-4 my-3">
@@ -37,13 +36,13 @@ function About() {
 
     <Image src='./images/vibes/frenz.jpg' fluid='true' thumbnail='true' rounded='true' />
 
-{/* 
+{
     <section>
     <br></br>
       <h5>Contact us:</h5>
       <p className="pt-2">phone: 021 154 9674</p>
       <p>email: hareton@humm.co.nz</p>
-    </section> */}
+    </section> 
 
     </Container>
     </>
