@@ -13,6 +13,7 @@ import ShowVolunteering from './Volunteering/ShowVolunteering'
 import NotFound404 from './NotFound404'
 import Resident from './Resident'
 import Team from './Team'
+import Dinner from './Food/Dinner'
 
 function AppRoutes(props) {
   return (
@@ -45,6 +46,7 @@ function AppRoutes(props) {
 
         <Route path="/booking/:name" element={<CounsellorBookingForm />} />
         <Route exact path="/food" element={<ShowFood />} />
+        <Route exact path="dinner" element = { <Dinner />} />
         <Route exact path="/volunteering" element={<ShowVolunteering />} />
         <Route path="*" element={<NotFound404 />} />
       </Routes>

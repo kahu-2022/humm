@@ -36,7 +36,7 @@ function About() {
 
     <Image src='./images/vibes/frenz.jpg' fluid='true' thumbnail='true' rounded='true' />
 
-{
+
     <section>
     <br></br>
       <h5>Contact us:</h5>

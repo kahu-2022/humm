@@ -26,13 +26,6 @@ function Home() {
           <Image src="./images/vibes/building-cropped-2.jpeg" fluid="true" rounded="true" className="mt-2 mb-4" />
           </Col>
         </Row>
-    
-        
-      
-        <br></br>
-        {/* <Button href="/about" variant="primary" className="mb-3">
-          Browse as a guest
-        </Button> */}
       </Container>
     </>
   )
