@@ -8,15 +8,10 @@ import {
   Image,
 } from "react-bootstrap"
 
-// import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
-
-import { useAuth0 } from "@auth0/auth0-react"
 import AuthNav from "./AuthNav"
 import MainNav from "./MainNav"
 
 function Navigation(props) {
-  const { loginWithRedirect, logout } = useAuth0()
-  const { user, isAuthenticated, isLoading } = useAuth0()
 
   return (
     <Navbar collapseOnSelect expand="lg" className="navigation" variant="dark">

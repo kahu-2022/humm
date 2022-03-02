@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Navbar, NavDropdown, Nav, Container, Button, Image } from "react-bootstrap"
 
-// import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
-
 import { useAuth0, logout, withAuthenticationRequired } from '@auth0/auth0-react';
 import NavLoading from "../NavLoading";
 
@@ -10,7 +8,6 @@ import NavLoading from "../NavLoading";
 function AuthNav(props) {
 
 const { user , logout, isAuthenticated, isLoading, loginWithRedirect} = useAuth0();
-
 
 function handleLogoff(e) {
     e.preventDefault()
@@ -32,8 +29,6 @@ function handleLogoff(e) {
   if (isLoading) {
     return <NavLoading />;
   }
-
-
 
 return(
     
