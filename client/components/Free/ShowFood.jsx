@@ -91,7 +91,6 @@ function ShowFood(props) {
             <Button variant="primary" onClick={toggleForm}>
               {showAddFood ? "Hide" : "Add Food"}
             </Button>
-            {showAddFood && renderForm()}
           </Col>
         </Row>
       </Container>
@@ -108,6 +107,8 @@ function ShowFood(props) {
           <p>You can pick your food up from the desk near the front door.</p>
         </Alert>
         <Row className="g-3">
+        {showAddFood && renderForm()}
+
           {filteredData
             .filter((food) => food.status != "Claimed")
             .map((food) => {
@@ -117,6 +118,7 @@ function ShowFood(props) {
                 </Col>
               )
             })}
+
         </Row>
       </Container>
     </>
