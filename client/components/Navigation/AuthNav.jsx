@@ -42,6 +42,7 @@ return(
     {
       isAuthenticated ?
      <>
+          
      <Nav.Link href="/resident">
       <Image
         src={user?.picture}
