@@ -60,8 +60,7 @@ function RoomIssueForm(props) {
       <Container>
         <Row className="m-3 ">
           <Col className="styled-form p-4" lg={{ span: 6, offset: 3 }}>
-          <h2 className="page-title">Report an issue with your room </h2>
-          <p className="text-muted">Let us know any problems you are having with your room</p>
+         
          
             <Alert
               variant="success"
@@ -81,6 +80,8 @@ function RoomIssueForm(props) {
                 If the issue changes in any way please let us know.
               </p>
             </Alert>
+             <h2 className="page-title">Report an issue with your room </h2>
+          <p className="text-muted">Let us know any problems you are having with your room</p>
        
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">

@@ -19,9 +19,6 @@ function MainNav(props) {
   const { user, logout, isAuthenticated, isLoading, loginWithRedirect } =
     useAuth0()
 
-  //   if (isLoading) {
-  //     return <NavLoading />;
-  //   }
 
   return (
     <Nav className="me-auto">
@@ -39,7 +36,7 @@ function MainNav(props) {
               Emergency Resources
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="/activities">Community Activities</Nav.Link>
+          <Nav.Link href="/activities">Activities</Nav.Link>
           <NavDropdown title="Free stuff" id="collapsible-nav-dropdown">
             <NavDropdown.Item href="/food">Food</NavDropdown.Item>
             <NavDropdown.Item href="/free">Items</NavDropdown.Item>
