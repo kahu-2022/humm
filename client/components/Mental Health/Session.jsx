@@ -9,7 +9,6 @@ function Session(props) {
   const [showConf, setShowConf] = useState(false)
 
   useEffect(() => {
-    // console.log(session)
   }, [])
 
   const handleChange = (e) => {}
@@ -33,7 +32,8 @@ function Session(props) {
   }
 
   return (
-        <Card className="py-3" className="m-1">
+        <Card className="py-3 shadow p-3 mb-5 bg-white rounded">
+          <Card.Img src={session.image} className="mt-3" fluid="true" />
           <Card.Body>
             <Card.Title>
               <b>{session.title} </b>
@@ -46,7 +46,7 @@ function Session(props) {
             <p>
               {session.date} {session.time} in the {session.location}
             </p>
-            <p>Run by: {session.ran_by}</p>
+            <p>Ran by: {session.ran_by}</p>
             {showButton ? (
               <Button variant="primary" type="submit" onClick={formAppear}>
                 Sign up
@@ -61,6 +61,7 @@ function Session(props) {
               </p>
             ) : null}
             <br></br>
+
             {showForm ? (
               <Form onSubmit={handleSubmit}>
                 <Form.Group

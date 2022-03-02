@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-
 import { Card, Form, Button, Alert } from "react-bootstrap"
 
 function Activity(props) {
@@ -34,7 +33,7 @@ function Activity(props) {
 
   return (
   
-        <Card className="py-3" className="shadow p-3 mb-5 bg-white rounded">
+        <Card className="py-3 shadow p-3 mb-5 bg-white rounded">
           <Card.Img src={activity.image} className="mt-3" fluid="true" />
           <Card.Body>
             <Card.Title>
@@ -47,9 +46,9 @@ function Activity(props) {
             </p>
 
             <p>
-              {activity.date} {activity.time} in {activity.location}
+              {activity.date} {activity.time} in the {activity.location}
             </p>
-            <p>Run by: {activity.ran_by}</p>
+            <p>Ran by: {activity.ran_by}</p>
             {showButton ? (
               <Button variant="primary" type="submit" onClick={formAppear}>
                 I'm keen!
