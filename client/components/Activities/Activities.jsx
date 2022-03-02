@@ -50,22 +50,8 @@ function Activities() {
         description="Sign up for our free community events and activities"
       />
       <Container>
-        <Alert
-          variant="success"
-          show={showAlert}
-          onClose={() => setShowAlert(false)}
-          dismissible
-        >
-          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
-        </Alert>
-        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
-          {showAddActivities ? 'Hide' : 'Add Activities'}
-        </Button>
-        {showAddActivities && renderForm()}
-      </Container>
-      <Container>
         <header className="mt-4 header">
-          <h2>Browse Activities</h2>
+          <h4>Browse Activities</h4>
         </header>
         <Form.Group
           className="mb-3"
@@ -73,7 +59,6 @@ function Activities() {
           key={'e'}
           onChange={e => setCategory(e.target.value)}
           >
-            <Form.Label>Check out our latest events and activities</Form.Label>
               <Form.Select name="activityCategory" aria-label="activityCategory" >
                 <option>Select Category</option>
                   {categories.map((category, index) => {
@@ -90,6 +75,20 @@ function Activities() {
           )
         })}
         </Row>
+      </Container>
+      <Container>
+        <Alert
+          variant="success"
+          show={showAlert}
+          onClose={() => setShowAlert(false)}
+          dismissible
+        >
+          <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
+        </Alert>
+        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
+          {showAddActivities ? 'Hide' : 'Add Activities'}
+        </Button>
+        {showAddActivities && renderForm()}
       </Container>
     </>
   )
