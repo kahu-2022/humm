@@ -103,4 +103,20 @@
     object-fit: cover;
   }    
   
- 
+.home-page {
+  max-width: auto;
+  object-fit: cover;
+}
+
+  img.card-top{
+    max-height: 250px;
+    max-width: auto;
+    object-fit: cover;
+  
+}
+
+
+h1.landing-hero{
+  font-size: 3em;
+    font-weight: 800;
+}

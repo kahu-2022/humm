@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { Button, Container, Row, Col, Alert, Form } from 'react-bootstrap'
+import { Button, Container, Row, Col, Alert, Form, Card } from 'react-bootstrap'
 import PageHeader from '../PageHeader'
 import Food from './Food'
 import AddFood from './AddFood'
@@ -61,11 +61,26 @@ function ShowFood(props) {
   }
 
   return (
-    <>
-      <PageHeader
+<>
+  <PageHeader
         title="Food"
         description="Food up for grabs. Please take what you need."
       />
+  <Container>
+    <Row>
+      <Col md={6} lg={4}>
+        <Card className="py-3" className="shadow p-3 mb-3 bg-white rounded">
+          <Card.Img src="./images/tonights-menu.jpg" className="my-3" fluid="true" variant="top"/>
+          <Card.Body>
+            <Card.Title>
+              <p> Dinner </p>
+            </Card.Title>
+            <p>Tonight's dinner is vegan. All welcome. </p>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
       <Container>
         <Alert
           variant="success"
