@@ -85,7 +85,7 @@ function Activities() {
         >
           <Alert.Heading>Awesome! We'll see you there!</Alert.Heading>
         </Alert>
-        <Button variant="outline-primary" className="my-3" onClick={toggleForm}>
+        <Button variant="primary" className="my-3" onClick={toggleForm}>
           {showAddActivities ? 'Hide' : 'Add Activities'}
         </Button>
         {showAddActivities && renderForm()}
