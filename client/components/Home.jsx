@@ -19,8 +19,8 @@ function Home() {
 
   return (
     <>
-      <Container className="py-3">
-        <Row>
+      <Container className="py-5">
+      <Row className="d-flex align-items-center">
           <Col className="p-5" md={6}>
           <header className="mt-4 header">
           <h1 className="landing-hero">Welcome to humm!</h1>
@@ -51,8 +51,7 @@ function Home() {
               src="./images/vibes/building-cropped-2.jpeg"
               fluid="true"
               rounded="true"
-              className="mt-2 mb-4"
-            />
+              />
           </Col>
         </Row>
       </Container>
