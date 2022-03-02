@@ -26,13 +26,17 @@ function Activities() {
 
   const categories = ['All', 'Health', 'Fun', 'Culture', 'Cuisine']
 
-  const [category, setCategory] = useState('') 
+  const [category, setCategory] = useState('All') 
 
-  const filteredData = useMemo(() => {  
-    if (!category || category === "All") return activities
+  const filteredData = activitiesCategory()
 
-    return activities.filter(item => item.category === category) 
-  }, [category])
+  function activitiesCategory () {
+    if (!category || category === "All") {
+      return activities
+    } else {
+      return activities.filter(item => item.category === category) 
+    }
+  }
 
   useEffect(() => {
     fetchActivities().then((activities) => setActivities(activities))
