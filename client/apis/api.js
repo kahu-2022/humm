@@ -145,6 +145,40 @@ export function claimNewFood(claimData) {
     })
 }
 
+// free items functions
+
+export function fetchFreeItems() {
+  return request
+    .get('/api/v1/free')
+    .then((res) => {
+      return res.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
+export function addNewFreeItem(freeItemObj) {
+  return request
+    .post('/api/v1/free')
+    .send(freeItemObj)
+    .then((newFreeItemAdded) => {
+      return newFreeItemAdded.body
+    })
+}
+
+export function claimFreeItem(claimData) {
+  return request
+    .patch('/api/v1/free')
+    .send(claimData)
+    .then((claimedFreeItemAdded) => {
+      return claimedFreeItemAdded.body
+    })
+    .catch((err) => {
+      console.error({ error: err.message })
+    })
+}
+
 // volunteering functions
 export function fetchVolunteering() {
   return request

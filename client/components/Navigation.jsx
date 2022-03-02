@@ -56,7 +56,16 @@ function Navigation(props) {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="/activities">Community Activities</Nav.Link>
-              <Nav.Link href="/food">Food</Nav.Link>
+              <NavDropdown title="Free Marketplace" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/food">
+                  Food
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/free">
+                  Free Items
+                </NavDropdown.Item>
+              </NavDropdown>
+              {/* <Nav.Link href="/food">Food</Nav.Link>
+              <Nav.Link href="/free">Free Items</Nav.Link> */}
               <Nav.Link href="/room">Report an issue</Nav.Link>
             <Nav.Link href="/volunteering">Volunteering</Nav.Link>
             </Nav>
