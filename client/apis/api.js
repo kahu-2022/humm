@@ -40,8 +40,8 @@ export function getAllUsers() {
 export function getUserByEmail(email) {
   return request
     .get(`/api/v1/users/${email}`)
-    .then((users) => {
-      return users.body
+    .then((user) => {
+      return user.body
     })
     .catch((err) => {
       console.error({ error: err.message })

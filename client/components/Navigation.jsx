@@ -6,10 +6,17 @@ import { IfAuthenticated, IfNotAuthenticated } from "./Authenticated"
 
 import { useAuth0 } from "@auth0/auth0-react"
 
+import { useDispatch } from 'react-redux'
+import { fetchUser, setUser } from '../actions/user'
+
 
 function Navigation(props) {
+
+  const dispatch = useDispatch()
+
+
   const { loginWithRedirect, logout } = useAuth0()
-  const { user } = useAuth0();
+  const { user ,isAuthenticated} = useAuth0();
 
 
   function handleLogoff(e) {
@@ -28,6 +35,15 @@ function Navigation(props) {
     e.preventDefault()
     loginWithRedirect()
   }
+
+    
+  useEffect(() => {
+    if (isAuthenticated) {
+
+    console.log("trdyfug")
+ //   dispatch(fetchUser(user))
+    }
+  }, [])
 
 
   return (
@@ -60,12 +76,13 @@ function Navigation(props) {
                 <NavDropdown.Item href="/food">
                   Food
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/dinner">
+                  Free Dinner
+                </NavDropdown.Item>
                 <NavDropdown.Item href="/free">
                   Free Items
                 </NavDropdown.Item>
               </NavDropdown>
-              {/* <Nav.Link href="/food">Food</Nav.Link>
-              <Nav.Link href="/free">Free Items</Nav.Link> */}
               <Nav.Link href="/room">Report an issue</Nav.Link>
             <Nav.Link href="/volunteering">Volunteering</Nav.Link>
             </Nav>
