@@ -5,12 +5,9 @@ import Session from './Session'
 import PageHeader from '../PageHeader'
 import Loading from '../Loading'
 
-
 import { fetchSessions } from '../../apis/api'
 
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
-
-
 
 function Sessions() {
   
@@ -27,7 +24,7 @@ function Sessions() {
         <> 
          <PageHeader
             title="Group therapy sessions and workshops"
-            description=""
+            description="Some things are easier to do together. Join a group or come along for a one-off session, and build strategies for growth."
         />
       
         <Container >
