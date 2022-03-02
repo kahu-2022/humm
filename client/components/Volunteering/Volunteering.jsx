@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
-import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
@@ -138,7 +137,7 @@ function Volunteering (props) {
                   defaultValue={volunteerData?.pronouns}
                 />
               </Form.Group>
-              Row
+              
               <Form.Group className="mb-3" controlId="roomNumber">
                 <Form.Label>Room number</Form.Label>
                 <Form.Control
