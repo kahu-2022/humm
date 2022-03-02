@@ -3,6 +3,8 @@ import { Card, Form, Button, Alert } from "react-bootstrap"
 import { getUserByEmail } from "../../apis/api"
 import { useAuth0 } from "@auth0/auth0-react"
 
+import { bookActivity } from '../../apis/api'
+
 function Activity(props) {
   const { activity } = props
   const { user } = useAuth0()
@@ -34,10 +36,22 @@ function Activity(props) {
     roomNumber: ""
   })
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    console.log(formData)
+
+    bookActivity(formData).then((newBooking) => {
+    console.log("new booking", newBooking)
+    })
+
     setShowAlert(true)
     setShowForm(false)
     setShowConf(true)
@@ -49,7 +63,7 @@ function Activity(props) {
   }
 
   const cancelBooking = () => {
-    alert("All good!")
+    alert("No stress!")
     setShowButton(true)
     setShowConf(false)
   }

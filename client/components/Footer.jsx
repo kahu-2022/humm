@@ -89,6 +89,16 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
+                <a href="/free" className="nav-link p-0 text-muted">
+                  Free Item
+                </a>
+              </li>
+              <li className="nav-item mb-2">
+                <a href="/dinner" className="nav-link p-0 text-muted">
+                  Dinner
+                </a>
+              </li>
+              <li className="nav-item mb-2">
                 <a href="/room" className="nav-link p-0 text-muted">
                   Report an issue
                 </a>

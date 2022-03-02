@@ -94,7 +94,7 @@ function Resident(props) {
           </Container>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Your full name</Form.Label>
+              <Form.Label>Your name</Form.Label>
               <Form.Control
                 name="name"
                 type="text"
