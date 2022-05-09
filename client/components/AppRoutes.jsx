@@ -1,71 +1,58 @@
-import React from "react"
-import { Routes, Route } from "react-router-dom"
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
-import CounsellorBookingForm from './CounsellorBookingForm'
-import ShowCounsellors from "./ShowCounsellors"
-import Sessions from './Sessions'
-import Activities from './Activities'
-import Counsellor from './Counsellor'
+import About from './About'
+import CounsellorBookingForm from './Mental Health/CounsellorBookingForm'
+import ShowCounsellors from './Mental Health/ShowCounsellors'
+import Sessions from './Mental Health/Sessions'
+import Activities from './Activities/Activities'
 import RoomIssue from './RoomIssue'
-import EmergencyResources from "./EmergencyResources"
-import ShowFood from "./ShowFood"
-import ShowVolunteering from "./ShowVolunteering"
-import { signUpForVolunteering } from "../apis/api"
+import EmergencyResources from './Mental Health/EmergencyResources'
+import ShowFood from './Free/ShowFood'
+import ShowVolunteering from './Volunteering/ShowVolunteering'
+import NotFound404 from './NotFound404'
+import Resident from './Resident'
+import ShowFreeItems from './Free/ShowFreeItems'
+import Team from './Team'
+import Dinner from './Free/Dinner'
 
 function AppRoutes(props) {
+  
   return (
     <>
       <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/booking" element={<CounsellorBookingForm />} />
+        <Route exact path="/counsellors" element={<ShowCounsellors />} />
+        <Route exact path="/sessions" element={<Sessions />} />
+        <Route exact path="/activities" element={<Activities />} />
+        <Route exact path="/room" element={<RoomIssue />} />
         <Route
           exact
-          path="/"
-          element = {<Home />}
-        />  
-         <Route
-          exact
-          path="/booking"
-          element = {<CounsellorBookingForm />}
+          path="/emergencyresources"
+          element={<EmergencyResources />}
         />
+
         <Route 
          exact
-         path="/counsellors"
-         element = {<ShowCounsellors />} 
-        /> 
+         path="/resident"
+         element = {<Resident />} 
+        />
+
         <Route 
          exact
-         path="/sessions"
-         element = {<Sessions />} 
-        /> 
-        <Route 
-         exact
-         path="/activities"
-         element = {<Activities />} 
-        /> 
-      <Route 
-         exact
-         path="/room"
-         element = {<RoomIssue />} 
-        /> 
-      <Route 
-         exact
-         path="/emergencyresources"
-         element = {<EmergencyResources />} 
+         path="/team"
+         element = {<Team />} 
         />
-      <Route
-         path="/booking/:name"
-         element = {<CounsellorBookingForm />} 
-        />
-     <Route 
-         exact
-         path="/food"
-         element = {<ShowFood />} 
-        />
-        <Route 
-         exact
-         path="/volunteering"
-         element = {<ShowVolunteering />} 
-        />
-      </Routes> 
+
+        <Route path="/booking/:name" element={<CounsellorBookingForm />} />
+        <Route exact path="/food" element={<ShowFood />} />
+        <Route exact path="/free" element={<ShowFreeItems />} />
+        <Route exact path="/dinner" element={<Dinner />} />
+        <Route exact path="/volunteering" element={<ShowVolunteering />} />
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
     </>
   )
 }

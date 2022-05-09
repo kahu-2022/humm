@@ -1,15 +1,15 @@
 import React from 'react'
 import { Container, Row } from 'react-bootstrap'
 
-function PageHeader (props) {
+function PageHeader(props) {
   return (
     <Container className="mt-4">
-            <Row>
-                <h3>{props.title}</h3>
-            </Row>
-            <Row>
-                <p>{props.description}</p>
-            </Row>
+      <Row>
+        <h2>{props.title}</h2>
+      </Row>
+      <Row>
+        <p className="text-muted">{props.description}</p>
+      </Row>
     </Container>
   )
 }
